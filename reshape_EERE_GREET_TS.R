@@ -21,26 +21,26 @@ d_bau <- d_bau %>%
                   "Vehicle", "Metric", "Metric Unit",      
                   "Functional Unit", "LC Phase"),
                names_to = "Year", values_to = "BAU") %>%
-  pivot_wider(c("FINAL_series name", "Fuel Category", "Vehicle Class", 
-                "Vehicle", "Metric", "Metric Unit", 
-                "Functional Unit", "Year"), 
-              names_from = "LC Phase", values_from = BAU) %>%
-  mutate(BAU = if_else(is.na(Total), if_else(is.na(Feedstock), 0, Feedstock) +
-                           if_else(is.na(Fuel), 0, Fuel) +
-                           if_else(is.na(`Vehicle Operation`), 0, `Vehicle Operation`) + 
-                           if_else(is.na(WTW), 0, WTW), Total)) %>%
+  mutate(`LC Phase` = if_else(`LC Phase` %in% c('Feedstock', 'Fuel', 'Conversion', 'WTP'), 'Supply Chain',
+                              if_else(`LC Phase` %in% c('Vehicle Operation', 'Combustion', 'PTWa'), 'Direct, Combustion',
+                              if_else(`LC Phase` %in% c('WTW', 'WTH'), 'Total', `LC Phase`))) ) %>%
   select(`FINAL_series name`, `Fuel Category`, `Vehicle Class`, 
          Vehicle, Metric, `Metric Unit`, 
-         `Functional Unit`, Year,  BAU) %>%
+         `Functional Unit`, Year, `LC Phase`, BAU) %>%
+  group_by(`FINAL_series name`, `Fuel Category`, `Vehicle Class`, 
+           Vehicle, Metric, `Metric Unit`, 
+           `Functional Unit`, Year, `LC Phase`) %>%
+  summarise(BAU = sum(BAU, na.rm = T)) %>%
+  ungroup() %>%
   pivot_wider(c("FINAL_series name", "Fuel Category", "Vehicle Class", 
                   "Vehicle", "Metric Unit", 
-                  "Functional Unit", "Year"),
+                  "Functional Unit", "Year", "LC Phase"),
               names_from = "Metric", values_from = BAU) %>%
   mutate(CO2 = if_else(is.na(`CO2 (w/ C in VOC & CO)`), CO2, `CO2 (w/ C in VOC & CO)`)) %>%
   select(!`CO2 (w/ C in VOC & CO)`) %>%
   pivot_longer(!c("FINAL_series name", "Fuel Category", "Vehicle Class", 
                  "Vehicle", "Metric Unit", 
-                 "Functional Unit", "Year"),
+                 "Functional Unit", "Year", "LC Phase"),
                names_to = "Metric", values_to = "BAU")
 
 d_elec0 <- d_elec0 %>%
@@ -52,40 +52,40 @@ d_elec0 <- d_elec0 %>%
                   "Vehicle", "Metric", "Metric Unit",      
                   "Functional Unit", "LC Phase"),
                names_to = "Year", values_to = "Elec0") %>%
-  pivot_wider(c("FINAL_series name", "Fuel Category", "Vehicle Class", 
-                "Vehicle", "Metric", "Metric Unit", 
-                "Functional Unit", "Year"), 
-              names_from = "LC Phase", values_from = Elec0) %>%
-  mutate(Elec0 = if_else(is.na(Total), if_else(is.na(Feedstock), 0, Feedstock) +
-                         if_else(is.na(Fuel), 0, Fuel) +
-                         if_else(is.na(`Vehicle Operation`), 0, `Vehicle Operation`) +
-                         if_else(is.na(WTW), 0, WTW), Total)) %>%
+  mutate(`LC Phase` = if_else(`LC Phase` %in% c('Feedstock', 'Fuel', 'Conversion', 'WTP'), 'Supply Chain',
+                              if_else(`LC Phase` %in% c('Vehicle Operation', 'Combustion', 'PTWa'), 'Direct, Combustion',
+                                      if_else(`LC Phase` %in% c('WTW', 'WTH'), 'Total', `LC Phase`))) ) %>%
   select(`FINAL_series name`, `Fuel Category`, `Vehicle Class`, 
          Vehicle, Metric, `Metric Unit`, 
-         `Functional Unit`, Year,  Elec0) %>%
+         `Functional Unit`, Year, `LC Phase`, Elec0) %>%
+  group_by(`FINAL_series name`, `Fuel Category`, `Vehicle Class`, 
+           Vehicle, Metric, `Metric Unit`, 
+           `Functional Unit`, Year, `LC Phase`) %>%
+  summarise(Elec0 = sum(Elec0, na.rm = T)) %>%
+  ungroup() %>%
   pivot_wider(c("FINAL_series name", "Fuel Category", "Vehicle Class", 
                 "Vehicle", "Metric Unit", 
-                "Functional Unit", "Year"),
+                "Functional Unit", "Year", "LC Phase"),
               names_from = "Metric", values_from = Elec0) %>%
   mutate(CO2 = if_else(is.na(`CO2 (w/ C in VOC & CO)`), CO2, `CO2 (w/ C in VOC & CO)`)) %>%
   select(!`CO2 (w/ C in VOC & CO)`) %>%
   pivot_longer(!c("FINAL_series name", "Fuel Category", "Vehicle Class", 
                   "Vehicle", "Metric Unit", 
-                  "Functional Unit", "Year"),
+                  "Functional Unit", "Year", "LC Phase"),
                names_to = "Metric", values_to = "Elec0")
 
 d <- d_bau %>%
   left_join(d_elec0, by = c("FINAL_series name", "Fuel Category", "Vehicle Class",    
                             "Vehicle", "Metric", "Metric Unit",      
-                            "Functional Unit",  "Year"))
+                            "Functional Unit",  "Year", "LC Phase"))
 
 d_elec <- d %>%
   filter(`Vehicle Class` %in% c("Electricity: Stationary: U.S. Mix")) %>%
-  select(Metric, Year, BAU) %>%
+  select(Metric, Year,`LC Phase`,  BAU) %>%
   rename(Elec_BAU = BAU)
 
 d <- d %>%
-  left_join(d_elec, by = c("Metric",  "Year")) %>%
+  left_join(d_elec, by = c("Metric",  "Year", "LC Phase")) %>%
   mutate(Elec_CI_depend_frac = (BAU - Elec0) / Elec_BAU)
 
 View (d)

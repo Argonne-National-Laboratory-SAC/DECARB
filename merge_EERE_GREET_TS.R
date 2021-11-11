@@ -6,7 +6,7 @@ library(writexl)
 
 fpath <- "C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization"
 f_elec <- "EERE_scenarios_TS_GREET1_all_summary_v2.xlsx"
-f_eere <- "EERE Tool_v12.xlsx"
+f_eere <- "EERE Tool_v12_gzz.xlsx"
 
 fr_elec <- "Sheet1"
 fr_eere <- "GREET LCI!A4:J20371"
@@ -28,18 +28,19 @@ d_eere_names <- read_excel(paste0(fpath,"\\", f_eere), sheet = fr_eere_names, na
 
 d_elec <- d_elec %>%
   left_join(d_eere_names, by = c("FINAL_series name" = "AGE Named Range")) %>%
-  select(`Unique GREET scenarios`, Metric, Year, BAU, Elec0, Elec_CI_depend_frac) %>%
+  select(`Unique GREET scenarios`, Metric, Year, `LC Phase`, BAU, Elec0, Elec_CI_depend_frac) %>%
   mutate(Year = as.double(Year))
 
 d_eere <- d_eere %>%
   filter(`Unit (Denominator)` %in% c("MMBtu")) %>%
-  select(!BAU)
+  select(!Value)
 
 d <- d_eere %>%
   left_join(d_elec, by = c("GREET Pathway" = "Unique GREET scenarios",
                            "Formula" = "Metric", 
-                           "Year" = "Year")) %>%
-  mutate(BAU = round(BAU, 3), Elec0 = round(Elec0, 3), Elec_CI_depend_frac = round(Elec_CI_depend_frac, 3)) 
+                           "Year", 
+                          "Scope" = "LC Phase")) %>%
+  mutate(BAU = round(BAU, 3), Elec0 = round(Elec0, 3), Elec_CI_depend_frac = round(Elec_CI_depend_frac, 6)) 
 
 
 write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu.xlsx'))
