@@ -80,12 +80,13 @@ d <- d_bau %>%
                             "Functional Unit",  "Year", "LC Phase"))
 
 d_elec <- d %>%
-  filter(`Vehicle Class` %in% c("Electricity: Stationary: U.S. Mix")) %>%
-  select(Metric, Year,`LC Phase`,  BAU) %>%
+  filter(`Vehicle Class` %in% c("Electricity: Stationary: U.S. Mix"),
+         `LC Phase` %in% c("Total")) %>%
+  select(Metric, Year,  BAU) %>%
   rename(Elec_BAU = BAU)
 
 d <- d %>%
-  left_join(d_elec, by = c("Metric",  "Year", "LC Phase")) %>%
+  left_join(d_elec, by = c("Metric",  "Year")) %>%
   mutate(Elec_CI_depend_frac = (BAU - Elec0) / Elec_BAU)
 
 View (d)
