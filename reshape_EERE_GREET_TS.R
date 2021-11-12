@@ -5,7 +5,8 @@ library(readxl)
 library(writexl)
 
 fpath <- "C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization"
-fname <- "EERE_scenarios_TS_GREET1_all_v2.xlsx"
+#fname <- "EERE_scenarios_TS_GREET1_all_v2.xlsx"
+fname <- "EERE_scenarios_TS_GREET1_all_v2 - EnergyUsePowerPlantConstMaterial=YES.xlsx"
 fr_bau <- "BAU"
 fr_elec0 <- "Elec0"
 
@@ -91,4 +92,5 @@ d <- d %>%
 
 View (d)
 
-write_xlsx(d, paste0(fpath, "\\", 'EERE_scenarios_TS_GREET1_all_summary_v2.xlsx'))
+#write_xlsx(d, paste0(fpath, "\\", 'EERE_scenarios_TS_GREET1_all_summary_v2.xlsx'))
+write_xlsx(d, paste0(fpath, "\\","EERE_scenarios_TS_GREET1_all_summary_v2 - EnergyUsePowerPlantConstMaterial=YES.xlsx"))

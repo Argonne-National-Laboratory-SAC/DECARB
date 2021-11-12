@@ -5,7 +5,9 @@ library(readxl)
 library(writexl)
 
 fpath <- "C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization"
-f_elec <- "EERE_scenarios_TS_GREET1_all_summary_v2.xlsx"
+#f_elec <- "EERE_scenarios_TS_GREET1_all_summary_v2.xlsx"
+f_elec <- "EERE_scenarios_TS_GREET1_all_summary_v2 - EnergyUsePowerPlantConstMaterial=YES.xlsx"
+
 f_eere <- "EERE Tool_v12_gzz.xlsx"
 
 fr_elec <- "Sheet1"
@@ -40,7 +42,9 @@ d <- d_eere %>%
                            "Formula" = "Metric", 
                            "Year", 
                           "Scope" = "LC Phase")) %>%
-  mutate(BAU = round(BAU, 3), Elec0 = round(Elec0, 3), Elec_CI_depend_frac = round(Elec_CI_depend_frac, 6)) 
+  mutate(BAU = round(BAU, 3), Elec0 = round(Elec0, 3), Elec_CI_depend_frac = round(Elec_CI_depend_frac, 6)) %>%
+  distinct()
 
 
-write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu.xlsx'))
+#write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu.xlsx'))
+write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu - EnergyUsePowerPlantConstMaterial=YES.xlsx'))
