@@ -29,13 +29,13 @@ d_eere <- d_eere %>%
                                         'Table 9, Hydroelectric Power Plant'),
                          'Electricity, Supply Chain',
                          if_else(Scope %in% c('Feedstock'), 'Electricity, Supply Chain', 'Electricity, Combustion'))) %>%
-  group_by(Measures, `Activity Type`, Scope, `GREET Pathway`) %>%
+  group_by(Measures, `GREET Pathway`, `Activity Type`, Scope) %>%
   summarise(Value = sum(Value)) %>%
   ungroup()
 
 d_eere <- d_eere %>%
   left_join(d_cor, by = c("Activity Type", "Scope")) %>%
+  select(!c("Activity Type", "GREET Pathway.x")) %>%
   distinct() %>%
-  select(!`GREET Pathway.x`) %>%
   rename("GREET Pathway" = "GREET Pathway.y")
 write_xlsx(d_eere, paste0(fpath, "\\", "GREET_LCI_Electric.xlsx"))

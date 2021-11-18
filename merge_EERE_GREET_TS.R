@@ -11,7 +11,7 @@ f_elec <- "EERE_scenarios_TS_GREET1_all_summary_v2 - EnergyUsePowerPlantConstMat
 f_eere <- "EERE Tool_v12_gzz.xlsx"
 
 fr_elec <- "Sheet1"
-fr_eere <- "GREET LCI!A4:J20371"
+fr_eere <- "GREET LCI!A4:J20557"
 fr_eere_names <- "Temp_Corr_EF_list"
 #fr_eere_elecPower <- "Electric Power"
 
