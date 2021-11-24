@@ -50,9 +50,8 @@ d <- d_eere %>%
   left_join(d_hvs, by = c("GREET Pathway" = "EERE_pathway")) %>%
   select(!c(GREET_Fuel)) %>%
   mutate(LHV_by_HHV = as.numeric(LHV_by_HHV)) %>%
-  #group_by(Index) %>%
-  mutate(BAU_HHV =  BAU * LHV_by_HHV,
-         Elec0_HHV = Elec0 * LHV_by_HHV)
+  mutate(BAU_HHV =  if_else(is.na(LHV_by_HHV), BAU, BAU * LHV_by_HHV),
+         Elec0_HHV = if_else(is.na(LHV_by_HHV), Elec0, Elec0 * LHV_by_HHV))
 
 #write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu.xlsx'))
 write_xlsx(d, paste0(fpath, "\\", 'GREET_LCI_forEEREtool_mmBtu - EnergyUsePowerPlantConstMaterial=YES.xlsx'))
