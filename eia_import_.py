@@ -155,7 +155,7 @@ class EIA_AEO:
         eia_economy_wide_df = eia_economy_wide_df.reset_index(drop=True)
         
         if self.save_to_file == True:
-            eia_economy_wide_df.to_csv(self.path_data + '\\' + self.file_out)
+            eia_economy_wide_df.to_csv(self.path_data + '\\' + self.file_out, index = False)
         else:
             return eia_economy_wide_df
 
