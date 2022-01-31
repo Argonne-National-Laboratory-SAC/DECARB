@@ -18,7 +18,6 @@ EPA GHGI: https://cfpub.epa.gov/ghgdata/inventoryexplorer/chartindex.html
 #%%
 #Import Python Libraries
 
-# Python Packages
 import pandas as pd
 import requests
 import getpass
@@ -160,13 +159,13 @@ class EIA_AEO:
             return eia_economy_wide_df
 
 # Create object and call function if script is ran directly
-
 if __name__ == "__main__":
     init_time = datetime.now()
     ob = EIA_AEO(save_to_file = True)
     eia_multi_sector_df = ob.eia_multi_sector_import(sectors = ['Residential',
                                                                 'Commercial',
-                                                                'Electric Power'
+                                                                'Electric Power',
+                                                                'Transportation'
                                                              ],
                                                   
                                                   aeo_cases = ['Reference case',

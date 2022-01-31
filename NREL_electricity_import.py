@@ -11,50 +11,52 @@ Summary: This python script loads NREL's electricity generation data (2020 - 205
 to a class and pre-processes it.
 
 """
-
 #%%
 #Import Python Libraries
 
-# Python Packages
 import pandas as pd
 import numpy as np
 from datetime import datetime
 
+#%%
+
 class NREL_elec:
+   
     """
     
-    NREL data Abbreviations -
+    Data file options -
+        All Options = all mitigation measures
+        Constrained = less ability for long-distance transmission (higher transmission costs), and constraints on some generation technologies but mainly about transmission
+        Infrastructure = more ability for long-distance transmission, more transmission infrastructure
+        No CCS = no carbon capture for fossil generation, meaning more renewable scale up
     
-    All Options = all mitigation measures
-    Constrained = less ability for long-distance transmission (higher transmission costs), and constraints on some generation technologies but mainly about transmission
-    Infrastructure = more ability for long-distance transmission, more transmission infrastructure
-    No CCS = no carbon capture for fossil generation, meaning more renewable scale up
-    
-    o-g-s = oil, gas, steam
-    cc = combined cycle
-    smr = small modular reactor
-    Canada = Canadian imports
-    battery_XX = battery storage where XX = hrs of storage
-    lfill = landfill
-    ofs = offshore
-    ons = onshore
-    distpv = distributed PV
-    dupv = [distributed utility PV (lower voltage connection)? Not sure about this one]
-    upv = utility PV
-    csp = concentrating solar power
-    electrolyzer = below zero because it is a demand for producing H2 that is then used to store energy and generate electricity later
-    h2-ct = hydrogen combustion turbine
+    Data Abbreviations -
+        o-g-s = oil, gas, steam
+        cc = combined cycle
+        smr = small modular reactor
+        Canada = Canadian imports
+        battery_XX = battery storage where XX = hrs of storage
+        lfill = landfill
+        ofs = offshore
+        ons = onshore
+        distpv = distributed PV
+        dupv = [distributed utility PV (lower voltage connection)? Not sure about this one]
+        upv = utility PV
+        csp = concentrating solar power
+        electrolyzer = below zero because it is a demand for producing H2 that is then used to store energy and generate electricity later
+        h2-ct = hydrogen combustion turbine
 
     EERE Tool electricity source categories -
-    Coal
-    Petroleum
-    Natural Gas
-    Solar Photovoltaic
-    Wind    
-    Nuclear >> new category
-    Other Renewable >> new category
+        Coal
+        Petroleum
+        Natural Gas
+        Solar Photovoltaic
+        Wind    
+        Nuclear >> new category
+        Other Renewable >> new category
 
     """
+    
     nrel_to_eere_mappings = {
         'nuclear' : 'Nuclear', 
         'nuclear-smr' : 'Nuclear', 
@@ -84,11 +86,13 @@ class NREL_elec:
     
     def __init__(self, f_name = 'report - All Options EFS.xlsx'):
         
+        # data loading
         self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\NREL electricity_20220105'
         self.f_name = f_name
         self.f_sheet = '1_Generation (TWh)'
-        
         self.elec_gen = pd.read_excel(self.path_data + '\\' + self.f_name, sheet_name = self.f_sheet)
+        
+        # mappings
         self.elec_gen['EERE_Activity'] = np.where(
              [x in self.nrel_to_eere_mappings for x in self.elec_gen['tech'] ],
              self.elec_gen['tech'].map(self.nrel_to_eere_mappings),
