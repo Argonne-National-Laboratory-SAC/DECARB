@@ -16,8 +16,13 @@ import os
 code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
 os.chdir(code_path)
 
-import unit_conversions as ut
-from eia_import_ import EIA_AEO
+from EIA_AEO_import import EIA_AEO
+from Industrial_import import Industrial
+from Agriculture_import import Agriculture
+from Transportation_VISION_import import Transport_Vision
+from EPA_GHGI_import import EPA_GHGI_import
+from NREL_electricity_import import NREL_elec
+from unit_conversions import model_units   
 
 #%%
 
@@ -26,6 +31,7 @@ from eia_import_ import EIA_AEO
 # Analysis parameters
 
 fetch_data = True # True for fetching data, False for loading pre-compiled data
+save_interim_files = True
 
 path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
 
@@ -33,15 +39,17 @@ f_eia = 'EIA Dataset.csv'
 f_corr_eia = 'corr_EIA_EERE.csv'
 f_corr_ef_greet = 'corr_EF_GREET.csv'
 
-save_interim_files = True
-
 #%%
-# Call data import functions
+# Create data class objects
 
+# Unit conversion class object
+ob_units = model_units()
+
+# EIA data import
 if fetch_data == False:
     eia_data = pd.read_csv(path_data + '\\' + f_eia)
 else:
-    eia_ob = EIA_AEO(save_to_file = False)
+    eia_ob = EIA_AEO(save_to_file = save_interim_files)
     eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
                                                          'Commercial',
                                                          'Electric Power'
@@ -50,6 +58,23 @@ else:
                                                   aeo_cases = ['Reference case'
                                                                ]                                                  
                                                   )
+
+# Industrial data import
+ob_industry = Industrial(ob_units)
+
+# Agricultural and LULUCF data import
+ob_agriculture = Agriculture()
+
+# Transportation (VISION) data import
+ob_transport = Transport_Vision()
+
+# EPA GHGI data import
+ob_EPA_GHGI = EPA_GHGI_import()
+
+# NREL Electricity generation data import
+ob_elec = NREL_elec()
+
+# Data tables for correspondence across data sets
 
 corr_EIA_EERE = pd.read_csv(path_data + '\\' + f_corr_eia, header = 3)
 corr_EF_GREET = pd.read_csv(path_data + '\\' + f_corr_ef_greet, header = 3)
