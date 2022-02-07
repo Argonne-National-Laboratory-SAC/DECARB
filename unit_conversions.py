@@ -5,56 +5,80 @@ Created on Wed Dec  8 11:40:22 2021
 @author: skar
 """
 
-""" A dictionary for unit conversions and a caller \
-function to return 1 in case the unit conversation is not available """
+""" 
+This script contains two class definitions. One class definition defines
+variables and functions for unit conversion, and the other class definition
+declares the unit conventions used in calculations in the model. Pre-defining
+the unit conventions facilitates to change needed units at one place and be consistent
+across all calculations of the models.
+
+"""
     
 """
 sources:
-https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcs142p2_022760.pdf
-https://www.eia.gov/energyexplained/units-and-calculators/
-Excel version of EERE Tool
+1. https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/nrcs142p2_022760.pdf
+2. https://www.eia.gov/energyexplained/units-and-calculators/
+3. Excel version of EERE Tool
+
 """
 
 import pandas as pd 
 
-path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-f_unit_conv = 'Unit Conversion.xlsx'
-unit_conv = pd.read_excel(path_data + '\\' + f_unit_conv)
 
-unit1_per_unit2 = {
- # feedstock or fuel based physical units:
+#%%
 
- 'Barley_lb_per_bu' : 48,
- 'Corn_lb_per_bu' : 56,
- 'Oats_lb_per_bu' : 32,
- 'Sorghum_lb_per_bu' : 56,
- 'Soybeans_lb_per_bu' : 60,
- 'Wheat_lb_per_bu' : 60,
- 'Barley_dry_per_wet' : 0.3, # fraction of dry matter
- 'Corn_dry_per_wet' : 0.3,
- 'Oats_dry_per_wet' : 0.3,
- 'Sorghum_dry_per_wet' : 0.3,
- 'Soybeans_dry_per_wet' : 0.3,
- 'Wheat_dry_per_wet' : 0.3,
- 
- 'Crude Oil_barrel_per_MMBtu' : (1/ 5.691), 
- 'Coal_st_per_MMBtu' : ( 1/ (20.6736101163927 * 0.907185) ), # GREET1_2021, Fuel_Specs, Coal Mix for Electricity Generation
- 'Diesel_gal_per_MMBtu' : (1/ 0.138490), # GREET1_2021, Fuel_Specs, Low-sulfur diesel
- 'Motor Gasoline_gal_per_MMBtu' : (1/ 0.12043862), # GREET1_2021, Fuel_Specs, Gasoline
- 'Jet Fuel_gal_per_MMBtu' : (1/ 0.132948694386834), # GREET1_2021, Fuel_Specs, Conventional Jet Fuel
- 'Residential distillate Fuel Oil/Heating Oil_gal_per_MMBtu' : (1/ 0.150110), # GREET1_2021, Fuel_Specs, Residual Oil HHV
+class model_units:
+    
+    def __init__(self):
+               
+        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+        self.f_unit_conv = 'Unit Conversion.xlsx'
+        sheet_physical = 'physical'
+        sheet_feedstock = 'feedstock'
+        sheet_heatingvalues = 'HHV_to_LHV'
+        
+        physical = pd.read_excel(self.path_data + '\\' + self.f_unit_conv, sheet_name = sheet_physical)
+        feedstock = pd.read_excel(self.path_data + '\\' + self.f_unit_conv, sheet_name = sheet_feedstock)
+        heatingvalues = pd.read_excel(self.path_data + '\\' + self.f_unit_conv, sheet_name = sheet_heatingvalues)
+        
+        self.df_units = pd.concat([physical, feedstock, heatingvalues])
+        
+        self.df_units['unit_conv'] = self.df_units['Convert_To'] + '_per_' + self.df_units['Convert_From']
+        
+        # Data frames to dictionaries        
+        self.dict_units = self.df_units.set_index('unit_conv').to_dict()['Multiply_By']
+               
+        # Unit conventions
+        
+        self.to_units = {
+            'Energy' : 'MMBtu', # Million Metric British Thermal Unit
+            'Electricity' : 'TWh', # Terawatt Hour
+            'Biomass_Feedstock' : 'MT' # Metric Ton
+            }
+        
+    def select_units(self, ut):
+        try:            
+            unit_category = self.df_units.loc[self.df_units['Convert_To'] == ut, 'Category'][0]
+            return self.to_units[unit_category]
+        
+        except (Exception) as e:            
+            message1 = 'Possibly a unit key: ' + ut + ' not found.'
+            print(message1)
+            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            message2 = template.format(type(e).__name__, e.args)
+            print (message2)
+        
+    def unit_convert (self, convert):
+        if convert in self.dict_units:
+            return self.dict_units[convert]
+        else:
+            print('Note: the requested unit conversion value is not found, returning 1. \
+                  Please check the Unit Conversion table to check value and maintain consistency.')
+            return 1
 
- 
- # physical only units
- 
- 'U.S.ton_per_lb' : 0.0005,
- 'MMBtu_per_kWh' : 0.003412,
- 'MMBtu_per_BkWh' : 3412,
- 'MMBtu_per_GJ' : 0.947817
- } 
+    
+#%%
 
-def unit_conv (conv):
-    if conv in unit1_per_unit2:
-        return unit1_per_unit2[conv]
-    else:
-        return 1
+if __name__ == '__main__':
+    ob_units = model_units()
+    
