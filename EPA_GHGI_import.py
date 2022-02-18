@@ -14,13 +14,13 @@ Summary: This python script pulls emissions data from EPA's 2019 GHGI.
 # Python Packages
 import pandas as pd
 import numpy as np
-import seaborn as sns
+import os
 
 #%%
 
 class EPA_GHGI_import:
     
-    def __init__(self, save_to_file = True):
+    def __init__(self, ob_units, save_to_file = True):
         
         
         self.save_to_file = save_to_file
@@ -144,7 +144,15 @@ class EPA_GHGI_import:
         # Environmental Matrix tab
 
 if __name__ == "__main__":
-    ob1 = EPA_GHGI_import()
+    
+    # Import the unit conversion module
+    code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    os.chdir (code_path)
+
+    from  unit_conversions import model_units    
+    ob_units = model_units()
+    
+    ob1 = EPA_GHGI_import(ob_units)
     df = ob1.QA_with_table_2_10()
     print("QA data frame: ")
     print(df)

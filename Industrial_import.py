@@ -34,14 +34,9 @@ class Industrial:
         self.f_name = 'Industrial.xlsx'
         self.industrial = pd.read_excel(self.path_data + '\\' + self.f_name, header = 3)
                
-        # unit, GJ to MMBtu
-        self.industrial['unit_to'] = self.industrial['Unit']
-        self.industrial.loc[self.industrial['unit_to'] == 'GJ', 'unit_to'] = 'MMBtu' 
-        # extract the target unit to be converted to from a 'dictionary of energy units', rather than hard
-        # coding the target unit. SImilar approach can be perforemd for mapping of categories.
-        # Have a column in mitigation matrix where flows are referred by 'energy', 'emissions', etc.
-        
-        self.industrial['unit_conv'] = self.industrial['unit_to'] + '_per_' + self.industrial['Unit']
+        # unit conversion
+        self.industrial['unit_to'] = [ob_units.select_units(x) for x in self.industrial['Unit'] ]
+        self.industrial['unit_conv'] = self.industrial['unit_to'] + '_per_' + self.industrial['Unit'] 
         self.industrial['Value'] = np.where(
              [x in ob_units.dict_units for x in self.industrial['unit_conv'] ],
              self.industrial['Value'] * self.industrial['unit_conv'].map(ob_units.dict_units),

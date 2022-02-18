@@ -30,7 +30,7 @@ from unit_conversions import model_units
 #%%
 # Analysis parameters
 
-fetch_data = True # True for fetching data, False for loading pre-compiled data
+fetch_data = False # True for fetching data, False for loading pre-compiled data
 save_interim_files = True
 
 path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
@@ -69,7 +69,7 @@ ob_agriculture = Agriculture()
 ob_transport = Transport_Vision()
 
 # EPA GHGI data import
-ob_EPA_GHGI = EPA_GHGI_import()
+ob_EPA_GHGI = EPA_GHGI_import(ob_units)
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec()
@@ -82,7 +82,7 @@ corr_EF_GREET = pd.read_csv(path_data + '\\' + f_corr_ef_greet, header = 3)
 #%%
 
 #%%
-# Merge data frames
+# Merge EIA and EPA's correspondence matrix
 activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 activity.rename(columns = {'Sector_y' : 'Sector',
                            'Subsector_y' : 'Subsector', 
@@ -91,17 +91,21 @@ activity.rename(columns = {'Sector_y' : 'Sector',
                            'Date' : 'Year',                            
                            'Series Id' : 'EIA Series ID'}, inplace = True)
 activity = activity [['AEO Case', 'Sector', 'Subsector', 'EIA: End Use Application', 'Activity', 'Activity Type', 'Activity Basis', 
-                      'Year', 'Unit', 'Value', 'EIA Series ID']]
+                      'Year', 'Unit', 'Value']]
 
 # unit conversion
-activity['unit_to'] = 'MMBtu'
-activity['unit_conv'] = activity['unit_to'] + '_per_' + activity['Unit']
+activity['unit_to'] = [ob_units.select_units(x) for x in activity['Unit'] ]
+activity['unit_conv'] = activity['unit_to'] + '_per_' + activity['Unit'] 
 activity['Value'] = np.where(
-     [x in ut.unit1_per_unit2 for x in activity['unit_conv'] ],
-     activity['Value'] * activity['unit_conv'].map(ut.unit1_per_unit2),
+     [x in ob_units.dict_units for x in activity['unit_conv'] ],
+     activity['Value'] * activity['unit_conv'].map(ob_units.dict_units),
      activity['Value'] )
 activity.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+
+# Merge with EPA data
+
+#env_mx = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 
 if save_interim_files == True:
     activity.to_csv(path_data + '\\' + 'interim_Activity Matrix.csv')
