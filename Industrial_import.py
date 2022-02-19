@@ -27,12 +27,13 @@ class Industrial:
     """
     """
     
-    def __init__ (self, ob_units):
+    def __init__ (self, ob_units, data_path_prefix):
+              
+        self.data_path_prefix = data_path_prefix
+        self.f_name = 'Industrial.xlsx'
         
         # data loading
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-        self.f_name = 'Industrial.xlsx'
-        self.industrial = pd.read_excel(self.path_data + '\\' + self.f_name, header = 3)
+        self.industrial = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
                
         # unit conversion
         self.industrial['unit_to'] = [ob_units.select_units(x) for x in self.industrial['Unit'] ]
@@ -69,13 +70,18 @@ class Industrial:
 
 if __name__ == '__main__':
     
+    # Please change the path to data folder per your computer
+    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model'
+    
     # Import the unit conversion module
-    code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
-    os.chdir (code_path)
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    
+    os.chdir (code_path_prefix)
 
     from  unit_conversions import model_units    
-    ob_units = model_units()
+    ob_units = model_units(data_path_prefix)
     
-    ob1 = Industrial(ob_units)
+    ob1 = Industrial(ob_units, data_path_prefix)
     
     print(ob1.industrial)

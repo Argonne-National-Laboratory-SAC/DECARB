@@ -84,10 +84,10 @@ class NREL_elec:
                 
         }
     
-    def __init__(self, f_name = 'report - All Options EFS.xlsx'):
+    def __init__(self, f_name, data_path_prefix):
         
         # data loading
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\NREL electricity_20220105'
+        self.data_path_prefix = data_path_prefix
         self.f_name = f_name
         self.f_sheet = '1_Generation (TWh)'
         self.elec_gen = pd.read_excel(self.path_data + '\\' + self.f_name, sheet_name = self.f_sheet)
@@ -110,9 +110,15 @@ class NREL_elec:
         
 
 if __name__ == '__main__':
+    
+    # Please change the path to data folder per your computer
+    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\NREL electricity_20220105'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\NREL electricity_20220105'
+    f_option = 'report - All Options EFS.xlsx'
+    
     init_time = datetime.now()
     
-    ob1 = NREL_elec()
+    ob1 = NREL_elec(f_option, data_path_prefix)
     ob1.summarize_byEERE_categories()
     r = ob1.elec_gen
     s = ob1.grid_mix_yearly()

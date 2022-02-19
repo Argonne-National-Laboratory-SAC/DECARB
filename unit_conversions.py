@@ -29,8 +29,9 @@ import pandas as pd
 
 class model_units:
     
-    def __init__(self):               
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    def __init__(self, data_path_prefix):               
+        
+        self.data_path_prefix = data_path_prefix
         self.f_unit_convert = 'Unit Conversion.xlsx'
         self.f_tool_units = 'EERE_tool_unit_conventions.xlsx'
         sheet_physical = 'physical'
@@ -38,10 +39,10 @@ class model_units:
         sheet_heatingvalues = 'HHV_to_LHV'
         sheet_unit_conventions = 'unit_conventions'
         
-        physical = pd.read_excel(self.path_data + '\\' + self.f_unit_convert, sheet_name = sheet_physical)
-        feedstock = pd.read_excel(self.path_data + '\\' + self.f_unit_convert, sheet_name = sheet_feedstock)
-        heatingvalues = pd.read_excel(self.path_data + '\\' + self.f_unit_convert, sheet_name = sheet_heatingvalues)
-        eere_tool_units = pd.read_excel(self.path_data + '\\' + self.f_tool_units, sheet_name = sheet_unit_conventions)
+        physical = pd.read_excel(self.data_path_prefix + '\\' + self.f_unit_convert, sheet_name = sheet_physical)
+        feedstock = pd.read_excel(self.data_path_prefix + '\\' + self.f_unit_convert, sheet_name = sheet_feedstock)
+        heatingvalues = pd.read_excel(self.data_path_prefix + '\\' + self.f_unit_convert, sheet_name = sheet_heatingvalues)
+        eere_tool_units = pd.read_excel(self.data_path_prefix + '\\' + self.f_tool_units, sheet_name = sheet_unit_conventions)
         
         self.df_units = pd.concat([physical, feedstock, heatingvalues])
         
@@ -75,5 +76,10 @@ class model_units:
 #%%
 
 if __name__ == '__main__':
-    ob_units = model_units()
+    
+    # Please change the path to data folder per your computer
+    #path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model'
+    
+    ob_units = model_units(data_path_prefix)
     

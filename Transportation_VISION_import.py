@@ -18,11 +18,6 @@ from VISION model.
 import pandas as pd
 import numpy as np
 import os
-
-# Import user defined modules
-code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
-os.chdir(code_path)
-
 import unit_conversions as ut
 
 #%%
@@ -32,16 +27,28 @@ class Transport_Vision:
     """
     """
     
-    def __init__ (self):
+    def __init__ (self, data_path_prefix):
+        
+        self.data_path_prefix = data_path_prefix
+                
+        self.f_name = 'Industrial.xlsx'
         
         # data loading
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-        self.f_name = 'Industrial.xlsx'
         self.agg = pd.read_excel(self.path_data + '\\' + self.f_name, header = 3)
                 
         # unit conversion
         
 
 if __name__ == '__main__':
-    ob1 = Transport_Vision()
+    
+    # Import user defined modules
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    os.chdir(code_path_prefix)
+    
+    # Please change the path to data folder per your computer
+    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
+    
+    ob1 = Transport_Vision(data_path_prefix)
+    
     print(ob1.agg)

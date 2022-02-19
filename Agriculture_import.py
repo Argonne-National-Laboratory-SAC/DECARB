@@ -24,16 +24,23 @@ class Agriculture:
     """
     """
     
-    def __init__ (self):
+    def __init__ (self, data_path_prefix):
         
-        # data loading
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+        self.data_path_prefix = data_path_prefix
         self.f_name = 'Agriculture.xlsx'
-        self.agg = pd.read_excel(self.path_data + '\\' + self.f_name, header = 3)
+        
+        # data loading        
+        self.agg = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
         
         # unit conversion
         
 
 if __name__ == '__main__':
-    ob1 = Agriculture()
+    
+    # Please change the path to data folder per your computer
+    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
+    
+    ob1 = Agriculture(data_path_prefix)
+    
     print(ob1.agg)

@@ -20,16 +20,11 @@ import os
 
 class EPA_GHGI_import:
     
-    def __init__(self, ob_units, save_to_file = True):
+    def __init__(self, ob_units, data_path_prefix, save_to_file = True):
         
         
         self.save_to_file = save_to_file
         self.file_out = 'EPA_GHGI.xlsx'
-        
-        # Load in GHGI Data
-
-        # Set filepath to GHGI Data
-        self.filepath = 'C:/Users/skar/Box/saura_self/Proj - EERE Decarbonization/data/EPA GHGI Input Data/'
         
         # Load in GHGI import sheet
         df = pd.read_excel(self.filepath + 'ghgi_correspondence.xlsx')
@@ -145,14 +140,19 @@ class EPA_GHGI_import:
 
 if __name__ == "__main__":
     
+    # Please change the path to data folder per your computer
+    # Set filepath to GHGI Data
+    #data_path_prefix = 'C:/Users/skar/Box/saura_self/Proj - EERE Decarbonization/data/EPA GHGI Input Data/'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
+        
     # Import the unit conversion module
-    code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
-    os.chdir (code_path)
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    os.chdir (code_path_prefix)
 
     from  unit_conversions import model_units    
     ob_units = model_units()
     
-    ob1 = EPA_GHGI_import(ob_units)
+    ob1 = EPA_GHGI_import(ob_units, data_path_prefix)
     df = ob1.QA_with_table_2_10()
     print("QA data frame: ")
     print(df)

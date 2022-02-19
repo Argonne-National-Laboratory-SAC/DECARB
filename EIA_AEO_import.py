@@ -34,14 +34,15 @@ from datetime import datetime
 class EIA_AEO:
     
     # class initialization function
-    def __init__(self, save_to_file):
+    def __init__(self, save_to_file, data_path_prefix):
         
         # data and file paths
-        self.path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+        self.data_path_prefix = data_path_prefix
+        self.save_to_file = save_to_file
+        
         self.file_key = 'EIA_datakey.csv'
         self.file_series = 'eia_aeo_demand.xlsx'
-        self.file_out = 'EIA Dataset.csv'
-        self.save_to_file = save_to_file
+        self.file_out = 'EIA Dataset.csv'        
         
         # Create a dictionary of AEO cases, and their corresponding API ID
         self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.',
@@ -160,8 +161,14 @@ class EIA_AEO:
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":
+    
+    # Please change the path to data folder per your computer
+    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
+    
     init_time = datetime.now()
-    ob = EIA_AEO(save_to_file = True)
+    ob = EIA_AEO(data_path_prefix, save_to_file = True)
+    
     eia_multi_sector_df = ob.eia_multi_sector_import(sectors = ['Residential'
                                                              ],
                                                   

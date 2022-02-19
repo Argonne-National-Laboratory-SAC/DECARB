@@ -33,11 +33,17 @@ from unit_conversions import model_units
 fetch_data = False # True for fetching data, False for loading pre-compiled data
 save_interim_files = True
 
-path_data = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+# Please 
+path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data'
+
+#path_data = path_prefix + '//' + 'data'
+
+path_data = path_prefix + '//' + 'Script_data_model' # shared box folder
 
 f_eia = 'EIA Dataset.csv'
 f_corr_eia = 'corr_EIA_EERE.csv'
 f_corr_ef_greet = 'corr_EF_GREET.csv'
+f_corr_fuel_pool = 'corr_fuel_pool.csv'
 
 #%%
 # Create data class objects
@@ -78,6 +84,7 @@ ob_elec = NREL_elec()
 
 corr_EIA_EERE = pd.read_csv(path_data + '\\' + f_corr_eia, header = 3)
 corr_EF_GREET = pd.read_csv(path_data + '\\' + f_corr_ef_greet, header = 3)
+corr_Fuel_pool = pd.read_csv(path_data + '\\' + f_corr_fuel_pool, header = 3)
 
 #%%
 
@@ -103,9 +110,11 @@ activity['Value'] = np.where(
 activity.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 
-# Merge with EPA data
+# Merge fuel pool
+activity = pd.merge(activity, corr_Fuel_pool, how='left', left_on=['Activity'], right_on=['Energy Carrier']).dropna().reset_index()
 
-#env_mx = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
+# Merge with EPA data
+env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 
 if save_interim_files == True:
     activity.to_csv(path_data + '\\' + 'interim_Activity Matrix.csv')
