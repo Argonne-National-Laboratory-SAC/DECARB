@@ -22,12 +22,12 @@ class EPA_GHGI_import:
     
     def __init__(self, ob_units, data_path_prefix, save_to_file = True):
         
-        
+        self.data_path_prefix = data_path_prefix + '\\EPA GHGI Input Data\\'
         self.save_to_file = save_to_file
         self.file_out = 'EPA_GHGI.xlsx'
         
         # Load in GHGI import sheet
-        df = pd.read_excel(self.filepath + 'ghgi_correspondence.xlsx')
+        df = pd.read_excel(self.data_path_prefix + 'ghgi_correspondence.xlsx')
         
         # create list to append GHGI data
         temp_list = [] 
@@ -35,7 +35,7 @@ class EPA_GHGI_import:
         # Loop through data tables in GHGI
         for row in df.itertuples():
             print('Currently fetching: ' + row.filename)
-            df_temp = pd.read_excel(self.filepath + "ghgi data tables/" + str(row.filename) + ".xlsx", sheet_name='Tidy')
+            df_temp = pd.read_excel(self.data_path_prefix + '\\ghgi data tables\\' + str(row.filename) + '.xlsx', sheet_name='Tidy')
             df_temp['Table'] = row.filename
             temp_list.append(df_temp)    
         
@@ -43,7 +43,7 @@ class EPA_GHGI_import:
         self.df_ghgi = self.df_ghgi.reset_index(drop=True)
         
         # Load in 100-Yr GWP Factors
-        self.lcia = pd.read_excel(self.filepath + 'gwp factors.xlsx', sheet_name='Tidy')
+        self.lcia = pd.read_excel(self.data_path_prefix + '\\gwp factors.xlsx', sheet_name='Tidy')
 
         # Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.         
         lcia_ar4 = self.lcia[self.lcia['LCIA Method'] == 'AR4'].copy()

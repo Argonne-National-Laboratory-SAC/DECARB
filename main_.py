@@ -34,28 +34,26 @@ fetch_data = False # True for fetching data, False for loading pre-compiled data
 save_interim_files = True
 
 # Please 
-path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data'
-
-#path_data = path_prefix + '//' + 'data'
-
-path_data = path_prefix + '//' + 'Script_data_model' # shared box folder
+#data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data'
+data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
 
 f_eia = 'EIA Dataset.csv'
 f_corr_eia = 'corr_EIA_EERE.csv'
 f_corr_ef_greet = 'corr_EF_GREET.csv'
 f_corr_fuel_pool = 'corr_fuel_pool.csv'
+f_NREL_elec_option = 'report - All Options EFS.xlsx'
 
 #%%
 # Create data class objects
 
 # Unit conversion class object
-ob_units = model_units()
+ob_units = model_units(data_path_prefix)
 
 # EIA data import
 if fetch_data == False:
-    eia_data = pd.read_csv(path_data + '\\' + f_eia)
+    eia_data = pd.read_csv(data_path_prefix + '\\' + f_eia)
 else:
-    eia_ob = EIA_AEO(save_to_file = save_interim_files)
+    eia_ob = EIA_AEO(save_interim_files, data_path_prefix)
     eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
                                                          'Commercial',
                                                          'Electric Power'
@@ -66,25 +64,25 @@ else:
                                                   )
 
 # Industrial data import
-ob_industry = Industrial(ob_units)
+ob_industry = Industrial(ob_units, data_path_prefix)
 
 # Agricultural and LULUCF data import
-ob_agriculture = Agriculture()
+ob_agriculture = Agriculture(data_path_prefix)
 
 # Transportation (VISION) data import
-ob_transport = Transport_Vision()
+ob_transport = Transport_Vision(data_path_prefix)
 
 # EPA GHGI data import
-ob_EPA_GHGI = EPA_GHGI_import(ob_units)
+ob_EPA_GHGI = EPA_GHGI_import(ob_units, data_path_prefix)
 
 # NREL Electricity generation data import
-ob_elec = NREL_elec()
+ob_elec = NREL_elec(f_NREL_elec_option, data_path_prefix)
 
 # Data tables for correspondence across data sets
 
-corr_EIA_EERE = pd.read_csv(path_data + '\\' + f_corr_eia, header = 3)
-corr_EF_GREET = pd.read_csv(path_data + '\\' + f_corr_ef_greet, header = 3)
-corr_Fuel_pool = pd.read_csv(path_data + '\\' + f_corr_fuel_pool, header = 3)
+corr_EIA_EERE = pd.read_csv(data_path_prefix + '\\' + f_corr_eia, header = 3)
+corr_EF_GREET = pd.read_csv(data_path_prefix + '\\' + f_corr_ef_greet, header = 3)
+corr_fuel_pool = pd.read_csv(data_path_prefix + '\\' + f_corr_fuel_pool, header = 3)
 
 #%%
 
@@ -111,7 +109,7 @@ activity.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 
 # Merge fuel pool
-activity = pd.merge(activity, corr_Fuel_pool, how='left', left_on=['Activity'], right_on=['Energy Carrier']).dropna().reset_index()
+activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'], right_on=['Energy Carrier']).dropna().reset_index()
 
 # Merge with EPA data
 env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()

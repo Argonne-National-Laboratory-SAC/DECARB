@@ -87,10 +87,10 @@ class NREL_elec:
     def __init__(self, f_name, data_path_prefix):
         
         # data loading
-        self.data_path_prefix = data_path_prefix
+        self.data_path_prefix = data_path_prefix + '\\' + 'NREL electricity_20220105'
         self.f_name = f_name
         self.f_sheet = '1_Generation (TWh)'
-        self.elec_gen = pd.read_excel(self.path_data + '\\' + self.f_name, sheet_name = self.f_sheet)
+        self.elec_gen = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, sheet_name = self.f_sheet)
         
         # mappings
         self.elec_gen['EERE_Activity'] = np.where(

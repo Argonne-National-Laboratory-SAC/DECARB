@@ -34,7 +34,7 @@ class Transport_Vision:
         self.f_name = 'Industrial.xlsx'
         
         # data loading
-        self.agg = pd.read_excel(self.path_data + '\\' + self.f_name, header = 3)
+        self.agg = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
                 
         # unit conversion
         

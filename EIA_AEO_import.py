@@ -57,7 +57,7 @@ class EIA_AEO:
                          }
         
         self.curr_user = getpass.getuser()
-        self.api_key = pd.read_csv(self.path_data + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
+        self.api_key = pd.read_csv(self.data_path_prefix + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
     def eia_sector_import (self, aeo_case, df_aeo_key): 
@@ -146,7 +146,7 @@ class EIA_AEO:
         for aeo_case in aeo_cases:
             for sector in sectors:
                 # Load in EIA's AEO Series IDs / AEO Keys
-                df_aeo_key = pd.read_excel(self.path_data + '\\' + self.file_series, sheet_name = sector)
+                df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = sector)
                 eia_df_temp = self.eia_sector_import(aeo_case = aeo_case, df_aeo_key = df_aeo_key)
                 temp_list.append(eia_df_temp)
         
@@ -155,7 +155,7 @@ class EIA_AEO:
         eia_economy_wide_df = eia_economy_wide_df.reset_index(drop=True)
         
         if self.save_to_file == True:
-            eia_economy_wide_df.to_csv(self.path_data + '\\' + self.file_out, index = False)
+            eia_economy_wide_df.to_csv(self.data_path_prefix + '\\' + self.file_out, index = False)
         else:
             return eia_economy_wide_df
 
