@@ -22,6 +22,7 @@ from Agriculture_import import Agriculture
 from Transportation_VISION_import import Transport_Vision
 from EPA_GHGI_import import EPA_GHGI_import
 from NREL_electricity_import import NREL_elec
+from GREET_EF_import import GREET_EF
 from unit_conversions import model_units   
 
 #%%
@@ -38,10 +39,12 @@ save_interim_files = True
 data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
 
 f_eia = 'EIA Dataset.csv'
+f_NREL_elec_option = 'report - All Options EFS.xlsx'
+f_ef = 'GREET_EF_EERE.csv'
 f_corr_eia = 'corr_EIA_EERE.csv'
 f_corr_ef_greet = 'corr_EF_GREET.csv'
 f_corr_fuel_pool = 'corr_fuel_pool.csv'
-f_NREL_elec_option = 'report - All Options EFS.xlsx'
+f_corr_elec_gen = 'corr_elec_gen.csv'
 
 #%%
 # Create data class objects
@@ -78,11 +81,15 @@ ob_EPA_GHGI = EPA_GHGI_import(ob_units, data_path_prefix)
 # NREL Electricity generation data import
 ob_elec = NREL_elec(f_NREL_elec_option, data_path_prefix)
 
+# GREET emission factor load
+ob_ef = GREET_EF(f_ef, data_path_prefix)
+
 # Data tables for correspondence across data sets
 
 corr_EIA_EERE = pd.read_csv(data_path_prefix + '\\' + f_corr_eia, header = 3)
 corr_EF_GREET = pd.read_csv(data_path_prefix + '\\' + f_corr_ef_greet, header = 3)
 corr_fuel_pool = pd.read_csv(data_path_prefix + '\\' + f_corr_fuel_pool, header = 3)
+corr_elec_gen = pd.read_csv(data_path_prefix + '\\' + f_corr_elec_gen, header = 3)
 
 #%%
 
@@ -111,8 +118,16 @@ activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 # Merge fuel pool
 activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'], right_on=['Energy Carrier']).dropna().reset_index()
 
+# Extract electricity generation data from activity data frame
+elec_gen = activity.loc[(activity['Sector'] == 'Electric Power') ].dropna().\
+    drop(['level_0', 'index', 'EIA: End Use Application', ], axis = 1).reset_index()
+
+# Merge Elec. CI data with LCI EF data table to calculate electricity dependency based CI
+
+# Merge the EF data table with the activity data table
+
 # Merge with EPA data
-env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
+# env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 
 if save_interim_files == True:
     activity.to_csv(path_data + '\\' + 'interim_Activity Matrix.csv')
