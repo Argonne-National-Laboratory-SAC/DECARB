@@ -116,13 +116,22 @@ activity.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 
 # Merge fuel pool
-activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'], right_on=['Energy Carrier']).dropna().reset_index()
+activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\
+                    right_on=['Energy Carrier']).dropna().reset_index(drop=True)
 
 # Extract electricity generation data from activity data frame
 elec_gen = activity.loc[(activity['Sector'] == 'Electric Power') ].dropna().\
-    drop(['level_0', 'index', 'EIA: End Use Application', ], axis = 1).reset_index()
+    drop(['EIA: End Use Application'], axis = 1).reset_index(drop=True)
 
-# Merge Elec. CI data with LCI EF data table to calculate electricity dependency based CI
+# Merge Electricity generation data with 'Electricity generation types' tags
+elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Activity', 'Activity Type'],
+                    right_on=['Sector', 'Activity', 'Activity Type']).\
+    drop(['Index'], axis=1).reset_index(drop=True)
+    
+# Merge Elec. CI data with Electricity generation data table to calculate electricity dependency based CI
+
+# Merge EFs data with Electricity generation data table to calculate electricity dependency based CI
+
 
 # Merge the EF data table with the activity data table
 
