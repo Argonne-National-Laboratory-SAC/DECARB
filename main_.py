@@ -135,19 +135,21 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
     drop(['Index'], axis=1).reset_index(drop=True)
     
 
-# aggregrate electricity generation data by fuel type and by year
+# Aggregrate electricity generation data by fuel type and by year
 elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
 
+# Map with correlation matrix to GREET pathway names
 temp_corr_EF_GREET = corr_EF_GREET[['Activity', 'Activity Type', 'GREET Pathway']].drop_duplicates()
-
 ob_ef.ef = pd.merge(ob_ef.ef, temp_corr_EF_GREET, how='left',on='GREET Pathway')
 
+# Filter combustion data for electricity generation 
 ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Activity Type'].isin(elec_gen['Activity Type'].unique())].drop_duplicates()
 ob_ef.ef_electric = ob_ef.ef_electric.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])]
 
 ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
                                     'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
 
+# Merge emission factors for fuel-feedstock combustion so used for electricity generation with net electricity generation
 electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', \
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', \
                                 'BAU', 'Activity', 'Activity Type']], \
@@ -156,11 +158,12 @@ electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (
                    'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
              how='left',
              on=['Activity', 'Activity Type', 'Year'])
-    
+
+# Calculate net emission by GHG species, from electricity generation    
 electric_ef_gen['total_emission'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
 
 if save_interim_files == True:
-    activity.to_excel(data_path_prefix + '\\' + 'interim_Electricity_combustion.xlsx')
+    electric_ef_gen.to_excel(data_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
     
 # T&D losses to be estimated and added separately (sometime)
 
@@ -175,7 +178,7 @@ if save_interim_files == True:
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 
 if save_interim_files == True:
-    activity.to_csv(data_path_prefix + '\\' + 'interim_Activity Matrix.csv')
+    activity.to_csv(data_path_prefix + '\\' + 'interim_activity.csv')
 
 
 # BAU scenario
