@@ -14,6 +14,7 @@ import os
 
 # Import user defined modules
 code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
+
 os.chdir(code_path)
 
 from EIA_AEO_import import EIA_AEO
@@ -77,6 +78,9 @@ ob_transport = Transport_Vision(data_path_prefix)
 
 # EPA GHGI data import
 ob_EPA_GHGI = EPA_GHGI_import(ob_units, data_path_prefix)
+ob_EPA_GHGI.remove_combustion_em() # removing combustion based emissions
+if save_interim_files:
+    ob_EPA_GHGI.df_ghgi.to_excel(data_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec(f_NREL_elec_option, data_path_prefix)
@@ -128,6 +132,12 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
                     right_on=['Sector', 'Activity', 'Activity Type']).\
     drop(['Index'], axis=1).reset_index(drop=True)
     
+
+# aggregrate electricity generation data by fuel type and by year
+elec_gen_agg =  
+    
+# T&D losses to be estimated and added separately (sometime)
+
 # Merge Elec. CI data with Electricity generation data table to calculate electricity dependency based CI
 
 # Merge EFs data with Electricity generation data table to calculate electricity dependency based CI
@@ -140,5 +150,9 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
 
 if save_interim_files == True:
     activity.to_csv(path_data + '\\' + 'interim_Activity Matrix.csv')
+
+
+# BAU scenario
+
 
 #%%
