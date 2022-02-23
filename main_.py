@@ -49,6 +49,8 @@ f_corr_elec_gen = 'corr_elec_gen.csv'
 
 EIA_AEO_case_option = ['Reference case']
 
+T_and_D_loss = 0.06
+
 #%%
 # Create data class objects
 
@@ -160,10 +162,24 @@ electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (
              on=['Activity', 'Activity Type', 'Year'])
 
 # Calculate net emission by GHG species, from electricity generation    
-electric_ef_gen['total_emission'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
+electric_ef_gen['Total Emissions'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
 
 if save_interim_files == True:
     electric_ef_gen.to_excel(data_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
+    
+electric_ef_gen_agg = electric_ef_gen.groupby(['Year', 'Activity Type', 'Flow Name', \
+                                               'Formula', 'Unit', 'EF_Unit (Numerator)']).agg({
+                                                   'Value' : 'sum', 
+                                                   'Total Emissions' : 'sum'})\
+                                    .reset_index()\
+                                    .rename(columns = {'Value' : 'Electricity Production',
+                                                       'Unit' : 'Energy Unit',
+                                                       'EF_Unit (Numerator)' : 'Emissions Unit'})
+electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
+    ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
+
+if save_interim_files == True:
+    electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg.csv')
     
 # T&D losses to be estimated and added separately (sometime)
 
