@@ -179,8 +179,56 @@ electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
     ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
 
 if save_interim_files == True:
-    electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg.csv')
+    electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg_1.csv')
     
+
+# Aggregrating to calculate the net energy generation per year, and corresponding GHG emissions
+electric_ef_gen_agg = electric_ef_gen_agg.groupby(['Year', 'Flow Name', 'Formula', \
+                                                   'Energy Unit', 'Emissions Unit']).agg({
+                                                       'Electricity Production' : 'sum',
+                                                       'Total Emissions' : 'sum'}) \
+                                                           .reset_index()
+
+""" Adding GHG emissions from incineration of waste from EPA's GHGI, 
+Electrical Transmission and Distribution, and Other Process Uses of Carbonates.
+Values from 2019, as constant to all the years.
+"""
+EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
+    ['Incineration of Waste', 
+     'Electrical Transmission and Distribution', 
+     'Other Process Uses of Carbonates'])) & 
+   (ob_EPA_GHGI.df_ghgi['Year'] == 2019) ]
+
+EPA_GHGI_addn_em = EPA_GHGI_addn_em.groupby(['Year', 'Source', \
+                                                                   'Emissions Type',
+                                                                   'Unit'])\
+                                                         .agg({
+                                                             'Value' : 'sum'
+                                                             }).reset_index()
+# unit conversion  
+#EPA_GHGI_waste_incineration['unit_to'] = [ob_units.select_units(x) for x in EPA_GHGI_waste_incineration['Unit'] ]
+EPA_GHGI_addn_em['unit_to'] = electric_ef_gen_agg['Emissions Unit'].unique()[0]
+EPA_GHGI_addn_em['unit_conv'] = EPA_GHGI_addn_em['unit_to'] + '_per_' + EPA_GHGI_addn_em['Unit'] 
+EPA_GHGI_addn_em['Value'] = np.where(
+     [x in ob_units.dict_units for x in EPA_GHGI_addn_em['unit_conv'] ],
+     EPA_GHGI_addn_em['Value'] * EPA_GHGI_addn_em['unit_conv'].map(ob_units.dict_units),
+     EPA_GHGI_addn_em['Value'] )
+EPA_GHGI_addn_em.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
+EPA_GHGI_addn_em.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+
+# merge and add to electricity emissions df 
+electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions Type', 'Value']], 
+                               how='left', left_on='Formula', right_on='Emissions Type')
+electric_ef_gen_agg['Total Emissions'] = electric_ef_gen_agg['Total Emissions'] + electric_ef_gen_agg['Value']
+electric_ef_gen_agg.drop(['Value'], axis=1, inplace=True) # at this stage, the total emissions represent emissions including incineration of waste.
+
+# recalculate the Electricity generation, combustion based CI
+electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
+    ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
+    
+if save_interim_files == True:
+    electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
+
 # T&D losses to be estimated and added separately (sometime)
 
 # Merge Elec. CI data with Electricity generation data table to calculate electricity dependency based CI
