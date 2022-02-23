@@ -79,11 +79,14 @@ class EPA_GHGI_import:
         self.df_ghgi_agg = self.df_ghgi.groupby(['Year', 'Inventory Sector', 'Economic Sector', 'Source'], as_index = False)['GHG Emissions'].sum()
                 
      
-    def remove_combustion_em (self):
+    def remove_combustion_other_em (self):
         
         # Removing combustion based emissions
         mask = (self.df_ghgi['Source'].str.contains('combustion', case=False, na=False))
         self.df_ghgi = self.df_ghgi [~ mask]
+        
+        # Removing Others emissions, that represents 'Substitution of Ozone Depleting Substances' category
+        self.df_ghgi = self.df_ghgi.loc[~ (self.df_ghgi['Emissions Type'] == 'Others')]
     
     # QA/QC Check
     

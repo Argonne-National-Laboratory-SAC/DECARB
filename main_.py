@@ -80,7 +80,7 @@ ob_transport = Transport_Vision(data_path_prefix)
 
 # EPA GHGI data import
 ob_EPA_GHGI = EPA_GHGI_import(ob_units, data_path_prefix)
-ob_EPA_GHGI.remove_combustion_em() # removing combustion based emissions
+ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' category emissions
 if save_interim_files:
     ob_EPA_GHGI.df_ghgi.to_excel(data_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
 
@@ -175,7 +175,7 @@ if save_interim_files == True:
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
 
 if save_interim_files == True:
-    activity.to_csv(path_data + '\\' + 'interim_Activity Matrix.csv')
+    activity.to_csv(data_path_prefix + '\\' + 'interim_Activity Matrix.csv')
 
 
 # BAU scenario
