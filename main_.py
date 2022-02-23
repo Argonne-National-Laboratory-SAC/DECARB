@@ -47,6 +47,8 @@ f_corr_ef_greet = 'corr_EF_GREET.csv'
 f_corr_fuel_pool = 'corr_fuel_pool.csv'
 f_corr_elec_gen = 'corr_elec_gen.csv'
 
+EIA_AEO_case_option = ['Reference case']
+
 #%%
 # Create data class objects
 
@@ -56,6 +58,7 @@ ob_units = model_units(data_path_prefix)
 # EIA data import
 if fetch_data == False:
     eia_data = pd.read_csv(data_path_prefix + '\\' + f_eia)
+    eia_data = eia_data.loc[eia_data['AEO Case'].isin(EIA_AEO_case_option)]
 else:
     eia_ob = EIA_AEO(save_interim_files, data_path_prefix)
     eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
@@ -63,8 +66,7 @@ else:
                                                          'Electric Power'
                                                          ],
                                                   
-                                                  aeo_cases = ['Reference case'
-                                                               ]                                                  
+                                                  aeo_cases = EIA_AEO_case_option                                               
                                                   )
 
 # Industrial data import
@@ -134,7 +136,31 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
     
 
 # aggregrate electricity generation data by fuel type and by year
-elec_gen_agg =  
+elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
+
+temp_corr_EF_GREET = corr_EF_GREET[['Activity', 'Activity Type', 'GREET Pathway']].drop_duplicates()
+
+ob_ef.ef = pd.merge(ob_ef.ef, temp_corr_EF_GREET, how='left',on='GREET Pathway')
+
+ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Activity Type'].isin(elec_gen['Activity Type'].unique())].drop_duplicates()
+ob_ef.ef_electric = ob_ef.ef_electric.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])]
+
+ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
+                                    'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
+
+electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', \
+                            'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', \
+                                'BAU', 'Activity', 'Activity Type']], \
+         elec_gen[['AEO Case', 'Sector', 'Subsector', 'Activity', \
+                   'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', \
+                   'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
+             how='left',
+             on=['Activity', 'Activity Type', 'Year'])
+    
+electric_ef_gen['total_emission'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
+
+if save_interim_files == True:
+    activity.to_excel(data_path_prefix + '\\' + 'interim_Electricity_combustion.xlsx')
     
 # T&D losses to be estimated and added separately (sometime)
 
