@@ -34,7 +34,7 @@ from datetime import datetime
 class EIA_AEO:
     
     # class initialization function
-    def __init__(self, save_to_file, data_path_prefix):
+    def __init__(self, data_path_prefix, save_to_file):
         
         # data and file paths
         self.data_path_prefix = data_path_prefix
@@ -110,7 +110,7 @@ class EIA_AEO:
         # contains sector-wide energy consumption        
         for idx, row in df_aeo_key.iterrows():
             series_id = self.aeo_case_dict[aeo_case] + row['Series Id']
-            url = 'http://api.eia.gov/series/?api_key=' + self.api_key +'&series_id=' + series_id
+            url = 'https://api.eia.gov/series/?api_key=' + self.api_key +'&series_id=' + series_id
             r = requests.get(url)
             json_data = r.json()
             print('Currently fetching: ' + url)

@@ -129,7 +129,7 @@ activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\
 
 # Extract electricity generation data from activity data frame
 elec_gen = activity.loc[(activity['Sector'] == 'Electric Power') ].dropna().\
-    drop(['EIA: End Use Application'], axis = 1).reset_index(drop=True)
+   reset_index(drop=True)
 
 # Merge Electricity generation data with 'Electricity generation types' tags
 elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Activity', 'Activity Type'],
@@ -138,7 +138,7 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
     
 
 # Aggregrate electricity generation data by fuel type and by year
-elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
+#elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
 
 # Map with correlation matrix to GREET pathway names
 temp_corr_EF_GREET = corr_EF_GREET[['Activity', 'Activity Type', 'GREET Pathway']].drop_duplicates()
@@ -152,11 +152,11 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
                                     'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
 
 # Merge emission factors for fuel-feedstock combustion so used for electricity generation with net electricity generation
-electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', \
-                            'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', \
-                                'BAU', 'Activity', 'Activity Type']], \
-         elec_gen[['AEO Case', 'Sector', 'Subsector', 'Activity', \
-                   'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', \
+electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
+                            'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
+                            'BAU', 'Elec0', 'Activity', 'Activity Type']], 
+         elec_gen[['AEO Case', 'EIA: End Use Application', 'Sector', 'Subsector', 'Activity', 
+                   'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', 
                    'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
              how='left',
              on=['Activity', 'Activity Type', 'Year'])
@@ -166,7 +166,21 @@ electric_ef_gen['Total Emissions'] = electric_ef_gen['BAU'] * electric_ef_gen['V
 
 if save_interim_files == True:
     electric_ef_gen.to_excel(data_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
-    
+
+# Add additional columns, rename columns, re-arrange columns
+electric_ef_gen = electric_ef_gen.rename(columns={
+                                                  'BAU' : 'EF_withElec',
+                                                  'Elec0' : 'EF_Elec0',
+                                                  'EIA: End Use Application' : 'End Use Application',
+                                                  'Value' : 'Energy Estimate'
+                                        })
+electric_ef_gen = electric_ef_gen[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+                          'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
+                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
+                          'EF_withElec', 'EF_Elec0', 'Total Emissions']]
+
+# Aggrigration to calculate overall Electricity generation CI, combustion portion    
 electric_ef_gen_agg = electric_ef_gen.groupby(['Year', 'Activity Type', 'Flow Name', \
                                                'Formula', 'Unit', 'EF_Unit (Numerator)']).agg({
                                                    'Value' : 'sum', 
@@ -278,6 +292,10 @@ non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Sector', 'Subs
  
 if save_interim_files == True:
     non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_non_electric_ef_activity.xlsx')   
+    
+
+# Generate the Environmental Matrix
+activity_BAU = pd.concat ([electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
 
 # Merge with EPA data
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
