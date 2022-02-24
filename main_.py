@@ -247,11 +247,37 @@ non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula
                             'Value', 'Energy Carrier', 'Fuel Pool']],
              how='left',
              on=['Activity', 'Year'])
+
 # calculate total emissions
-non_electric_ef_activity['total emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
+non_electric_ef_activity['Total Emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
+#non_electric_ef_activity.dropna(axis=1, how='all', inplace=True)
+
+# Add additional columns, rename columns, re-arrange columns
+"""
+# targetted columns as per EERE tool's Env Matrix:
+non_electric_ef_activity[['Activity', 'Activity Type', 'Activity Basis', 'Case', 
+                          'Year', 'Unit', 'Value', 'Scope', 'Flow Names', 'Formula', 
+                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
+                          'EF_withElec', 'EF_Elec0', 'Total Emissions', 'LCIA Method', 'Metric', 
+                          'Impact Factor', 'Metric Unit', 'LCIA Estimate', 
+                          'Emission', 'Emissions Allocated to Sector', 
+                          'Mitigation Measure']]
+"""
+non_electric_ef_activity[['Activity Type']] = '-'
+non_electric_ef_activity = non_electric_ef_activity.rename(columns={
+                                                            'BAU' : 'EF_withElec',
+                                                            'Elec0' : 'EF_Elec0',
+                                                            'EIA: End Use Application' : 'End Use Application',
+                                                            'Value' : 'Energy Estimate'
+                                                          })
+non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+                          'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
+                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
+                          'EF_withElec', 'EF_Elec0', 'Total Emissions']]
  
 if save_interim_files == True:
-    non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_activity.xlsx')   
+    non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_non_electric_ef_activity.xlsx')   
 
 # Merge with EPA data
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
