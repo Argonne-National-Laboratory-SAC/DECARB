@@ -205,8 +205,7 @@ EPA_GHGI_addn_em = EPA_GHGI_addn_em.groupby(['Year', 'Source', \
                                                          .agg({
                                                              'Value' : 'sum'
                                                              }).reset_index()
-# unit conversion  
-#EPA_GHGI_waste_incineration['unit_to'] = [ob_units.select_units(x) for x in EPA_GHGI_waste_incineration['Unit'] ]
+# unit conversion
 EPA_GHGI_addn_em['unit_to'] = electric_ef_gen_agg['Emissions Unit'].unique()[0]
 EPA_GHGI_addn_em['unit_conv'] = EPA_GHGI_addn_em['unit_to'] + '_per_' + EPA_GHGI_addn_em['Unit'] 
 EPA_GHGI_addn_em['Value'] = np.where(
@@ -216,27 +215,39 @@ EPA_GHGI_addn_em['Value'] = np.where(
 EPA_GHGI_addn_em.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 EPA_GHGI_addn_em.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 
-# merge and add to electricity emissions df 
+# Merge and add to electricity emissions df 
 electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions Type', 'Value']], 
                                how='left', left_on='Formula', right_on='Emissions Type')
 electric_ef_gen_agg['Total Emissions'] = electric_ef_gen_agg['Total Emissions'] + electric_ef_gen_agg['Value']
 electric_ef_gen_agg.drop(['Value'], axis=1, inplace=True) # at this stage, the total emissions represent emissions including incineration of waste.
 
-# recalculate the Electricity generation, combustion based CI
+# Recalculate the Electricity generation, combustion based CI
 electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
     ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
     
 if save_interim_files == True:
     electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
 
-# T&D losses to be estimated and added separately (sometime)
 
-# Merge Elec. CI data with Electricity generation data table to calculate electricity dependency based CI
+# BAU scenario dev for non-electricity generation sectors and non-electric activities
+activity_non_elec = activity.loc [~ (activity['Sector'] == 'Electric Power')]
+activity_non_elec = activity_non_elec.loc [~ (activity_non_elec['Activity'] == 'Electricity')]
 
-# Merge EFs data with Electricity generation data table to calculate electricity dependency based CI
+# Filter combustion data for electricity generation 
+ob_ef.ef_non_electric = ob_ef.ef.loc[ob_ef.ef['Activity'].isin(activity_non_elec['Activity'].unique())].drop_duplicates()
+ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
+                                    'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
 
-
-# Merge the EF data table with the activity data table
+# Merge emission factors for non-electric generation activites
+non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
+                            'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
+                                'BAU', 'Elec0', 'Activity', 'Activity Type']], 
+         activity_non_elec[['AEO Case', 'Sector', 'Subsector', 'EIA: End Use Application',
+                            'Activity', 'Activity Type', 'Activity Basis', 'Year', 'Unit', 
+                            'Value', 'Energy Carrier', 'Fuel Pool']],
+             how='left',
+             on=['Activity', 'Year'])
+    
 
 # Merge with EPA data
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
@@ -245,7 +256,7 @@ if save_interim_files == True:
     activity.to_csv(data_path_prefix + '\\' + 'interim_activity.csv')
 
 
-# BAU scenario
+
 
 
 #%%
