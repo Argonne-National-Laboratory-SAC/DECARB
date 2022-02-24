@@ -241,13 +241,15 @@ ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator
 # Merge emission factors for non-electric generation activites
 non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                                'BAU', 'Elec0', 'Activity', 'Activity Type']], 
+                                'BAU', 'Elec0', 'Activity']], 
          activity_non_elec[['AEO Case', 'Sector', 'Subsector', 'EIA: End Use Application',
-                            'Activity', 'Activity Type', 'Activity Basis', 'Year', 'Unit', 
+                            'Activity', 'Activity Basis', 'Year', 'Unit', 
                             'Value', 'Energy Carrier', 'Fuel Pool']],
              how='left',
              on=['Activity', 'Year'])
-    
+ 
+if save_interim_files == True:
+    non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_activity.xlsx')   
 
 # Merge with EPA data
 # env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
