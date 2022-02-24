@@ -247,6 +247,8 @@ non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula
                             'Value', 'Energy Carrier', 'Fuel Pool']],
              how='left',
              on=['Activity', 'Year'])
+# calculate total emissions
+non_electric_ef_activity['total emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
  
 if save_interim_files == True:
     non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_activity.xlsx')   
