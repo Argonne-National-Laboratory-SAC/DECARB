@@ -11,6 +11,7 @@ Created on Mon Jan 10 20:08:36 2022
 import pandas as pd
 import numpy as np
 import os
+from datetime import datetime
 
 # Import user defined modules
 code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
@@ -31,6 +32,8 @@ from unit_conversions import model_units
 
 #%%
 # Analysis parameters
+
+init_time = datetime.now()
 
 fetch_data = False # True for fetching data, False for loading pre-compiled data
 save_interim_files = True
@@ -357,7 +360,7 @@ print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
     activity_BAU.to_excel(data_path_prefix + '\\' + 'interim_activity_BAU.xlsx')
 
-
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 
 
