@@ -20,7 +20,7 @@ import os
 
 class EPA_GHGI_import:
     
-    def __init__(self, ob_units, data_path_prefix, save_to_file = True):
+    def __init__(self, ob_units, data_path_prefix, save_to_file = True, verbose = False):
         
         self.data_path_prefix = data_path_prefix + '\\EPA GHGI Input Data\\'
         self.save_to_file = save_to_file
@@ -34,7 +34,8 @@ class EPA_GHGI_import:
         
         # Loop through data tables in GHGI
         for row in df.itertuples():
-            print('Currently fetching: ' + row.filename)
+            if verbose:
+                print('Currently fetching: ' + row.filename)
             df_temp = pd.read_excel(self.data_path_prefix + '\\ghgi data tables\\' + str(row.filename) + '.xlsx', sheet_name='Tidy')
             df_temp['Table'] = row.filename
             temp_list.append(df_temp)    

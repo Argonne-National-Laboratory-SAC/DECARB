@@ -58,10 +58,7 @@ T_and_D_loss = 0.06
 ob_units = model_units(data_path_prefix)
 
 # EIA data import
-if fetch_data == False:
-    eia_data = pd.read_csv(data_path_prefix + '\\' + f_eia)
-    eia_data = eia_data.loc[eia_data['AEO Case'].isin(EIA_AEO_case_option)]
-else:
+if fetch_data:
     eia_ob = EIA_AEO(save_interim_files, data_path_prefix)
     eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
                                                          'Commercial',
@@ -69,7 +66,10 @@ else:
                                                          ],
                                                   
                                                   aeo_cases = EIA_AEO_case_option                                               
-                                                  )
+                                                  )    
+else:
+    eia_data = pd.read_csv(data_path_prefix + '\\' + f_eia)
+    eia_data = eia_data.loc[eia_data['AEO Case'].isin(EIA_AEO_case_option)]
 
 # Industrial data import
 ob_industry = Industrial(ob_units, data_path_prefix)
@@ -80,7 +80,7 @@ ob_agriculture = Agriculture(data_path_prefix)
 # Transportation (VISION) data import
 ob_transport = Transport_Vision(data_path_prefix)
 
-# EPA GHGI data import
+# EPA GHGI data import << NB: EPA <-> EIA mapping can be a target at future >>`
 ob_EPA_GHGI = EPA_GHGI_import(ob_units, data_path_prefix)
 ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' category emissions
 if save_interim_files:
@@ -127,6 +127,8 @@ activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
 activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\
                     right_on=['Energy Carrier']).dropna().reset_index(drop=True)
 
+print('Status: Constructing Electric generation activity and Emission Factors data frames ..')
+    
 # Extract electricity generation data from activity data frame
 elec_gen = activity.loc[(activity['Sector'] == 'Electric Power') ].dropna().\
    reset_index(drop=True)
@@ -172,23 +174,23 @@ electric_ef_gen = electric_ef_gen.rename(columns={
                                                   'BAU' : 'EF_withElec',
                                                   'Elec0' : 'EF_Elec0',
                                                   'EIA: End Use Application' : 'End Use Application',
-                                                  'Value' : 'Energy Estimate'
+                                                  'Value' : 'Electricity Production',
+                                                  'Unit' : 'Energy Unit'
                                         })
 electric_ef_gen = electric_ef_gen[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
                           'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
-                          'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
+                          'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
 
 # Aggrigration to calculate overall Electricity generation CI, combustion portion    
 electric_ef_gen_agg = electric_ef_gen.groupby(['Year', 'Activity Type', 'Flow Name', \
-                                               'Formula', 'Unit', 'EF_Unit (Numerator)']).agg({
-                                                   'Value' : 'sum', 
+                                               'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).agg({
+                                                   'Electricity Production' : 'sum', 
                                                    'Total Emissions' : 'sum'})\
                                     .reset_index()\
-                                    .rename(columns = {'Value' : 'Electricity Production',
-                                                       'Unit' : 'Energy Unit',
-                                                       'EF_Unit (Numerator)' : 'Emissions Unit'})
+                                    .rename(columns = {'EF_Unit (Numerator)' : 'Emissions Unit'})
+                                    
 electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
     ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
 
@@ -207,6 +209,7 @@ electric_ef_gen_agg = electric_ef_gen_agg.groupby(['Year', 'Flow Name', 'Formula
 Electrical Transmission and Distribution, and Other Process Uses of Carbonates.
 Values from 2019, as constant to all the years.
 """
+EPA_GHGI_maxyear = np.max(ob_EPA_GHGI.df_ghgi['Year'])
 EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
     ['Incineration of Waste', 
      'Electrical Transmission and Distribution', 
@@ -242,6 +245,7 @@ electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
 if save_interim_files == True:
     electric_ef_gen_agg.to_csv(data_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
 
+print('Status: Constructing non-electric activity sectors as per EIA AEO data set ..')
 
 # BAU scenario dev for non-electricity generation sectors and non-electric activities
 activity_non_elec = activity.loc [~ (activity['Sector'] == 'Electric Power')]
@@ -294,14 +298,71 @@ if save_interim_files == True:
     non_electric_ef_activity.to_excel(data_path_prefix + '\\' + 'interim_non_electric_ef_activity.xlsx')   
     
 
+# Arranging non-combustion emissions from EPA GHGI
+print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
+# Filter latest year data from EPA GHGI
+activity_non_combust = ob_EPA_GHGI.df_ghgi.loc[ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear]
+
+# Select the needed columns
+activity_non_combust = activity_non_combust[[
+    'Economic Sector',
+    'Source',
+    'Segment',
+    'Category',
+    'Subcategory',
+    'Emissions Type',
+    'Year',
+    'Unit',
+    'Value'
+    ]]
+
+# Rename columns to match with activity df
+activity_non_combust = activity_non_combust.rename(columns = {
+    'Economic Sector' : 'Sector',
+    'Source' : 'Subsector',
+    'Segment' : 'End-Use Application',
+    'Category' : 'Activity',
+    'Subcategory' : 'Activity Basis',
+    'Emissions Type' : 'Formula',
+    'Value' : 'Total Emissions'    
+    })
+
+# Adding additional empty columns, to match with other activity df
+activity_non_combust[['AEO Case',
+                   'Activity Type',
+                   'Fuel Pool',
+                   'Case',
+                   'Year',
+                   'Energy Unit',
+                   'Electricity Production',
+                   'Scope',
+                   'Flow Name',
+                   'EF_Unit (Numerator)',
+                   'EF_Unit (Denominator)',
+                   'EF_withElec',
+                   'EF_Elec0',
+                   'Energy Estimate']] = '-'
+
+# Defining values to specific columns
+activity_non_combust['Case'] = 'BAU'
+activity_non_combust['Scope'] = 'Direct, Non-Combustion'
+
+# Expand data set for all the years under study
+EERE_yr_min = np.min(electric_ef_gen['Year']).astype(int)
+EERE_yr_max = np.max(electric_ef_gen['Year']).astype(int)
+
+activity_non_combust['Year'] = EERE_yr_min
+activity_non_combust_exp = activity_non_combust.copy()
+for yr in range(EERE_yr_min+1, EERE_yr_max+1):
+    activity_non_combust['Year'] = yr
+    activity_non_combust_exp = pd.concat ([activity_non_combust_exp, activity_non_combust], axis=0).reset_index(drop=True)
+
 # Generate the Environmental Matrix
-activity_BAU = pd.concat ([electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
+activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
 
-# Merge with EPA data
-# env_mx = pd.merge(ob_EPA_GHGI.df_ghgi, activity, how='right', left_on=['Year', 'Sector', 'Subsector'], right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
-
+print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
-    activity.to_csv(data_path_prefix + '\\' + 'interim_activity.csv')
+    activity_BAU.to_excel(data_path_prefix + '\\' + 'interim_activity_BAU.xlsx')
 
 
 

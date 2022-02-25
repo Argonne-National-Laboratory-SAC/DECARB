@@ -169,7 +169,11 @@ if __name__ == "__main__":
     init_time = datetime.now()
     ob = EIA_AEO(data_path_prefix, save_to_file = True)
     
-    eia_multi_sector_df = ob.eia_multi_sector_import(sectors = ['Residential'
+    eia_multi_sector_df = ob.eia_multi_sector_import(sectors = ['Residential',
+                                                                'Transportation',
+                                                                'Commercial',
+                                                                'Industrial',
+                                                                'Electric Power'
                                                              ],
                                                   
                                                   aeo_cases = ['Reference case',

@@ -34,6 +34,7 @@ class model_units:
         self.data_path_prefix = data_path_prefix
         self.f_unit_convert = 'Unit Conversion.xlsx'
         self.f_tool_units = 'EERE_tool_unit_conventions.xlsx'
+        self.return_to_unit = 'return_to_unit'
         sheet_physical = 'physical'
         sheet_feedstock = 'feedstock'
         sheet_heatingvalues = 'HHV_to_LHV'
@@ -63,6 +64,7 @@ class model_units:
             template = "An exception of type {0} occurred. Arguments:\n{1!r}"
             message2 = template.format(type(e).__name__, e.args)
             print (message2)
+            return self.return_to_unit
         
     def unit_convert (self, convert):
         if convert in self.dict_units:
