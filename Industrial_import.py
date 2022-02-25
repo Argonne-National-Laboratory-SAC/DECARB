@@ -36,16 +36,7 @@ class Industrial:
         self.industrial = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
                
         # unit conversion
-        self.industrial['unit_to'] = [ob_units.select_units(x) for x in self.industrial['Unit'] ]        
-        mask = (self.industrial['unit_to'].str.contains(ob_units.return_to_unit, case=False, na=False))        
-        self.industrial['unit_conv'] = self.industrial['unit_to'] + '_per_' + self.industrial['Unit'] 
-        self.industrial['Value'] = np.where(
-             [x in ob_units.dict_units for x in self.industrial['unit_conv'] ],
-             self.industrial['Value'] * self.industrial['unit_conv'].map(ob_units.dict_units),
-             self.industrial['Value'] )
-        self.industrial.loc[mask, 'unit_to'] = self.industrial.loc[mask, 'Unit'].copy()
-        self.industrial.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
-        self.industrial.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+        self.industrial [['Unit', 'Value']] = ob_units.unit_convert_df (self.industrial [['Unit', 'Value']].copy())
         
         # scaling values using adoption curve
         self.industrial['Value_scaled'] = self.industrial['Value'] * \

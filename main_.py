@@ -114,14 +114,7 @@ activity = activity [['AEO Case', 'Sector', 'Subsector', 'EIA: End Use Applicati
                       'Year', 'Unit', 'Value']]
 
 # unit conversion
-activity['unit_to'] = [ob_units.select_units(x) for x in activity['Unit'] ]
-activity['unit_conv'] = activity['unit_to'] + '_per_' + activity['Unit'] 
-activity['Value'] = np.where(
-     [x in ob_units.dict_units for x in activity['unit_conv'] ],
-     activity['Value'] * activity['unit_conv'].map(ob_units.dict_units),
-     activity['Value'] )
-activity.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
-activity.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+activity [['Unit', 'Value']] = ob_units.unit_convert_df (activity [['Unit', 'Value']].copy())
 
 # Merge fuel pool
 activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\

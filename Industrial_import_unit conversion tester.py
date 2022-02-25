@@ -36,7 +36,10 @@ class Industrial:
         self.industrial = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
                
         # unit conversion
-        self.industrial['Value_prev'] = self.industrial['Value']
+        self.industrial [['Unit', 'Value']] = ob_units.unit_convert_df (self.industrial [['Unit', 'Value']].copy())
+        
+        """
+        self.industrial['Value_prev'] = self.industrial['Value'] # checking the data frame, this checks out same for the non converted units, before and after unit conversion.
         self.industrial['unit_to'] = [ob_units.select_units(x) for x in self.industrial['Unit'] ]
         
         mask = (self.industrial['unit_to'].str.contains(ob_units.return_to_unit, case=False, na=False))
@@ -49,6 +52,7 @@ class Industrial:
         self.industrial.loc[mask, 'unit_temp'] = self.industrial.loc[mask, 'Unit'].copy()
         self.industrial.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
         self.industrial.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+        """
         
         # scaling values using adoption curve
         self.industrial['Value_scaled'] = self.industrial['Value'] * \
