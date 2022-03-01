@@ -6,36 +6,12 @@ Created on Mon Jan 10 20:08:36 2022
 """
 
 #%%
-# import packages
-
-import pandas as pd
-import numpy as np
-import os
-from datetime import datetime
-
-# Import user defined modules
-code_path = 'C:\\Users\\skar\\repos\\EERE_decarb'
-
-os.chdir(code_path)
-
-from EIA_AEO_import import EIA_AEO
-from Industrial_import import Industrial
-from Agriculture_import import Agriculture
-from Transportation_VISION_import import Transport_Vision
-from EPA_GHGI_import import EPA_GHGI_import
-from NREL_electricity_import import NREL_elec
-from GREET_EF_import import GREET_EF
-from unit_conversions import model_units   
-
-#%%
-
-
-#%%
 # Analysis parameters
 
-init_time = datetime.now()
-
 # Update the _prefix paths based on your local Box folder location
+
+code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # into the Github local repository
+
 input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
 interim_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\2_intermediate_files'
 output_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\3_output_files'
@@ -51,6 +27,10 @@ input_path_GREET = input_path_prefix + '\\GREET'
 input_path_units = input_path_prefix + '\\Units'
 input_path_transport = input_path_prefix + '\\Transportation'
 
+# LCIA factors
+f_lcia = 'gwp factors.xlsx'
+f_lcia_sheet = 'Tidy'
+
 # Declaring correlation filenames
 f_eia = 'EIA Dataset.csv'
 f_NREL_elec_option = 'report - All Options EFS.xlsx'
@@ -60,13 +40,49 @@ f_corr_ef_greet = 'corr_EF_GREET.csv'
 f_corr_fuel_pool = 'corr_fuel_pool.csv'
 f_corr_elec_gen = 'corr_elec_gen.csv'
 
-# Declaring data calculation options
+# Model data pull and intermediate file saving options
 fetch_data = False # True for fetching data, False for loading pre-compiled data
 save_interim_files = True
+
+# GWP assumptions
+# Note: Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.
+LCIA_Method = 'AR4'
+lcia_timeframe = 100
+
+# EIA data case
 EIA_AEO_case_option = ['Reference case']
+
+# T&D assumption, constant or calculated
+T_and_D_loss_constant = True
 T_and_D_loss = 0.06
 
 #%%
+
+
+#%%
+# import packages
+
+import pandas as pd
+import numpy as np
+import os
+from datetime import datetime
+
+# Import user defined modules
+os.chdir(code_path_prefix)
+
+from EIA_AEO_import import EIA_AEO
+from Industrial_import import Industrial
+from Agriculture_import import Agriculture
+from Transportation_VISION_import import Transport_Vision
+from EPA_GHGI_import import EPA_GHGI_import
+from NREL_electricity_import import NREL_elec
+from GREET_EF_import import GREET_EF
+from unit_conversions import model_units   
+
+#%%
+
+init_time = datetime.now()
+
 # Create data class objects
 
 # Unit conversion class object
@@ -76,8 +92,10 @@ ob_units = model_units(input_path_units)
 if fetch_data:
     eia_ob = EIA_AEO(save_interim_files, input_path_EIA )
     eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
+                                                         'Transportation',
                                                          'Commercial',
-                                                         'Electric Power'
+                                                         'Industrial',
+                                                         'Electric Power',
                                                          ],
                                                   
                                                   aeo_cases = EIA_AEO_case_option                                               
@@ -114,6 +132,10 @@ corr_EIA_EERE = pd.read_csv(input_path_corr + '\\' + f_corr_eia, header = 3)
 corr_EF_GREET = pd.read_csv(input_path_corr + '\\' + f_corr_ef_greet, header = 3)
 corr_fuel_pool = pd.read_csv(input_path_corr + '\\' + f_corr_fuel_pool, header = 3)
 corr_elec_gen = pd.read_csv(input_path_corr + '\\' + f_corr_elec_gen, header = 3)
+
+lcia_data = pd.read_excel(input_path_EPA + '\\' + f_lcia, sheet_name = f_lcia_sheet)
+         
+lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_data['timeframe_years'] == lcia_timeframe) ]
 
 #%%
 
@@ -367,6 +389,10 @@ for yr in range(EERE_yr_min+1, EERE_yr_max+1):
 
 # Generate the Environmental Matrix
 activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
+
+# Calculate LCIA metric
+activity_BAU = pd.merge(activity_BAU, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_BAU['LCIA_estimate'] = activity_BAU['Total Emissions'] * activity_BAU['GWP']
 
 print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
