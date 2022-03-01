@@ -20,14 +20,15 @@ import os
 
 class EPA_GHGI_import:
     
-    def __init__(self, ob_units, data_path_prefix, save_to_file = True, verbose = False):
+    def __init__(self, ob_units, data_path_prefix, input_path_corr, save_to_file = True, verbose = False):
         
-        self.data_path_prefix = data_path_prefix + '\\EPA GHGI Input Data\\'
+        self.data_path_prefix = data_path_prefix
+        self.input_path_corr = input_path_corr
         self.save_to_file = save_to_file
         self.file_out = 'EPA_GHGI.xlsx'
         
         # Load in GHGI import sheet
-        df = pd.read_excel(self.data_path_prefix + 'ghgi_correspondence.xlsx')
+        df = pd.read_excel(self.input_path_corr + '\\' + 'ghgi_correspondence.xlsx')
         
         # create list to append GHGI data
         temp_list = [] 

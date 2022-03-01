@@ -96,7 +96,7 @@ ob_agriculture = Agriculture(input_path_aggriculture )
 ob_transport = Transport_Vision(input_path_transport )
 
 # EPA GHGI data import << NB: EPA <-> EIA mapping can be a target at future >>`
-ob_EPA_GHGI = EPA_GHGI_import(ob_units, input_path_EPA )
+ob_EPA_GHGI = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr )
 ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' category emissions
 
 if save_interim_files:
@@ -348,6 +348,13 @@ activity_non_combust[['AEO Case',
 activity_non_combust['Case'] = 'BAU'
 activity_non_combust['Scope'] = 'Direct, Non-Combustion'
 
+# Rearranging columns
+activity_non_combust = activity_non_combust[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+                          'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
+                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
+                          'EF_withElec', 'EF_Elec0', 'Total Emissions']]
+
 # Expand data set for all the years under study
 EERE_yr_min = np.min(electric_ef_gen['Year']).astype(int)
 EERE_yr_max = np.max(electric_ef_gen['Year']).astype(int)
@@ -359,7 +366,7 @@ for yr in range(EERE_yr_min+1, EERE_yr_max+1):
     activity_non_combust_exp = pd.concat ([activity_non_combust_exp, activity_non_combust], axis=0).reset_index(drop=True)
 
 # Generate the Environmental Matrix
-activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electric_ef_activity], axis=0) #.reset_index(drop=True)
+activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
 
 print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
