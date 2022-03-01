@@ -147,7 +147,7 @@ if __name__ == "__main__":
     # Please change the path to data folder per your computer
     # Set filepath to GHGI Data
     #data_path_prefix = 'C:/Users/skar/Box/saura_self/Proj - EERE Decarbonization/data/EPA GHGI Input Data/'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\EPA_GHGI'
         
     # Import the unit conversion module
     code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'

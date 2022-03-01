@@ -113,7 +113,7 @@ if __name__ == '__main__':
     
     # Please change the path to data folder per your computer
     #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\NREL electricity_20220105'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\NREL electricity_20220105'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\Electricity\\NREL electricity_20220105'
     f_option = 'report - All Options EFS.xlsx'
     
     init_time = datetime.now()

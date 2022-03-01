@@ -37,23 +37,7 @@ class Industrial:
                
         # unit conversion
         self.industrial [['Unit', 'Value']] = ob_units.unit_convert_df (self.industrial [['Unit', 'Value']].copy())
-        
-        """
-        self.industrial['Value_prev'] = self.industrial['Value'] # checking the data frame, this checks out same for the non converted units, before and after unit conversion.
-        self.industrial['unit_to'] = [ob_units.select_units(x) for x in self.industrial['Unit'] ]
-        
-        mask = (self.industrial['unit_to'].str.contains(ob_units.return_to_unit, case=False, na=False))
-        
-        self.industrial['unit_conv'] = self.industrial['unit_to'] + '_per_' + self.industrial['Unit'] 
-        self.industrial['Value'] = np.where(
-             [x in ob_units.dict_units for x in self.industrial['unit_conv'] ],
-             self.industrial['Value'] * self.industrial['unit_conv'].map(ob_units.dict_units),
-             self.industrial['Value'] )
-        self.industrial.loc[mask, 'unit_temp'] = self.industrial.loc[mask, 'Unit'].copy()
-        self.industrial.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
-        self.industrial.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
-        """
-        
+                       
         # scaling values using adoption curve
         self.industrial['Value_scaled'] = self.industrial['Value'] * \
         [ self.adoption_curve(0, 100, 0.5, 2020, 2050, x, 1) for x in self.industrial['Year']]
@@ -81,7 +65,7 @@ if __name__ == '__main__':
     
     # Please change the path to data folder per your computer
     #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model'
+    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files\\Industrial'
     
     # Import the unit conversion module
     code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
