@@ -49,8 +49,21 @@ save_interim_files = True
 LCIA_Method = 'AR4'
 lcia_timeframe = 100
 
-# EIA data case
+# EIA AEO data case
 EIA_AEO_case_option = ['Reference case']
+
+# EIA AEO sectors
+EIA_AEO_sectors = ['Residential',
+                   'Transportation',
+                   'Commercial',
+                   'Industrial',
+                   'Electric Power'
+                   ]
+
+# Define EIA AEO case correspondence to EERE Tool case 
+EIA_EERE_case = {
+    'Reference case' : 'BAU'
+}
 
 # T&D assumption, constant or calculated
 T_and_D_loss_constant = True
@@ -91,15 +104,9 @@ ob_units = model_units(input_path_units)
 # EIA data import
 if fetch_data:
     eia_ob = EIA_AEO(save_interim_files, input_path_EIA )
-    eia_data = eia_ob.eia_multi_sector_import(sectors = ['Residential',
-                                                         'Transportation',
-                                                         'Commercial',
-                                                         'Industrial',
-                                                         'Electric Power',
-                                                         ],
-                                                  
-                                                  aeo_cases = EIA_AEO_case_option                                               
-                                                  )    
+    eia_data = eia_ob.eia_multi_sector_import(sectors = EIA_AEO_sectors,                                                  
+                                              aeo_cases = EIA_AEO_case_option                                               
+                                             )    
 else:
     eia_data = pd.read_csv(input_path_EIA + '\\' + f_eia)
     eia_data = eia_data.loc[eia_data['AEO Case'].isin(EIA_AEO_case_option)]
@@ -140,6 +147,10 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 #%%
 
 #%%
+
+# Map EIA case to EERE Tool case
+eia_data['Case'] = eia_data['AEO Case'].map(EIA_EERE_case)
+
 # Merge EIA and EPA's correspondence matrix
 activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector'], 
                     right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
@@ -150,7 +161,7 @@ activity.rename(columns = {'Sector_y' : 'Sector',
                            'Energy Carrier' : 'Activity', 
                            'Date' : 'Year',                            
                            'Series Id' : 'EIA Series ID'}, inplace = True)
-activity = activity [['AEO Case', 'Sector', 'Subsector', 'End Use Application', 'Activity', 'Activity Type', 'Activity Basis', 
+activity = activity [['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 'Activity', 'Activity Type', 'Activity Basis', 
                       'Year', 'Unit', 'Value']]
 
 # unit conversion
@@ -190,11 +201,11 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
 electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
                             'BAU', 'Elec0', 'Activity', 'Activity Type']], 
-         elec_gen[['AEO Case', 'End Use Application', 'Sector', 'Subsector', 'Activity', 
+         elec_gen[['AEO Case', 'Case', 'End Use Application', 'Sector', 'Subsector', 'Activity', 
                    'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', 
                    'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
              how='left',
-             on=['Activity', 'Activity Type', 'Year'])
+             on=['Activity', 'Activity Type', 'Year', 'Case'])
 
 # Calculate net emission by GHG species, from electricity generation    
 electric_ef_gen['Total Emissions'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
@@ -209,7 +220,7 @@ electric_ef_gen = electric_ef_gen.rename(columns={
                                                   'Value' : 'Electricity Production',
                                                   'Unit' : 'Energy Unit'
                                         })
-electric_ef_gen = electric_ef_gen[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
+electric_ef_gen = electric_ef_gen[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
                           'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 

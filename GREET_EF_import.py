@@ -41,6 +41,9 @@ class GREET_EF:
         # Emission factor approximate conversion from LHV to HHV (multiply by 0.9)
         self.ef['BAU'] = [0 if np.isnan(x) else x for x in self.ef['BAU'] * 0.9 ]
         self.ef['Elec0'] = [0 if np.isnan(x) else x for x in self.ef['Elec0'] * 0.9 ]
+        
+        # Remove rows with nan in any columns
+        self.ef = self.ef[~ (self.ef.isna().any(axis=1)) ].copy()
 
 if __name__ == '__main__':
     
