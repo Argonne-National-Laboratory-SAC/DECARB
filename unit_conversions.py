@@ -79,9 +79,12 @@ class model_units:
             return 1
     
     # The caller function to convert unit for a data frame. The column names should be 'Unit' and 'Value'
-    def unit_convert_df (self, df):
+    def unit_convert_df (self, df, if_given_unit = False, given_unit = ''):
         
-        df['unit_to'] = [self.select_units(x) for x in df['Unit'] ]
+        if if_given_unit:
+            df['unit_to'] = given_unit
+        else:
+            df['unit_to'] = [self.select_units(x) for x in df['Unit'] ]
         
         mask = (df['unit_to'].str.contains(self.return_to_unit, case=False, na=False))
         

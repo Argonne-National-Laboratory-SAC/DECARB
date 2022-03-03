@@ -221,13 +221,13 @@ electric_ef_gen = electric_ef_gen.rename(columns={
                                                   'Unit' : 'Energy Unit'
                                         })
 electric_ef_gen = electric_ef_gen[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
 
 # Aggrigration to calculate overall Electricity generation CI, combustion portion    
-electric_ef_gen_agg = electric_ef_gen.groupby(['Year', 'Activity Type', 'Flow Name', \
+electric_ef_gen_agg = electric_ef_gen.groupby(['AEO Case', 'Case', 'Year', 'Activity Type', 'Flow Name', \
                                                'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).agg({
                                                    'Electricity Production' : 'sum', 
                                                    'Total Emissions' : 'sum'})\
@@ -242,7 +242,7 @@ if save_interim_files == True:
     
 
 # Aggregrating to calculate the net energy generation per year, and corresponding GHG emissions
-electric_ef_gen_agg = electric_ef_gen_agg.groupby(['Year', 'Flow Name', 'Formula', \
+electric_ef_gen_agg = electric_ef_gen_agg.groupby(['AEO Case', 'Case', 'Year', 'Flow Name', 'Formula', \
                                                    'Energy Unit', 'Emissions Unit']).agg({
                                                        'Electricity Production' : 'sum',
                                                        'Total Emissions' : 'sum'}) \
@@ -266,8 +266,12 @@ EPA_GHGI_addn_em = EPA_GHGI_addn_em.groupby(['Year', 'Source', \
                                                              'Value' : 'sum'
                                                              }).reset_index()
 # unit conversion
-activity [['Unit', 'Value']] = ob_units.unit_convert_df (activity [['Unit', 'Value']].copy())
+activity [['Unit', 'Value']] = ob_units.unit_convert_df (
+    activity [['Unit', 'Value']].copy(), if_given_unit = True, 
+    given_unit = electric_ef_gen_agg['Emissions Unit'].unique()[0])
 
+"""
+# earlier style of unit conversion
 EPA_GHGI_addn_em['unit_to'] = electric_ef_gen_agg['Emissions Unit'].unique()[0]
 EPA_GHGI_addn_em['unit_conv'] = EPA_GHGI_addn_em['unit_to'] + '_per_' + EPA_GHGI_addn_em['Unit'] 
 EPA_GHGI_addn_em['Value'] = np.where(
@@ -276,6 +280,7 @@ EPA_GHGI_addn_em['Value'] = np.where(
      EPA_GHGI_addn_em['Value'] )
 EPA_GHGI_addn_em.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
 EPA_GHGI_addn_em.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+"""
 
 # Merge and add to electricity emissions df 
 electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions Type', 'Value']], 
@@ -305,11 +310,11 @@ ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator
 non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
                                 'BAU', 'Elec0', 'Activity']], 
-         activity_non_elec[['AEO Case', 'Sector', 'Subsector', 'End Use Application',
+         activity_non_elec[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application',
                             'Activity', 'Activity Basis', 'Year', 'Unit', 
                             'Value', 'Energy Carrier', 'Fuel Pool']],
              how='left',
-             on=['Activity', 'Year'])
+             on=['Case', 'Activity', 'Year'])
 
 # calculate total emissions
 non_electric_ef_activity['Total Emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
@@ -322,8 +327,8 @@ non_electric_ef_activity = non_electric_ef_activity.rename(columns={
                                                             'Elec0' : 'EF_Elec0',
                                                             'Value' : 'Energy Estimate'
                                                           })
-non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
@@ -363,27 +368,27 @@ activity_non_combust = activity_non_combust.rename(columns = {
 
 # Adding additional empty columns, to match with other activity df
 activity_non_combust[['AEO Case',
-                   'Activity Type',
-                   'Fuel Pool',
-                   'Case',
-                   'Year',
-                   'Energy Unit',
-                   'Electricity Production',
-                   'Scope',
-                   'Flow Name',
-                   'EF_Unit (Numerator)',
-                   'EF_Unit (Denominator)',
-                   'EF_withElec',
-                   'EF_Elec0',
-                   'Energy Estimate']] = '-'
+                      'Case',
+                      'Activity Type',
+                      'Fuel Pool',                   
+                      'Year',
+                      'Energy Unit',
+                      'Electricity Production',
+                      'Scope',
+                      'Flow Name',
+                      'EF_Unit (Numerator)',
+                      'EF_Unit (Denominator)',
+                      'EF_withElec',
+                      'EF_Elec0',
+                      'Energy Estimate']] = '-'
 
 # Defining values to specific columns
 activity_non_combust['Case'] = 'BAU'
 activity_non_combust['Scope'] = 'Direct, Non-Combustion'
 
 # Rearranging columns
-activity_non_combust = activity_non_combust[['AEO Case', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 'Case', 
+activity_non_combust = activity_non_combust[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
+                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
