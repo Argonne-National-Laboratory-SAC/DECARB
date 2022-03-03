@@ -10,7 +10,7 @@ Created on Mon Jan 10 20:08:36 2022
 
 # Update the _prefix paths based on your local Box folder location
 
-code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # into the Github local repository
+code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
 
 input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
 interim_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\2_intermediate_files'
@@ -151,10 +151,16 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 # Map EIA case to EERE Tool case
 eia_data['Case'] = eia_data['AEO Case'].map(EIA_EERE_case)
 
-# Merge EIA and EPA's correspondence matrix
-activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector'], 
-                    right_on=['EIA: Sector', 'EIA: Subsector']).dropna().reset_index()
+# Merge EIA and EPA's correspondence matrix. When merging non-electric, 'End Use Application' is also used as ID key
+activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector', 'End Use'], 
+                    right_on=['EIA: Sector', 'EIA: Subsector', 'EIA: End Use Application']).dropna(subset=['Year', 'Value']).reset_index()
+
+# If need to filter out a sector use example --> eia_data.loc[~eia_data['Sector'].isin(['Electric Power'])].copy()
+
+activity.fillna('-', inplace=True)
+
 activity = activity.loc [:, ~activity.columns.isin(['EIA: End Use Application', 'End Use Application'])].copy()
+
 activity.rename(columns = {'Sector_y' : 'Sector',
                            'Subsector_y' : 'Subsector', 
                            'End Use' : 'End Use Application',
@@ -173,9 +179,8 @@ activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\
 
 print('Status: Constructing Electric generation activity and Emission Factors data frames ..')
     
-# Extract electricity generation data from activity data frame
-elec_gen = activity.loc[(activity['Sector'] == 'Electric Power') ].dropna().\
-   reset_index(drop=True)
+# Extract electricity generation data from EIA data and merge with EERE correlation data frame. When merging electric, ''End Use Application' is not used as ID key.
+elec_gen = activity.loc[activity['Sector'].isin(['Electric Power'])].copy()
 
 # Merge Electricity generation data with 'Electricity generation types' tags
 elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Activity', 'Activity Type'],
@@ -187,8 +192,9 @@ elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Act
 #elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
 
 # Map with correlation matrix to GREET pathway names
-temp_corr_EF_GREET = corr_EF_GREET[['Activity', 'Activity Type', 'GREET Pathway']].drop_duplicates()
+temp_corr_EF_GREET = corr_EF_GREET[['Sector', 'Subsector', 'Activity', 'Activity Type', 'End-Use Application', 'GREET Pathway']].drop_duplicates()
 ob_ef.ef = pd.merge(ob_ef.ef, temp_corr_EF_GREET, how='left',on='GREET Pathway')
+ob_ef.ef.rename(columns = {'End-Use Application' : 'End Use Application'}, inplace=True)
 
 # Filter combustion data for electricity generation 
 ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Activity Type'].isin(elec_gen['Activity Type'].unique())].drop_duplicates()
@@ -200,12 +206,12 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
 # Merge emission factors for fuel-feedstock combustion so used for electricity generation with net electricity generation
 electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                            'BAU', 'Elec0', 'Activity', 'Activity Type']], 
+                            'BAU', 'Elec0', 'Sector', 'Subsector', 'Activity', 'Activity Type']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
          elec_gen[['AEO Case', 'Case', 'End Use Application', 'Sector', 'Subsector', 'Activity', 
                    'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', 
                    'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
              how='left',
-             on=['Activity', 'Activity Type', 'Year', 'Case'])
+             on=['Sector', 'Subsector', 'Activity', 'Activity Type', 'Year', 'Case']) # we should probably also merge with 'End Use Application'
 
 # Calculate net emission by GHG species, from electricity generation    
 electric_ef_gen['Total Emissions'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
