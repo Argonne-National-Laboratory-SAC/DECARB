@@ -206,7 +206,7 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
 # Merge emission factors for fuel-feedstock combustion so used for electricity generation with net electricity generation
 electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                            'BAU', 'Elec0', 'Sector', 'Subsector', 'Activity', 'Activity Type']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
+                            'BAU', 'Elec0', 'Sector', 'Subsector', 'Activity', 'Activity Type', 'GREET Pathway']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
          elec_gen[['AEO Case', 'Case', 'End Use Application', 'Sector', 'Subsector', 'Activity', 
                    'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', 
                    'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
@@ -226,14 +226,14 @@ electric_ef_gen = electric_ef_gen.rename(columns={
                                                   'Value' : 'Electricity Production',
                                                   'Unit' : 'Energy Unit'
                                         })
-electric_ef_gen = electric_ef_gen[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
+electric_ef_gen = electric_ef_gen[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
                           'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
 
 # Aggrigration to calculate overall Electricity generation CI, combustion portion    
-electric_ef_gen_agg = electric_ef_gen.groupby(['AEO Case', 'Case', 'Year', 'Activity Type', 'Flow Name', \
+electric_ef_gen_agg = electric_ef_gen.groupby(['AEO Case', 'Case', 'GREET Pathway', 'Year', 'Activity Type', 'Flow Name', \
                                                'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).agg({
                                                    'Electricity Production' : 'sum', 
                                                    'Total Emissions' : 'sum'})\
@@ -248,7 +248,7 @@ if save_interim_files == True:
     
 
 # Aggregrating to calculate the net energy generation per year, and corresponding GHG emissions
-electric_ef_gen_agg = electric_ef_gen_agg.groupby(['AEO Case', 'Case', 'Year', 'Flow Name', 'Formula', \
+electric_ef_gen_agg = electric_ef_gen_agg.groupby(['AEO Case', 'Case', 'GREET Pathway', 'Year', 'Flow Name', 'Formula', \
                                                    'Energy Unit', 'Emissions Unit']).agg({
                                                        'Electricity Production' : 'sum',
                                                        'Total Emissions' : 'sum'}) \
@@ -315,7 +315,7 @@ ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator
 # Merge emission factors for non-electric generation activites
 non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                                'BAU', 'Elec0', 'Activity']], 
+                                'BAU', 'Elec0', 'Activity', 'GREET Pathway']], 
          activity_non_elec[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application',
                             'Activity', 'Activity Basis', 'Year', 'Unit', 
                             'Value', 'Energy Carrier', 'Fuel Pool']],
@@ -333,7 +333,7 @@ non_electric_ef_activity = non_electric_ef_activity.rename(columns={
                                                             'Elec0' : 'EF_Elec0',
                                                             'Value' : 'Energy Estimate'
                                                           })
-non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
+non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
                           'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
@@ -375,6 +375,7 @@ activity_non_combust = activity_non_combust.rename(columns = {
 # Adding additional empty columns, to match with other activity df
 activity_non_combust[['AEO Case',
                       'Case',
+                      'GREET Pathway',
                       'Activity Type',
                       'Fuel Pool',                   
                       'Year',
@@ -393,7 +394,7 @@ activity_non_combust['Case'] = 'BAU'
 activity_non_combust['Scope'] = 'Direct, Non-Combustion'
 
 # Rearranging columns
-activity_non_combust = activity_non_combust[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 
+activity_non_combust = activity_non_combust[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
                           'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
@@ -415,6 +416,8 @@ activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electr
 # Calculate LCIA metric
 activity_BAU = pd.merge(activity_BAU, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
 activity_BAU['LCIA_estimate'] = activity_BAU['Total Emissions'] * activity_BAU['GWP']
+
+activity_BAU.drop_duplicates(inplace=True)
 
 print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
