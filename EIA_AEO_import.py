@@ -42,8 +42,8 @@ class EIA_AEO:
         
         self.file_key = 'EIA_AEO_user_access_key.csv'
         self.file_series = 'EIA_AEO_data_series_IDs.xlsx'
-        self.file_out_prefix = 'EIA Dataset:'
-        self.file_out_postfix = ':.csv'
+        self.file_out_prefix = 'EIA Dataset-'
+        self.file_out_postfix = '-.csv'
         
         # Initialize a dictionary to save EIA AEO data sets
         self.EIA_data = {'energy_demand' : '',
@@ -73,7 +73,7 @@ class EIA_AEO:
         """
         Parameters
         ----------
-        sectors : List
+        sectors : 
             Import EIA data for the selected U.S. sector(s). Choose one of the following options:
                 'Residential',
                 'Transportation',
