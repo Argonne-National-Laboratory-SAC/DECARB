@@ -30,15 +30,13 @@ from datetime import datetime
 
 # Obtain API Key from EIA, see URL: https://www.eia.gov/opendata/
 
-
 class EIA_AEO:
     
     # class initialization function
-    def __init__(self, data_path_prefix, save_to_file):
+    def __init__(self, data_path_prefix):
         
         # data and file paths
         self.data_path_prefix = data_path_prefix
-        self.save_to_file = save_to_file
         
         self.file_key = 'EIA_AEO_user_access_key.csv'
         self.file_series = 'EIA_AEO_data_series_IDs.xlsx'
@@ -97,16 +95,6 @@ class EIA_AEO:
                 
         api_key : str
              Set the EIA API key. EIA API Keys can be obtained via https://www.eia.gov/opendata/
-        
-        filepath : str
-             Set the filepath to the EIA file which contains the EIA series IDs 
-        
-        Returns
-        -------
-        eia_df : Pandas DataFrame
-            Output is a pandas DataFrame that contains detailed estimates of energy consumption
-            for the selected U.S. sector and AEO case over the 2020 to 2050 time-horizon.
-
         """
                
         # Create an temporary list to store time-series results from EIA
@@ -183,45 +171,61 @@ class EIA_AEO:
     #eia_sector_df = eia_sector_import(sector = 'Residential', aeo_case = 'Reference case')
     
     # Function to store results across multiple combinations of AEO-cases and sectors    
-    def eia_multi_sector_import (self, aeo_cases): 
-                    
+    def eia_multi_sector_import_web (self, aeo_cases):                     
         #Loop through every combination of AEO Case and Sector 
         for tab in self.EIA_data.keys():
             for aeo_case in aeo_cases:
                 # Load in EIA's AEO Series IDs / AEO Keys
                 df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = tab)
-                self.eia_sector_import(aeo_case, df_aeo_key, tab)   
+                self.eia_sector_import(aeo_case, df_aeo_key, tab)      
     
-        if self.save_to_file == True:
-            self.save_data_to_file()
-    
+    # Function to load EIA AEO data set from disk files
+    def eia_multi_sector_import_disk (self, aeo_cases):                     
+        #Loop through data tables and load 
+        for key in self.EIA_data.keys():
+            fname = self.file_out_prefix + key + self.file_out_postfix
+            self.EIA_data[key] = pd.read_csv(self.data_path_prefix + '\\' + fname)
+            self.EIA_data[key] = self.EIA_data[key].loc[self.EIA_data[key]['AEO Case'] in aeo_cases].copy()
+        
     # Save data to file, one data table per data set
     def save_data_to_file (self):
         for key in self.EIA_data.keys():
             self.EIA_data[key].to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
-        
     
+    def standardize_units (self, ob_units):
+        #Loop through data tables and unit convert 
+        for key in self.EIA_data.keys():
+            self.EIA_Data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_Data[key][['Unit', 'Value']].copy())
+    
+    # T&D loss
+    def calc_TandD_loss (self, aeo_cases, load_from_disk):
+        if load_from_disk:
+            self.eia_multi_sector_import_disk (aeo_cases)
+        net_gen = self.EIA_data['energy_supply'].groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
+        elec_purchased = self.EIA_data['energy_demand'].groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
+        #elec_imported
+        self.TandD = pd.merge(net_gen, elec_purchased, how='left', by='Year').rename({
+            'Value_x' : 'net_generated',
+            'Value_y' : 'net_purchased'})
+        self.TandD['loss_frac'] = 1 - ( self.TandD['net_generated'] / self.TandD['net_purchased'] ) # should we take absolute value of this number as it will be negative?
 
 # Create object and call function if script is ran directly
-if __name__ == "__main__":
-    
+if __name__ == "__main__":    
     # Please change the path to data folder per your computer
     #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
     data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\EIA'
+    save_to_file = True
+    
+    from  unit_conversions import model_units    
+    ob_units = model_units(data_path_prefix)
     
     init_time = datetime.now()
     ob = EIA_AEO(data_path_prefix, save_to_file = True)   
     
-    eia_multi_sector_df = ob.eia_multi_sector_import(aeo_cases = ['Reference case',
-                                                                  'High economic growth'
-                                                               #'Low economic growth',
-                                                               #'High oil price',
-                                                               #'Low oil price',
-                                                               #'High oil and gas supply',
-                                                               #'Low oil and gas supply',
-                                                               #'High renewable cost',
-                                                               #'Low renewable cost'
-                                                               ]                                                  
-                                                  )
+    eia_multi_sector_df = ob.eia_multi_sector_import_web(aeo_cases = ob.aeo_case_dict.keys() )
+    ob.standardize_units(ob_units)
+    
+    if save_to_file:
+        ob.save_data_to_file()
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))

@@ -41,7 +41,8 @@ f_corr_fuel_pool = 'corr_fuel_pool.csv'
 f_corr_elec_gen = 'corr_elec_gen.csv'
 
 # Model data pull and intermediate file saving options
-fetch_data = False # True for fetching data, False for loading pre-compiled data
+EIA_AEO_fetch_data = False # True for fetching EIA AEO data, False for loading pre-compiled data
+EIA_AEO_save_to_file = False # True for saving fetched data and saving it to file
 save_interim_files = True
 
 # GWP assumptions
@@ -51,14 +52,6 @@ lcia_timeframe = 100
 
 # EIA AEO data case
 EIA_AEO_case_option = ['Reference case']
-
-# EIA AEO sectors
-EIA_AEO_sectors = ['Residential',
-                   'Transportation',
-                   'Commercial',
-                   'Industrial',
-                   'Electric Power'
-                   ]
 
 # Define EIA AEO case correspondence to EERE Tool case 
 EIA_EERE_case = {
@@ -73,8 +66,8 @@ T_and_D_loss = 0.06
 
 
 #%%
-# import packages
 
+# import packages
 import pandas as pd
 import numpy as np
 import os
@@ -102,14 +95,14 @@ init_time = datetime.now()
 ob_units = model_units(input_path_units)
 
 # EIA data import
-if fetch_data:
-    eia_ob = EIA_AEO(save_interim_files, input_path_EIA )
-    eia_data = eia_ob.eia_multi_sector_import(sectors = EIA_AEO_sectors,                                                  
-                                              aeo_cases = EIA_AEO_case_option                                               
-                                             )    
+if EIA_AEO_fetch_data:
+    eia_ob = EIA_AEO(input_path_EIA)
+    eia_data = eia_ob.eia_multi_sector_import_web(aeo_cases = EIA_AEO_case_option) 
+    if EIA_AEO_save_to_file:
+        eia_ob.save_data_to_file()
 else:
-    eia_data = pd.read_csv(input_path_EIA + '\\' + f_eia)
-    eia_data = eia_data.loc[eia_data['AEO Case'].isin(EIA_AEO_case_option)]
+    eia_ob = EIA_AEO(input_path_EIA)
+    eia_data = eia_ob.eia_multi_sector_import_disk(aeo_cases = EIA_AEO_case_option)    
 
 # Industrial data import
 ob_industry = Industrial(ob_units, input_path_industrial )
@@ -275,18 +268,6 @@ EPA_GHGI_addn_em = EPA_GHGI_addn_em.groupby(['Year', 'Source', \
 activity [['Unit', 'Value']] = ob_units.unit_convert_df (
     activity [['Unit', 'Value']].copy(), if_given_unit = True, 
     given_unit = electric_ef_gen_agg['Emissions Unit'].unique()[0])
-
-"""
-# earlier style of unit conversion
-EPA_GHGI_addn_em['unit_to'] = electric_ef_gen_agg['Emissions Unit'].unique()[0]
-EPA_GHGI_addn_em['unit_conv'] = EPA_GHGI_addn_em['unit_to'] + '_per_' + EPA_GHGI_addn_em['Unit'] 
-EPA_GHGI_addn_em['Value'] = np.where(
-     [x in ob_units.dict_units for x in EPA_GHGI_addn_em['unit_conv'] ],
-     EPA_GHGI_addn_em['Value'] * EPA_GHGI_addn_em['unit_conv'].map(ob_units.dict_units),
-     EPA_GHGI_addn_em['Value'] )
-EPA_GHGI_addn_em.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
-EPA_GHGI_addn_em.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
-"""
 
 # Merge and add to electricity emissions df 
 electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions Type', 'Value']], 
