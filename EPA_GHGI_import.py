@@ -45,11 +45,11 @@ class EPA_GHGI_import:
         self.df_ghgi = self.df_ghgi.reset_index(drop=True)
         
         # Load in 100-Yr GWP Factors
-        self.lcia = pd.read_excel(self.data_path_prefix + '\\gwp factors.xlsx', sheet_name='Tidy')
+        #self.lcia = pd.read_excel(self.data_path_prefix + '\\gwp factors.xlsx', sheet_name='Tidy')
 
         # Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.         
-        lcia_ar4 = self.lcia[self.lcia['LCIA Method'] == 'AR4'].copy()
-        lcia_ar4['GWP_years'] = 100
+        #lcia_ar4 = self.lcia[self.lcia['LCIA Method'] == 'AR4'].copy()
+       #lcia_ar4['GWP_years'] = 100
         
 
         # Process GHGI Data
@@ -65,7 +65,7 @@ class EPA_GHGI_import:
         self.df_ghgi.loc[self.df_ghgi['Emissions Type']=='C', 'Emissions Type'] = 'CO2'
         
         # Merge GWP factors to dataframe
-        self.df_ghgi = self.df_ghgi.merge(lcia_ar4, how='left', on=['Emissions Type'])
+        # self.df_ghgi = self.df_ghgi.merge(lcia_ar4, how='left', on=['Emissions Type'])
 
         # Unit conversion (all values relative to MMmt)
         unit_conv = {'kt': 10**-3,
@@ -75,7 +75,8 @@ class EPA_GHGI_import:
         
         # Map unit conversions, and calculate GHG Emissions (MMmt CO2e)
         self.df_ghgi['Unit Conv'] = self.df_ghgi['Unit'].map(unit_conv)
-        self.df_ghgi['GHG Emissions'] = self.df_ghgi['Value']  * self.df_ghgi['GWP'] * self.df_ghgi['Unit Conv']
+        self.df_ghgi['GHG Emissions'] = self.df_ghgi['Value'] * self.df_ghgi['Unit Conv']
+        #self.df_ghgi['GHG Emissions'] = self.df_ghgi['Value']  * self.df_ghgi['GWP'] * self.df_ghgi['Unit Conv']
         
         #Aggregate results by Year, Sector, and Source
         self.df_ghgi_agg = self.df_ghgi.groupby(['Year', 'Inventory Sector', 'Economic Sector', 'Source'], as_index = False)['GHG Emissions'].sum()

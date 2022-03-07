@@ -40,11 +40,20 @@ class EIA_AEO:
         self.data_path_prefix = data_path_prefix
         self.save_to_file = save_to_file
         
-        self.file_key = 'EIA_datakey.csv'
-        self.file_series = 'eia_aeo_demand.xlsx'
-        self.file_out = 'EIA Dataset.csv'        
+        self.file_key = 'EIA_AEO_user_access_key.csv'
+        self.file_series = 'EIA_AEO_data_series_IDs.xlsx'
+        self.file_out_prefix = 'EIA Dataset:'
+        self.file_out_postfix = ':.csv'
         
-        # Create a dictionary of AEO cases, and their corresponding API ID
+        # Initialize a dictionary to save EIA AEO data sets
+        self.EIA_data = {'energy_demand' : '',
+                         'energy_supply' : '',
+                         'energy_price' : '',
+                         'emissions_end_use' : '',
+                         'emissions_energy_type' : ''
+            }
+        
+        # Create a dictionary of AEO cases, and their corresponding API Ids
         self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.',
                          'High economic growth':'AEO.2021.HIGHMACRO.',
                          'Low economic growth':'AEO.2021.LOWMACRO.',
@@ -60,7 +69,7 @@ class EIA_AEO:
         self.api_key = pd.read_csv(self.data_path_prefix + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
-    def eia_sector_import (self, aeo_case, df_aeo_key): 
+    def eia_sector_import (self, aeo_case, df_aeo_key, tab): 
         """
         Parameters
         ----------
@@ -116,48 +125,82 @@ class EIA_AEO:
             print('Currently fetching: ' + url)
             df_temp = pd.DataFrame(json_data.get('series')[0].get('data'),
                                    columns = ['Year', 'Value'])
-            #df_temp['Case'] = row['Case']
-            df_temp['Sector'] = row['Sector']
-            df_temp['Subsector'] = row['Subsector']
-            df_temp['End Use'] = row['End Use']  
-            df_temp['Activity'] = row['Activity']  
-            df_temp['Activity Type'] = row['Activity Type']  
-            df_temp['Activity Basis'] = row['Activity Basis']  
-            df_temp['Metric'] = row['Metric']  
-            df_temp['Unit'] = row['Unit']  
-            df_temp['Data Source'] = row['Data Source']
-            df_temp['AEO Case'] = aeo_case
-            df_temp['Series Id'] = series_id
+           
+            if tab in ['energy_demand', 'energy_supply']:                
+                df_temp['Sector'] = row['Sector']
+                df_temp['Subsector'] = row['Subsector']
+                df_temp['End Use'] = row['End Use']
+                df_temp['Energy carrier'] = row['Energy carrier']
+                df_temp['Energy carrier type'] = row['Energy carrier type']
+                df_temp['Classification'] = row['Classification']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+                                
+            elif tab == 'energy_price':
+                df_temp['Energy carrier'] = row['Energy carrier']
+                df_temp['Cost basis'] = row['Cost basis']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['Series Id'] = row['Series Id']
+                df_temp['Table'] = row['Table']
+            
+            elif tab == 'emissions_end_use':
+                df_temp['Sector'] = row['Sector']
+                df_temp['Subsector'] = row['Subsector']
+                df_temp['End Use'] = row['End Use']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Emissions Type'] = row['Emissions Type']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+            
+            elif tab == 'emissions_energy_type':
+                df_temp['Sector'] = row['Sector']
+                df_temp['Energy Type'] = row['Energy Type']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Emissions Type'] = row['Emissions Type']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+            
             temp_list.append(df_temp)
-        eia_sector_df = pd.concat(temp_list, axis=0)
-        eia_sector_df = eia_sector_df.reset_index(drop=True)
-        return eia_sector_df
+        
+        if isinstance(self.EIA_data[tab], pd.DataFrame):
+            self.EIA_data[tab] = pd.concat ((self.EIA_data[tab], pd.concat(temp_list, axis=0).reset_index(drop=True).copy()), axis=0 )
+        else:
+            self.EIA_data[tab] = pd.concat(temp_list, axis=0).reset_index(drop=True).copy()       
     
     # Use the function to create datasets for sector-specific and AEO cases: 
     #eia_sector_df = eia_sector_import(sector = 'Residential', aeo_case = 'Reference case')
     
     # Function to store results across multiple combinations of AEO-cases and sectors    
-    def eia_multi_sector_import (self, sectors, aeo_cases): 
-        
-        # Create an temporary list to store results
-        temp_list = [] 
-        
+    def eia_multi_sector_import (self, aeo_cases): 
+                    
         #Loop through every combination of AEO Case and Sector 
-        for aeo_case in aeo_cases:
-            for sector in sectors:
+        for tab in self.EIA_data.keys():
+            for aeo_case in aeo_cases:
                 # Load in EIA's AEO Series IDs / AEO Keys
-                df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = sector)
-                eia_df_temp = self.eia_sector_import(aeo_case = aeo_case, df_aeo_key = df_aeo_key)
-                temp_list.append(eia_df_temp)
-        
-        # Concatenate results into one large dataframe, containing all combinations of sectors and cases
-        eia_economy_wide_df = pd.concat(temp_list, axis=0)
-        eia_economy_wide_df = eia_economy_wide_df.reset_index(drop=True)
-        
+                df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = tab)
+                self.eia_sector_import(aeo_case, df_aeo_key, tab)   
+    
         if self.save_to_file == True:
-            eia_economy_wide_df.to_csv(self.data_path_prefix + '\\' + self.file_out, index = False)
-        else:
-            return eia_economy_wide_df
+            self.save_data_to_file()
+    
+    # Save data to file, one data table per data set
+    def save_data_to_file (self):
+        for key in self.EIA_data.keys():
+            self.EIA_data[key].to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
+        
+    
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":
@@ -167,24 +210,17 @@ if __name__ == "__main__":
     data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\EIA'
     
     init_time = datetime.now()
-    ob = EIA_AEO(data_path_prefix, save_to_file = True)
+    ob = EIA_AEO(data_path_prefix, save_to_file = True)   
     
-    eia_multi_sector_df = ob.eia_multi_sector_import(sectors = ['Residential',
-                                                                'Transportation',
-                                                                'Commercial',
-                                                                'Industrial',
-                                                                'Electric Power'
-                                                             ],
-                                                  
-                                                  aeo_cases = ['Reference case',
-                                                               'High economic growth',
-                                                               'Low economic growth',
-                                                               'High oil price',
-                                                               'Low oil price',
-                                                               'High oil and gas supply',
-                                                               'Low oil and gas supply',
-                                                               'High renewable cost',
-                                                               'Low renewable cost'
+    eia_multi_sector_df = ob.eia_multi_sector_import(aeo_cases = ['Reference case',
+                                                                  'High economic growth'
+                                                               #'Low economic growth',
+                                                               #'High oil price',
+                                                               #'Low oil price',
+                                                               #'High oil and gas supply',
+                                                               #'Low oil and gas supply',
+                                                               #'High renewable cost',
+                                                               #'Low renewable cost'
                                                                ]                                                  
                                                   )
     
