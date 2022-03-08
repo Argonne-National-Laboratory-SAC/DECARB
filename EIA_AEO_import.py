@@ -22,6 +22,7 @@ import pandas as pd
 import requests
 import getpass
 from datetime import datetime
+import os
 
 #%%
 # Set the EIA API Key (used to pull EIA data). EIA API Keys can be obtained via https://www.eia.gov/opendata/
@@ -43,31 +44,33 @@ class EIA_AEO:
         self.file_out_prefix = 'EIA Dataset-'
         self.file_out_postfix = '-.csv'
         
+        self.url_errors = []
+        
         # Initialize a dictionary to save EIA AEO data sets
         self.EIA_data = {'energy_demand' : '',
                          'energy_supply' : '',
                          'energy_price' : '',
                          'emissions_end_use' : '',
-                         'emissions_energy_type' : ''
-            }
+                         'emissions_energy_type' : '',
+                         'supplemental' : ''}
         
         # Create a dictionary of AEO cases, and their corresponding API Ids
-        self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.',
-                         'High economic growth':'AEO.2021.HIGHMACRO.',
-                         'Low economic growth':'AEO.2021.LOWMACRO.',
-                         'High oil price':'AEO.2021.HIGHPRICE.',
-                         'Low oil price':'AEO.2021.LOWPRICE.',
-                         'High oil and gas supply':'AEO.2021.HIGHOGS.',
-                         'Low oil and gas supply':'AEO.2021.LOWOGS.',
-                         'High renewable cost':'AEO.2021.HIRENCST.',
-                         'Low renewable cost':'AEO.2021.LORENCST.',
+        self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.'
+                         #'High economic growth':'AEO.2021.HIGHMACRO.',
+                         #'Low economic growth':'AEO.2021.LOWMACRO.',
+                         #'High oil price':'AEO.2021.HIGHPRICE.',
+                         #'Low oil price':'AEO.2021.LOWPRICE.',
+                         #'High oil and gas supply':'AEO.2021.HIGHOGS.',
+                         #'Low oil and gas supply':'AEO.2021.LOWOGS.',
+                         #'High renewable cost':'AEO.2021.HIRENCST.',
+                         #'Low renewable cost':'AEO.2021.LORENCST.',
                          }
         
         self.curr_user = getpass.getuser()
         self.api_key = pd.read_csv(self.data_path_prefix + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
-    def eia_sector_import (self, aeo_case, df_aeo_key, tab): 
+    def eia_sector_import (self, aeo_case, df_aeo_key, tab, verbose=False): 
         """
         Parameters
         ----------
@@ -98,7 +101,7 @@ class EIA_AEO:
         """
                
         # Create an temporary list to store time-series results from EIA
-        temp_list = []     
+        temp_list = []         
         
         # Each sector has multiple data series that document the end-use applications, materials, and energy consumption. 
         # Based on the user-selected sector, loop through each data series, pulling EIA data based on the series ID / API Key
@@ -106,14 +109,27 @@ class EIA_AEO:
         # temporary list. After looping through all series, concatenate results into one large dataframe. This dataframe
         # contains sector-wide energy consumption        
         for idx, row in df_aeo_key.iterrows():
+            
             series_id = self.aeo_case_dict[aeo_case] + row['Series Id']
             url = 'https://api.eia.gov/series/?api_key=' + self.api_key +'&series_id=' + series_id
             r = requests.get(url)
             json_data = r.json()
+            
             print('Currently fetching: ' + url)
-            df_temp = pd.DataFrame(json_data.get('series')[0].get('data'),
+            
+            try:
+                df_temp = pd.DataFrame(json_data.get('series')[0].get('data'),
                                    columns = ['Year', 'Value'])
-           
+            except (Exception) as e:              
+                if verbose:
+                    print("Warning: Could not fetch data from: " + url)
+                template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+                message2 = template.format(type(e).__name__, e.args)
+                if verbose:
+                    print (message2)                    
+                self.url_errors.append(url)                
+                continue
+                      
             if tab in ['energy_demand', 'energy_supply']:                
                 df_temp['Sector'] = row['Sector']
                 df_temp['Subsector'] = row['Subsector']
@@ -160,6 +176,18 @@ class EIA_AEO:
                 df_temp['Series Id'] = series_id
                 df_temp['Table'] = row['Table']
             
+            elif tab == 'supplemental':
+                df_temp['Sector'] = row['Sector']
+                df_temp['Subsector'] = row['Subsector']
+                df_temp['Parameter'] = row['Parameter']
+                df_temp['Parameter Levels'] = row['Parameter Levels']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+                
             temp_list.append(df_temp)
         
         if isinstance(self.EIA_data[tab], pd.DataFrame):
@@ -171,13 +199,13 @@ class EIA_AEO:
     #eia_sector_df = eia_sector_import(sector = 'Residential', aeo_case = 'Reference case')
     
     # Function to store results across multiple combinations of AEO-cases and sectors    
-    def eia_multi_sector_import_web (self, aeo_cases):                     
+    def eia_multi_sector_import_web (self, aeo_cases, verbose):                     
         #Loop through every combination of AEO Case and Sector 
         for tab in self.EIA_data.keys():
             for aeo_case in aeo_cases:
                 # Load in EIA's AEO Series IDs / AEO Keys
                 df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = tab)
-                self.eia_sector_import(aeo_case, df_aeo_key, tab)      
+                self.eia_sector_import(aeo_case, df_aeo_key, tab, verbose)      
     
     # Function to load EIA AEO data set from disk files
     def eia_multi_sector_import_disk (self, aeo_cases):                     
@@ -185,47 +213,88 @@ class EIA_AEO:
         for key in self.EIA_data.keys():
             fname = self.file_out_prefix + key + self.file_out_postfix
             self.EIA_data[key] = pd.read_csv(self.data_path_prefix + '\\' + fname)
-            self.EIA_data[key] = self.EIA_data[key].loc[self.EIA_data[key]['AEO Case'] in aeo_cases].copy()
-        
-    # Save data to file, one data table per data set
-    def save_data_to_file (self):
-        for key in self.EIA_data.keys():
-            self.EIA_data[key].to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
-    
+            #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
         for key in self.EIA_data.keys():
-            self.EIA_Data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_Data[key][['Unit', 'Value']].copy())
+            self.EIA_data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data[key][['Unit', 'Value']].copy())
     
     # T&D loss
-    def calc_TandD_loss (self, aeo_cases, load_from_disk):
+    def calc_TandD_loss (self, aeo_cases, load_from_disk, verbose):
         if load_from_disk:
             self.eia_multi_sector_import_disk (aeo_cases)
-        net_gen = self.EIA_data['energy_supply'].groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
-        elec_purchased = self.EIA_data['energy_demand'].groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
-        #elec_imported
-        self.TandD = pd.merge(net_gen, elec_purchased, how='left', by='Year').rename({
+        else:
+            self.eia_multi_sector_import_web (aeo_cases, verbose)
+        
+        self.net_gen = self.EIA_data['supplemental'].\
+          loc[(self.EIA_data['supplemental']['Parameter'] == 'Electricity Generation') & 
+              (self.EIA_data['supplemental']['Parameter Levels'] == 'Net Generation to the Grid')][['Year', 'Value', 'Unit']].\
+          groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
+          
+        self.elec_import = self.EIA_data['supplemental'].\
+          loc[(self.EIA_data['supplemental']['Parameter'] == 'Electricity Generation') & 
+              (self.EIA_data['supplemental']['Parameter Levels'] == 'Net Imports')][['Year', 'Value', 'Unit']].\
+          groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
+          
+        self.elec_sales = self.EIA_data['supplemental'].\
+          loc[(self.EIA_data['supplemental']['Parameter'] == 'Electricity Sales by Sector') & 
+              (self.EIA_data['supplemental']['Parameter Levels'] == 'Total')][['Year', 'Value', 'Unit']].\
+          groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).reset_index()
+        
+        self.TandD = pd.merge(self.net_gen, self.elec_import, how='left', on='Year') 
+        self.TandD.rename(columns = {
             'Value_x' : 'net_generated',
-            'Value_y' : 'net_purchased'})
-        self.TandD['loss_frac'] = 1 - ( self.TandD['net_generated'] / self.TandD['net_purchased'] ) # should we take absolute value of this number as it will be negative?
+            'Value_y' : 'net_import',
+            'Unit_x' : 'Unit_net_generated',
+            'Unit_y' : 'Unit_net_import'}, inplace=True)
+        
+        self.TandD = pd.merge(self.TandD, self.elec_sales, how='left', on='Year')
+        self.TandD.rename(columns = {
+            'Value' : 'net_sales',
+            'Unit' : 'Unit_net_sales'}, inplace=True)
+        
+        self.TandD['loss_frac'] = \
+            1 - ( (self.TandD['net_sales'] - self.TandD['net_import']) / self.TandD['net_generated'] ) 
+        
+    # Save data to file, one data table per data set
+    def save_EIA_data_to_file (self):
+        for key in self.EIA_data.keys():
+            self.EIA_data[key].to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
+            
+    def save_TandD_data_to_file (self, fname = 'TandD'):
+        self.TandD.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
     # Please change the path to data folder per your computer
     #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\EIA'
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    
+    input_path_EIA = input_path_prefix + '\\EIA'
+    input_path_units = input_path_prefix + '\\Units'
+    
     save_to_file = True
+    verbose = True
+    load_from_disk = True
+    
+    # Import the unit conversion module
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    
+    os.chdir (code_path_prefix)
     
     from  unit_conversions import model_units    
-    ob_units = model_units(data_path_prefix)
+    ob_units = model_units(input_path_units)
     
     init_time = datetime.now()
-    ob = EIA_AEO(data_path_prefix, save_to_file = True)   
+    ob = EIA_AEO(input_path_EIA)   
     
-    eia_multi_sector_df = ob.eia_multi_sector_import_web(aeo_cases = ob.aeo_case_dict.keys() )
+    eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
     ob.standardize_units(ob_units)
     
+    ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
+    
     if save_to_file:
-        ob.save_data_to_file()
+        ob.save_EIA_data_to_file()
+        ob.save_TandD_data_to_file()
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))

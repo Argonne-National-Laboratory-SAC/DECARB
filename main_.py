@@ -96,13 +96,13 @@ ob_units = model_units(input_path_units)
 
 # EIA data import
 if EIA_AEO_fetch_data:
-    eia_ob = EIA_AEO(input_path_EIA)
-    eia_data = eia_ob.eia_multi_sector_import_web(aeo_cases = EIA_AEO_case_option) 
+    ob_eia = EIA_AEO(input_path_EIA)
+    ob_eia.eia_multi_sector_import_web(aeo_cases = EIA_AEO_case_option) 
     if EIA_AEO_save_to_file:
-        eia_ob.save_data_to_file()
+        ob_eia.save_data_to_file()
 else:
-    eia_ob = EIA_AEO(input_path_EIA)
-    eia_data = eia_ob.eia_multi_sector_import_disk(aeo_cases = EIA_AEO_case_option)    
+    ob_eia = EIA_AEO(input_path_EIA)
+    ob_eia.eia_multi_sector_import_disk(aeo_cases = EIA_AEO_case_option)    
 
 # Industrial data import
 ob_industry = Industrial(ob_units, input_path_industrial )
@@ -141,8 +141,12 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 
 #%%
 
+# calculate Electricity T&D loss from EIA AEO data
+ob_eia.calc_TandD_loss (aeo_cases=EIA_AEO_case_option, load_from_disk=True)
+
+
 # Map EIA case to EERE Tool case
-eia_data['Case'] = eia_data['AEO Case'].map(EIA_EERE_case)
+ob_eia.eia_data['Case'] = eia_data['AEO Case'].map(EIA_EERE_case)
 
 # Merge EIA and EPA's correspondence matrix. When merging non-electric, 'End Use Application' is also used as ID key
 activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector', 'End Use'], 
