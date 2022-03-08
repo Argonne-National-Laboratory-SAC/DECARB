@@ -205,6 +205,7 @@ class EIA_AEO:
             for aeo_case in aeo_cases:
                 # Load in EIA's AEO Series IDs / AEO Keys
                 df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = tab)
+                df_aeo_key.drop_duplicates(inplace = True)
                 self.eia_sector_import(aeo_case, df_aeo_key, tab, verbose)      
     
     # Function to load EIA AEO data set from disk files
@@ -214,6 +215,7 @@ class EIA_AEO:
             fname = self.file_out_prefix + key + self.file_out_postfix
             self.EIA_data[key] = pd.read_csv(self.data_path_prefix + '\\' + fname)
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
+    
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
         for key in self.EIA_data.keys():
@@ -263,6 +265,11 @@ class EIA_AEO:
             
     def save_TandD_data_to_file (self, fname = 'TandD'):
         self.TandD.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        
+    def classify_mixed_fuels (self):        
+        # sum over End Use==E85, for different Energy Carriers
+        E85_by_use = self.EIA_data['energy_demand'].loc[self.EIA_data['energy_demand']['Energy Carrier'] == 'E85']
+        # 
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
