@@ -295,6 +295,25 @@ class EIA_AEO:
             'Value_y' : 'Eth_in_Egas',
             'Unit_y' : 'Unit_Eth_in_Egas'}, inplace=True)
         self.Eth_frac_Egas['Eth_frac_in_Egas'] =  self.Eth_frac_Egas['Eth_in_Egas'] /  self.Eth_frac_Egas['Egas_use']
+        
+    # Function to calculate the fraction of Biodiesel in Distillate Blending fuel blend over the years
+    def classify_BioDieselDistlBlend (self, aeo_case, load_from_disk):
+        if load_from_disk:
+            self.eia_multi_sector_import_disk (aeo_case)
+        else:
+            self.eia_multi_sector_import_web (aeo_case, verbose)
+        
+        # sum over End Use=='Motor Gasoline', for each year
+        DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Distillate Fuel Oil')]
+        DB_use = DB_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
+        BD_use_DB = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Biodiesel used in Distillate Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
+        self.BD_frac_DB = pd.merge(DB_use, BD_use_DB, how='left', on = 'Year')
+        self.BD_frac_DB.rename(columns={
+            'Value_x' : 'DB_use',
+            'Unit_x' : 'Unit_DB_use',
+            'Value_y' : 'BD_in_DB',
+            'Unit_y' : 'Unit_BD_in_DB'}, inplace=True)
+        self.BD_frac_DB['BD_frac_in_DB'] =  self.BD_frac_DB['BD_in_DB'] /  self.BD_frac_DB['DB_use']
     
     # Save data to file, one data table per data set
     def save_EIA_data_to_file (self):
@@ -308,7 +327,10 @@ class EIA_AEO:
         self.Eth_frac_E85.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
         
     def save_Egas_data_to_file (self, fname = 'Egas_frac'):
-        self.Eth_frac_E85.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        
+    def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
+        self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
@@ -343,9 +365,12 @@ if __name__ == "__main__":
     
     ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk)
     
+    ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), load_from_disk)
+    
     if save_to_file:
         ob.save_EIA_data_to_file()
         ob.save_TandD_data_to_file()
         ob.save_E85_data_to_file()
+        ob.save_Egas_data_to_file()
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))
