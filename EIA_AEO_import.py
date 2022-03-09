@@ -304,7 +304,11 @@ class EIA_AEO:
             self.eia_multi_sector_import_web (aeo_case, verbose)
         
         # sum over End Use=='Motor Gasoline', for each year
-        DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Distillate Fuel Oil')]
+        #DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Distillate Fuel Oil')]
+        DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'].isin(['Diesel', 'Distillate Fuel Oil', 'Distillates and Diesel'])) & 
+                                                    (self.EIA_data['energy_demand']['Sector'] == 'Transportation') & 
+                                                    (self.EIA_data['energy_demand']['Subsector'] == 'On Road') ]
+        
         DB_use = DB_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
         BD_use_DB = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Biodiesel used in Distillate Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
         self.BD_frac_DB = pd.merge(DB_use, BD_use_DB, how='left', on = 'Year')
@@ -372,5 +376,6 @@ if __name__ == "__main__":
         ob.save_TandD_data_to_file()
         ob.save_E85_data_to_file()
         ob.save_Egas_data_to_file()
+        ob.save_BDDB_data_to_file()
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))

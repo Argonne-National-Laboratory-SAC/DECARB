@@ -20,9 +20,9 @@ import os
 
 class EPA_GHGI_import:
     
-    def __init__(self, ob_units, data_path_prefix, input_path_corr, save_to_file = True, verbose = False):
+    def __init__(self, ob_units, input_path_EPA, input_path_corr, save_to_file = True, verbose = False):
         
-        self.data_path_prefix = data_path_prefix
+        self.input_path_EPA = input_path_EPA
         self.input_path_corr = input_path_corr
         self.save_to_file = save_to_file
         self.file_out = 'EPA_GHGI.xlsx'
@@ -37,7 +37,7 @@ class EPA_GHGI_import:
         for row in df.itertuples():
             if verbose:
                 print('Currently fetching: ' + row.filename)
-            df_temp = pd.read_excel(self.data_path_prefix + '\\ghgi data tables\\' + str(row.filename) + '.xlsx', sheet_name='Tidy')
+            df_temp = pd.read_excel(self.input_path_EPA + '\\ghgi data tables\\' + str(row.filename) + '.xlsx', sheet_name='Tidy')
             df_temp['Table'] = row.filename
             temp_list.append(df_temp)    
         
@@ -45,7 +45,7 @@ class EPA_GHGI_import:
         self.df_ghgi = self.df_ghgi.reset_index(drop=True)
         
         # Load in 100-Yr GWP Factors
-        #self.lcia = pd.read_excel(self.data_path_prefix + '\\gwp factors.xlsx', sheet_name='Tidy')
+        #self.lcia = pd.read_excel(self.input_path_EPA + '\\gwp factors.xlsx', sheet_name='Tidy')
 
         # Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.         
         #lcia_ar4 = self.lcia[self.lcia['LCIA Method'] == 'AR4'].copy()
@@ -95,10 +95,23 @@ class EPA_GHGI_import:
     
     def QA_with_table_2_10(self, yr_filter = [2019] ):
         
+        # Load in 100-Yr GWP Factors
+        lcia = pd.read_excel(self.input_path_EPA + '\\gwp factors.xlsx', sheet_name='Tidy')
+
+        # Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.         
+        lcia_ar4 = lcia[lcia['LCIA Method'] == 'AR4'].copy()
+        #lcia_ar4['GWP_years'] = 100
+        
+        # Merge GWP factors to dataframe
+        self.df_ghgi_QA = self.df_ghgi.merge(lcia_ar4, how='left', on=['Emissions Type'])
+        
+        # Calculate GWP
+        self.df_ghgi_QA['GHG Emissions'] = self.df_ghgi_QA['GHG Emissions'] * self.df_ghgi_QA['GWP']
+        
         self.data_2_10_agg = self.table_2_10()
         
         #self.data_oth_agg = self.df_ghgi[self.df_ghgi['Table'] != 'Table 2-10'].copy()
-        self.data_oth_agg = self.df_ghgi.groupby(['Year', 'Economic Sector'], as_index = False)['GHG Emissions'].sum()
+        self.data_oth_agg = self.df_ghgi_QA.groupby(['Year', 'Economic Sector'], as_index = False)['GHG Emissions'].sum()
         
         d1 = self.data_oth_agg.merge(self.data_2_10_agg, left_on=['Year', 'Economic Sector'], right_on=['Year', 'Economic Sector'], how = 'left')
         d1.rename(columns = {'GHG Emissions_x' : 'GHG Emissions_compiled', 'GHG Emissions_y' : 'GHG Emissions_2_10'}, inplace = True)
@@ -111,9 +124,9 @@ class EPA_GHGI_import:
         return (d1)
         
     def table_2_10(self):
-                
+                   
         # load data table
-        df_temp = pd.read_excel(self.filepath + "ghgi data tables/" + "Table 2-10.xlsx", sheet_name='Table 2-10', header = 2, index_col = None)
+        df_temp = pd.read_excel(self.input_path_EPA + "/" + "ghgi data tables/" + "Table 2-10.xlsx", sheet_name='Table 2-10', header = 2, index_col = None)
         
         # convert from wide to long form data
         df_temp = pd.melt(df_temp, id_vars=['Sector/Source'])
@@ -148,22 +161,28 @@ if __name__ == "__main__":
     
     # Please change the path to data folder per your computer
     # Set filepath to GHGI Data
-    #data_path_prefix = 'C:/Users/skar/Box/saura_self/Proj - EERE Decarbonization/data/EPA GHGI Input Data/'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\EPA_GHGI'
-        
+      
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_EPA = input_path_prefix + '\\EPA_GHGI'
+    input_path_corr = input_path_prefix + '\\correspondence_files'
+    input_path_units = input_path_prefix + '\\Units'
+       
+    save_to_file = True
+    verbose = False
+    
     # Import the unit conversion module
     code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
     os.chdir (code_path_prefix)
 
     from  unit_conversions import model_units    
-    ob_units = model_units()
+    ob_units = model_units(input_path_units)
     
-    ob1 = EPA_GHGI_import(ob_units, data_path_prefix)
+    ob1 = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr, save_to_file, verbose)
     df = ob1.QA_with_table_2_10()
     print("QA data frame: ")
     print(df)
-    ob1.remove_combustion_em()
+    ob1.remove_combustion_other_em()
     
     if ob1.save_to_file == True:
-        ob1.df_ghgi.to_excel(ob1.filepath + ob1.file_out, index = False)    
+        ob1.df_ghgi.to_excel(input_path_EPA + ob1.file_out, index = False)    
 
