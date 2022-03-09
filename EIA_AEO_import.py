@@ -257,7 +257,45 @@ class EIA_AEO:
         
         self.TandD['loss_frac'] = \
             1 - ( (self.TandD['net_sales'] - self.TandD['net_import']) / self.TandD['net_generated'] ) 
+           
+    # Function to calculate the fraction of Ethanol in E85 fuel blend over the years
+    def classify_E85 (self, aeo_cases, load_from_disk):        
+        if load_from_disk:
+            self.eia_multi_sector_import_disk (aeo_cases)
+        else:
+            self.eia_multi_sector_import_web (aeo_cases, verbose)
+           
+        # sum over End Use==E85, for each year
+        E85_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'E85')]
+        E85_use = E85_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
+        Eth_use_E85 = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in E85')][['Year', 'Value', 'Unit']].drop_duplicates()
+        self.Eth_frac_E85 = pd.merge(E85_use, Eth_use_E85, how='left', on = 'Year')
+        self.Eth_frac_E85.rename(columns={
+            'Value_x' : 'E85_use',
+            'Unit_x' : 'Unit_E85_use',
+            'Value_y' : 'Eth_in_E85',
+            'Unit_y' : 'Unit_Eth_in_E85'}, inplace=True)
+        self.Eth_frac_E85['Eth_frac_in_E85'] =  self.Eth_frac_E85['Eth_in_E85'] /  self.Eth_frac_E85['E85_use']
+    
+    # Function to calculate the fraction of Ethanol in Motor Gasoline fuel blend over the years
+    def classify_Egasoline (self, aeo_case, load_from_disk):
+        if load_from_disk:
+            self.eia_multi_sector_import_disk (aeo_case)
+        else:
+            self.eia_multi_sector_import_web (aeo_case, verbose)
         
+        # sum over End Use=='Motor Gasoline', for each year
+        Egas_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Motor Gasoline')]
+        Egas_use = Egas_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
+        Eth_use_Egas = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in Gasoline Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
+        self.Eth_frac_Egas = pd.merge(Egas_use, Eth_use_Egas, how='left', on = 'Year')
+        self.Eth_frac_Egas.rename(columns={
+            'Value_x' : 'Egas_use',
+            'Unit_x' : 'Unit_Egas_use',
+            'Value_y' : 'Eth_in_Egas',
+            'Unit_y' : 'Unit_Eth_in_Egas'}, inplace=True)
+        self.Eth_frac_Egas['Eth_frac_in_Egas'] =  self.Eth_frac_Egas['Eth_in_Egas'] /  self.Eth_frac_Egas['Egas_use']
+    
     # Save data to file, one data table per data set
     def save_EIA_data_to_file (self):
         for key in self.EIA_data.keys():
@@ -265,11 +303,12 @@ class EIA_AEO:
             
     def save_TandD_data_to_file (self, fname = 'TandD'):
         self.TandD.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+    
+    def save_E85_data_to_file (self, fname = 'E85_frac'):
+        self.Eth_frac_E85.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
         
-    def classify_mixed_fuels (self):        
-        # sum over End Use==E85, for different Energy Carriers
-        E85_by_use = self.EIA_data['energy_demand'].loc[self.EIA_data['energy_demand']['Energy Carrier'] == 'E85']
-        # 
+    def save_Egas_data_to_file (self, fname = 'Egas_frac'):
+        self.Eth_frac_E85.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
@@ -300,8 +339,13 @@ if __name__ == "__main__":
     
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     
+    ob.classify_E85(ob.aeo_case_dict.keys(), load_from_disk)
+    
+    ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk)
+    
     if save_to_file:
         ob.save_EIA_data_to_file()
         ob.save_TandD_data_to_file()
+        ob.save_E85_data_to_file()
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))
