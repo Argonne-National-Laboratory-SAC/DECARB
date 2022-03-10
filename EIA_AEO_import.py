@@ -258,13 +258,26 @@ class EIA_AEO:
         self.TandD['loss_frac'] = \
             1 - ( (self.TandD['net_sales'] - self.TandD['net_import']) / self.TandD['net_generated'] ) 
            
+    # Function to calculate ethanol fraction by source
+    def calc_ethanol_by_source (self):
+        self.E_sources = self.EIA_data['supplemental'].\
+          loc[(self.EIA_data['supplemental']['Parameter'] == 'Sources of Ethanol') & 
+              (self.EIA_data['supplemental']['Parameter Levels'].isin(['From Corn and Other Starch', 'From Cellulose']) ) ] \
+              [['Year', 'Parameter Levels', 'Value', 'Unit']].drop_duplicates()
+        E_sources_agg = self.E_sources.groupby(['Year']).agg({'Value' : 'sum'}) 
+        self.E_sources = pd.merge(self.E_sources, E_sources_agg, how='left', on='Year').copy()
+        self.E_sources.rename(columns = {
+            'Value_x' : 'E_by_source',
+            'Value_y' : 'E_total'}, inplace = True)
+        self.E_sources['E_frac_by_source'] = self.E_sources['E_by_source'] / self.E_sources['E_total']
+        
     # Function to calculate the fraction of Ethanol in E85 fuel blend over the years
     def classify_E85 (self, aeo_cases, load_from_disk):        
         if load_from_disk:
             self.eia_multi_sector_import_disk (aeo_cases)
         else:
             self.eia_multi_sector_import_web (aeo_cases, verbose)
-           
+            
         # sum over End Use==E85, for each year
         E85_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'E85')]
         E85_use = E85_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
@@ -276,6 +289,10 @@ class EIA_AEO:
             'Value_y' : 'Eth_in_E85',
             'Unit_y' : 'Unit_Eth_in_E85'}, inplace=True)
         self.Eth_frac_E85['Eth_frac_in_E85'] =  self.Eth_frac_E85['Eth_in_E85'] /  self.Eth_frac_E85['E85_use']
+        
+        self.calc_ethanol_by_source()        
+        self.Eth_frac_E85 = pd.merge(self.Eth_frac_E85, self.E_sources[['Year', 'Parameter Levels', 'E_frac_by_source']], how='left', on='Year')
+        
     
     # Function to calculate the fraction of Ethanol in Motor Gasoline fuel blend over the years
     def classify_Egasoline (self, aeo_case, load_from_disk):
@@ -295,6 +312,9 @@ class EIA_AEO:
             'Value_y' : 'Eth_in_Egas',
             'Unit_y' : 'Unit_Eth_in_Egas'}, inplace=True)
         self.Eth_frac_Egas['Eth_frac_in_Egas'] =  self.Eth_frac_Egas['Eth_in_Egas'] /  self.Eth_frac_Egas['Egas_use']
+        
+        self.calc_ethanol_by_source()        
+        self.Eth_frac_Egas = pd.merge(self.Eth_frac_Egas, self.E_sources[['Year', 'Parameter Levels', 'E_frac_by_source']], how='left', on='Year')
         
     # Function to calculate the fraction of Biodiesel in Distillate Blending fuel blend over the years
     def classify_BioDieselDistlBlend (self, aeo_case, load_from_disk):
