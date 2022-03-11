@@ -339,6 +339,83 @@ class EIA_AEO:
             'Unit_y' : 'Unit_BD_in_DB'}, inplace=True)
         self.BD_frac_DB['BD_frac_in_DB'] =  self.BD_frac_DB['BD_in_DB'] /  self.BD_frac_DB['DB_use']
     
+    # Function to calculate the energy source dependancy for Ethanol, Petroleum Gasoline, Biodiesel and Distillate
+    # This function should only be ran once the classify_E85, classify_Egasoline, classify_BioDieselDistlBlend functions are called.
+    def calc_EIA_fuel_denand_by_source (self):
+                       
+        # subset the rows for E85
+        mask = self.EIA_data['energy_demand']['Energy carrier'] == 'E85'
+        subset = self.EIA_data['energy_demand'][mask]
+        
+        # pivot the frac table for column-vector based calculations
+        frac_table=pd.pivot(self.Eth_frac_E85, index=['Year', 'Eth_frac_in_E85'], columns = 'Parameter Levels', values = 'E_frac_by_source')
+        frac_table.reset_index(inplace=True)
+        
+        # merge frac with subset EIA data
+        subset = pd.merge(subset, frac_table, how='left', on='Year')
+        
+        # perform calculations
+        subset['Petroleum Gasoline'] =  subset['Value'] * ( 1 - subset['Eth_frac_in_E85'] )
+        subset['Ethanol, Cellulose'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Cellulose']
+        subset['Ethanol, Corn and Other Starch'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Corn and Other Starch']
+        subset = subset.loc[ : , ~subset.columns.isin(['Energy carrier type', 'Value']) ]
+        subset = pd.melt(subset, id_vars = ['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use', 
+                                   'Energy carrier', 'Classification', 'Basis', 'Unit', 'Year', 'Series Id', 'Table'],
+                        value_vars = ['Ethanol, Corn and Other Starch', 'Ethanol, Cellulose', 'Petroleum Gasoline'],
+                        var_name = 'Energy carrier type', value_name = 'Value').reset_index(drop=True)
+        
+        # save the modified rows
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [~mask]
+        self.EIA_data['energy_demand'] = pd.concat([subset, self.EIA_data['energy_demand']], axis=0).reset_index(drop=True)
+                
+        # subset the rows for Egasoline
+        mask = self.EIA_data['energy_demand']['Energy carrier'] == 'Motor Gasoline'
+        subset = self.EIA_data['energy_demand'][mask]
+        
+        # pivot the frac table for column-vector based calculations
+        frac_table=pd.pivot(self.Eth_frac_Egas, index=['Year', 'Eth_frac_in_Egas'], columns = 'Parameter Levels', values = 'E_frac_by_source')
+        frac_table.reset_index(inplace=True)
+        
+        # merge frac with subset EIA data
+        subset = pd.merge(subset, frac_table, how='left', on='Year')
+        
+        # perform calculations
+        subset['Petroleum Gasoline'] =  subset['Value'] * ( 1 - subset['Eth_frac_in_Egas'] )
+        subset['Ethanol, Cellulose'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Cellulose']
+        subset['Ethanol, Corn and Other Starch'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Corn and Other Starch']
+        subset = subset.loc[ : , ~subset.columns.isin(['Energy carrier type', 'Value']) ]
+        subset = pd.melt(subset, id_vars = ['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use', 
+                                   'Energy carrier', 'Classification', 'Basis', 'Unit', 'Year', 'Series Id', 'Table'],
+                        value_vars = ['Ethanol, Corn and Other Starch', 'Ethanol, Cellulose', 'Petroleum Gasoline'],
+                        var_name = 'Energy carrier type', value_name = 'Value').reset_index(drop=True)
+        
+        # save the modified rows
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [~mask]
+        self.EIA_data['energy_demand'] = pd.concat([subset, self.EIA_data['energy_demand']], axis=0).reset_index(drop=True)
+              
+        # subset the rows for Biodiesel-Distillate blend
+        mask = (self.EIA_data['energy_demand']['Energy carrier'].isin(['Diesel', 'Distillate Fuel Oil', 'Distillates and Diesel'])) & \
+               (self.EIA_data['energy_demand']['Sector'] == 'Transportation') & \
+               (self.EIA_data['energy_demand']['Subsector'] == 'On Road')
+        subset = self.EIA_data['energy_demand'][mask]
+                
+        # merge frac with subset EIA data
+        subset = pd.merge(subset, self.BD_frac_DB[['Year', 'BD_frac_in_DB']], how='left', on='Year')
+        
+        # perform calculations
+        subset['Biodiesel'] =  subset['Value'] * subset['BD_frac_in_DB'] 
+        subset['Petroleum Distillate'] =  subset['Value'] * ( 1 - subset['BD_frac_in_DB'] )
+        subset = subset.loc[ : , ~subset.columns.isin(['Energy carrier type', 'Value']) ]
+        subset = pd.melt(subset, id_vars = ['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use', 
+                                   'Energy carrier', 'Classification', 'Basis', 'Unit', 'Year', 'Series Id', 'Table'],
+                        value_vars = ['Biodiesel', 'Petroleum Distillate'],
+                        var_name = 'Energy carrier type', value_name = 'Value').reset_index(drop=True)
+        
+        # save the modified rows
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [~mask]
+        self.EIA_data['energy_demand'] = pd.concat([subset, self.EIA_data['energy_demand']], axis=0).reset_index(drop=True)
+        
+    
     # Save data to file, one data table per data set
     def save_EIA_data_to_file (self):
         for key in self.EIA_data.keys():
@@ -390,6 +467,8 @@ if __name__ == "__main__":
     ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk)
     
     ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), load_from_disk)
+    
+    ob.calc_EIA_fuel_denand_by_source()
     
     if save_to_file:
         ob.save_EIA_data_to_file()
