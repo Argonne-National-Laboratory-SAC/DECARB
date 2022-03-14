@@ -432,7 +432,38 @@ class EIA_AEO:
         
     def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
         self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
-
+    
+    def conv_HHV_to_LHV:
+        
+        
+    
+    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):
+        
+        if fetch_data:
+            self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), load_from_disk, verbose = False )
+        else:
+            self.eia_multi_sector_import_disk(aeo_cases = self.EIA_AEO_case_option)   
+        
+        self.standardize_units(ob_units)
+        
+        self.calc_TandD_loss(self.aeo_case_dict.keys(), load_from_disk, verbose)
+        
+        self.classify_E85(self.aeo_case_dict.keys(), load_from_disk)
+        
+        self.classify_Egasoline(self.aeo_case_dict.keys(), load_from_disk)
+        
+        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), load_from_disk)
+        
+        self.calc_EIA_fuel_denand_by_source()
+        
+        if save_to_file:
+            if fetch_data:
+                self.save_EIA_data_to_file()
+            self.save_TandD_data_to_file()
+            self.save_E85_data_to_file()
+            self.save_Egas_data_to_file()
+            self.save_BDDB_data_to_file()
+        
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
     # Please change the path to data folder per your computer
