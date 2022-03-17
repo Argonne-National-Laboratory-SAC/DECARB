@@ -433,8 +433,9 @@ class EIA_AEO:
     def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
         self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
     
-    def conv_HHV_to_LHV:
+    def conv_HHV_to_LHV (self, ob_units):
         
+        pd.merge
         
     
     def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):
