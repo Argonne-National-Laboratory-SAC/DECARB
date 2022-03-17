@@ -221,10 +221,16 @@ class EIA_AEO:
         for key in self.EIA_data.keys():
             self.EIA_data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data[key][['Unit', 'Value']].copy())
    
-    def conv_HHV_to_LHV (self, ob_units):        
-        self.EIA_data_QA = pd.merge(self.EIA_data, ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
+    def conv_HHV_to_LHV (self, aeo_cases, ob_units, load_from_disk, verbose):
+        if load_from_disk:
+            self.eia_multi_sector_import_disk (aeo_cases)
+        else:
+            self.eia_multi_sector_import_web (aeo_cases, verbose)
+        
+        self.EIA_data_QA = self.EIA_data.copy()
+        self.EIA_data_QA['energy_demand'] = pd.merge(self.EIA_data_QA['energy_demand'], ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
                                     how='left', on=['Energy carrier', 'Energy carrier type'])        
-        self.EIA_data_QA['Value'] = self.EIA_data_QA['Value'] * self.EIA_data_QA['LHV_by_HHV']
+        self.EIA_data_QA['energy_demand']['Value'] = self.EIA_data_QA['energy_demand']['Value'] * self.EIA_data_QA['energy_demand']['LHV_by_HHV']
     
     # T&D loss
     def calc_TandD_loss (self, aeo_cases, load_from_disk, verbose):
@@ -493,7 +499,7 @@ if __name__ == "__main__":
     eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
     ob.standardize_units(ob_units)
     
-    ob.conv_HHV_to_LHV (ob_units)
+    ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, load_from_disk, verbose)
     
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     
