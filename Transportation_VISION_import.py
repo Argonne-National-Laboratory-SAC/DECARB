@@ -27,14 +27,14 @@ class Transport_Vision:
     """
     """
     
-    def __init__ (self, data_path_prefix):
+    def __init__ (self, input_path_transport):
         
-        self.data_path_prefix = data_path_prefix
+        self.input_path_transport = input_path_transport
                 
         self.f_name = 'MDHD_TEMPO Sales Share_VISION Results.xlsx'
         
         # data loading
-        self.agg = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
+        self.agg = pd.read_excel(self.input_path_transport + '\\' + self.f_name, header = 3)
                 
         # unit conversion
         
@@ -46,9 +46,9 @@ if __name__ == '__main__':
     os.chdir(code_path_prefix)
     
     # Please change the path to data folder per your computer
-    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\Transportation'
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_transport = input_path_prefix + '\\Transportation'
     
-    ob1 = Transport_Vision(data_path_prefix)
+    ob1 = Transport_Vision(input_path_transport)
     
     print(ob1.agg)

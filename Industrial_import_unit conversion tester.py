@@ -63,18 +63,24 @@ class Industrial:
 
 if __name__ == '__main__':
     
+     
     # Please change the path to data folder per your computer
-    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files\\Industrial'
-    
-    # Import the unit conversion module
+      
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
     code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
     
-    os.chdir (code_path_prefix)
-
-    from  unit_conversions import model_units    
-    ob_units = model_units(data_path_prefix)
+    #input_path_EPA = input_path_prefix + '\\EPA_GHGI'  
+    input_path_industrial = input_path_prefix + '\\Industrial'
+    input_path_units = input_path_prefix + '\\Units'
+    input_path_GREET = input_path_prefix + '\\GREET'    
+    input_path_corr = input_path_prefix + '\\correspondence_files'
     
-    ob1 = Industrial(ob_units, data_path_prefix)
+    # Import the unit conversion module    
+    os.chdir (code_path_prefix)
+    from  unit_conversions import model_units
+    
+    ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
+    
+    ob1 = Industrial(ob_units, input_path_industrial)
     
     print(ob1.industrial)

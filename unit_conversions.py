@@ -128,8 +128,11 @@ class model_units:
 if __name__ == '__main__':
     
     # Please change the path to data per your computer
-    input_path_units = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files\\Units'    
-    input_path_GREET = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files\\GREET'    
-    input_path_corr = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files\\correspondence_files'
+    
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_units = input_path_prefix + '\\Units'    
+    input_path_GREET = input_path_prefix + '\\GREET'    
+    input_path_corr = input_path_prefix + '\\correspondence_files'
+    
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     

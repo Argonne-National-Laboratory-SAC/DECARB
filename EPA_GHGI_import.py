@@ -160,12 +160,12 @@ class EPA_GHGI_import:
 if __name__ == "__main__":
     
     # Please change the path to data folder per your computer
-    # Set filepath to GHGI Data
       
     input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
     input_path_EPA = input_path_prefix + '\\EPA_GHGI'
-    input_path_corr = input_path_prefix + '\\correspondence_files'
+    input_path_GREET = input_path_prefix + '\\GREET' 
     input_path_units = input_path_prefix + '\\Units'
+    input_path_corr = input_path_prefix + '\\correspondence_files'
        
     save_to_file = True
     verbose = False
@@ -175,7 +175,7 @@ if __name__ == "__main__":
     os.chdir (code_path_prefix)
 
     from  unit_conversions import model_units    
-    ob_units = model_units(input_path_units)
+    ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     ob1 = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr, save_to_file, verbose)
     df = ob1.QA_with_table_2_10()

@@ -220,6 +220,11 @@ class EIA_AEO:
         #Loop through data tables and unit convert 
         for key in self.EIA_data.keys():
             self.EIA_data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data[key][['Unit', 'Value']].copy())
+   
+    def conv_HHV_to_LHV (self, ob_units):        
+        self.EIA_data_QA = pd.merge(self.EIA_data, ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
+                                    how='left', on=['Energy carrier', 'Energy carrier type'])        
+        self.EIA_data_QA['Value'] = self.EIA_data_QA['Value'] * self.EIA_data_QA['LHV_by_HHV']
     
     # T&D loss
     def calc_TandD_loss (self, aeo_cases, load_from_disk, verbose):
@@ -432,14 +437,8 @@ class EIA_AEO:
         
     def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
         self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
-    
-    def conv_HHV_to_LHV (self, ob_units):
-        
-        pd.merge
-        
-    
-    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):
-        
+       
+    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):        
         if fetch_data:
             self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), load_from_disk, verbose = False )
         else:
@@ -467,30 +466,34 @@ class EIA_AEO:
         
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    
+    
     # Please change the path to data folder per your computer
-    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data'
+    
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    
     input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
     
     input_path_EIA = input_path_prefix + '\\EIA'
-    input_path_units = input_path_prefix + '\\Units'
+    input_path_units = input_path_prefix + '\\Units'      
+    input_path_GREET = input_path_prefix + '\\GREET'    
+    input_path_corr = input_path_prefix + '\\correspondence_files'
     
     save_to_file = True
     verbose = True
     load_from_disk = True
-    
-    # Import the unit conversion module
-    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
-    
+        
     os.chdir (code_path_prefix)
     
     from  unit_conversions import model_units    
-    ob_units = model_units(input_path_units)
+    ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     init_time = datetime.now()
     ob = EIA_AEO(input_path_EIA)   
     
     eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
     ob.standardize_units(ob_units)
+    
+    ob.conv_HHV_to_LHV (ob_units)
     
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     

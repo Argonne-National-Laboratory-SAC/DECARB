@@ -95,7 +95,7 @@ init_time = datetime.now()
 # Create data class objects
 
 # Unit conversion class object
-ob_units = model_units(input_path_units)
+ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
 
 # EIA data import and processing
 ob_eia = EIA_AEO(input_path_EIA)
