@@ -131,15 +131,14 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 #%%
 
 # calculate Electricity T&D loss from EIA AEO data
-ob_eia.calc_TandD_loss (aeo_cases=EIA_AEO_case_option, load_from_disk=True)
-
-
-# Map EIA case to EERE Tool case
-ob_eia.eia_data['Case'] = eia_data['AEO Case'].map(EIA_EERE_case)
+#ob_eia.calc_TandD_loss (aeo_cases=EIA_AEO_case_option, load_from_disk=True)
 
 # Merge EIA and EPA's correspondence matrix. When merging non-electric, 'End Use Application' is also used as ID key
-activity = pd.merge(eia_data, corr_EIA_EERE, how='right', left_on=['Sector', 'Subsector', 'End Use'], 
+activity = pd.merge(ob_eia.EIA_data['energy_demand'], corr_EIA_EERE, how='left', left_on=['Sector', 'Subsector', 'End Use'], 
                     right_on=['EIA: Sector', 'EIA: Subsector', 'EIA: End Use Application']).dropna(subset=['Year', 'Value']).reset_index()
+
+# Map EIA case to EERE Tool case
+activity['Case'] =  activity['AEO Case'].map(EIA_EERE_case)
 
 # If need to filter out a sector use example --> eia_data.loc[~eia_data['Sector'].isin(['Electric Power'])].copy()
 
@@ -153,81 +152,79 @@ activity.rename(columns = {'Sector_y' : 'Sector',
                            'Energy Carrier' : 'Activity', 
                            'Date' : 'Year',                            
                            'Series Id' : 'EIA Series ID'}, inplace = True)
-activity = activity [['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application', 'Activity', 'Activity Type', 'Activity Basis', 
+activity = activity [['Case', 'Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
                       'Year', 'Unit', 'Value']]
 
 # unit conversion
 activity [['Unit', 'Value']] = ob_units.unit_convert_df (activity [['Unit', 'Value']].copy())
 
 # Merge fuel pool
-activity = pd.merge(activity, corr_fuel_pool, how='left', left_on=['Activity'],\
-                    right_on=['Energy Carrier']).dropna().reset_index(drop=True)
+activity = pd.merge(activity, corr_fuel_pool, how='left', on=['Energy carrier']).dropna().reset_index(drop=True)
 
 print('Status: Constructing Electric generation activity and Emission Factors data frames ..')
     
-# Extract electricity generation data from EIA data and merge with EERE correlation data frame. When merging electric, ''End Use Application' is not used as ID key.
-elec_gen = activity.loc[activity['Sector'].isin(['Electric Power'])].copy()
-
 # Merge Electricity generation data with 'Electricity generation types' tags
-elec_gen = pd.merge(elec_gen, corr_elec_gen, how='left', left_on=['Sector', 'Activity', 'Activity Type'],
-                    right_on=['Sector', 'Activity', 'Activity Type']).\
+elec_gen = pd.merge(ob_eia.EIA_data['energy_supply'], corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).\
     drop(['Index'], axis=1).reset_index(drop=True)
-    
+elec_gen['Case'] = 'BAU'  
 
-# Aggregrate electricity generation data by fuel type and by year
-#elec_gen_agg =  elec_gen.groupby(['Year', 'Generation Type', 'Unit'])['Value'].sum().reset_index()
+# Merge fuel pool for electricity generation data
+elec_gen = pd.merge(elec_gen, corr_fuel_pool, how='left', on=['Energy carrier']).dropna().reset_index(drop=True)
 
 # Map with correlation matrix to GREET pathway names
-temp_corr_EF_GREET = corr_EF_GREET[['Sector', 'Subsector', 'Activity', 'Activity Type', 'End-Use Application', 'GREET Pathway']].drop_duplicates()
-ob_ef.ef = pd.merge(ob_ef.ef, temp_corr_EF_GREET, how='left',on='GREET Pathway')
-ob_ef.ef.rename(columns = {'End-Use Application' : 'End Use Application'}, inplace=True)
+corr_EF_GREET = corr_EF_GREET[['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'End Use Application', 'GREET Pathway']].drop_duplicates()
+ob_ef.ef = pd.merge(ob_ef.ef, corr_EF_GREET, how='left',on='GREET Pathway')
 
 # Filter combustion data for electricity generation 
-ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Activity Type'].isin(elec_gen['Activity Type'].unique())].drop_duplicates()
-ob_ef.ef_electric = ob_ef.ef_electric.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])]
+ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])].copy()
+#ob_ef.ef_electric = ob_ef.ef_electric.loc[ob_ef.ef['Energy carrier type'].isin(elec_gen['Energy carrier type'].unique())].drop_duplicates()
 
 ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
-                                    'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
+                                    'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)                
 
 # Merge emission factors for fuel-feedstock combustion so used for electricity generation with net electricity generation
-electric_ef_gen = pd.merge(ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
+electric_gen_ef = pd.merge(elec_gen[['AEO Case', 'Case', 'End Use', 'Sector', 'Subsector', 'Energy carrier', 
+                                     'Energy carrier type', 'Basis', 'Year', 'Unit', 'Value', 
+                                     'Fuel Pool', 'Generation Type', 'Energy Type']],
+                           ob_ef.ef_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                            'BAU', 'Elec0', 'Sector', 'Subsector', 'Activity', 'Activity Type', 'GREET Pathway']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
-         elec_gen[['AEO Case', 'Case', 'End Use Application', 'Sector', 'Subsector', 'Activity', 
-                   'Activity Type', 'Activity Basis', 'Year', 'Unit', 'Value', 
-                   'Energy Carrier', 'Fuel Pool', 'Generation Type', 'Energy Type']],
+                            'BAU', 'Elec0', 'Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'GREET Pathway']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
              how='left',
-             on=['Sector', 'Subsector', 'Activity', 'Activity Type', 'Year', 'Case']) # we should probably also merge with 'End Use Application'
+             on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'Year', 'Case']) # we should probably also merge with 'End Use Application'
 
 # Calculate net emission by GHG species, from electricity generation    
-electric_ef_gen['Total Emissions'] = electric_ef_gen['BAU'] * electric_ef_gen['Value'] 
-
-if save_interim_files == True:
-    electric_ef_gen.to_excel(interim_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
+electric_gen_ef['Total Emissions'] = electric_gen_ef['BAU'] * electric_gen_ef['Value'] 
 
 # Add additional columns, rename columns, re-arrange columns
-electric_ef_gen = electric_ef_gen.rename(columns={
+electric_gen_ef = electric_gen_ef.rename(columns={
                                                   'BAU' : 'EF_withElec',
                                                   'Elec0' : 'EF_Elec0',
                                                   'Value' : 'Electricity Production',
-                                                  'Unit' : 'Energy Unit'
+                                                  'Unit' : 'Energy Unit',
+                                                  'End Use' : 'End Use Application'
                                         })
-electric_ef_gen = electric_ef_gen[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
+electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
+                          'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 
                           'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
 
+if save_interim_files == True:
+    electric_gen_ef.to_excel(interim_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
+
 # Aggrigration to calculate overall Electricity generation CI, combustion portion    
-electric_ef_gen_agg = electric_ef_gen.groupby(['AEO Case', 'Case', 'GREET Pathway', 'Year', 'Activity Type', 'Flow Name', \
+electric_ef_gen_agg = electric_gen_ef.groupby(['AEO Case', 'Case', 'GREET Pathway', 'Year', 'Energy carrier type', 'Flow Name', \
                                                'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).agg({
                                                    'Electricity Production' : 'sum', 
                                                    'Total Emissions' : 'sum'})\
                                     .reset_index()\
                                     .rename(columns = {'EF_Unit (Numerator)' : 'Emissions Unit'})
-                                    
+
+# Merge T&D loss data
+electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
+
 electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
-    ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
+    ( electric_ef_gen_agg['Electricity Production'] * (1 - electric_ef_gen_agg['loss_frac']) )
 
 if save_interim_files == True:
     electric_ef_gen_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_ef_gen_agg_1.csv')

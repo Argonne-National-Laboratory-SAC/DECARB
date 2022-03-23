@@ -34,10 +34,10 @@ import os
 class EIA_AEO:
     
     # class initialization function
-    def __init__(self, data_path_prefix):
+    def __init__(self, input_path_EIA):
         
         # data and file paths
-        self.data_path_prefix = data_path_prefix
+        self.input_path_EIA = input_path_EIA
         
         self.file_key = 'EIA_AEO_user_access_key.csv'
         self.file_series = 'EIA_AEO_data_series_IDs.xlsx'
@@ -67,7 +67,7 @@ class EIA_AEO:
                          }
         
         self.curr_user = getpass.getuser()
-        self.api_key = pd.read_csv(self.data_path_prefix + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
+        self.api_key = pd.read_csv(self.input_path_EIA + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
     def eia_sector_import (self, aeo_case, df_aeo_key, tab, verbose=False): 
@@ -204,7 +204,7 @@ class EIA_AEO:
         for tab in self.EIA_data.keys():
             for aeo_case in aeo_cases:
                 # Load in EIA's AEO Series IDs / AEO Keys
-                df_aeo_key = pd.read_excel(self.data_path_prefix + '\\' + self.file_series, sheet_name = tab)
+                df_aeo_key = pd.read_excel(self.input_path_EIA + '\\' + self.file_series, sheet_name = tab)
                 df_aeo_key.drop_duplicates(inplace = True)
                 self.eia_sector_import(aeo_case, df_aeo_key, tab, verbose)      
     
@@ -213,7 +213,7 @@ class EIA_AEO:
         #Loop through data tables and load 
         for key in self.EIA_data.keys():
             fname = self.file_out_prefix + key + self.file_out_postfix
-            self.EIA_data[key] = pd.read_csv(self.data_path_prefix + '\\' + fname)
+            self.EIA_data[key] = pd.read_csv(self.input_path_EIA + '\\' + fname)
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     
     def standardize_units (self, ob_units):
@@ -430,25 +430,30 @@ class EIA_AEO:
     # Save data to file, one data table per data set
     def save_EIA_data_to_file (self):
         for key in self.EIA_data.keys():
-            self.EIA_data[key].to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
+            self.EIA_data[key].to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
             
     def save_TandD_data_to_file (self, fname = 'TandD'):
-        self.TandD.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        self.TandD.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
     
     def save_E85_data_to_file (self, fname = 'E85_frac'):
-        self.Eth_frac_E85.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        self.Eth_frac_E85.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
         
     def save_Egas_data_to_file (self, fname = 'Egas_frac'):
-        self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        self.Eth_frac_Egas.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
         
     def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
-        self.Eth_frac_Egas.to_csv(self.data_path_prefix + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
+        self.Eth_frac_Egas.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
        
-    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):        
+    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):    
+        
+        load_from_disk = True
+        
         if fetch_data:
             self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), load_from_disk, verbose = False )
+            load_from_disk = False
         else:
-            self.eia_multi_sector_import_disk(aeo_cases = self.EIA_AEO_case_option)   
+            self.eia_multi_sector_import_disk(self.aeo_case_dict.keys())   
+            load_from_disk = True
         
         self.standardize_units(ob_units)
         

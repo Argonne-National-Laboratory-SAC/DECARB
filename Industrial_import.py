@@ -56,6 +56,18 @@ class Industrial:
         x_0 = int ( (start_yr + end_yr) /2 )
         val = min_val + (max_val - min_val) * pow ((1 / (1 + np.exp( -k * (x - x_0)))), a) 
         return val
+    
+    def mtg_init (self, EIA_data) :
+        
+        self.EIA_industry_demand = EIA_data['energy_demand'][EIA_data['energy_demand']['Sector'] == 'Industrial']
+        
+        self.mtg_paper_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Paper Industry']
+        self.mtg_food_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Food Industry']
+        self.mtg_blkchem_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Bulk Chemical Industry']
+        
+        #self.mtg_blkchem_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Iron and Steel Industry']
+        #self.mtg_blkchem_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Cement and Lime Industry']
+        #self.mtg_blkchem_extract_EIA = self.EIA_industry_demand.loc[self.EIA_industry_demand['Subsector'] == 'Other Manufacturing Industry']
 
 # Notes for improvement:
 # A variable option that can change the adaption curve parameters as input.

@@ -62,8 +62,7 @@ class Industrial:
 # The mitigation option should have different choices for the adoption curve parameters
 
 if __name__ == '__main__':
-    
-     
+         
     # Please change the path to data folder per your computer
       
     input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
