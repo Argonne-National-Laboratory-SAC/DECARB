@@ -114,7 +114,8 @@ ob_elec = NREL_elec(f_NREL_elec_option, input_path_electricity )
 
 # GREET emission factor load
 ob_ef = GREET_EF(f_ef, input_path_GREET )
-
+ob_ef.ef = ob_ef.ef[ ~(ob_ef.ef['Scope'] == 'Supply Chain')]
+                      
 # Data tables for correspondence across data sets
 
 corr_EIA_EERE = pd.read_csv(input_path_corr + '\\' + f_corr_eia, header = 3)
@@ -212,7 +213,7 @@ electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector'
 if save_interim_files == True:
     electric_gen_ef.to_excel(interim_path_prefix + '\\' + 'interim_electric_ef_gen.xlsx')
 
-# Aggrigration to calculate overall Electricity generation CI, combustion portion    
+# Aggregration to calculate overall Electricity generation CI, combustion portion    
 electric_ef_gen_agg = electric_gen_ef.groupby(['AEO Case', 'Case', 'GREET Pathway', 'Year', 'Energy carrier type', 'Flow Name', \
                                                'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).agg({
                                                    'Electricity Production' : 'sum', 
@@ -246,7 +247,7 @@ EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
     ['Incineration of Waste', 
      'Electrical Transmission and Distribution', 
      'Other Process Uses of Carbonates'])) & 
-   (ob_EPA_GHGI.df_ghgi['Year'] == 2019) ]
+   (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear) ]
 
 EPA_GHGI_addn_em = EPA_GHGI_addn_em.groupby(['Year', 'Source', \
                                                                    'Emissions Type',
@@ -265,9 +266,12 @@ electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions
 electric_ef_gen_agg['Total Emissions'] = electric_ef_gen_agg['Total Emissions'] + electric_ef_gen_agg['Value']
 electric_ef_gen_agg.drop(['Value'], axis=1, inplace=True) # at this stage, the total emissions represent emissions including incineration of waste.
 
+# Merge T&D loss data
+electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
+
 # Recalculate the Electricity generation, combustion based CI
 electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
-    ( electric_ef_gen_agg['Electricity Production'] * (1 - T_and_D_loss) )
+    ( electric_ef_gen_agg['Electricity Production'] * (1 - electric_ef_gen_agg['loss_frac']) )
     
 if save_interim_files == True:
     electric_ef_gen_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
@@ -275,57 +279,59 @@ if save_interim_files == True:
 print('Status: Constructing non-electric activity sectors as per EIA AEO data set ..')
 
 # BAU scenario dev for non-electricity generation sectors and non-electric activities
-activity_non_elec = activity.loc [~ (activity['Sector'] == 'Electric Power')]
-activity_non_elec = activity_non_elec.loc [~ (activity_non_elec['Activity'] == 'Electricity')]
+activity_non_elec = activity.copy()
+#activity_non_elec = activity_non_elec.loc [~ (activity_non_elec['Activity'] == 'Electricity')]
 
 # Filter combustion data for electricity generation 
-ob_ef.ef_non_electric = ob_ef.ef.loc[ob_ef.ef['Activity'].isin(activity_non_elec['Activity'].unique())].drop_duplicates()
+ob_ef.ef_non_electric = ob_ef.ef.loc[ob_ef.ef['Energy carrier'].isin(activity_non_elec['Energy carrier'].unique())].drop_duplicates()
 ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
                                     'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
 
 # Merge emission factors for non-electric generation activites
 non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
                             'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
-                                'BAU', 'Elec0', 'Activity', 'GREET Pathway']], 
+                                'BAU', 'Elec0', 'Energy carrier', 'GREET Pathway']], 
          activity_non_elec[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application',
-                            'Activity', 'Activity Basis', 'Year', 'Unit', 
-                            'Value', 'Energy Carrier', 'Fuel Pool']],
+                            'Energy carrier', 'Basis', 'Year', 'Unit', 
+                            'Value', 'Energy carrier type', 'Fuel Pool']],
              how='left',
-             on=['Case', 'Activity', 'Year'])
+             on=['Case', 'Energy carrier', 'Year'])
 
 # calculate total emissions
 non_electric_ef_activity['Total Emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
 #non_electric_ef_activity.dropna(axis=1, how='all', inplace=True)
 
 # Add additional columns, rename columns, re-arrange columns
-non_electric_ef_activity[['Activity Type']] = '-'
+#non_electric_ef_activity[['Activity Type']] = '-'
 non_electric_ef_activity = non_electric_ef_activity.rename(columns={
                                                             'BAU' : 'EF_withElec',
                                                             'Elec0' : 'EF_Elec0',
                                                             'Value' : 'Energy Estimate'
                                                           })
 non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
+                          'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 
                           'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
  
 if save_interim_files == True:
-    non_electric_ef_activity.to_excel(interim_path_prefix + '\\' + 'interim_non_electric_ef_activity.xlsx')   
+    non_electric_ef_activity.to_csv(interim_path_prefix + '\\' + 'interim_non_electric_ef_activity.csv')   
     
 
 # Arranging non-combustion emissions from EPA GHGI
 print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
 # Filter latest year data from EPA GHGI
-activity_non_combust = ob_EPA_GHGI.df_ghgi.loc[ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear]
+activity_non_combust = ob_EPA_GHGI.df_ghgi.loc[ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear].copy()
+
+# preserve Category and Subcategory information in one column
+activity_non_combust ['Category, Subcategory'] = activity_non_combust ['Category'] + ', ' + activity_non_combust ['Subcategory'] 
 
 # Select the needed columns
 activity_non_combust = activity_non_combust[[
     'Economic Sector',
     'Source',
     'Segment',
-    'Category',
-    'Subcategory',
+    'Category, Subcategory',
     'Emissions Type',
     'Year',
     'Unit',
@@ -333,32 +339,30 @@ activity_non_combust = activity_non_combust[[
     ]]
 
 # Rename columns to match with activity df
-activity_non_combust = activity_non_combust.rename(columns = {
+activity_non_combust.rename(columns = {
     'Economic Sector' : 'Sector',
     'Source' : 'Subsector',
-    'Segment' : 'End Use Application',
-    'Category' : 'Activity',
-    'Subcategory' : 'Activity Basis',
+    'Segment' : 'Basis',
+    'Category, Subcategory' : 'End Use Application',
     'Emissions Type' : 'Formula',
     'Value' : 'Total Emissions'    
-    })
+    }, inplace=True)
 
 # Adding additional empty columns, to match with other activity df
-activity_non_combust[['AEO Case',
-                      'Case',
+activity_non_combust[['AEO Case',                      
                       'GREET Pathway',
-                      'Activity Type',
-                      'Fuel Pool',                   
-                      'Year',
-                      'Energy Unit',
-                      'Electricity Production',
-                      'Scope',
+                      'Energy carrier',
+                      'Energy carrier type',
+                      'Fuel Pool',
+                      'Energy Estimate',
                       'Flow Name',
                       'EF_Unit (Numerator)',
                       'EF_Unit (Denominator)',
                       'EF_withElec',
-                      'EF_Elec0',
-                      'Energy Estimate']] = '-'
+                      'EF_Elec0', 
+                      'Energy Unit',
+                      'Electricity Production'                                 
+                      ]] = '-'
 
 # Defining values to specific columns
 activity_non_combust['Case'] = 'BAU'
@@ -366,14 +370,14 @@ activity_non_combust['Scope'] = 'Direct, Non-Combustion'
 
 # Rearranging columns
 activity_non_combust = activity_non_combust[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
-                          'Activity', 'Activity Type', 'Activity Basis', 'Fuel Pool', 
-                          'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
+                          'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 
+                          'Year', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'EF_Elec0', 'Total Emissions']]
 
 # Expand data set for all the years under study
-EERE_yr_min = np.min(electric_ef_gen['Year']).astype(int)
-EERE_yr_max = np.max(electric_ef_gen['Year']).astype(int)
+EERE_yr_min = np.min(electric_gen_ef['Year']).astype(int)
+EERE_yr_max = np.max(electric_gen_ef['Year']).astype(int)
 
 activity_non_combust['Year'] = EERE_yr_min
 activity_non_combust_exp = activity_non_combust.copy()
@@ -382,7 +386,7 @@ for yr in range(EERE_yr_min+1, EERE_yr_max+1):
     activity_non_combust_exp = pd.concat ([activity_non_combust_exp, activity_non_combust], axis=0).reset_index(drop=True)
 
 # Generate the Environmental Matrix
-activity_BAU = pd.concat ([activity_non_combust_exp, electric_ef_gen, non_electric_ef_activity], axis=0).reset_index(drop=True)
+activity_BAU = pd.concat ([activity_non_combust_exp, electric_gen_ef, non_electric_ef_activity], axis=0).reset_index(drop=True)
 
 # Calculate LCIA metric
 activity_BAU = pd.merge(activity_BAU, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
@@ -392,7 +396,7 @@ activity_BAU.drop_duplicates(inplace=True)
 
 print("Status: Saving activity_BAU table to file ..")
 if save_interim_files == True:
-    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_BAU.xlsx')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_BAU.csv')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
