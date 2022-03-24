@@ -192,7 +192,7 @@ electric_gen_ef = pd.merge(elec_gen[['AEO Case', 'Case', 'End Use', 'Sector', 'S
                             'BAU', 'Elec0', 'Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'GREET Pathway']], # we should probably include 'End Use Application' from ef, once the corr table is complete with 'End Use Application'
              how='left',
              on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'Year', 'Case']) # we should probably also merge with 'End Use Application'
-
+electric_gen_ef.to_excel(interim_path_prefix + '\\' + 'interim_electric_ef_gen_test.xlsx')
 # Calculate net emission by GHG species, from electricity generation    
 electric_gen_ef['Total Emissions'] = electric_gen_ef['BAU'] * electric_gen_ef['Value'] 
 
@@ -289,14 +289,15 @@ ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator
 
 # Merge emission factors for non-electric generation activites
 non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
-                            'EF_Unit (Denominator)', 'Case', 'Scope', 'Year', 
+                            'EF_Unit (Denominator)', 'Case', 'Scope', 
+                            'Sector', 'Subsector', 'End Use Application', 'Year', 
                                 'BAU', 'Elec0', 'Energy carrier', 'GREET Pathway']], 
          activity_non_elec[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application',
                             'Energy carrier', 'Basis', 'Year', 'Unit', 
                             'Value', 'Energy carrier type', 'Fuel Pool']],
              how='left',
-             on=['Case', 'Energy carrier', 'Year'])
-
+             on=['Case', 'Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Year']).drop_duplicates()
+non_electric_ef_activity.to_csv(interim_path_prefix + '\\' + 'non_electric_ef_activity_test.csv')   
 # calculate total emissions
 non_electric_ef_activity['Total Emissions'] = non_electric_ef_activity['BAU'] * non_electric_ef_activity['Value']
 #non_electric_ef_activity.dropna(axis=1, how='all', inplace=True)
