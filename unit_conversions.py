@@ -24,6 +24,7 @@ sources:
 
 import pandas as pd 
 import numpy as np
+import sys
 
 
 #%%
@@ -87,11 +88,11 @@ class model_units:
             message1 = 'The unit key: ' + ut + ' not found.'
             if self.verbose:
                 print(message1)
-            template = "An exception of type {0} occurred. Arguments:\n{1!r}"
+            template = "An exception of type {0} occurred. Arguments: {1!r}"
             message2 = template.format(type(e).__name__, e.args)
             if self.verbose:
                 print (message2)
-            return self.return_to_unit
+            sys.exit(1)
         
     def unit_convert (self, convert):
         if convert in self.dict_units:
@@ -116,14 +117,20 @@ class model_units:
         else:
             df['unit_to'] = [self.select_units(x) for x in df[Unit] ]
         
-        mask = (df['unit_to'].str.contains(self.return_to_unit, case=False, na=False))
-        
+        #mask = (df['unit_to'].str.contains(self.return_to_unit, case=False, na=False))
+        #print(df['unit_to'])
         df['unit_conv'] = df['unit_to'] + '_per_' + df[Unit] 
+        
+        missing_keys = df.loc[~ (df['unit_conv'].isin(self.dict_units.keys()) ), 'unit_conv' ]
+        print('WARNING: missing unit conversion keys:')
+        print(missing_keys)
+        raise KeyError ('Please update the unit_conversions table before model execution .. ')
+        
         df['Value'] = np.where(
              [x in self.dict_units for x in df['unit_conv'] ],
              df[Value] * df['unit_conv'].map(self.dict_units),
              df[Value] )
-        df.loc[mask, 'unit_to'] = df.loc[mask, Unit]
+        #df.loc[mask, 'unit_to'] = df.loc[mask, Unit].copy()
         df.drop(['unit_conv', Unit], axis = 1, inplace = True)
         df.rename(columns = {'unit_to' : Unit}, inplace = True)
         
@@ -149,7 +156,7 @@ if __name__ == '__main__':
     # Class testing
     df_test = pd.DataFrame({
         'Unit' : ['kt', 'MMmt'],
-        'Value' : [1, 1],
+        'Value' : [2, 1],
         'Category' : ['mass', 'mass'],
         'expected_Unit' : ['MMmt', 'MMmt'],
         'expected_Value' : [1E-6, 1]})
