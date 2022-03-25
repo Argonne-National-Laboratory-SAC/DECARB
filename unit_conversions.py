@@ -60,7 +60,19 @@ class model_units:
         
         self.df_units = pd.concat([physical, feedstock])
         
+        # convert all units to lower case to avoid missing keys due to string case
+        self.df_units['Convert_To'] = self.conv_to_lower_list(self.df_units['Convert_To'])
+        self.df_units['Convert_From'] = self.conv_to_lower_list(self.df_units['Convert_From'])
+        eere_tool_units['Unit'] = self.conv_to_lower_list(eere_tool_units['Unit'])
+        
         self.df_units['unit_conv'] = self.df_units['Convert_To'] + '_per_' + self.df_units['Convert_From']  
+        
+        all_units = pd.concat([self.df_units['Convert_To'], self.df_units['Convert_From'] ] ).unique()
+        all_units = all_units + '_per_' + all_units
+        all_units = pd.DataFrame({'unit_conv' : all_units,
+                      'Multiply_By' : [1]*len(all_units)})
+        
+        self.df_units = pd.concat([self.df_units, all_units], axis = 0)
         
         # Data frames to dictionaries        
         self.dict_units_from = self.df_units.set_index('Convert_From').to_dict()['Category']
@@ -77,6 +89,9 @@ class model_units:
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Electricity', '-', 'Renewables']), 'LHV_by_HHV'] = 1
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Lubricants', 'Hydrocarbon Gas Liquid Feedstocks', 'Petrochemical Feedstocks']), 'LHV_by_HHV'] = 0.9
                     
+    def conv_to_lower_list(self, lst):
+        return [x.lower() for x in lst].copy()
+        
     def select_units(self, ut, unit_category=''):
         try:            
             if unit_category == '':
@@ -109,6 +124,7 @@ class model_units:
                          if_given_category = False, unit_category = 'None'):
         
         df = df.copy()
+        df[Unit] = self.conv_to_lower_list(df[Unit])
         
         if if_given_unit:
             df['unit_to'] = given_unit
@@ -121,10 +137,11 @@ class model_units:
         #print(df['unit_to'])
         df['unit_conv'] = df['unit_to'] + '_per_' + df[Unit] 
         
-        missing_keys = df.loc[~ (df['unit_conv'].isin(self.dict_units.keys()) ), 'unit_conv' ]
-        print('WARNING: missing unit conversion keys:')
-        print(missing_keys)
-        raise KeyError ('Please update the unit_conversions table before model execution .. ')
+        missing_keys = df.loc[~ (df['unit_conv'].isin(self.dict_units.keys()) ), 'unit_conv' ].unique()
+        if len(missing_keys) > 0:            
+            print('WARNING: missing unit conversion keys:')
+            print(missing_keys)
+            raise KeyError ('Please update the unit_conversions table before model execution .. ')
         
         df['Value'] = np.where(
              [x in self.dict_units for x in df['unit_conv'] ],

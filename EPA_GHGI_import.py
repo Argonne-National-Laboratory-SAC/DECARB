@@ -44,16 +44,6 @@ class EPA_GHGI_import:
         self.df_ghgi = pd.concat(temp_list, axis=0)
         self.df_ghgi = self.df_ghgi.reset_index(drop=True)
         
-        # Load in 100-Yr GWP Factors
-        #self.lcia = pd.read_excel(self.input_path_EPA + '\\gwp factors.xlsx', sheet_name='Tidy')
-
-        # Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.         
-        #lcia_ar4 = self.lcia[self.lcia['LCIA Method'] == 'AR4'].copy()
-       #lcia_ar4['GWP_years'] = 100
-        
-
-        # Process GHGI Data
-        
         # Convert carbon flows (C) to Carbon Dioxide (CO2), e.g. C --> CO2
         c_to_co2 = (16*2+12)/12
         
@@ -64,22 +54,17 @@ class EPA_GHGI_import:
         self.df_ghgi.loc[self.df_ghgi['Emissions Type']=='C','Value'] = self.df_ghgi.loc[self.df_ghgi['Emissions Type']=='C','Value'] * c_to_co2
         self.df_ghgi.loc[self.df_ghgi['Emissions Type']=='C', 'Emissions Type'] = 'CO2'
         
-        # Merge GWP factors to dataframe
-        # self.df_ghgi = self.df_ghgi.merge(lcia_ar4, how='left', on=['Emissions Type'])
-
-        # Unit conversion (all values relative to MMmt)
-        unit_conv = {'kt': 10**-3,
-                     'mt': 10**-6,
-                     'MMmt': 1
-                     }
+        # Unit conversion 
+        self.df_ghgi[['Unit', 'Value']] = ob_units.unit_convert_df ( self.df_ghgi[['Unit', 'Value']],
+                                                                    if_given_category = True, unit_category = 'Emissions')
+              
+        self.df_ghgi.rename(columns = {'Value' : 'GHG Emissions'}, inplace=True)
         
-        # Map unit conversions, and calculate GHG Emissions (MMmt CO2e)
-        self.df_ghgi['Unit Conv'] = self.df_ghgi['Unit'].map(unit_conv)
-        self.df_ghgi['GHG Emissions'] = self.df_ghgi['Value'] * self.df_ghgi['Unit Conv']
-        #self.df_ghgi['GHG Emissions'] = self.df_ghgi['Value']  * self.df_ghgi['GWP'] * self.df_ghgi['Unit Conv']
+        # Aggregate results by Year, Sector, and Source
+        self.df_ghgi_agg = self.df_ghgi.groupby(['Year', 'Inventory Sector', 'Economic Sector', 'Source', 'Unit'], as_index = False).agg(
+            {'GHG Emissions' : 'sum'}).reset_index()
         
-        #Aggregate results by Year, Sector, and Source
-        self.df_ghgi_agg = self.df_ghgi.groupby(['Year', 'Inventory Sector', 'Economic Sector', 'Source'], as_index = False)['GHG Emissions'].sum()
+        self.df_ghgi_agg.rename(columns = {'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
                 
      
     def remove_combustion_other_em (self):
@@ -178,9 +163,12 @@ if __name__ == "__main__":
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     ob1 = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr, save_to_file, verbose)
+    
     df = ob1.QA_with_table_2_10()
+    
     print("QA data frame: ")
     print(df)
+    
     ob1.remove_combustion_other_em()
     
     if ob1.save_to_file == True:
