@@ -30,7 +30,7 @@ import numpy as np
 
 class model_units:
     
-    def __init__(self, input_path_units, input_path_GREET, input_path_corr, verbose = False, class_object_for = 'EERE_Tool'):               
+    def __init__(self, input_path_units, input_path_GREET, input_path_corr, verbose = True, class_object_for = 'EERE_Tool'):               
         
         self.input_path_units = input_path_units
         self.input_path_GREET = input_path_GREET
@@ -62,6 +62,7 @@ class model_units:
         self.df_units['unit_conv'] = self.df_units['Convert_To'] + '_per_' + self.df_units['Convert_From']  
         
         # Data frames to dictionaries        
+        self.dict_units_from = self.df_units.set_index('Convert_From').to_dict()['Category']
         self.dict_units = self.df_units.set_index('unit_conv').to_dict()['Multiply_By']
         self.eere_tool_units = eere_tool_units.set_index('Category').to_dict()['Unit']
         
@@ -75,9 +76,11 @@ class model_units:
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Electricity', '-', 'Renewables']), 'LHV_by_HHV'] = 1
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Lubricants', 'Hydrocarbon Gas Liquid Feedstocks', 'Petrochemical Feedstocks']), 'LHV_by_HHV'] = 0.9
                     
-    def select_units(self, ut):
+    def select_units(self, ut, unit_category=''):
         try:            
-            unit_category = self.df_units.loc[self.df_units['Convert_From'] == ut, 'Category'].iloc[0]
+            if unit_category == '':
+                unit_category = self.dict_units_from [ut]
+           
             return self.eere_tool_units[unit_category]
         
         except (Exception) as e:            
@@ -99,23 +102,30 @@ class model_units:
             return 1
     
     # The caller function to convert unit for a data frame. The column names should be 'Unit' and 'Value'
-    def unit_convert_df (self, df, if_given_unit = False, given_unit = ''):
+    def unit_convert_df (self, df, 
+                         Unit = 'Unit', Value = 'Value', 
+                         if_given_unit = False, given_unit = '', 
+                         if_given_category = False, unit_category = 'None'):
+        
+        df = df.copy()
         
         if if_given_unit:
             df['unit_to'] = given_unit
+        elif if_given_category:
+            df['unit_to'] = [self.select_units(x, unit_category) for x in df[Unit] ]
         else:
-            df['unit_to'] = [self.select_units(x) for x in df['Unit'] ]
+            df['unit_to'] = [self.select_units(x) for x in df[Unit] ]
         
         mask = (df['unit_to'].str.contains(self.return_to_unit, case=False, na=False))
         
-        df['unit_conv'] = df['unit_to'] + '_per_' + df['Unit'] 
+        df['unit_conv'] = df['unit_to'] + '_per_' + df[Unit] 
         df['Value'] = np.where(
              [x in self.dict_units for x in df['unit_conv'] ],
-             df['Value'] * df['unit_conv'].map(self.dict_units),
-             df['Value'] )
-        df.loc[mask, 'unit_to'] = df.loc[mask, 'Unit'].copy()
-        df.drop(['unit_conv', 'Unit'], axis = 1, inplace = True)
-        df.rename(columns = {'unit_to' : 'Unit'}, inplace = True)
+             df[Value] * df['unit_conv'].map(self.dict_units),
+             df[Value] )
+        df.loc[mask, 'unit_to'] = df.loc[mask, Unit]
+        df.drop(['unit_conv', Unit], axis = 1, inplace = True)
+        df.rename(columns = {'unit_to' : Unit}, inplace = True)
         
         return df[['Unit', 'Value']].copy()
     
@@ -136,3 +146,15 @@ if __name__ == '__main__':
     
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
+    # Class testing
+    df_test = pd.DataFrame({
+        'Unit' : ['kt', 'MMmt'],
+        'Value' : [1, 1],
+        'Category' : ['mass', 'mass'],
+        'expected_Unit' : ['MMmt', 'MMmt'],
+        'expected_Value' : [1E-6, 1]})
+    
+    print( ob_units.select_units('kt') )
+    print( ob_units.select_units('kto') )
+    
+    print( ob_units.unit_convert_df(df_test[['Unit', 'Value']]) )
