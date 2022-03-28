@@ -120,7 +120,7 @@ class model_units:
     # The caller function to convert unit for a data frame. The column names should be 'Unit' and 'Value'
     def unit_convert_df (self, df, 
                          Unit = 'Unit', Value = 'Value', 
-                         if_given_unit = False, given_unit = '', 
+                         if_given_unit = False, given_unit = '',  # convert to lower case
                          if_given_category = False, unit_category = 'None'):
         
         df = df.copy()
@@ -132,9 +132,7 @@ class model_units:
             df['unit_to'] = [self.select_units(x, unit_category) for x in df[Unit] ]
         else:
             df['unit_to'] = [self.select_units(x) for x in df[Unit] ]
-        
-        #mask = (df['unit_to'].str.contains(self.return_to_unit, case=False, na=False))
-        #print(df['unit_to'])
+                
         df['unit_conv'] = df['unit_to'] + '_per_' + df[Unit] 
         
         missing_keys = df.loc[~ (df['unit_conv'].isin(self.dict_units.keys()) ), 'unit_conv' ].unique()
@@ -147,14 +145,14 @@ class model_units:
              [x in self.dict_units for x in df['unit_conv'] ],
              df[Value] * df['unit_conv'].map(self.dict_units),
              df[Value] )
-        #df.loc[mask, 'unit_to'] = df.loc[mask, Unit].copy()
+        
         df.drop(['unit_conv', Unit], axis = 1, inplace = True)
         df.rename(columns = {'unit_to' : Unit}, inplace = True)
         
-        return df[['Unit', 'Value']].copy()
+        return df[[Unit, Value]].copy()
     
     def setup_hv_convert(self):
-        self.hv_EIA['LHV_by_HHV'] = self.hv_EIA['LHV'] / self.hv_EIA['HVV']
+        self.hv_EIA['LHV_by_HHV'] = self.hv_EIA['LHV'] / self.hv_EIA['HHV']
         
     
 #%%
