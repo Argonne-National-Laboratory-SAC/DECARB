@@ -13,8 +13,6 @@ Summary: This python script loads pre-processed GREET emission factors data.
 #Import Python Libraries
 
 import pandas as pd
-import numpy as np
-
 
 #%%
 
@@ -39,11 +37,11 @@ class GREET_EF:
         self.ef = pd.read_csv(self.data_path_prefix + '\\' + self.f_ef, header = 3)
         
         # Emission factor approximate conversion from LHV to HHV (multiply by 0.9)
-        self.ef['BAU'] = [0 if np.isnan(x) else x for x in self.ef['BAU'] * 0.9 ]
-        self.ef['Elec0'] = [0 if np.isnan(x) else x for x in self.ef['Elec0'] * 0.9 ]
+        #self.ef['BAU'] = [0 if np.isnan(x) else x for x in self.ef['BAU'] * 0.9 ]
+        #self.ef['Elec0'] = [0 if np.isnan(x) else x for x in self.ef['Elec0'] * 0.9 ]
         
         # Remove rows with nan in any columns
-        self.ef = self.ef[~ (self.ef.isna().any(axis=1)) ].copy()
+        #self.ef = self.ef[~ (self.ef.isna().any(axis=1)) ].copy()
 
 if __name__ == '__main__':
     

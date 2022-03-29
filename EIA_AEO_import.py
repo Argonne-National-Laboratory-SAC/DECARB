@@ -34,25 +34,33 @@ import os
 class EIA_AEO:
     
     # class initialization function
-    def __init__(self, input_path_EIA):
+    def __init__(self, input_path_EIA, input_path_corr):
         
         # data and file paths
         self.input_path_EIA = input_path_EIA
+        self.input_path_corr = input_path_corr
         
         self.file_key = 'EIA_AEO_user_access_key.csv'
         self.file_series = 'EIA_AEO_data_series_IDs.xlsx'
+        
+        self.file_corr_eia = 'corr_EIA_EERE.csv'
+        self.file_corr_eia_energy_carrier = 'corr_EIA_energy_carrier.csv'
+        self.file_corr_eia_fuel_pool = 'corr_fuel_pool.csv'
+        
         self.file_out_prefix = 'EIA Dataset-'
         self.file_out_postfix = '-.csv'
+        self.file_out_postfix_raw = '-raw.csv'
         
         self.url_errors = []
         
         # Initialize a dictionary to save EIA AEO data sets
         self.EIA_data = {'energy_demand' : '',
                          'energy_supply' : '',
-                         'energy_price' : '',
-                         'emissions_end_use' : '',
-                         'emissions_energy_type' : '',
-                         'supplemental' : ''}
+                         #'energy_price' : '',
+                         #'emissions_end_use' : '',
+                         #'emissions_energy_type' : '',
+                         'supplemental' : ''
+                         }
         
         # Create a dictionary of AEO cases, and their corresponding API Ids
         self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.'
@@ -68,6 +76,11 @@ class EIA_AEO:
         
         self.curr_user = getpass.getuser()
         self.api_key = pd.read_csv(self.input_path_EIA + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
+        
+        # Read correspondence files
+        self.corr_EIA_EERE = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia, header = 3)
+        self.corr_EIA_energy_carrier = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia_energy_carrier, header = 3)
+        self.corr_EIA_fuel_pool = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia_fuel_pool, header = 3)
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
     def eia_sector_import (self, aeo_case, df_aeo_key, tab, verbose=False): 
@@ -216,16 +229,40 @@ class EIA_AEO:
             self.EIA_data[key] = pd.read_csv(self.input_path_EIA + '\\' + fname)
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     
+    def transform_EERE_tool (self):
+        # Filter out 'Net Coke Import' when in 'Energy carrier'
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
+            self.EIA_data['energy_demand']['End Use'] != 'Net Coke Imports']
+        
+        # replacing industrial flows that use natural gas for hydrogen production to hydrogen as energy carrier
+        # Convert energy efficiency from natural gas to hydrogen
+        self.EIA_data['energy_demand'].loc[
+            (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
+            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Value' ] = \
+        self.EIA_data['energy_demand'].loc[
+            (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
+            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Value' ] * 0.72
+        
+        self.EIA_data['energy_demand'].loc[
+            (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
+            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier type' ] = 'Natural Gas'
+        
+        self.EIA_data['energy_demand'].loc[
+            (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
+            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
+    
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
-        for key in self.EIA_data.keys():
+        # ['energy_demand', 'energy_supply', 'energy_price', 'emissions_end_use', 'emissions_energy_type', 'supplemental']
+        for key in ['energy_demand']:
             self.EIA_data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data[key][['Unit', 'Value']].copy())
    
-    def conv_HHV_to_LHV (self, aeo_cases, ob_units, load_from_disk, verbose):
-        if load_from_disk:
-            self.eia_multi_sector_import_disk (aeo_cases)
-        else:
+    def conv_HHV_to_LHV (self, aeo_cases, ob_units, fetch_data, verbose):
+        if fetch_data:
             self.eia_multi_sector_import_web (aeo_cases, verbose)
+            
+        else:
+            self.eia_multi_sector_import_disk (aeo_cases)
         
         self.EIA_data_QA = self.EIA_data.copy()
         self.EIA_data_QA['energy_demand'] = pd.merge(self.EIA_data_QA['energy_demand'], ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
@@ -233,11 +270,11 @@ class EIA_AEO:
         self.EIA_data_QA['energy_demand']['Value'] = self.EIA_data_QA['energy_demand']['Value'] * self.EIA_data_QA['energy_demand']['LHV_by_HHV']
     
     # T&D loss
-    def calc_TandD_loss (self, aeo_cases, load_from_disk, verbose):
-        if load_from_disk:
-            self.eia_multi_sector_import_disk (aeo_cases)
-        else:
+    def calc_TandD_loss (self, aeo_cases, fetch_data, verbose):
+        if fetch_data:
             self.eia_multi_sector_import_web (aeo_cases, verbose)
+        else:
+            self.eia_multi_sector_import_disk (aeo_cases)
         
         self.net_gen = self.EIA_data['supplemental'].\
           loc[(self.EIA_data['supplemental']['Parameter'] == 'Electricity Generation') & 
@@ -283,11 +320,11 @@ class EIA_AEO:
         self.E_sources['E_frac_by_source'] = self.E_sources['E_by_source'] / self.E_sources['E_total']
         
     # Function to calculate the fraction of Ethanol in E85 fuel blend over the years
-    def classify_E85 (self, aeo_cases, load_from_disk):        
-        if load_from_disk:
-            self.eia_multi_sector_import_disk (aeo_cases)
+    def classify_E85 (self, aeo_cases, fetch_data, verbose):        
+        if fetch_data:
+            self.eia_multi_sector_import_web (aeo_cases, verbose)            
         else:
-            self.eia_multi_sector_import_web (aeo_cases, verbose)
+            self.eia_multi_sector_import_disk (aeo_cases)
             
         # sum over End Use==E85, for each year
         E85_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'E85')]
@@ -306,11 +343,11 @@ class EIA_AEO:
         
     
     # Function to calculate the fraction of Ethanol in Motor Gasoline fuel blend over the years
-    def classify_Egasoline (self, aeo_case, load_from_disk):
-        if load_from_disk:
-            self.eia_multi_sector_import_disk (aeo_case)
-        else:
+    def classify_Egasoline (self, aeo_case, fetch_data, verbose):
+        if fetch_data:
             self.eia_multi_sector_import_web (aeo_case, verbose)
+        else:
+            self.eia_multi_sector_import_disk (aeo_case)
         
         # sum over End Use=='Motor Gasoline', for each year
         Egas_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Motor Gasoline')]
@@ -328,11 +365,11 @@ class EIA_AEO:
         self.Eth_frac_Egas = pd.merge(self.Eth_frac_Egas, self.E_sources[['Year', 'Parameter Levels', 'E_frac_by_source']], how='left', on='Year')
         
     # Function to calculate the fraction of Biodiesel in Distillate Blending fuel blend over the years
-    def classify_BioDieselDistlBlend (self, aeo_case, load_from_disk):
-        if load_from_disk:
-            self.eia_multi_sector_import_disk (aeo_case)
+    def classify_BioDieselDistlBlend (self, aeo_case, fetch_data, verbose):
+        if fetch_data:
+            self.eia_multi_sector_import_web (aeo_case, verbose)            
         else:
-            self.eia_multi_sector_import_web (aeo_case, verbose)
+            self.eia_multi_sector_import_disk (aeo_case)
         
         # sum over End Use=='Motor Gasoline', for each year
         #DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Distillate Fuel Oil')]
@@ -352,7 +389,7 @@ class EIA_AEO:
     
     # Function to calculate the energy source dependancy for Ethanol, Petroleum Gasoline, Biodiesel and Distillate
     # This function should only be ran once the classify_E85, classify_Egasoline, classify_BioDieselDistlBlend functions are called.
-    def calc_EIA_fuel_denand_by_source (self):
+    def calc_EIA_fuel_demand_by_source (self):
                        
         # subset the rows for E85
         mask = self.EIA_data['energy_demand']['Energy carrier'] == 'E85'
@@ -367,12 +404,12 @@ class EIA_AEO:
         
         # perform calculations
         subset['Petroleum Gasoline'] =  subset['Value'] * ( 1 - subset['Eth_frac_in_E85'] )
-        subset['Ethanol, Cellulose'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Cellulose']
-        subset['Ethanol, Corn and Other Starch'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Corn and Other Starch']
+        subset['Ethanol, Cellulosic'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Cellulose']
+        subset['Ethanol, Conventional'] = subset['Value'] * subset['Eth_frac_in_E85'] * subset['From Corn and Other Starch']
         subset = subset.loc[ : , ~subset.columns.isin(['Energy carrier type', 'Value']) ]
         subset = pd.melt(subset, id_vars = ['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use', 
                                    'Energy carrier', 'Classification', 'Basis', 'Unit', 'Year', 'Series Id', 'Table'],
-                        value_vars = ['Ethanol, Corn and Other Starch', 'Ethanol, Cellulose', 'Petroleum Gasoline'],
+                        value_vars = ['Ethanol, Conventional', 'Ethanol, Cellulosic', 'Petroleum Gasoline'],
                         var_name = 'Energy carrier type', value_name = 'Value').reset_index(drop=True)
         
         # save the modified rows
@@ -392,12 +429,12 @@ class EIA_AEO:
         
         # perform calculations
         subset['Petroleum Gasoline'] =  subset['Value'] * ( 1 - subset['Eth_frac_in_Egas'] )
-        subset['Ethanol, Cellulose'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Cellulose']
-        subset['Ethanol, Corn and Other Starch'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Corn and Other Starch']
+        subset['Ethanol, Cellulosic'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Cellulose']
+        subset['Ethanol, Conventional'] = subset['Value'] * subset['Eth_frac_in_Egas'] * subset['From Corn and Other Starch']
         subset = subset.loc[ : , ~subset.columns.isin(['Energy carrier type', 'Value']) ]
         subset = pd.melt(subset, id_vars = ['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use', 
                                    'Energy carrier', 'Classification', 'Basis', 'Unit', 'Year', 'Series Id', 'Table'],
-                        value_vars = ['Ethanol, Corn and Other Starch', 'Ethanol, Cellulose', 'Petroleum Gasoline'],
+                        value_vars = ['Ethanol, Conventional', 'Ethanol, Cellulosic', 'Petroleum Gasoline'],
                         var_name = 'Energy carrier type', value_name = 'Value').reset_index(drop=True)
         
         # save the modified rows
@@ -426,11 +463,56 @@ class EIA_AEO:
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [~mask]
         self.EIA_data['energy_demand'] = pd.concat([subset, self.EIA_data['energy_demand']], axis=0).reset_index(drop=True)
         
+    # Map correspondence files
+    def map_corr_tables (self):      
+        
+        # merge EERE conventions on Sector, Subsector, and End Use Applications
+        
+        self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_EIA_EERE,
+                               how='left',
+                               left_on=['Sector', 'Subsector', 'End Use'],
+                               right_on=['EIA: Sector', 'EIA: Subsector', 'EIA: End Use Application']).reset_index(drop=True)
+        
+        # Remove duplicate columns before renaming columns
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'].loc [:, ~self.EIA_data['energy_demand'].columns.isin(['EIA: End Use Application', 'End Use'])].copy()
+
+        # Standardize column names
+        self.EIA_data['energy_demand'].rename(columns = {'Sector_y' : 'Sector',
+                                                         'Subsector_y' : 'Subsector', 
+                                                         'Energy Carrier' : 'Activity', 
+                                                         'Date' : 'Year',                            
+                                                         'Series Id' : 'EIA Series ID'}, inplace = True)
+        # Rearrange columns
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [['Data Source', 'AEO Case', 'Sector', 'Subsector', 
+                                                                          'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
+                                                                          'Year', 'Unit', 'Value']]
+        
+        # merge EERE 'energy carrier' conventions to EIA tool
+        
+        self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_EIA_energy_carrier,
+                               how='left',
+                               left_on=['Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Energy carrier type'],
+                               right_on=['Sector', 'Subsector', 'End Use Application', 'EIA: Energy carrier', 'EIA: Energy carrier type']).reset_index(drop=True)
+                
+        self.EIA_data['energy_demand'].rename(columns = {'Sector_x' : 'Sector',
+                                                         'Subsector_x' : 'Subsector', 
+                                                         'End Use Application_x' : 'End Use Application',
+                                                         'Energy carrier_y' : 'Energy carrier', 
+                                                         'Energy carrier type_y' : 'Energy carrier type'}, inplace = True)
+        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [['Data Source', 'AEO Case', 'Sector', 'Subsector', 
+                                                                          'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
+                                                                          'Year', 'Unit', 'Value']]
+        
+        # Merge fuel pool
+        self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)
     
     # Save data to file, one data table per data set
-    def save_EIA_data_to_file (self):
+    def save_EIA_data_to_file (self, raw_file_save=False):
         for key in self.EIA_data.keys():
-            self.EIA_data[key].to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
+            if raw_file_save == True:
+                self.EIA_data[key].to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + key + self.file_out_postfix_raw, index = False)
+            else:
+                self.EIA_data[key].to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + key + self.file_out_postfix, index = False)
             
     def save_TandD_data_to_file (self, fname = 'TandD'):
         self.TandD.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
@@ -444,32 +526,31 @@ class EIA_AEO:
     def save_BDDB_data_to_file (self, fname = 'BioDieselDistlBlend_frac'):
         self.Eth_frac_Egas.to_csv(self.input_path_EIA + '\\' + self.file_out_prefix + fname + self.file_out_postfix, index = False)
        
-    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):    
-        
-        load_from_disk = True
+    def EERE_data_flow_EIA_AEO (self, ob_units, fetch_data, save_to_file, verbose):            
         
         if fetch_data:
-            self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), load_from_disk, verbose = False )
-            load_from_disk = False
+            self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), verbose = False )
         else:
             self.eia_multi_sector_import_disk(self.aeo_case_dict.keys())   
-            load_from_disk = True
+        
+        self.transform_EERE_tool()
         
         self.standardize_units(ob_units)
         
-        self.calc_TandD_loss(self.aeo_case_dict.keys(), load_from_disk, verbose)
+        self.calc_TandD_loss(self.aeo_case_dict.keys(), fetch_data, verbose) 
         
-        self.classify_E85(self.aeo_case_dict.keys(), load_from_disk)
+        self.classify_E85(self.aeo_case_dict.keys(), fetch_data, verbose)
         
-        self.classify_Egasoline(self.aeo_case_dict.keys(), load_from_disk)
+        self.classify_Egasoline(self.aeo_case_dict.keys(), fetch_data, verbose)
         
-        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), load_from_disk)
+        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), fetch_data, verbose)
         
-        self.calc_EIA_fuel_denand_by_source()
+        self.calc_EIA_fuel_demand_by_source()
+        
+        self.map_corr_tables()
         
         if save_to_file:
-            if fetch_data:
-                self.save_EIA_data_to_file()
+            self.save_EIA_data_to_file(raw_file_save=False)
             self.save_TandD_data_to_file()
             self.save_E85_data_to_file()
             self.save_Egas_data_to_file()
@@ -489,6 +570,7 @@ if __name__ == "__main__":
     input_path_GREET = input_path_prefix + '\\GREET'    
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
+    EIA_AEO_fetch_data = True
     save_to_file = True
     verbose = True
     load_from_disk = True
@@ -499,25 +581,32 @@ if __name__ == "__main__":
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     init_time = datetime.now()
-    ob = EIA_AEO(input_path_EIA)   
+    ob = EIA_AEO(input_path_EIA, input_path_corr)   
     
-    eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
+    if EIA_AEO_fetch_data:
+        eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
+        ob.save_EIA_data_to_file(raw_file_save=True)
+    else:
+        ob.eia_multi_sector_import_disk(ob.aeo_case_dict.keys())   
+    
+    ob.transform_EERE_tool()
+    
     ob.standardize_units(ob_units)
     
     ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, load_from_disk, verbose)
     
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     
-    ob.classify_E85(ob.aeo_case_dict.keys(), load_from_disk)
+    ob.classify_E85(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     
-    ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk)
+    ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk, verbose)
     
     ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), load_from_disk)
     
     ob.calc_EIA_fuel_denand_by_source()
     
     if save_to_file:
-        ob.save_EIA_data_to_file()
+        ob.save_EIA_data_to_file(raw_file_save=False)
         ob.save_TandD_data_to_file()
         ob.save_E85_data_to_file()
         ob.save_Egas_data_to_file()
