@@ -34,7 +34,7 @@ class GREET_EF:
         
         #self.ef = pd.read_excel(self.data_path_prefix + '\\' + self.f_name)
         #self.hv = pd.read_excel(self.data_path_prefix + '\\' + self.f_hv, sheet_name = self.sheet_hv)
-        self.ef = pd.read_csv(self.data_path_prefix + '\\' + self.f_ef, header = 3)
+        self.ef = pd.read_csv(self.data_path_prefix + '\\' + self.f_ef, header = 3).drop_duplicates()
         
         # Emission factor approximate conversion from LHV to HHV (multiply by 0.9)
         #self.ef['BAU'] = [0 if np.isnan(x) else x for x in self.ef['BAU'] * 0.9 ]
