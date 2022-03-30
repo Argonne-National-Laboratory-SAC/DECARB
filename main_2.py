@@ -34,12 +34,12 @@ f_lcia_sheet = 'Tidy'
 # Declaring correlation filenames
 f_eia = 'EIA Dataset.csv'
 f_NREL_elec_option = 'report - All Options EFS.xlsx'
-f_ef = 'GREET_EF_EERE.csv'
-f_corr_ef_greet = 'corr_EF_GREET.csv'
-f_corr_elec_gen = 'corr_elec_gen.csv'
+f_corr_ef_greet = 'corr_EF_GREET.xlsx'
+
+sheet_corr_ef_greet = 'corr_EF_GREET'
 
 # Model data pull and intermediate file saving options
-EIA_AEO_fetch_data = True # True for fetching EIA AEO data, False for loading pre-compiled data
+EIA_AEO_fetch_data = False # True for fetching EIA AEO data, False for loading pre-compiled data
 EIA_AEO_save_to_file = True # True for saving fetched data and saving it to file
 save_interim_files = True
 
@@ -50,11 +50,6 @@ lcia_timeframe = 100
 
 # EIA AEO data case
 EIA_AEO_case_option = ['Reference case']
-
-# Define EIA AEO case correspondence to EERE Tool case 
-EIA_EERE_case = {
-    'Reference case' : 'Reference case'
-}
 
 # T&D assumption, constant or calculated
 T_and_D_loss_constant = True
@@ -103,7 +98,6 @@ ob_EPA_GHGI = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr )
 
 ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' category emissions
 
-# move this saving to the script of EPA
 if save_interim_files:
     ob_EPA_GHGI.df_ghgi.to_excel(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
 
@@ -111,15 +105,13 @@ if save_interim_files:
 ob_elec = NREL_elec(f_NREL_elec_option, input_path_electricity )
 
 # GREET emission factor load
-ob_ef = GREET_EF(f_ef, input_path_GREET )
-#ob_ef.ef = ob_ef.ef[ ~(ob_ef.ef['Scope'] == 'Supply Chain')]
+ob_ef = GREET_EF(input_path_GREET )
                       
 # Data tables for correspondence across data sets
-corr_EF_GREET = pd.read_csv(input_path_corr + '\\' + f_corr_ef_greet, header = 3)
-corr_elec_gen = pd.read_csv(input_path_corr + '\\' + f_corr_elec_gen, header = 3)
+corr_EF_GREET = pd.read_excel(input_path_corr + '\\' + f_corr_ef_greet, sheet_name = sheet_corr_ef_greet, header = 3)
 
-lcia_data = pd.read_excel(input_path_EPA + '\\' + f_lcia, sheet_name = f_lcia_sheet)
-         
+# Life Cycle Impact Assessment metrics table
+lcia_data = pd.read_excel(input_path_EPA + '\\' + f_lcia, sheet_name = f_lcia_sheet)         
 lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_data['timeframe_years'] == lcia_timeframe) ]
 
 #%%
@@ -128,17 +120,13 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 
 activity = ob_eia.EIA_data['energy_demand'].copy()
 
-activity['Case'] =  activity['AEO Case'].map(EIA_EERE_case)
-
 print('Status: Constructing Electric generation activity and Emission Factors data frames ..')
     
-# Merge Electricity generation data with 'Electricity generation types' tags
-elec_gen = pd.merge(ob_eia.EIA_data['energy_supply'], corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
-elec_gen['Case'] =  elec_gen['AEO Case'].map(EIA_EERE_case) 
+# 1. net generation & emissions in one df/file 
+# 2. aggregrated electricity gen with T&D loss and norm with total emissions df/file
 
 # Map with correlation matrix to GREET pathway names
-corr_EF_GREET = corr_EF_GREET[['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'End Use Application', 'GREET Pathway']].drop_duplicates()
-ob_ef.ef = pd.merge(ob_ef.ef, corr_EF_GREET, how='left',on='GREET Pathway')
+ob_ef.ef = pd.merge(ob_ef.ef, corr_EF_GREET.loc[:, ~ corr_EF_GREET.columns.isin(['GREET Tab', 'GREET Version'])], how='right',on=['GREET Pathway', 'Scope']).reset_index(drop=True)
 
 # Filter combustion data for electricity generation 
 ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])].copy()

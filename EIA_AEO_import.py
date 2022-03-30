@@ -46,10 +46,16 @@ class EIA_AEO:
         self.file_corr_eia = 'corr_EIA_EERE.csv'
         self.file_corr_eia_energy_carrier = 'corr_EIA_energy_carrier.csv'
         self.file_corr_eia_fuel_pool = 'corr_fuel_pool.csv'
+        self.file_corr_elec_gen = 'corr_elec_gen.csv'
         
         self.file_out_prefix = 'EIA Dataset-'
         self.file_out_postfix = '-.csv'
         self.file_out_postfix_raw = '-raw.csv'
+        
+        # Define EIA AEO case correspondence to EERE Tool case 
+        self.EIA_EERE_case = {
+            'Reference case' : 'Reference case'
+        }
         
         self.url_errors = []
         
@@ -81,6 +87,7 @@ class EIA_AEO:
         self.corr_EIA_EERE = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia, header = 3)
         self.corr_EIA_energy_carrier = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia_energy_carrier, header = 3)
         self.corr_EIA_fuel_pool = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia_fuel_pool, header = 3)
+        self.corr_elec_gen = pd.read_csv(input_path_corr + '\\' + self.file_corr_elec_gen, header = 3)
         
     # Function to fetch sector-wide energy consumption and CO2 emissions    
     def eia_sector_import (self, aeo_case, df_aeo_key, tab, verbose=False): 
@@ -207,10 +214,7 @@ class EIA_AEO:
             self.EIA_data[tab] = pd.concat ((self.EIA_data[tab], pd.concat(temp_list, axis=0).reset_index(drop=True).copy()), axis=0 )
         else:
             self.EIA_data[tab] = pd.concat(temp_list, axis=0).reset_index(drop=True).copy()       
-    
-    # Use the function to create datasets for sector-specific and AEO cases: 
-    #eia_sector_df = eia_sector_import(sector = 'Residential', aeo_case = 'Reference case')
-    
+       
     # Function to store results across multiple combinations of AEO-cases and sectors    
     def eia_multi_sector_import_web (self, aeo_cases, verbose):                     
         #Loop through every combination of AEO Case and Sector 
@@ -225,10 +229,11 @@ class EIA_AEO:
     def eia_multi_sector_import_disk (self, aeo_cases):                     
         #Loop through data tables and load 
         for key in self.EIA_data.keys():
-            fname = self.file_out_prefix + key + self.file_out_postfix
+            fname = self.file_out_prefix + key + self.file_out_postfix_raw
             self.EIA_data[key] = pd.read_csv(self.input_path_EIA + '\\' + fname)
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     
+    # EERE tool based data transformations
     def transform_EERE_tool (self):
         # Filter out 'Net Coke Import' when in 'Energy carrier'
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
@@ -250,6 +255,13 @@ class EIA_AEO:
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
+        
+        self.EIA_data['energy_demand']['Case'] =  self.EIA_data['energy_demand']['AEO Case'].map(self.EIA_EERE_case)
+        
+        # Merge Electricity generation data with 'Electricity generation types' tags
+        self.EIA_data['energy_supply'] = pd.merge(self.EIA_data['energy_supply'], self.corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
+        
+        self.EIA_data['energy_supply']['Case'] =  self.EIA_data['energy_supply']['AEO Case'].map(self.EIA_EERE_case) 
     
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
@@ -462,7 +474,7 @@ class EIA_AEO:
         # save the modified rows
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [~mask]
         self.EIA_data['energy_demand'] = pd.concat([subset, self.EIA_data['energy_demand']], axis=0).reset_index(drop=True)
-        
+                              
     # Map correspondence files
     def map_corr_tables (self):      
         
@@ -530,6 +542,7 @@ class EIA_AEO:
         
         if fetch_data:
             self.eia_multi_sector_import_web(self.aeo_case_dict.keys(), verbose = False )
+            self.save_EIA_data_to_file(raw_file_save=True)
         else:
             self.eia_multi_sector_import_disk(self.aeo_case_dict.keys())   
         
@@ -604,6 +617,8 @@ if __name__ == "__main__":
     ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), load_from_disk)
     
     ob.calc_EIA_fuel_denand_by_source()
+    
+    ob.elec_ref_case()
     
     if save_to_file:
         ob.save_EIA_data_to_file(raw_file_save=False)

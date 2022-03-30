@@ -22,13 +22,13 @@ class GREET_EF:
     
     """
     
-    def __init__ (self, f_ef, data_path_prefix):
+    def __init__ (self, data_path_prefix):
         
         # data loading
         self.data_path_prefix = data_path_prefix
         #self.f_name = 'EERE_scenarios_TS_GREET1_all_summary_v2 - EnergyUsePowerPlantConstMaterial=YES.xlsx'
         #self.f_hv = 'GREETheatingValues.xlsx'
-        self.f_ef = f_ef
+        self.f_ef = 'GREET_EF_EERE.csv'
         
         #self.sheet_hv = 'mappings'
         
