@@ -256,13 +256,6 @@ class EIA_AEO:
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
-        
-        self.EIA_data['energy_demand']['Case'] =  self.EIA_data['energy_demand']['AEO Case'].map(self.EIA_EERE_case)
-        
-        # Merge Electricity generation data with 'Electricity generation types' tags
-        self.EIA_data['energy_supply'] = pd.merge(self.EIA_data['energy_supply'], self.corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
-        
-        self.EIA_data['energy_supply']['Case'] =  self.EIA_data['energy_supply']['AEO Case'].map(self.EIA_EERE_case) 
        
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
@@ -497,6 +490,14 @@ class EIA_AEO:
                                                                           'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
                                                                           'Year', 'Unit', 'Value']]
         
+        # Map EERE study case with EIA AEO case
+        self.EIA_data['energy_demand']['Case'] =  self.EIA_data['energy_demand']['AEO Case'].map(self.EIA_EERE_case).copy()
+        self.EIA_data['energy_supply']['Case'] =  self.EIA_data['energy_supply']['AEO Case'].map(self.EIA_EERE_case)
+        
+        # Merge Electricity generation data with 'Electricity generation types' tags
+        self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True) 
+        self.EIA_data['energy_supply'] = pd.merge(self.EIA_data['energy_supply'], self.corr_elec_gen, how='left', on=['Sector', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
+                
         # Merge fuel pool
         self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)
         self.EIA_data['energy_supply'] = pd.merge(self.EIA_data['energy_supply'], self.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)

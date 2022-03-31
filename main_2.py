@@ -121,9 +121,6 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 # track ng use as a feedstock for hydrogen in a separate df
 # steam methane reform ef from thet data frame
 
-
-activity = ob_eia.EIA_data['energy_demand'].copy()
-
 print('Status: Constructing Electric generation activity and Emission Factors data frames ..')
     
 # 1. net generation & emissions in one df/file 
@@ -240,6 +237,11 @@ electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
 if save_interim_files == True:
     electric_ef_gen_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
 """
+
+activity = ob_eia.EIA_data['energy_demand'].copy()
+
+pd.merge(activity, ob_ef.ef, how='left', on=['Case', 'Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'End Use Application', 'Year'])
+
 activity # map direct combustion wrt energy carrier for non-electric. for electric, map aggreg CIs that we calculated . then calculate the net emissions and GWPs
 # activity_non_electric
 # activity_electric
