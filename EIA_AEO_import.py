@@ -535,6 +535,8 @@ class EIA_AEO:
         
         self.standardize_units(ob_units)
         
+        self.conv_HHV_to_LHV (self.aeo_case_dict.keys(), ob_units, verbose)
+        
         self.calc_TandD_loss(self.aeo_case_dict.keys(), verbose) 
         
         self.classify_E85(self.aeo_case_dict.keys(), verbose)
@@ -591,19 +593,19 @@ if __name__ == "__main__":
     
     ob.standardize_units(ob_units)
     
-    ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, load_from_disk, verbose)
+    ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, verbose)
     
-    ob.calc_TandD_loss(ob.aeo_case_dict.keys(), load_from_disk, verbose)
+    ob.calc_TandD_loss(ob.aeo_case_dict.keys(), verbose)
     
-    ob.classify_E85(ob.aeo_case_dict.keys(), load_from_disk, verbose)
+    ob.classify_E85(ob.aeo_case_dict.keys(), verbose)
     
-    ob.classify_Egasoline(ob.aeo_case_dict.keys(), load_from_disk, verbose)
+    ob.classify_Egasoline(ob.aeo_case_dict.keys(), verbose)
     
-    ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), load_from_disk)
+    ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), verbose)
     
-    ob.calc_EIA_fuel_denand_by_source()
+    ob.calc_EIA_fuel_demand_by_source()
     
-    ob.elec_ref_case()
+    ob.map_corr_tables()
     
     if save_to_file:
         ob.save_EIA_data_to_file(raw_file_save=False)
