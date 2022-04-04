@@ -290,52 +290,6 @@ activity_non_elec_neu = activity_non_elec_neu[['Data Source', 'AEO Case', 'Case'
                                'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
                                'Unit', 'Value', 'CI', 'Total Emissions']]
 
-
-"""
-print('Status: Constructing non-electric activity sectors as per EIA AEO data set ..')
-
-# Reference case scenario dev for non-electricity generation sectors and non-electric activities
-activity_non_elec = activity.copy()
-activity_non_elec = activity_non_elec.loc [~ (activity_non_elec['Energy carrier'] == 'Electricity')]
-
-# Filter combustion data for non electric
-ob_ef.ef_non_electric = ob_ef.ef.loc[ob_ef.ef['Energy carrier'].isin(activity_non_elec['Energy carrier'].unique())].drop_duplicates()
-ob_ef.ef_non_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
-                                    'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)
-
-# Merge emission factors for non-electric generation activites
-non_electric_ef_activity = pd.merge(ob_ef.ef_non_electric[['Flow Name', 'Formula', 'EF_Unit (Numerator)', 
-                            'EF_Unit (Denominator)', 'Case', 'Scope', 
-                            'Sector', 'Subsector', 'End Use Application', 'Year', 
-                                'Reference case', 'Elec0', 'Energy carrier', 'GREET Pathway']], 
-         activity_non_elec[['AEO Case', 'Case', 'Sector', 'Subsector', 'End Use Application',
-                            'Energy carrier', 'Basis', 'Year', 'Unit', 
-                            'Value', 'Energy carrier type', 'Fuel Pool']],
-             how='left',
-             on=['Case', 'Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Year']).drop_duplicates()
-non_electric_ef_activity.to_csv(interim_path_prefix + '\\' + 'non_electric_ef_activity_test.csv')   
-# calculate total emissions
-non_electric_ef_activity['Total Emissions'] = non_electric_ef_activity['reference case'] * non_electric_ef_activity['Value']
-#non_electric_ef_activity.dropna(axis=1, how='all', inplace=True)
-
-# Add additional columns, rename columns, re-arrange columns
-#non_electric_ef_activity[['Activity Type']] = '-'
-non_electric_ef_activity = non_electric_ef_activity.rename(columns={
-                                                            'Reference case' : 'EF_withElec',
-                                                            'Elec0' : 'EF_Elec0',
-                                                            'Value' : 'Energy Estimate'
-                                                          })
-non_electric_ef_activity = non_electric_ef_activity[['AEO Case', 'Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
-                          'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 
-                          'Year', 'Unit', 'Energy Estimate', 'Scope', 'Flow Name', 'Formula', 
-                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
-                          'EF_withElec', 'EF_Elec0', 'Total Emissions']]
- 
-if save_interim_files == True:
-    non_electric_ef_activity.to_csv(interim_path_prefix + '\\' + 'interim_non_electric_ef_activity.csv')   
-    
-"""
-
 # Arranging non-combustion emissions from EPA GHGI
 print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
 # Filter latest year data from EPA GHGI
@@ -397,39 +351,35 @@ activity_non_combust_exp = activity_non_combust.copy()
 for yr in range(EERE_yr_min+1, EERE_yr_max+1): # [a,)
     activity_non_combust['Year'] = yr
     activity_non_combust_exp = pd.concat ([activity_non_combust_exp, activity_non_combust], axis=0).copy().reset_index(drop=True)
-"""    
-activity_non_combust_exp[['Emissions Unit', 'Value']] = ob_units.unit_convert_df(activity_non_combust_exp[['Emissions Unit', 'Value']],
-                                                                       Unit = 'Emissions Unit', Value = 'Value',          
-                                                                       if_given_unit=True, given_unit='g')
-"""
-activity_non_combust_exp['Total Emissions'] = activity_non_combust_exp['Total Emissions'] * 1e12
-activity_non_combust_exp['Emissions Unit'] = 'g' 
+   
+activity_non_combust_exp[['Emissions Unit', 'Total Emissions']] = ob_units.unit_convert_df(activity_non_combust_exp[['Emissions Unit', 'Total Emissions']],
+                                                                       Unit = 'Emissions Unit', Value = 'Total Emissions',          
+                                                                       if_given_unit=True, given_unit = elec_gen_em_agg['Emissions Unit'].unique()[0])
+
+#activity_non_combust_exp['Total Emissions'] = activity_non_combust_exp['Total Emissions'] * 1e12
+#activity_non_combust_exp['Emissions Unit'] = 'g' 
 
 # Generate the Environmental Matrix
 activity_BAU = pd.concat ([activity_non_combust_exp, activity_elec, activity_non_elec, activity_non_elec_neu], axis=0).reset_index(drop=True)
-
-# filter out incomplete rows if any 
-activity_BAU = activity_BAU[activity_BAU['Total Emissions'] != ''].copy() 
-
-# unit conversion
-#activity_BAU [['EF_Unit (Numerator)', 'Total Emissions']] = \
-#ob_units.unit_convert_df(activity_BAU [['Emissions Unit', 'Total Emissions']], Unit='Emissions Unit', Value='Total Emissions', if_given_category=True, unit_category='Emissions').copy()
 
 # Calculate LCIA metric
 activity_BAU = pd.merge(activity_BAU, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
 activity_BAU['LCIA_estimate'] = activity_BAU['Total Emissions'] * activity_BAU['GWP']
 
-#activity_BAU.drop_duplicates(inplace=True)
+activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
 
-activity_BAU['LCIA_estimate'] = activity_BAU['LCIA_estimate'] * 1e-12 # converting grams to million metric ton
-activity_BAU['Unit'] = 'MMmt'
+#activity_BAU['LCIA_estimate'] = activity_BAU['LCIA_estimate'] * 1e-12 # converting grams to million metric ton
+#activity_BAU['Unit'] = 'MMmt'
 
 print("Status: Saving activity_reference case table to file ..")
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case.csv')
     
-activity_BAU_agg = activity_BAU.groupby(['Year', 'Sector']).agg({
-                                            'LCIA_estimate' : 'sum'})
+activity_BAU_agg = activity_BAU.groupby(['Year', 'Sector', 'Emissions Unit']).agg({
+                                            'LCIA_estimate' : 'sum'}).reset_index()
 
 if save_interim_files == True:
     activity_BAU_agg.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg.csv')
