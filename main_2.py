@@ -201,17 +201,8 @@ if save_interim_files == True:
 elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, how='left', on=['Year', 'Sector', 'End Use Application', 'Energy carrier']).drop(columns=['loss_frac']) 
 elec_gen_em_agg.rename(columns={
     'Unit' : 'Energy Unit', 'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
-elec_gen_em_agg['CI'] = elec_gen_em_agg['Total Emissions'] / elec_gen_em_agg['Electricity Production']
 
-if save_interim_files == True:
-    elec_gen_em_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_agg_CI.csv')
-                                                
-
-""" Adding GHG emissions from incineration of waste from EPA's GHGI, 
-Electrical Transmission and Distribution, and Other Process Uses of Carbonates.
-Values from 2019, as constant to all the years.
-"""
-
+# Adding GHG emissions from incineration of waste from EPA's GHGI, 
 
 EPA_GHGI_maxyear = np.max(ob_EPA_GHGI.df_ghgi['Year'])
 EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
@@ -219,33 +210,30 @@ EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
      'Electrical Transmission and Distribution', 
      'Other Process Uses of Carbonates'])) & 
    (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear) ]
-"""
+
 EPA_GHGI_addn_em = EPA_GHGI_addn_em.\
     groupby(['Year', 'Source', 'Emissions Type', 'Unit']).\
         agg({'GHG Emissions' : 'sum'}).reset_index()
+        
+EPA_GHGI_addn_em_agg = EPA_GHGI_addn_em.groupby(['Emissions Type', 'Unit']).agg({'GHG Emissions' : 'sum'}).reset_index()
          
 # unit conversion
-EPA_GHGI_addn_em [['Unit', 'GHG Emissions']] = ob_units.unit_convert_df (
-    EPA_GHGI_addn_em [['Unit', 'GHG Emissions']], Unit='Unit', Value='GHG Emissions', if_given_unit = True, 
-    given_unit = electric_ef_gen_agg['Emissions Unit'].unique()[0]).copy()
+EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']] = ob_units.unit_convert_df (
+    EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']], Unit='Unit', Value='GHG Emissions', if_given_unit = True, 
+    given_unit = elec_gen_em_agg['Emissions Unit'].unique()[0]).copy()
 
-# Merge and add to electricity emissions df 
-electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, EPA_GHGI_addn_em[['Emissions Type', 'GHG Emissions']], 
+elec_gen_em_agg = pd.merge(elec_gen_em_agg, EPA_GHGI_addn_em_agg, 
                                how='left', left_on='Formula', right_on='Emissions Type')
-electric_ef_gen_agg['Total Emissions'] = electric_ef_gen_agg['Total Emissions'] + electric_ef_gen_agg['GHG Emissions']
-electric_ef_gen_agg.drop(['GHG Emissions'], axis=1, inplace=True) # at this stage, the total emissions represent emissions including incineration of waste.
 
-# Merge T&D loss data
-electric_ef_gen_agg = pd.merge(electric_ef_gen_agg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
+elec_gen_em_agg['Total Emissions'] = elec_gen_em_agg['Total Emissions'] + elec_gen_em_agg['GHG Emissions']
+elec_gen_em_agg = elec_gen_em_agg.drop(columns=['GHG Emissions'])
 
-# Recalculate the Electricity generation, combustion based CI
-electric_ef_gen_agg['CI'] = electric_ef_gen_agg['Total Emissions'] / \
-    ( electric_ef_gen_agg['Electricity Production'] * (1 - electric_ef_gen_agg['loss_frac']) )
-    
+elec_gen_em_agg['CI'] = elec_gen_em_agg['Total Emissions'] / elec_gen_em_agg['Electricity Production']
+
 if save_interim_files == True:
-    electric_ef_gen_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_ef_gen_agg_2.csv')
-"""
-# separate non-electric, non-electric NEU, and electric activities --> merge to ef data frames and calculate total emissions
+    elec_gen_em_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_agg_CI.csv')
+
+# Separate non-electric, non-electric NEU, and electric activities --> merge to ef data frames and calculate total emissions
 
 activity_elec = ob_eia.EIA_data['energy_demand'].loc[ob_eia.EIA_data['energy_demand']['Energy carrier'] == 'Electricity',:]
 

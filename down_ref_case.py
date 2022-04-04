@@ -51,10 +51,9 @@ from unit_conversions import model_units   """
 
 activity_BAU = pd.read_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case.csv')
 
-activity_BAU = activity_BAU.loc[(activity_BAU['Year'] == 2020) &
-                                        (activity_BAU['Scope'].isin(['Direct, Combustion', 'Direct, Non-Combustion']) ), :]
+activity_BAU = activity_BAU.loc[(activity_BAU['Year'] == 2020), :]
 
-activity_BAU_elec = activity_BAU.loc[activity_BAU['Energy carrier type'].isin(['U.S. Average Mix', 'U.S. Average Grid Mix']), : ]
+activity_BAU_elec = activity_BAU.loc[activity_BAU['Scope'].isin(['']), : ]
 
 activity_BAU_non_elec = activity_BAU.loc[~activity_BAU['Energy carrier type'].isin(['U.S. Average Mix', 'U.S. Average Grid Mix']), : ]
 

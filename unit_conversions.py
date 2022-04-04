@@ -141,7 +141,7 @@ class model_units:
             print(missing_keys)
             raise KeyError ('Please update the unit_conversions table before model execution .. ')
         
-        df['Value'] = np.where(
+        df[Value] = np.where(
              [x in self.dict_units for x in df['unit_conv'] ],
              df[Value] * df['unit_conv'].map(self.dict_units),
              df[Value] )
