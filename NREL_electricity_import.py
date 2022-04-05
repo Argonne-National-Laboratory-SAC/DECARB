@@ -84,44 +84,66 @@ class NREL_elec:
                 
         }
     
-    def __init__(self, f_name, data_path_prefix):
+    def __init__(self, data_path_prefix, f_name_option = 'report - All Options EFS.xlsx'):
         
         # data loading
         self.data_path_prefix = data_path_prefix + '\\' + 'NREL electricity_20220105'
-        self.f_name = f_name
-        self.f_sheet = '1_Generation (TWh)'
-        self.elec_gen = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, sheet_name = self.f_sheet)
+                
+        self.sheet_gen = '1_Generation (TWh)'
+        self.sheet_capa = '2_Capacity (GW)'
         
-        # mappings
-        self.elec_gen['EERE_Activity'] = np.where(
-             [x in self.nrel_to_eere_mappings for x in self.elec_gen['tech'] ],
-             self.elec_gen['tech'].map(self.nrel_to_eere_mappings),
-             self.elec_gen['tech'] )
+        self.NREL_elec = {  'file_option' : f_name_option,
+                            'generation' : '',
+                            'capacity' : ''
+                          }
+        
+        self.NREL_elec['generation'] = pd.read_excel(self.data_path_prefix + '\\' + self.NREL_elec['file_option'], sheet_name = self.sheet_gen)
+        self.NREL_elec['capacity'] = pd.read_excel(self.data_path_prefix + '\\' + self.NREL_elec['file_option'], sheet_name = self.sheet_capa)
+        
+        # Mapping technology to generation categories as per the EERE Tool
+        
+        self.NREL_elec['generation']['Energy carrier'] = np.where(
+             [x in self.nrel_to_eere_mappings for x in self.NREL_elec['generation']['tech'] ],
+             self.NREL_elec['generation']['tech'].map(self.nrel_to_eere_mappings),
+             self.NREL_elec['generation']['tech'] )
+        
+        self.NREL_elec['capacity']['Energy carrier'] = np.where(
+             [x in self.nrel_to_eere_mappings for x in self.NREL_elec['capacity']['tech'] ],
+             self.NREL_elec['capacity']['tech'].map(self.nrel_to_eere_mappings),
+             self.NREL_elec['capacity']['tech'] )
         
     def summarize_byEERE_categories (self):
-        self.elec_gen.drop(['tech'], axis=1, inplace=True)
-        self.elec_gen = self.elec_gen.groupby(['scenario', 'year', 'EERE_Activity'], as_index=False).sum()
         
-    def grid_mix_yearly (self):
-        tdf1 = self.elec_gen.groupby (['scenario', 'year']).sum()
-        tdf2 = pd.merge(self.elec_gen, tdf1, how = 'left', left_on=['scenario', 'year'], right_on=['scenario', 'year']).reset_index()
+        self.NREL_elec['generation'].drop(['tech'], axis=1, inplace=True)
+        self.NREL_elec['generation'] = self.NREL_elec['generation'].groupby(['scenario', 'year', 'Energy carrier'], as_index=False).sum()
+        
+        self.NREL_elec['capacity'].drop(['tech'], axis=1, inplace=True)
+        self.NREL_elec['capacity'] = self.NREL_elec['capacity'].groupby(['scenario', 'year', 'Energy carrier'], as_index=False).sum()
+        
+    def generation_grid_mix_yearly (self):
+        
+        tdf1 = self.NREL_elec['generation'].groupby (['scenario', 'year']).sum()
+        
+        tdf2 = pd.merge(self.NREL_elec['generation'], tdf1, how = 'left', left_on=['scenario', 'year'], right_on=['scenario', 'year']).reset_index()
+        
         tdf2['perc_mix_Generation (TWh)'] = tdf2['Generation (TWh)_x'] / tdf2['Generation (TWh)_y'] * 100
+        
         return tdf2
         
 
 if __name__ == '__main__':
     
     # Please change the path to data folder per your computer
-    #data_path_prefix = 'C:\\Users\\skar\\Box\\saura_self\\Proj - EERE Decarbonization\\data\\NREL electricity_20220105'
-    data_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\EERE Tool\\Data\\Script_data_model\\1_input_files\\Electricity\\NREL electricity_20220105'
-    f_option = 'report - All Options EFS.xlsx'
+    
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_elec = input_path_prefix + '\\Electricity'    
     
     init_time = datetime.now()
     
-    ob1 = NREL_elec(f_option, data_path_prefix)
+    ob1 = NREL_elec(input_path_elec)
     ob1.summarize_byEERE_categories()
-    r = ob1.elec_gen
-    s = ob1.grid_mix_yearly()
+    
+    s = ob1.generation_grid_mix_yearly()
     
     
     print( 'Elapsed time: ' + str(datetime.now() - init_time))

@@ -377,8 +377,10 @@ activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'L
 print("Status: Saving activity_reference case table to file ..")
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case.csv')
-    
-activity_BAU_agg = activity_BAU.groupby(['Year', 'Sector', 'Emissions Unit']).agg({
+
+activity_BAU_agg = activity_BAU.copy()
+activity_BAU_agg['EIA type'] = ["Electric use activities" if x == 'Electricity, Combustion' else "Non-electric use activities" for x in activity_BAU_agg['Scope']]
+activity_BAU_agg = activity_BAU_agg.groupby(['Year', 'Sector', 'EIA type', 'Formula', 'Emissions Unit']).agg({
                                             'LCIA_estimate' : 'sum'}).reset_index()
 
 if save_interim_files == True:
