@@ -539,7 +539,7 @@ activity_mtg_elec = activity_mtg_elec[['Data Source', 'AEO Case', 'Case', 'Secto
 
 # Calculate LCIA metric
 activity_mtg_elec = pd.merge(activity_mtg_elec, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
-activity_mtg_elec['LCIA_estimate'] = activity_BAU['Total Emissions'] * activity_BAU['GWP']
+activity_mtg_elec['LCIA_estimate'] = activity_mtg_elec['Total Emissions'] * activity_mtg_elec['GWP']
 
 activity_mtg_elec.loc[~activity_mtg_elec['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
   ob_units.unit_convert_df(activity_mtg_elec.loc[~activity_mtg_elec['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
