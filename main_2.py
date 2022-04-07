@@ -193,50 +193,6 @@ electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector'
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'Total Emissions']]
 
-"""
-# Adding GHG emissions from incineration of waste from EPA's GHGI, 
-
-EPA_GHGI_maxyear = np.max(ob_EPA_GHGI.df_ghgi['Year'])
-EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
-    ['Incineration of Waste', 
-     'Electrical Transmission and Distribution', 
-     'Other Process Uses of Carbonates'])) & 
-   (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear) ]
-
-EPA_GHGI_addn_em_agg = EPA_GHGI_addn_em.groupby(['Emissions Type', 'Unit']).agg({'GHG Emissions' : 'sum'}).reset_index()
-         
-# unit conversion
-EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']] = ob_units.unit_convert_df (
-    EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']], Unit='Unit', Value='GHG Emissions', if_given_unit = True, 
-    given_unit = electric_gen_ef['EF_Unit (Numerator)'].unique()[0]).copy()
-
-EPA_GHGI_addn_em_agg.rename(columns={'Emissions Type' : 'Formula',
-                                     'Unit' : 'EF_Unit (Numerator)',
-                                     'GHG Emissions' : 'Total Emissions'}, inplace=True)
-
-EPA_GHGI_addn_em_agg[['AEO Case',
-                      'Case',
-                      'GREET Pathway',
-                      'Sector',
-                      'Subsector',
-                      'End Use Application',
-                      'Energy carrier',
-                      'Energy carrier type',
-                      'Basis',
-                      'Fuel Pool',
-                      'Generation Type',
-                      'Year',
-                      'Energy Unit',
-                      'Electricity Production',
-                      'Scope',
-                      'Flow Name',
-                      'EF_Unit (Denominator)', 
-                      'EF_withElec'
-                      ]] = ''
-electric_gen_ef = pd.concat([EPA_GHGI_addn_em_agg, electric_gen_ef], axis = 0).reset_index(drop=True)
-
-"""
-
 if save_interim_files == True:
     electric_gen_ef.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_emissions.xlsx')
 
@@ -325,87 +281,16 @@ activity_non_elec_neu['Total Emissions'] = activity_non_elec_neu['Value'] * acti
 
 # Re-arrange columns
 
-activity_elec = activity_elec[['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
-                               'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                               'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                               'Unit', 'Value', 'CI', 'Total Emissions']]
+model_col_list = ['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
+                  'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
+                  'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
+                  'Unit', 'Value', 'CI', 'Total Emissions']
 
-activity_non_elec = activity_non_elec[['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
-                               'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                               'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                               'Unit', 'Value', 'CI', 'Total Emissions']]
+activity_elec = activity_elec[model_col_list]
 
-activity_non_elec_neu = activity_non_elec_neu[['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
-                               'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                               'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                               'Unit', 'Value', 'CI', 'Total Emissions']]
-"""
-# Arranging non-combustion emissions from EPA GHGI
-print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
-# Filter latest year data from EPA GHGI
-activity_non_combust = ob_EPA_GHGI.df_ghgi.loc[ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear, :].copy()
+activity_non_elec = activity_non_elec[model_col_list]
 
-# preserve Category and Subcategory information in one column
-activity_non_combust ['Category, Subcategory'] = activity_non_combust ['Category'].copy() + ', ' + activity_non_combust ['Subcategory'].copy()
-
-# Select the needed columns
-activity_non_combust = activity_non_combust[[
-    'Economic Sector',
-    'Source',
-    'Segment',
-    'Category, Subcategory',
-    'Emissions Type',
-    'Year',
-    'Unit',
-    'GHG Emissions'
-    ]]
-
-# Rename columns to match with activity df
-activity_non_combust.rename(columns = {
-    'Economic Sector' : 'Sector',
-    'Source' : 'Subsector',
-    'Segment' : 'Basis',
-    'Category, Subcategory' : 'End Use Application',
-    'Emissions Type' : 'Formula',
-    'GHG Emissions' : 'Total Emissions'    ,
-    'Unit' : 'Emissions Unit'
-    }, inplace=True)
-
-# Adding additional empty columns, to match with other activity df
-activity_non_combust[['AEO Case', 
-                      'Energy carrier',
-                      'Energy carrier type',
-                      'Fuel Pool',
-                      'Flow Name',                      
-                      'Unit',                      
-                      'Value' ,
-                      'CI'                              
-                      ]] = '-'
-
-# Defining values to specific columns
-activity_non_combust['Case'] = 'Reference case'
-activity_non_combust['Scope'] = 'Direct, Non-Combustion'
-activity_non_combust['Data Source'] = 'EPA GHGI'
-
-# Rearranging columns
-activity_non_combust = activity_non_combust[['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
-                                             'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                                             'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                                             'Unit', 'Value', 'CI', 'Total Emissions']]
-# Expand data set for all the years under study
-EERE_yr_min = np.min(electric_gen_ef['Year']).astype(int)
-EERE_yr_max = np.max(electric_gen_ef['Year']).astype(int)
-
-activity_non_combust['Year'] = EERE_yr_min
-activity_non_combust_exp = activity_non_combust.copy()
-for yr in range(EERE_yr_min+1, EERE_yr_max+1): # [a,)
-    activity_non_combust['Year'] = yr
-    activity_non_combust_exp = pd.concat ([activity_non_combust_exp, activity_non_combust], axis=0).copy().reset_index(drop=True)
-   
-activity_non_combust_exp[['Emissions Unit', 'Total Emissions']] = ob_units.unit_convert_df(activity_non_combust_exp[['Emissions Unit', 'Total Emissions']],
-                                                                       Unit = 'Emissions Unit', Value = 'Total Emissions',          
-                                                                       if_given_unit=True, given_unit = elec_gen_em_agg['Emissions Unit'].unique()[0])
-"""
+activity_non_elec_neu = activity_non_elec_neu[model_col_list]
 
 # Generate the Environmental Matrix
 activity_BAU = pd.concat ([ob_EPA_GHGI.activity_non_combust_exp, activity_elec, activity_non_elec, activity_non_elec_neu], axis=0).reset_index(drop=True)

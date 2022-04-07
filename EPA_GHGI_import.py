@@ -68,7 +68,7 @@ class EPA_GHGI_import:
             {'GHG Emissions' : 'sum'}).reset_index()
         
         self.df_ghgi_agg.rename(columns = {'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
-                
+                       
      
     def remove_combustion_other_em (self):
         
@@ -76,8 +76,11 @@ class EPA_GHGI_import:
         mask = (self.df_ghgi['Source'].str.contains('combustion', case=False, na=False))
         self.df_ghgi = self.df_ghgi [~ mask]
         
-        # Removing Others emissions, that represents 'Substitution of Ozone Depleting Substances' category
-        self.df_ghgi = self.df_ghgi.loc[~ (self.df_ghgi['Emissions Type'] == 'Others')]
+        # Removing 'Others' which occur in the 'Substitution of Ozone Depleting Substances' category
+        self.df_ghgi = self.df_ghgi.loc[~ (self.df_ghgi['Emissions Type'] == 'Others') ]
+        
+        # Remove 'Non-Energy Use of Fuels'
+        self.df_ghgi = self.df_ghgi.loc[~ (self.df_ghgi['Source'] == 'Non-Energy Use of Fuels')]
     
     # QA/QC Check    
     def QA_with_table_2_10(self, yr_filter = [2019] ):
