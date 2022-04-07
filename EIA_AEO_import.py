@@ -237,11 +237,11 @@ class EIA_AEO:
     
     # EERE tool based data transformations
     def transform_EERE_tool (self):
+        
         # Filter out 'Net Coke Import' when in 'Energy carrier'
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
             self.EIA_data['energy_demand']['End Use'] != 'Net Coke Imports']
-        
-               
+                       
         # replacing industrial flows that use natural gas for hydrogen production to hydrogen as energy carrier
         # Convert energy efficiency from natural gas to hydrogen
         self.EIA_data['energy_demand'].loc[

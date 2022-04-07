@@ -245,14 +245,12 @@ activity_elec = ob_eia.EIA_data['energy_demand'].loc[ob_eia.EIA_data['energy_dem
 
 activity_non_elec = ob_eia.EIA_data['energy_demand'].loc[ob_eia.EIA_data['energy_demand']['Energy carrier'] != 'Electricity',:]
 
-activity_non_elec_neu = activity_non_elec.loc[activity_non_elec['Energy carrier'].isin(['Hydrocarbon Gas Liquid Feedstocks',
-                                                                                        'Petrochemical Feedstocks',
-                                                                                        'Lubricants',
-                                                                                        'Asphalt and Road Oil']), : ]
-activity_non_elec = activity_non_elec.loc[~activity_non_elec['Energy carrier'].isin(['Hydrocarbon Gas Liquid Feedstocks',
-                                                                                        'Petrochemical Feedstocks',
-                                                                                        'Lubricants',
-                                                                                        'Asphalt and Road Oil']), : ]
+neu_energy_carriers = ['Hydrocarbon Gas Liquid Feedstocks',
+                       'Petrochemical Feedstocks',
+                       'Lubricants',
+                       'Asphalt and Road Oil']
+activity_non_elec_neu = activity_non_elec.loc[activity_non_elec['Energy carrier'].isin(neu_energy_carriers), : ]
+activity_non_elec = activity_non_elec.loc[~activity_non_elec['Energy carrier'].isin(neu_energy_carriers), : ]
 
 # Map direct combustion wrt energy carrier for non-electric. For electric, map aggregrate CIs that we calculated and then calculate the net emissions and GWPs
 activity_elec = pd.merge(activity_elec, elec_gen_em_agg[['Year', 'Energy carrier', 'Energy Unit', 'Flow Name', 'Formula', 'Emissions Unit', 'CI']], 
