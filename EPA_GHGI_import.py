@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-Author: George G. Zaimes
+Author: George G. Zaimes and Saurajyoti Kar
 Affiliation: Argonne National Laboratory
 Date: 01/25/2022
 
@@ -22,6 +22,9 @@ class EPA_GHGI_import:
     
     def __init__(self, ob_units, input_path_EPA, input_path_corr, save_to_file = True, verbose = False):
         
+        print("Status: Pre-processing EPA GHGI emissions data frame ..")
+        
+        self.ob_units = ob_units
         self.input_path_EPA = input_path_EPA
         self.input_path_corr = input_path_corr
         self.save_to_file = save_to_file
@@ -55,7 +58,7 @@ class EPA_GHGI_import:
         self.df_ghgi.loc[self.df_ghgi['Emissions Type']=='C', 'Emissions Type'] = 'CO2'
         
         # Unit conversion 
-        self.df_ghgi[['Unit', 'Value']] = ob_units.unit_convert_df ( self.df_ghgi[['Unit', 'Value']],
+        self.df_ghgi[['Unit', 'Value']] = self.ob_units.unit_convert_df ( self.df_ghgi[['Unit', 'Value']],
                                                                     if_given_category = True, unit_category = 'Emissions')
               
         self.df_ghgi.rename(columns = {'Value' : 'GHG Emissions'}, inplace=True)
@@ -76,8 +79,7 @@ class EPA_GHGI_import:
         # Removing Others emissions, that represents 'Substitution of Ozone Depleting Substances' category
         self.df_ghgi = self.df_ghgi.loc[~ (self.df_ghgi['Emissions Type'] == 'Others')]
     
-    # QA/QC Check
-    
+    # QA/QC Check    
     def QA_with_table_2_10(self, yr_filter = [2019] ):
         
         # Load in 100-Yr GWP Factors
@@ -108,6 +110,7 @@ class EPA_GHGI_import:
         
         return (d1)
         
+    
     def table_2_10(self):
                    
         # load data table
@@ -135,12 +138,77 @@ class EPA_GHGI_import:
         df_temp.loc[df_temp['Economic Sector'] == 'LULUCF Sector Net Total b', 'Economic Sector'] = 'LULUCF'
         df_temp.loc[df_temp['Economic Sector'] == 'Electric Power Industry', 'Economic Sector'] = 'Electric Power'
         
-        #self.df_temp = df_temp
         return (df_temp)
+          
+    
+    def process_EERE (self, decarb_year_min, decarb_year_max):
         
-        # next step: quick mapping the source/sector 
-        # next step: BAU case design along with the activity matrix, standardization of the data with unit values, HHV --> LHV, Standard mapping btw. EIA <-> EPA <-> GREET
-        # Environmental Matrix tab
+        print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
+        
+        self.EPA_GHGI_maxyear = np.max(self.df_ghgi['Year'])
+        
+        activity_non_combust = self.df_ghgi.loc[self.df_ghgi['Year'] == self.EPA_GHGI_maxyear, :].copy()
+
+        # preserve Category and Subcategory information in one column
+        activity_non_combust ['Category, Subcategory'] = activity_non_combust ['Category'].copy() + ', ' + activity_non_combust ['Subcategory'].copy()
+
+        # Select the required columns
+        activity_non_combust = activity_non_combust[[
+            'Economic Sector',
+            'Source',
+            'Segment',
+            'Category, Subcategory',
+            'Emissions Type',
+            'Year',
+            'Unit',
+            'GHG Emissions'
+            ]]
+
+        # Rename columns to match with EIA AEO's activity data frame
+        activity_non_combust.rename(columns = {
+            'Economic Sector' : 'Sector',
+            'Source' : 'Subsector',
+            'Segment' : 'Basis',
+            'Category, Subcategory' : 'End Use Application',
+            'Emissions Type' : 'Formula',
+            'GHG Emissions' : 'Total Emissions',
+            'Unit' : 'Emissions Unit'
+            }, inplace=True)
+
+        # Expand the data frame to all the assessment years
+        activity_non_combust['Year'] = decarb_year_min
+        self.activity_non_combust_exp = activity_non_combust.copy()
+        for yr in range(decarb_year_min+1, decarb_year_max+1): # [a,)
+            activity_non_combust['Year'] = yr
+            self.activity_non_combust_exp = pd.concat ([self.activity_non_combust_exp, activity_non_combust], axis=0).copy().reset_index(drop=True)
+        
+        # unit conversion    
+        self.activity_non_combust_exp[['Emissions Unit', 'Total Emissions']] = \
+            self.ob_units.unit_convert_df(self.activity_non_combust_exp[['Emissions Unit', 'Total Emissions']],
+                                          Unit = 'Emissions Unit', Value = 'Total Emissions',          
+                                          if_given_category=True, unit_category='Emissions')
+        
+        # Adding additional empty columns, to match with other activity df
+        self.activity_non_combust_exp[['AEO Case', 
+                              'Energy carrier',
+                              'Energy carrier type',
+                              'Fuel Pool',
+                              'Flow Name',                      
+                              'Unit',                      
+                              'Value',
+                              'CI'                              
+                              ]] = '-'
+
+        # Defining values to specific columns
+        self.activity_non_combust_exp['Case'] = 'Reference case'
+        self.activity_non_combust_exp['Scope'] = 'Direct, Non-Combustion'
+        self.activity_non_combust_exp['Data Source'] = 'EPA GHGI'
+
+        # Rearranging columns
+        self.activity_non_combust_exp = self.activity_non_combust_exp[['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
+                                                     'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
+                                                     'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
+                                                     'Unit', 'Value', 'CI', 'Total Emissions']]
 
 if __name__ == "__main__":
     
@@ -170,6 +238,8 @@ if __name__ == "__main__":
     print(df)
     
     ob1.remove_combustion_other_em()
+    
+    ob1.process_EERE(decarb_year_min=2020, decarb_year_max=2050)
     
     if ob1.save_to_file == True:
         ob1.df_ghgi.to_excel(input_path_EPA + ob1.file_out, index = False)    

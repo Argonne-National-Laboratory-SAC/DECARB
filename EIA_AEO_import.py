@@ -36,6 +36,8 @@ class EIA_AEO:
     # class initialization function
     def __init__(self, input_path_EIA, input_path_corr):
         
+        print("Status: Pre-processing EIA AEO emissions data frame ..")
+        
         # data and file paths
         self.input_path_EIA = input_path_EIA
         self.input_path_corr = input_path_corr

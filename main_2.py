@@ -43,6 +43,10 @@ f_corr_ef_greet = 'corr_EF_GREET.xlsx'
 
 sheet_corr_ef_greet = 'corr_EF_GREET'
 
+# Decarbonization years of analysis
+decarb_year_min = 2020
+decarb_year_max = 2050
+
 # Model data pull and intermediate file saving options
 EIA_AEO_fetch_data = False # True for fetching EIA AEO data, False for loading pre-compiled data
 EIA_AEO_save_to_file = True # True for saving fetched data and saving it to file
@@ -53,11 +57,11 @@ save_interim_files = True
 LCIA_Method = 'AR4' # QA can use AR4, but model should be based on AR5
 lcia_timeframe = 100
 
-# EIA AEO data case
+# EIA AEO data cases
 EIA_AEO_case_option = ['Reference case']
 
 # T&D assumption, constant or calculated
-T_and_D_loss_constant = True
+#T_and_D_loss_constant = True
 # T_and_D_loss = 0.06
 
 # parameter to print out additional information when code is running
@@ -103,8 +107,10 @@ ob_EPA_GHGI = EPA_GHGI_import(ob_units, input_path_EPA, input_path_corr )
 
 ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' category emissions
 
+ob_EPA_GHGI.process_EERE(decarb_year_min, decarb_year_max) # perform calculations for the decarbonization tool
+
 if save_interim_files:
-    ob_EPA_GHGI.df_ghgi.to_excel(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
+    ob_EPA_GHGI.activity_non_combust_exp.to_excel(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec( ob_units, input_path_electricity, input_path_corr )
@@ -333,7 +339,7 @@ activity_non_elec_neu = activity_non_elec_neu[['Data Source', 'AEO Case', 'Case'
                                'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
                                'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
                                'Unit', 'Value', 'CI', 'Total Emissions']]
-
+"""
 # Arranging non-combustion emissions from EPA GHGI
 print("Status: Constructing EPA GHGI emissions data frame as activity data frame ..")
 # Filter latest year data from EPA GHGI
@@ -399,12 +405,10 @@ for yr in range(EERE_yr_min+1, EERE_yr_max+1): # [a,)
 activity_non_combust_exp[['Emissions Unit', 'Total Emissions']] = ob_units.unit_convert_df(activity_non_combust_exp[['Emissions Unit', 'Total Emissions']],
                                                                        Unit = 'Emissions Unit', Value = 'Total Emissions',          
                                                                        if_given_unit=True, given_unit = elec_gen_em_agg['Emissions Unit'].unique()[0])
-
-#activity_non_combust_exp['Total Emissions'] = activity_non_combust_exp['Total Emissions'] * 1e12
-#activity_non_combust_exp['Emissions Unit'] = 'g' 
+"""
 
 # Generate the Environmental Matrix
-activity_BAU = pd.concat ([activity_non_combust_exp, activity_elec, activity_non_elec, activity_non_elec_neu], axis=0).reset_index(drop=True)
+activity_BAU = pd.concat ([ob_EPA_GHGI.activity_non_combust_exp, activity_elec, activity_non_elec, activity_non_elec_neu], axis=0).reset_index(drop=True)
 
 # Calculate LCIA metric
 activity_BAU = pd.merge(activity_BAU, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
@@ -414,9 +418,6 @@ activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'L
   ob_units.unit_convert_df(activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
    Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
    if_given_category=True, unit_category = 'Emissions')
-
-#activity_BAU['LCIA_estimate'] = activity_BAU['LCIA_estimate'] * 1e-12 # converting grams to million metric ton
-#activity_BAU['Unit'] = 'MMmt'
 
 print("Status: Saving activity_reference case table to file ..")
 if save_interim_files == True:
@@ -429,11 +430,6 @@ activity_BAU_agg = activity_BAU_agg.groupby(['Year', 'Sector', 'EIA type', 'Form
 
 if save_interim_files == True:
     activity_BAU_agg.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg.csv')
-
-
-print( 'Elapsed time: ' + str(datetime.now() - init_time))
-
-
 
 #%%
 
@@ -551,9 +547,7 @@ activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
 
-
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
-
 
 
 #%%
