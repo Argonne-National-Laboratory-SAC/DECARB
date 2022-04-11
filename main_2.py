@@ -19,6 +19,7 @@ output_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EE
 # Declaring paths for data loading
 input_path_EIA = input_path_prefix + '\\EIA'
 input_path_EPA = input_path_prefix + '\\EPA_GHGI'
+input_path_SCOUT = input_path_prefix + '\\Buildings\\SCOUT'
 input_path_corr = input_path_prefix + '\\correspondence_files'
 input_path_aggriculture = input_path_prefix + '\\Agriculture'
 input_path_industrial = input_path_prefix + '\\Industrial'
@@ -82,6 +83,7 @@ from datetime import datetime
 os.chdir(code_path_prefix)
 
 from EIA_AEO_import import EIA_AEO
+from SCOUT_import import SCOUT
 from Industrial_import import Industrial
 from Agriculture_import import Agriculture
 from Transportation_VISION_import import Transport_Vision
@@ -382,8 +384,7 @@ elec_gen_em_mtg_agg['CI'] = elec_gen_em_mtg_agg['Total Emissions'] / elec_gen_em
 if save_interim_files == True:
     elec_gen_em_mtg_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_mtg_agg_CI.csv')
 
-#%%
-
+# constructing the mitigation matrix
 elec_gen_em_mtg_agg_m = pd.merge(elec_gen_em_agg, elec_gen_em_mtg_agg, 
          how='outer', on = ['Year', 'Sector', 'Energy carrier', 'Flow Name', 'Emissions Type',
                 'Energy Unit', 'Emissions Unit'] ).reset_index(drop=True)
@@ -428,9 +429,45 @@ activity_mtg_elec.loc[~activity_mtg_elec['Emissions Unit'].isnull(), ['Emissions
 activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
+    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+
+
+#%%
+"""
+Generating mitigation scenarios for Residential and Commercial sectors with SCOUT Model
+"""
+ob_scout = SCOUT(ob_units, input_path_SCOUT, input_path_corr)
+
+# Merge GREET correspondence table
+activity_mtg_scout = pd.merge(ob_scout.df_scout, corr_EF_GREET, how='left', 
+                             on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+activity_mtg_scout = pd.merge(activity_mtg_scout, ob_ef.ef, 
+                             how='left', on=['Case', 'Sector', 'Subsector', 'Energy carrier', 'Energy carrier type',
+                                             'Scope', 'Year', 'GREET Pathway'])
+activity_mtg_scout.rename(columns={'End Use Application_x' : 'End Use Application',
+                               'Unit (Numerator)' : 'Emissions Unit',
+                               'Reference case' : 'CI'}, inplace=True)
+activity_mtg_scout['Total Emissions'] = activity_mtg_scout['Value'] * activity_mtg_scout['CI']
+
+# Calculate LCIA metric
+activity_mtg_scout = pd.merge(activity_mtg_scout, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_scout['LCIA_estimate'] = activity_mtg_scout['Total Emissions'] * activity_mtg_scout['GWP']
+
+activity_mtg_scout.loc[~activity_mtg_scout['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_mtg_scout.loc[~activity_mtg_scout['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+activity_mtg_scout[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
+activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
+
+activity_BAU = pd.concat([activity_BAU, activity_mtg_scout], axis=0).reset_index(drop=True)
+
+if save_interim_files == True:
+    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
-
 
 #%%
