@@ -436,7 +436,16 @@ if save_interim_files == True:
 """
 Generating mitigation scenarios for Residential and Commercial sectors with SCOUT Model
 """
+
+print("Status: Constructing Residential and Commercial sectors Mitigation scenario ..")
+
 ob_scout = SCOUT(ob_units, input_path_SCOUT, input_path_corr)
+
+activity_mtg_scout = ob_scout.df_scout.copy()
+
+# Separate electric and non electric activities
+activity_mtg_scout_elec = activity_mtg_scout.loc[activity_mtg_scout['Energy carrier'] == 'Electricity', : ]
+activity_mtg_scout = activity_mtg_scout.loc[~(activity_mtg_scout['Energy carrier'] == 'Electricity'), : ]
 
 # Merge GREET correspondence table
 activity_mtg_scout = pd.merge(ob_scout.df_scout, corr_EF_GREET, how='left', 
@@ -446,9 +455,24 @@ activity_mtg_scout = pd.merge(ob_scout.df_scout, corr_EF_GREET, how='left',
 activity_mtg_scout = pd.merge(activity_mtg_scout, ob_ef.ef, 
                              how='left', on=['Case', 'Sector', 'Subsector', 'Energy carrier', 'Energy carrier type',
                                              'Scope', 'Year', 'GREET Pathway'])
+
+# Merge NREL mitigation scenario electricity CIs
+activity_mtg_scout_elec = pd.merge(activity_mtg_scout_elec, 
+                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   how='left',
+                                   on=['Year'])
+activity_mtg_scout_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+
 activity_mtg_scout.rename(columns={'End Use Application_x' : 'End Use Application',
                                'Unit (Numerator)' : 'Emissions Unit',
+                               'Unit (Denominator)' : 'Energy Unit',
                                'Reference case' : 'CI'}, inplace=True)
+activity_mtg_scout.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway',
+                                 'End Use Application_y', 'Elec0'], inplace=True)
+
+# Concatenate electric and non-electric activities
+activity_mtg_scout = pd.concat([activity_mtg_scout, activity_mtg_scout_elec], axis = 0).reset_index(drop=True)
+
 activity_mtg_scout['Total Emissions'] = activity_mtg_scout['Value'] * activity_mtg_scout['CI']
 
 # Calculate LCIA metric
@@ -469,5 +493,6 @@ if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
 
 #%%

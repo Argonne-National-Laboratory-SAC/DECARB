@@ -62,27 +62,27 @@ class SCOUT:
         # unit conversion
         self.df_scout[['Units', 'Value']] = self.ob_units.unit_convert_df ( self.df_scout[['Units', 'Value']],
                                                                            Unit = 'Units', Value = 'Value')
-
+        self.df_scout_test = self.df_scout.copy()
         # Mapping SCOUT columns for EERE standardization
         self.df_scout = pd.merge(self.df_scout, 
                                  self.df_corr_EIA[['Sector', 'Subsector', 'SCOUT: End Use Application', 
-                                                   'SCOUT: Energy carrier', 'Energy carrier', 'EIA: Energy carrier type']], 
-                                 how='left', left_on=['End Use Application', 'Energy carrier'], 
-                                 right_on=['SCOUT: End Use Application', 'SCOUT: Energy carrier']).reset_index(drop=True)
-        
+                                                   'SCOUT: Energy carrier', 'Energy carrier', 'EIA: Energy carrier type', 'SCOUT: Mitigation Case']].drop_duplicates(), 
+                                 how='left', left_on=['Mitigation Case', 'Sector', 'End Use Application', 'Energy carrier'], 
+                                 right_on=['SCOUT: Mitigation Case', 'Sector', 'SCOUT: End Use Application', 'SCOUT: Energy carrier']).reset_index(drop=True)
+        self.df_scout_test2 = self.df_scout.copy()
         # Rename columns
         self.df_scout.rename(columns={'Sector_y' : 'Sector', 'Energy carrier_y' : 'Energy carrier',
                                       'EIA: Energy carrier type' : 'Energy carrier type',
                                       'Units' : 'Unit'}, inplace=True)
         
-        # Select and arrange columns
-        self.df_scout = self.df_scout[['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 
-                                       'End Use Application', 'Year', 'Value', 'Unit']]
-                
-        
         # Adding additional columns with values to match existing Environmental Matrix
         self.df_scout['Case'] = 'Mitigation'
         self.df_scout['Data Source'] = 'SCOUT Model'
+        
+        # Select and arrange columns
+        self.df_scout = self.df_scout[['Data Source', 'Case', 'Mitigation Case', 'Sector', 'Subsector', 
+                                       'Energy carrier', 'Energy carrier type', 
+                                       'End Use Application', 'Year', 'Value', 'Unit']]
         
         # Data type conversion
         self.df_scout['Year'] = self.df_scout['Year'].astype('float64')
