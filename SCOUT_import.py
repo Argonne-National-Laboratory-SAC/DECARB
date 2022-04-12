@@ -23,12 +23,12 @@ class SCOUT:
         
         self.f_name = 'scenario_3-1_savings_SA_data_request_v3.xlsx'
         
-        self.f_corr_EIA = 'corr_EERE_SCOUT.xlsx'
-        self.sheet_corr_EIA = 'Mapping EIA_to_Scout'
+        self.f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
+        self.sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
         
         self.df_scout = pd.read_excel(self.input_path_SCOUT + '\\' + self.f_name, header = [0,1], index_col = [0,1,2])
         
-        self.df_corr_EIA = pd.read_excel(self.input_path_corr + '\\' + self.f_corr_EIA, sheet_name = self.sheet_corr_EIA, header = 3, index_col=None)
+        self.df_corr_EIA = pd.read_excel(self.input_path_corr + '\\' + self.f_corr_EIA_SCOUT, sheet_name = self.sheet_corr_EIA_SCOUT, header = 3, index_col=None)
         
         self.df_scout = self.df_scout.stack()
         
@@ -45,34 +45,34 @@ class SCOUT:
                   )
         
         # Add in additional columns
-        self.df_scout['Units'] = 'Quadrillion Btu'     
+        self.df_scout['Units'] = 'Quadrillion Btu'   
+        self.df_scout['Subsector'] = '-'
         
         # Invert the sign of values to represent the amount of energy reduced in the mitigation scenario compared to 'Reference case'
         self.df_scout['Value'] = -1 * self.df_scout['Value']
         
         # Modify naming convention for Migitation Measure
-        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_DF') & (self.df_scout['Sector'] == 'Residential'),'Mitigation Case'] = 'Residential: Energy efficiency'
-        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_DF') & (self.df_scout['Sector'] == 'Commercial'),'Mitigation Case'] = 'Commercial: Energy efficiency'
-        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'FS') & (self.df_scout['Sector'] == 'Residential'), 'Mitigation Case'] = 'Residential: Fuel switching'
-        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'FS') & (self.df_scout['Sector'] == 'Commercial'), 'Mitigation Case'] = 'Commercial: Fuel switching'
-        
-        #self.df_scout['Energy carrier'] = self.df_scout['Energy carrier'].replace({'Electric': 'Electricity',
-        #                                                                           'Distillate/Other': 'Distillate Oil'}) 
-        
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_DF') & 
+                          (self.df_scout['Sector'] == 'Residential'),'Mitigation Case'] = 'Residential: Energy efficiency'
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_DF') & 
+                          (self.df_scout['Sector'] == 'Commercial'),'Mitigation Case'] = 'Commercial: Energy efficiency'
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'FS') & 
+                          (self.df_scout['Sector'] == 'Residential'), 'Mitigation Case'] = 'Residential: Fuel switching'
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'FS') & 
+                          (self.df_scout['Sector'] == 'Commercial'), 'Mitigation Case'] = 'Commercial: Fuel switching'
+        self.df_scout_test = self.df_scout.copy()        
         # unit conversion
         self.df_scout[['Units', 'Value']] = self.ob_units.unit_convert_df ( self.df_scout[['Units', 'Value']],
                                                                            Unit = 'Units', Value = 'Value')
-        self.df_scout_test = self.df_scout.copy()
+
         # Mapping SCOUT columns for EERE standardization
         self.df_scout = pd.merge(self.df_scout, 
-                                 self.df_corr_EIA[['Sector', 'Subsector', 'SCOUT: End Use Application', 
-                                                   'SCOUT: Energy carrier', 'Energy carrier', 'EIA: Energy carrier type', 'SCOUT: Mitigation Case']].drop_duplicates(), 
-                                 how='left', left_on=['Mitigation Case', 'Sector', 'End Use Application', 'Energy carrier'], 
-                                 right_on=['SCOUT: Mitigation Case', 'Sector', 'SCOUT: End Use Application', 'SCOUT: Energy carrier']).reset_index(drop=True)
-        self.df_scout_test2 = self.df_scout.copy()
+                                 self.df_corr_EIA[['SCOUT: Energy carrier', 'Energy carrier', 'Energy carrier type']].drop_duplicates(), 
+                                 how='left', left_on=['Energy carrier'], 
+                                 right_on=['SCOUT: Energy carrier']).reset_index(drop=True)
+        
         # Rename columns
-        self.df_scout.rename(columns={'Sector_y' : 'Sector', 'Energy carrier_y' : 'Energy carrier',
-                                      'EIA: Energy carrier type' : 'Energy carrier type',
+        self.df_scout.rename(columns={'Energy carrier_y' : 'Energy carrier',
                                       'Units' : 'Unit'}, inplace=True)
         
         # Adding additional columns with values to match existing Environmental Matrix
@@ -86,7 +86,7 @@ class SCOUT:
         
         # Data type conversion
         self.df_scout['Year'] = self.df_scout['Year'].astype('float64')
-        
+        #self.temp_scout = self.df_scout.copy()
         
 if __name__ == "__main__":
     
