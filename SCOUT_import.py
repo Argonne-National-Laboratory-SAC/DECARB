@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Project:EERE Decarbonization
-Author: George G. Zaimes
+Author: George G. Zaimes, Saurajyoti Kar
 Affiliation: Argonne National Laboratory
 Date: 03/22/2022
 """
