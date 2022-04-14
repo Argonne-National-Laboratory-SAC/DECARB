@@ -43,7 +43,6 @@ class VISION:
                                      'Powertrain',
                                      'Energy Carrier Type'])
 
-
         # Drop un-necessary columns
         self.vision.drop(columns = ['Sector',
                                     'EIA Subsector',
@@ -62,11 +61,13 @@ class VISION:
                                       'Energy carrier type: USDT': 'Energy carrier type',
                                       'Value (mmBTU)': 'Value'}, inplace=True)
 
-        # Add new column for units
+        # Add new column for units and other additional columns
+        self.vision['Data Source'] = 'VISION'
+        self.vision['Case'] = 'Mitigation'
         self.vision['Unit'] = 'MMBtu'
 
         # aggregate values if any
-        self.vision = self.vision.groupby(by=['Sector', 'Subsector', 'End Use Application',
+        self.vision = self.vision.groupby(by=['Data Source', 'Case', 'Sector', 'Subsector', 'End Use Application',
                                               'Energy carrier', 'Energy carrier type', 'Year', 'Unit']). \
                                   agg({'Value' : 'sum'}).reset_index()
 
@@ -78,12 +79,3 @@ if __name__ == "__main__":
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
     ob_VISION = VISION(input_path_VISION, input_path_corr)
-
-
-# next steps
-# change values from absolute to relative
-# append to the activity matrix
-# merge with GREET EFs for non electric 
-# merge with EERE electric EFs for electric
-# merge with the environmental matrix
-

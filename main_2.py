@@ -26,7 +26,7 @@ input_path_industrial = input_path_prefix + '\\Industrial'
 input_path_electricity = input_path_prefix + '\\Electricity'
 input_path_GREET = input_path_prefix + '\\GREET'
 input_path_units = input_path_prefix + '\\Units'
-input_path_transport = input_path_prefix + '\\Transportation'
+input_path_VISION = input_path_prefix + '\\Transportation'
 input_path_neu = input_path_prefix + '\\Non-Energy Use EFs'
 
 # LCIA factors
@@ -89,7 +89,7 @@ from EIA_AEO_import import EIA_AEO
 from SCOUT_import import SCOUT
 from Industrial_import import Industrial
 from Agriculture_import import Agriculture
-from Transportation_VISION_import import Transport_Vision
+from VISION_import import VISION
 from EPA_GHGI_import import EPA_GHGI_import
 from NREL_electricity_import import NREL_elec
 from GREET_EF_import import GREET_EF
@@ -119,6 +119,9 @@ if save_interim_files:
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec( ob_units, input_path_electricity, input_path_corr )
+
+# VISION Transportation data import
+ob_VISION = VISION(input_path_VISION, input_path_corr)
 
 # GREET emission factor load
 ob_ef = GREET_EF(input_path_GREET )
@@ -479,9 +482,9 @@ temp = temp[['Data Source', 'AEO Case', 'Mitigation Case', 'Sector', 'Subsector'
 activity_ref_mtg = pd.concat([activity_ref_mtg, temp.copy()], axis=0).reset_index(drop=True)
 del temp
 
-"""if save_interim_files == True:
+if save_interim_files == True:
     activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
-"""
+
 # Separate electric and non electric activities
 activity_mtg_scout_elec = activity_mtg_scout.loc[activity_mtg_scout['Energy carrier'] == 'Electricity', : ]
 activity_mtg_scout = activity_mtg_scout.loc[~(activity_mtg_scout['Energy carrier'] == 'Electricity'), : ]
@@ -492,19 +495,10 @@ activity_mtg_scout = pd.merge(activity_mtg_scout, corr_EF_GREET.loc[corr_EF_GREE
                                  'End Use Application']).reset_index(drop=True)
 
 # Merge GREET EF
-"""
-dummy_sct = activity_mtg_scout.copy()
-
-dummy_sct = dummy_sct[['Case', 'Scope', 'Year', 'GREET Pathway', 'Value']]
-
-dummy_sct_1 = pd.merge(dummy_sct, ob_ef.ef_raw, 
-                             how='left', on=['Case',
-                                             'Scope', 'Year', 'GREET Pathway']) """
-
 activity_mtg_scout = pd.merge(activity_mtg_scout, ob_ef.ef_raw, 
                              how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
 
-# Merge NREL mitigation scenario electricity CIs
+# Merge NREL mitigation scenario electricity CIs to SCOUT
 activity_mtg_scout_elec = pd.merge(activity_mtg_scout_elec, 
                                    elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
@@ -537,27 +531,37 @@ activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
 activity_mtg_scout = activity_mtg_scout[model_col_list_mtg]
 
 # Mapping EIA AEO sector, etc. to SCOUT conventions
-activity_BAU = pd.merge(activity_BAU, 
+temp_activity = activity_BAU.loc[(activity_BAU['Sector'].isin(corr_EIA_SCOUT['Sector'].unique()) ) &
+                                 (activity_BAU['Subsector'].isin(corr_EIA_SCOUT['Subsector'].unique())) &
+                                 (activity_BAU['End Use Application'].isin(corr_EIA_SCOUT['EIA: End Use Application'].unique())) &
+                                 (activity_BAU['Energy carrier'].isin(corr_EIA_SCOUT['EIA: Energy carrier'].unique())) &
+                                 (activity_BAU['Energy carrier type'].isin(corr_EIA_SCOUT['EIA: Energy carrier type'].unique())), : ]
+
+activity_BAU =  activity_BAU.loc[~(activity_BAU['Sector'].isin(corr_EIA_SCOUT['Sector'].unique()) ) |
+                                 ~(activity_BAU['Subsector'].isin(corr_EIA_SCOUT['Subsector'].unique())) |
+                                 ~(activity_BAU['End Use Application'].isin(corr_EIA_SCOUT['EIA: End Use Application'].unique())) |
+                                 ~(activity_BAU['Energy carrier'].isin(corr_EIA_SCOUT['EIA: Energy carrier'].unique())) |
+                                 ~(activity_BAU['Energy carrier type'].isin(corr_EIA_SCOUT['EIA: Energy carrier type'].unique())), : ]
+
+temp_activity = pd.merge(temp_activity, 
          corr_EIA_SCOUT[['Sector', 'Subsector', 'EIA: End Use Application', 'SCOUT: End Use Application', 
                          'EIA: Energy carrier', 'EIA: Energy carrier type', 'Energy carrier']].drop_duplicates(), 
          how='left', 
          left_on=['Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Energy carrier type'], 
          right_on=['Sector', 'Subsector', 'EIA: End Use Application', 'EIA: Energy carrier', 'EIA: Energy carrier type']).reset_index(drop=True)
 
-activity_BAU.drop(columns=['Energy carrier_x', 'EIA: Energy carrier', 'EIA: Energy carrier type', 
+temp_activity.drop(columns=['Energy carrier_x', 'EIA: Energy carrier', 'EIA: Energy carrier type', 
                            'End Use Application'], inplace=True)
-activity_BAU.rename(columns={'Energy carrier_y' : 'Energy carrier',
+temp_activity.rename(columns={'Energy carrier_y' : 'Energy carrier',
                              'SCOUT: End Use Application' : 'End Use Application'}, inplace=True)
 
 # Concatenating to main activity matrix
-activity_BAU = pd.concat([activity_BAU, activity_mtg_scout], axis=0).reset_index(drop=True)
-
+activity_BAU = pd.concat([activity_BAU, temp_activity, activity_mtg_scout], axis=0).reset_index(drop=True)
+del temp_activity
 activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
-
-print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 
 #%%
@@ -566,3 +570,96 @@ Generating mitigation scenarios for Transportation sector with VISION/Tempo Mode
 """
 
 print("Status: Constructing Transportation sector Mitigation scenario ..")
+
+activity_mtg_vision = ob_VISION.vision
+
+temp_activity = activity_ref_mtg.loc[(activity_ref_mtg['Case'] == 'Reference case') &
+                                     (activity_ref_mtg['Sector'].isin(activity_mtg_vision['Sector'].unique())) &
+                                     (activity_ref_mtg['Subsector'].isin(activity_mtg_vision['Subsector'].unique())) & 
+                                     (activity_ref_mtg['End Use Application'].isin(activity_mtg_vision['End Use Application'].unique())), :]
+activity_mtg_vision = pd.merge(activity_mtg_vision, temp_activity,
+                             how='left',
+                             on=['Sector', 'Subsector', 'End Use Application', 'Energy carrier', 
+                                 'Energy carrier type', 'Year']).reset_index(drop=True)
+
+# Calculate the relative value between reference case and the mitigation case
+activity_mtg_vision['Value'] = activity_mtg_vision['Value_x'] - activity_mtg_vision['Value_y'] ## Mitigation case - Reference case
+
+activity_mtg_vision.loc[activity_mtg_vision['Energy carrier type'] == 'FT-Diesel', 'Value'] = \
+    activity_mtg_vision.loc[activity_mtg_vision['Energy carrier type'] == 'FT-Diesel', 'Value_x']
+
+activity_mtg_vision.rename(columns={'Data Source_x' : 'Data Source',
+                                    'Unit_x' : 'Unit',
+                                    'Case_x' : 'Case'}, inplace=True)
+activity_mtg_vision = activity_mtg_vision[temp_activity.columns]
+activity_mtg_vision.to_excel(output_path_prefix + '\\' + 'test_df.xlsx')
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_vision.copy()], axis=0). reset_index(drop=True)
+
+if save_interim_files == True:
+    activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
+  
+del temp_activity
+
+activity_mtg_vision_elec = activity_mtg_vision.loc[activity_mtg_vision['Energy carrier'] == 'Electricity', : ]
+activity_mtg_vision = activity_mtg_vision.loc[~(activity_mtg_vision['Energy carrier'] == 'Electricity'), : ]
+
+# Merge GREET correspondence table
+activity_mtg_vision = pd.merge(activity_mtg_vision, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
+                               on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 
+                                   'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+activity_mtg_vision = pd.merge(activity_mtg_vision, ob_ef.ef_raw, 
+                               how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
+
+#temp_identify = activity_mtg_vision.loc[activity_mtg_vision['Reference case'].isna(), ['Case', 'Scope', 'GREET Pathway']].drop_duplicates()
+
+# Merge NREL mitigation scenario electricity CIs to VISION
+activity_mtg_vision_elec = pd.merge(activity_mtg_vision_elec, 
+                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   how='left',
+                                   on=['Year'])
+activity_mtg_vision_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+
+activity_mtg_vision.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
+                               'Unit (Denominator)' : 'Energy Unit',
+                               'Reference case' : 'CI'}, inplace=True)
+activity_mtg_vision.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+
+# Concatenate electric and non-electric activities
+activity_mtg_vision = pd.concat([activity_mtg_vision, activity_mtg_vision_elec], axis = 0).reset_index(drop=True)
+
+activity_mtg_vision['Total Emissions'] = activity_mtg_vision['Value'] * activity_mtg_vision['CI']
+
+# Calculate LCIA metric
+activity_mtg_vision = pd.merge(activity_mtg_vision, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_vision['LCIA_estimate'] = activity_mtg_vision['Total Emissions'] * activity_mtg_vision['GWP']
+
+activity_mtg_vision.loc[~activity_mtg_vision['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_mtg_vision.loc[~activity_mtg_vision['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+activity_mtg_vision[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
+activity_mtg_vision = activity_mtg_vision[activity_BAU.columns]
+
+activity_mtg_vision = activity_mtg_vision[model_col_list_mtg]
+
+# Concatenating to main activity matrix
+activity_BAU = pd.concat([activity_BAU, activity_mtg_vision], axis=0).reset_index(drop=True)
+
+activity_BAU = activity_BAU[model_col_list_mtg]
+
+if save_interim_files == True:
+    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+
+# next steps
+# change values from absolute to relative
+# append to the activity matrix
+# merge with GREET EFs for non electric 
+# merge with EERE electric EFs for electric
+# merge with the environmental matrix
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
+#%%
