@@ -327,6 +327,8 @@ activity_BAU_agg = activity_BAU_agg.groupby(['Year', 'Sector', 'EIA type', 'Form
 if save_interim_files == True:
     activity_BAU_agg.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg.csv')
 
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
 #%%
 
 """
@@ -457,6 +459,7 @@ activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
 """
@@ -563,6 +566,7 @@ activity_BAU = activity_BAU[model_col_list_mtg]
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
 """
@@ -592,7 +596,7 @@ activity_mtg_vision.rename(columns={'Data Source_x' : 'Data Source',
                                     'Unit_x' : 'Unit',
                                     'Case_x' : 'Case'}, inplace=True)
 activity_mtg_vision = activity_mtg_vision[temp_activity.columns]
-activity_mtg_vision.to_excel(output_path_prefix + '\\' + 'test_df.xlsx')
+#activity_mtg_vision.to_excel(output_path_prefix + '\\' + 'test_df.xlsx')
 activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_vision.copy()], axis=0). reset_index(drop=True)
 
 if save_interim_files == True:
@@ -600,6 +604,7 @@ if save_interim_files == True:
   
 del temp_activity
 
+# Seperate electric and non-electric activities
 activity_mtg_vision_elec = activity_mtg_vision.loc[activity_mtg_vision['Energy carrier'] == 'Electricity', : ]
 activity_mtg_vision = activity_mtg_vision.loc[~(activity_mtg_vision['Energy carrier'] == 'Electricity'), : ]
 
@@ -653,12 +658,133 @@ activity_BAU = activity_BAU[model_col_list_mtg]
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
 # next steps
 # change values from absolute to relative
 # append to the activity matrix
 # merge with GREET EFs for non electric 
 # merge with EERE electric EFs for electric
 # merge with the environmental matrix
+
+#%%
+"""
+Generating mitigation scenarios for Agriculture sector
+"""
+
+print("Status: Constructing Agriculture sector Mitigation scenario ..")
+
+# Defining targetted Diesel to Electricity use ratio in 2050 year
+D2E_mtg_2050 = 0.99
+
+# Subsetting Reference case energy demand for Agriculture sector
+activity_mtg_ag = ob_eia.EIA_data['energy_demand']
+activity_mtg_ag = activity_mtg_ag.loc[activity_mtg_ag['Sector']=='Agriculture', : ].copy()
+
+# Implementing On-farm Electrification for Diesel use: mitigate Diesel use with Electricity use
+
+# Subsetting with and without Diesel on farm use activities
+activity_mtg_ag_d = activity_mtg_ag.loc[(activity_mtg_ag['End Use Application'] == 'On farm energy use') &
+                                        (activity_mtg_ag['Energy carrier'] == 'Diesel'), : ]
+activity_mtg_ag = activity_mtg_ag.loc[~(activity_mtg_ag['End Use Application'] == 'On farm energy use') |
+                                      ~(activity_mtg_ag['Energy carrier'] == 'Diesel'), : ]
+
+# Defining series of linearly increasing fraction of Electricity implementation and replacing Diesel
+mtg_ag_df = pd.DataFrame({'Year' : np.linspace(min(activity_mtg_ag['Year']), max(activity_mtg_ag['Year']), max(activity_mtg_ag['Year']) - min(activity_mtg_ag['Year']) + 1 ), 
+                          'mtg_frac' : np.linspace(0, D2E_mtg_2050, max(activity_mtg_ag['Year']) - min(activity_mtg_ag['Year']) + 1 ) } )
+
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, mtg_ag_df, how='left', on='Year').reset_index(drop=True)
+
+# Identifying the amount of diesel use and electricity use
+activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac']
+activity_mtg_ag_d['Value Diesel Use'] = activity_mtg_ag_d['Value'] - activity_mtg_ag_d['Value Elec Use'] 
+
+# Rows with Electricity use
+temp_activity = activity_mtg_ag_d.drop(columns = ['Value', 'Value Diesel Use'])
+temp_activity.rename(columns={'Value Elec Use' : 'Value'}, inplace=True)
+temp_activity['Energy carrier'] = 'Electricity'
+temp_activity['Energy carrier type'] = 'U.S. Average Grid Mix'
+
+activity_mtg_ag_d = activity_mtg_ag_d.drop(columns = ['Value', 'Value Elec Use'])
+temp_activity.rename(columns={'Value Diesel Use' : 'Value'}, inplace=True)
+
+# Concatenate data frames to get rows differentiating electricity and diesel use for on-farm activities
+activity_mtg_ag_d = pd.concat([activity_mtg_ag_d, temp_activity], axis=0).reset_index(drop=True)
+del temp_activity
+
+# Concatenate data frames to get all agriculture based activities
+activity_mtg_ag = pd.concat([activity_mtg_ag, activity_mtg_ag_d], axis=0).reset_index(drop=True)
+del activity_mtg_ag_d
+
+activity_mtg_ag['Case'] = 'Mitigation'
+
+# Append to activity matrix and save
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag.copy()], axis=0). reset_index(drop=True)
+
+if save_interim_files == True:
+    activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
+    
+
+
+
+
+
+# Seperate electric and non-electric activities
+activity_mtg_ag_elec = activity_mtg_ag.loc[activity_mtg_ag['Energy carrier'] == 'Electricity', : ]
+activity_mtg_ag = activity_mtg_ag.loc[~(activity_mtg_ag['Energy carrier'] == 'Electricity'), : ]
+
+# Merge GREET correspondence table
+activity_mtg_ag = pd.merge(activity_mtg_ag, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
+                               on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 
+                                   'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+activity_mtg_ag = pd.merge(activity_mtg_ag, ob_ef.ef_raw, 
+                               how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
+
+# Merge NREL mitigation scenario electricity CIs to VISION
+activity_mtg_ag_elec = pd.merge(activity_mtg_ag_elec, 
+                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   how='left',
+                                   on=['Year'])
+activity_mtg_ag_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+
+activity_mtg_ag.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
+                               'Unit (Denominator)' : 'Energy Unit',
+                               'Reference case' : 'CI'}, inplace=True)
+activity_mtg_ag.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+
+# Concatenate electric and non-electric activities
+activity_mtg_ag = pd.concat([activity_mtg_ag, activity_mtg_ag_elec], axis = 0).reset_index(drop=True)
+
+activity_mtg_ag['Total Emissions'] = activity_mtg_ag['Value'] * activity_mtg_ag['CI']
+
+# Calculate LCIA metric
+activity_mtg_ag = pd.merge(activity_mtg_ag, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_ag['LCIA_estimate'] = activity_mtg_ag['Total Emissions'] * activity_mtg_ag['GWP']
+
+activity_mtg_ag.loc[~activity_mtg_ag['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_mtg_ag.loc[~activity_mtg_ag['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+activity_mtg_ag[['AEO Case', 'Mitigation Case', 'Basis', 'Fuel Pool']] = '-'
+activity_mtg_ag = activity_mtg_ag[activity_BAU.columns]
+
+activity_mtg_ag = activity_mtg_ag[model_col_list_mtg]
+
+# Concatenating to main activity matrix
+activity_BAU = pd.concat([activity_BAU, activity_mtg_ag], axis=0).reset_index(drop=True)
+
+activity_BAU = activity_BAU[model_col_list_mtg]
+
+if save_interim_files == True:
+    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+
+
+
+
+    
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
