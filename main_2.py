@@ -676,6 +676,8 @@ print("Status: Constructing Agriculture sector Mitigation scenario ..")
 
 # Defining targetted Diesel to Electricity use ratio in 2050 year
 D2E_mtg_2050 = 0.99
+# Defining the relative efficiency of directly using Diesel compared to directly using Electricity
+D2E_relative_eff = 0.40/0.90 # considering 40% energy from diesel used into activity and 90% electricity energy used into activity
 
 # Subsetting Reference case energy demand for Agriculture sector
 activity_mtg_ag = ob_eia.EIA_data['energy_demand']
@@ -696,7 +698,7 @@ mtg_ag_df = pd.DataFrame({'Year' : np.linspace(min(activity_mtg_ag['Year']), max
 activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, mtg_ag_df, how='left', on='Year').reset_index(drop=True)
 
 # Identifying the amount of diesel use and electricity use
-activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac']
+activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac']  * D2E_relative_eff
 activity_mtg_ag_d['Value Diesel Use'] = activity_mtg_ag_d['Value'] - activity_mtg_ag_d['Value Elec Use'] 
 
 # Rows with Electricity use
@@ -706,9 +708,9 @@ temp_activity['Energy carrier'] = 'Electricity'
 temp_activity['Energy carrier type'] = 'U.S. Average Grid Mix'
 
 activity_mtg_ag_d = activity_mtg_ag_d.drop(columns = ['Value', 'Value Elec Use'])
-temp_activity.rename(columns={'Value Diesel Use' : 'Value'}, inplace=True)
+activity_mtg_ag_d.rename(columns={'Value Diesel Use' : 'Value'}, inplace=True)
 
-# Concatenate data frames to get rows differentiating electricity and diesel use for on-farm activities
+# Concatenate data frames to get electricity and diesel use-separated activities into one data frame
 activity_mtg_ag_d = pd.concat([activity_mtg_ag_d, temp_activity], axis=0).reset_index(drop=True)
 del temp_activity
 
@@ -717,17 +719,23 @@ activity_mtg_ag = pd.concat([activity_mtg_ag, activity_mtg_ag_d], axis=0).reset_
 del activity_mtg_ag_d
 
 activity_mtg_ag['Case'] = 'Mitigation'
+activity_mtg_ag['Mitigation Case'] = 'On-Farm Mitigation'
+
+# Identify relative values of activities for the mitigation case
+activity_mtg_ag = pd.merge(activity_mtg_ag, 
+                           activity_ref_mtg[['Sector', 'Subsector', 'End Use Application',
+                                             'Energy carrier', 'Energy carrier type', 'Year', 'Value']], 
+                           how='left', 
+                           on=['Sector', 'Subsector', 'End Use Application',
+                               'Energy carrier', 'Energy carrier type', 'Year']).reset_index(drop=True)
+activity_mtg_ag['Value'] = activity_mtg_ag['Value_x'] - activity_mtg_ag['Value_y'] 
+activity_mtg_ag.drop(columns=['Value_x', 'Value_y'], inplace=True)
 
 # Append to activity matrix and save
 activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag.copy()], axis=0). reset_index(drop=True)
 
 if save_interim_files == True:
     activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
-    
-
-
-
-
 
 # Seperate electric and non-electric activities
 activity_mtg_ag_elec = activity_mtg_ag.loc[activity_mtg_ag['Energy carrier'] == 'Electricity', : ]
@@ -781,10 +789,6 @@ activity_BAU = activity_BAU[model_col_list_mtg]
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
 
-
-
-
-    
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
