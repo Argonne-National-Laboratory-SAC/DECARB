@@ -698,8 +698,8 @@ mtg_ag_df = pd.DataFrame({'Year' : np.linspace(min(activity_mtg_ag['Year']), max
 activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, mtg_ag_df, how='left', on='Year').reset_index(drop=True)
 
 # Identifying the amount of diesel use and electricity use
-activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac']  * D2E_relative_eff
-activity_mtg_ag_d['Value Diesel Use'] = activity_mtg_ag_d['Value'] - activity_mtg_ag_d['Value Elec Use'] 
+activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac'] * D2E_relative_eff
+activity_mtg_ag_d['Value Diesel Use'] = -1 * activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac'] # relative Diesel use, mitigation case - reference case
 
 # Rows with Electricity use
 temp_activity = activity_mtg_ag_d.drop(columns = ['Value', 'Value Diesel Use'])
@@ -707,84 +707,71 @@ temp_activity.rename(columns={'Value Elec Use' : 'Value'}, inplace=True)
 temp_activity['Energy carrier'] = 'Electricity'
 temp_activity['Energy carrier type'] = 'U.S. Average Grid Mix'
 
-activity_mtg_ag_d = activity_mtg_ag_d.drop(columns = ['Value', 'Value Elec Use'])
+activity_mtg_ag_d.drop(columns = ['Value', 'Value Elec Use'], inplace=True)
 activity_mtg_ag_d.rename(columns={'Value Diesel Use' : 'Value'}, inplace=True)
 
 # Concatenate data frames to get electricity and diesel use-separated activities into one data frame
 activity_mtg_ag_d = pd.concat([activity_mtg_ag_d, temp_activity], axis=0).reset_index(drop=True)
 del temp_activity
 
-# Concatenate data frames to get all agriculture based activities
-activity_mtg_ag = pd.concat([activity_mtg_ag, activity_mtg_ag_d], axis=0).reset_index(drop=True)
-del activity_mtg_ag_d
-
-activity_mtg_ag['Case'] = 'Mitigation'
-activity_mtg_ag['Mitigation Case'] = 'On-Farm Mitigation'
-
-# Identify relative values of activities for the mitigation case
-activity_mtg_ag = pd.merge(activity_mtg_ag, 
-                           activity_ref_mtg[['Sector', 'Subsector', 'End Use Application',
-                                             'Energy carrier', 'Energy carrier type', 'Year', 'Value']], 
-                           how='left', 
-                           on=['Sector', 'Subsector', 'End Use Application',
-                               'Energy carrier', 'Energy carrier type', 'Year']).reset_index(drop=True)
-activity_mtg_ag['Value'] = activity_mtg_ag['Value_x'] - activity_mtg_ag['Value_y'] 
-activity_mtg_ag.drop(columns=['Value_x', 'Value_y'], inplace=True)
+activity_mtg_ag_d['Fuel Pool'] = 'Electricity'
+activity_mtg_ag_d['Case'] = 'Mitigation'
+activity_mtg_ag_d['Mitigation Case'] = 'On-Farm Mitigation'
 
 # Append to activity matrix and save
-activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag.copy()], axis=0). reset_index(drop=True)
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag_d.copy()], axis=0). reset_index(drop=True)
 
 if save_interim_files == True:
     activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
 
 # Seperate electric and non-electric activities
-activity_mtg_ag_elec = activity_mtg_ag.loc[activity_mtg_ag['Energy carrier'] == 'Electricity', : ]
-activity_mtg_ag = activity_mtg_ag.loc[~(activity_mtg_ag['Energy carrier'] == 'Electricity'), : ]
+activity_mtg_ag_d_elec = activity_mtg_ag_d.loc[activity_mtg_ag_d['Energy carrier'] == 'Electricity', : ]
+activity_mtg_ag_d = activity_mtg_ag_d.loc[~(activity_mtg_ag_d['Energy carrier'] == 'Electricity'), : ]
 
 # Merge GREET correspondence table
-activity_mtg_ag = pd.merge(activity_mtg_ag, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
                                on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 
                                    'End Use Application']).reset_index(drop=True)
 
 # Merge GREET EF
-activity_mtg_ag = pd.merge(activity_mtg_ag, ob_ef.ef_raw, 
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, ob_ef.ef_raw, 
                                how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
 
 # Merge NREL mitigation scenario electricity CIs to VISION
-activity_mtg_ag_elec = pd.merge(activity_mtg_ag_elec, 
+activity_mtg_ag_d_elec = pd.merge(activity_mtg_ag_d_elec, 
                                    elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
-activity_mtg_ag_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+activity_mtg_ag_d_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
 
-activity_mtg_ag.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
+activity_mtg_ag_d.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
                                'Unit (Denominator)' : 'Energy Unit',
                                'Reference case' : 'CI'}, inplace=True)
-activity_mtg_ag.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+activity_mtg_ag_d.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
 
 # Concatenate electric and non-electric activities
-activity_mtg_ag = pd.concat([activity_mtg_ag, activity_mtg_ag_elec], axis = 0).reset_index(drop=True)
+activity_mtg_ag_d = pd.concat([activity_mtg_ag_d, activity_mtg_ag_d_elec], axis = 0).reset_index(drop=True)
 
-activity_mtg_ag['Total Emissions'] = activity_mtg_ag['Value'] * activity_mtg_ag['CI']
+activity_mtg_ag_d['Total Emissions'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['CI']
 
 # Calculate LCIA metric
-activity_mtg_ag = pd.merge(activity_mtg_ag, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
-activity_mtg_ag['LCIA_estimate'] = activity_mtg_ag['Total Emissions'] * activity_mtg_ag['GWP']
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_ag_d['LCIA_estimate'] = activity_mtg_ag_d['Total Emissions'] * activity_mtg_ag_d['GWP']
 
-activity_mtg_ag.loc[~activity_mtg_ag['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
-  ob_units.unit_convert_df(activity_mtg_ag.loc[~activity_mtg_ag['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
    Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
    if_given_category=True, unit_category = 'Emissions')
 
-activity_mtg_ag[['AEO Case', 'Mitigation Case', 'Basis', 'Fuel Pool']] = '-'
-activity_mtg_ag = activity_mtg_ag[activity_BAU.columns]
+activity_mtg_ag_d[['AEO Case', 'Basis']] = '-'
+#activity_mtg_ag_d = activity_mtg_ag_d[activity_BAU.columns]
 
-activity_mtg_ag = activity_mtg_ag[model_col_list_mtg]
+activity_mtg_ag_d = activity_mtg_ag_d[model_col_list_mtg]
 
 # Concatenating to main activity matrix
-activity_BAU = pd.concat([activity_BAU, activity_mtg_ag], axis=0).reset_index(drop=True)
+activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(drop=True)
 
-activity_BAU = activity_BAU[model_col_list_mtg]
+#activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
     activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
