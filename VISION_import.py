@@ -21,12 +21,12 @@ class VISION:
         self.input_path_VISION = input_path_VISION
         self.input_path_corr = input_path_corr
         
-        self.f_name_VISION = 'EERE_VISION Output_Fuel Use_0411.xlsx'        
-        self.f_corr_VISION_EIA = 'corr_vision_ldv.xlsx'
+        self.f_name_VISION = 'EERE_VISION Output_Fuel Use_0411.csv'        
+        self.f_corr_VISION_EIA = 'corr_vision_ldv.csv'
         
         # Load VISION and correspondence excel workborks
-        self.vision = pd.read_excel(self.input_path_VISION + '\\' + self.f_name_VISION, header = 3)        
-        self.corr_vision = pd.read_excel(self.input_path_corr + '\\' + self.f_corr_VISION_EIA)
+        self.vision = pd.read_csv(self.input_path_VISION + '\\' + self.f_name_VISION, header = 3)        
+        self.corr_vision = pd.read_csv(self.input_path_corr + '\\' + self.f_corr_VISION_EIA)
         
         # Foward fill NaN/missing entries 
         self.vision = self.vision.ffill(axis = 0)

@@ -28,10 +28,10 @@ class EPA_GHGI_import:
         self.input_path_EPA = input_path_EPA
         self.input_path_corr = input_path_corr
         self.save_to_file = save_to_file
-        self.file_out = 'EPA_GHGI.xlsx'
+        self.file_out = 'EPA_GHGI.csv'
         
         # Load in GHGI import sheet
-        df = pd.read_excel(self.input_path_corr + '\\' + 'ghgi_correspondence.xlsx')
+        df = pd.read_csv(self.input_path_corr + '\\' + 'ghgi_correspondence.csv')
         
         # create list to append GHGI data
         temp_list = [] 

@@ -38,8 +38,8 @@ class model_units:
         self.input_path_corr = input_path_corr
         
         self.f_unit_convert = 'Unit Conversion.xlsx'
-        self.f_tool_units = 'EERE_tool_unit_conventions.xlsx'
-        self.f_GREET_HV = 'GREETheatingValues.xlsx'
+        self.f_tool_units = 'EERE_tool_unit_conventions.csv'
+        self.f_GREET_HV = 'GREETheatingValues.csv'
         self.f_corr_EF_GREET_EIA = 'corr_EF_GREET_EIA.csv'
         
         self.return_to_unit = 'return_to_unit'
@@ -47,14 +47,12 @@ class model_units:
         
         sheet_physical = 'physical'
         sheet_feedstock = 'feedstock'
-        
-        sheet_unit_conventions = 'unit_conventions'
               
         physical = pd.read_excel(self.input_path_units + '\\' + self.f_unit_convert, sheet_name = sheet_physical)
         feedstock = pd.read_excel(self.input_path_units + '\\' + self.f_unit_convert, sheet_name = sheet_feedstock)
-        eere_tool_units = pd.read_excel(self.input_path_units + '\\' + self.f_tool_units, sheet_name = sheet_unit_conventions)
+        eere_tool_units = pd.read_csv(self.input_path_units + '\\' + self.f_tool_units)
         
-        hv = pd.read_excel(self.input_path_GREET + '\\' + self.f_GREET_HV)
+        hv = pd.read_csv(self.input_path_GREET + '\\' + self.f_GREET_HV)
                
         corr_EF_GREET_EIA = pd.read_csv(self.input_path_corr + '\\' + self.f_corr_EF_GREET_EIA)
         

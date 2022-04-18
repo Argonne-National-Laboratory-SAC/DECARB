@@ -30,10 +30,10 @@ class Industrial:
     def __init__ (self, ob_units, data_path_prefix):
               
         self.data_path_prefix = data_path_prefix
-        self.f_name = 'Industrial.xlsx'
+        self.f_name = 'Industrial.csv'
         
         # data loading
-        self.industrial = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
+        self.industrial = pd.read_csv(self.data_path_prefix + '\\' + self.f_name, header = 3)
                
         # unit conversion
         self.industrial [['Unit', 'Value']] = ob_units.unit_convert_df (self.industrial [['Unit', 'Value']].copy())

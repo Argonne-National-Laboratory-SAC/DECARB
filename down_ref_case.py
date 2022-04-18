@@ -67,5 +67,5 @@ activity_BAU_non_elec_agg['Type'] = 'Non-electric use activities'
 
 activity_BAU_agg = pd.concat([activity_BAU_elec_agg, activity_BAU_non_elec_agg], axis=0).reset_index()
 
-activity_BAU_agg.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg_2020.xlsx')
+activity_BAU_agg.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg_2020.csv')
 

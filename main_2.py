@@ -115,7 +115,7 @@ ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' cat
 ob_EPA_GHGI.process_EERE(decarb_year_min, decarb_year_max) # perform calculations for the decarbonization tool
 
 if save_interim_files:
-    ob_EPA_GHGI.activity_non_combust_exp.to_excel(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.xlsx')
+    ob_EPA_GHGI.activity_non_combust_exp.to_csv(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.csv')
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec( ob_units, input_path_electricity, input_path_corr )
@@ -177,7 +177,7 @@ electric_gen['Electricity Production'] = electric_gen['Electricity Production'] 
 electric_gen.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
 
 if save_interim_files == True:
-    electric_gen.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen.xlsx')
+    electric_gen.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen.csv')
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 electric_gen_ef = pd.merge(ob_eia.EIA_data['energy_supply'][['AEO Case', 'End Use', 'Sector', 'Subsector', 'Energy carrier', 
@@ -204,14 +204,14 @@ electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector'
                           'EF_withElec', 'Total Emissions']]
 
 if save_interim_files == True:
-    electric_gen_ef.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_emissions.xlsx')
+    electric_gen_ef.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions.csv')
 
 # Aggregrate emissions
 electric_gen_ef_agg = electric_gen_ef.groupby(['Year', 'Sector', 'End Use Application', 'Energy carrier', 'Flow Name', 'Formula', 'EF_Unit (Numerator)']).\
                                                 agg({'Total Emissions' : 'sum'}).reset_index()   
                                                 
 if save_interim_files == True:
-    electric_gen_ef_agg.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_agg.xlsx')
+    electric_gen_ef_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_agg.csv')
  
 # merging the electricity production data with the total emissions data    
 elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, how='left', on=['Year', 'Sector', 'End Use Application', 'Energy carrier']).drop(columns=['loss_frac']) 
@@ -346,7 +346,7 @@ elec_gen_mtg = pd.merge(elec_gen_mtg, ob_eia.TandD[['Year', 'loss_frac']], how='
 elec_gen_mtg['Electricity Production'] = elec_gen_mtg['Electricity Production'] * (1 - elec_gen_mtg['loss_frac'])
 
 if save_interim_files == True:
-    elec_gen_mtg.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_mtg.xlsx')
+    elec_gen_mtg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_mtg.csv')
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 elec_gen_ef_mtg = pd.merge(ob_elec.NREL_elec['generation'][['Sector', 'Subsector', 'Case', 'Mitigation Case',
@@ -388,7 +388,7 @@ electric_gen_ef_mtg_agg = elec_gen_ef_mtg.groupby(['Sector', 'Subsector', 'Case'
                                                 agg({'Total Emissions' : 'sum'}).reset_index()   
                                                 
 if save_interim_files == True:
-    electric_gen_ef_mtg_agg.to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_mtg_agg.xlsx')
+    electric_gen_ef_mtg_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_mtg_agg.csv')
  
 # merging the electricity production data with the total emissions data    
 elec_gen_em_mtg_agg = pd.merge(elec_gen_mtg, electric_gen_ef_mtg_agg, how='left', on=['Sector', 'Subsector', 'Case', 
@@ -457,7 +457,7 @@ activity_BAU['Mitigation Case'] = '-'
 activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -486,7 +486,7 @@ activity_ref_mtg = pd.concat([activity_ref_mtg, temp.copy()], axis=0).reset_inde
 del temp
 
 if save_interim_files == True:
-    activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
+    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
 
 # Separate electric and non electric activities
 activity_mtg_scout_elec = activity_mtg_scout.loc[activity_mtg_scout['Energy carrier'] == 'Electricity', : ]
@@ -564,7 +564,7 @@ del temp_activity
 activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
-    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -600,7 +600,7 @@ activity_mtg_vision = activity_mtg_vision[temp_activity.columns]
 activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_vision.copy()], axis=0). reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
+    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
   
 del temp_activity
 
@@ -656,7 +656,7 @@ activity_BAU = pd.concat([activity_BAU, activity_mtg_vision], axis=0).reset_inde
 activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
-    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -722,7 +722,7 @@ activity_mtg_ag_d['Mitigation Case'] = 'On-Farm Mitigation'
 activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag_d.copy()], axis=0). reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_ref_mtg.to_excel(output_path_prefix + '\\' + 'activity_ref_mtg_cases.xlsx')
+    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
 
 # Seperate electric and non-electric activities
 activity_mtg_ag_d_elec = activity_mtg_ag_d.loc[activity_mtg_ag_d['Energy carrier'] == 'Electricity', : ]
@@ -774,7 +774,7 @@ activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(
 #activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
-    activity_BAU.to_excel(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.xlsx')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
 
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))

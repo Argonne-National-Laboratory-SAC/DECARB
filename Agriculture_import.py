@@ -27,7 +27,7 @@ class Agriculture:
     def __init__ (self, data_path_prefix):
         
         self.data_path_prefix = data_path_prefix
-        self.f_name = 'Agriculture.xlsx'
+        self.f_name = 'Agriculture.csv'
         
         # data loading        
         self.agg = pd.read_excel(self.data_path_prefix + '\\' + self.f_name, header = 3)
