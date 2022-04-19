@@ -14,42 +14,58 @@ Summary: This python script writes the output data to the Excel Dashboard
 
 #%%
 
-# Read output data files
+import pandas as pd
+import xlwings as xw
+
+# Set file paths, file names and read output data files
 
 code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
 
 interim_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\2_intermediate_files'
 output_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\3_output_files'
 
-f_activity = 'activity_ref_mtg_cases.xlsx'
-f_env = 'env_ref_mtg_cases.xlsx'
-f_eps_capacity
-f_eps_net_gen
-f_eps_env
-f_eps_CI
+dashboard_path = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Dashboard'
 
-activity
-env
-eps_capacity
-eps_net_gen
-eps_env
-eps_CI
+f_activity = 'activity_ref_mtg_cases.csv'
+f_env = 'env_ref_mtg_cases.csv' 
+f_elec_net_gen = 'interim_elec_gen.csv'
+f_elec_env = 'interim_elec_gen_env.csv'
+f_elec_CI = 'interim_elec_gen_CI.csv'
+
+f_dashboard = 'US Decarbonization Tool.xlsx'
+
+activity =  pd.read_csv(output_path_prefix + '\\' + f_activity, index_col=0)    
+env = pd.read_csv(output_path_prefix + '\\' + f_env, index_col=0)
+elec_net_gen = pd.read_csv(interim_path_prefix + '\\' + f_elec_net_gen, index_col=0)
+elec_env = pd.read_csv(interim_path_prefix + '\\' + f_elec_env, index_col=0)
+elec_CI = pd.read_csv(interim_path_prefix + '\\' + f_elec_CI, index_col=0)
+
+#%%
 
 # Write results to excel file
 
 app = xw.App()
 
-wb = xw.Book(path + "\\" + f_age)
+wb = xw.Book(dashboard_path + "\\" + f_dashboard)
 
-sheet_1 = wb.sheets['env matrix']
-sheet_1['A5'].options(chunksize=5000).value = env_matrix
+# Write to the Activity Matrix tab
+sheet_1 = wb.sheets['Energy Demand']
+sheet_1['A4'].options(chunksize=5000).value = activity
 
+# Write to the Environmental Matrix tab
+sheet_1 = wb.sheets['Env Matrix']
+sheet_1['A4'].options(chunksize=5000).value = env
+
+"""
 sheet_2 = wb.sheets['metadata']
 sheet_2['A5'].options(chunksize=5000).value = df_metadata
 
 sheet_3 = wb.sheets['energy cons']
 sheet_3['A5'].options(chunksize=5000).value = df_energy_cons
+"""
 
 wb.save()
 wb.close()
 app.quit()
+
+#%%

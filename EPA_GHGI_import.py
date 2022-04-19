@@ -212,6 +212,12 @@ class EPA_GHGI_import:
                                                      'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
                                                      'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
                                                      'Unit', 'Value', 'CI', 'Total Emissions']]
+        
+        # Rename the industry to industrial for alligning with EIA data set
+        self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Sector'] == 'Industry', 'Sector'] = 'Industrial'
+        
+        # Drop Electric Power economic sector data as those will be included within the reference case electric power calculations
+        self.activity_non_combust_exp = self.activity_non_combust_exp.loc[~(self.activity_non_combust_exp['Sector'] == 'Electric Power'), : ]
 
 if __name__ == "__main__":
     
@@ -245,5 +251,5 @@ if __name__ == "__main__":
     ob1.process_EERE(decarb_year_min=2020, decarb_year_max=2050)
     
     if ob1.save_to_file == True:
-        ob1.df_ghgi.to_excel(input_path_EPA + ob1.file_out, index = False)    
+        ob1.df_ghgi.to_csv(input_path_EPA + ob1.file_out, index = False)    
 

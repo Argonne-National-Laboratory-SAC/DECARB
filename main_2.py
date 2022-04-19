@@ -47,6 +47,44 @@ sheet_corr_ef_greet = 'corr_EF_GREET'
 f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
 sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
 
+# defining the intermediate and final data table files and their columns
+f_interim_activity = 'interim_activity_ref_mtg_cases.csv'
+f_interim_env = 'interim_env_ref_mtg_cases.csv'
+f_out_activity = 'activity_ref_mtg_cases.csv'
+f_out_env = 'env_ref_mtg_cases.csv'
+f_elec_net_gen = 'interim_elec_gen.csv'
+f_elec_env = 'interim_elec_gen_env.csv'
+f_elec_env_agg = 'interim_elec_gen_env_agg.csv'
+f_elec_CI = 'interim_elec_gen_CI.csv'
+
+cols_activity_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
+                'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
+                'Year', 'Unit', 'Value']
+
+cols_env_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
+                'Scope', 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
+                'Year', 'Formula', 'Emissions Unit', 'Total Emissions', 'LCIA_estimate']
+
+cols_elec_net_gen = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
+                     'Energy carrier', 'Unit', 'Electricity Production']
+
+cols_elec_env = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
+                 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 'Generation Type',
+                 'Scope', 'Formula', 'Year', 'EF_Unit (Numerator)', 'Total Emissions']
+
+cols_elec_env_agg = ['Case', 'Mitigation Case', 'Sector',
+                     'Energy carrier', 'Formula', 
+                     'Year', 'EF_Unit (Numerator)', 'Total Emissions']
+
+cols_elec_CI = ['Case', 'Mitigation Case', 'Sector',
+                'Energy carrier', 'Formula', 
+                'Year', 'Emissions Unit', 'Energy Unit', 'CI']
+
+model_col_list = ['Data Source', 'AEO Case', 'Case', 'Mitigation Case', 'Sector', 'Subsector', 
+                  'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
+                  'Basis', 'Fuel Pool', 'Year', 'Formula', 'Emissions Unit', 
+                  'Unit', 'Value', 'CI', 'Total Emissions']
+
 # Decarbonization years of analysis
 decarb_year_min = 2020
 decarb_year_max = 2050
@@ -87,8 +125,8 @@ os.chdir(code_path_prefix)
 
 from EIA_AEO_import import EIA_AEO
 from SCOUT_import import SCOUT
-from Industrial_import import Industrial
-from Agriculture_import import Agriculture
+#from Industrial_import import Industrial
+#from Agriculture_import import Agriculture
 from VISION_import import VISION
 from EPA_GHGI_import import EPA_GHGI_import
 from NREL_electricity_import import NREL_elec
@@ -158,8 +196,6 @@ ob_ef.ef = pd.merge(corr_EF_GREET.loc[:, ~ corr_EF_GREET.columns.isin(['GREET Ta
                     ob_ef.ef,
                     how='left',on=['GREET Pathway', 'Scope']).reset_index(drop=True)
 
-ob_ef.ef.to_excel(interim_path_prefix + '\\' + 'temp_ef.xlsx')
-
 # Filter combustion data for electricity generation 
 ob_ef.ef_electric = ob_ef.ef.loc[ob_ef.ef['Scope'].isin(['Electricity, Combustion'])].copy()
 
@@ -176,8 +212,10 @@ electric_gen = pd.merge(electric_gen, ob_eia.TandD[['Year', 'loss_frac']], how='
 electric_gen['Electricity Production'] = electric_gen['Electricity Production'] * (1 - electric_gen['loss_frac'])
 electric_gen.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
 
+electric_gen['Case'] = 'Reference Case'
+electric_gen[['Mitigation Case', 'Subsector']] = '-'
 if save_interim_files == True:
-    electric_gen.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen.csv')
+    electric_gen[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 electric_gen_ef = pd.merge(ob_eia.EIA_data['energy_supply'][['AEO Case', 'End Use', 'Sector', 'Subsector', 'Energy carrier', 
@@ -203,29 +241,32 @@ electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector'
                           'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
                           'EF_withElec', 'Total Emissions']]
 
+electric_gen_ef['Mitigation Case'] = '-'
 if save_interim_files == True:
-    electric_gen_ef.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions.csv')
+    electric_gen_ef[cols_elec_env].to_csv(interim_path_prefix + '\\' + f_elec_env)
 
 # Aggregrate emissions
 electric_gen_ef_agg = electric_gen_ef.groupby(['Year', 'Sector', 'End Use Application', 'Energy carrier', 'Flow Name', 'Formula', 'EF_Unit (Numerator)']).\
                                                 agg({'Total Emissions' : 'sum'}).reset_index()   
                                                 
+electric_gen_ef_agg['Case'] = 'Reference Case'
+electric_gen_ef_agg['Mitigation Case'] = '-'
 if save_interim_files == True:
-    electric_gen_ef_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_agg.csv')
+    electric_gen_ef_agg[cols_elec_env_agg].to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
  
 # merging the electricity production data with the total emissions data    
 elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, how='left', on=['Year', 'Sector', 'End Use Application', 'Energy carrier']).drop(columns=['loss_frac']) 
 elec_gen_em_agg.rename(columns={
     'Unit' : 'Energy Unit', 'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
 
-# Adding GHG emissions from incineration of waste from EPA's GHGI, 
+# Adding GHG emissions from: 
+# 'Incineration of Waste', 
+# 'Electrical Transmission and Distribution', 
+# 'Other Process Uses of Carbonates'
 
 EPA_GHGI_maxyear = np.max(ob_EPA_GHGI.df_ghgi['Year'])
-EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Source'].isin(
-    ['Incineration of Waste', 
-     'Electrical Transmission and Distribution', 
-     'Other Process Uses of Carbonates'])) & 
-   (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear) ]
+EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Economic Sector'] == 'Electric Power') & 
+   (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear)]
 
 EPA_GHGI_addn_em = EPA_GHGI_addn_em.\
     groupby(['Year', 'Source', 'Emissions Type', 'Unit']).\
@@ -242,15 +283,21 @@ elec_gen_em_agg = pd.merge(elec_gen_em_agg, EPA_GHGI_addn_em_agg,
                                how='left', left_on='Formula', right_on='Emissions Type')
 
 elec_gen_em_agg['Total Emissions'] = elec_gen_em_agg['Total Emissions'] + elec_gen_em_agg['GHG Emissions']
-elec_gen_em_agg = elec_gen_em_agg.drop(columns=['GHG Emissions'])
 
-# Drop not-needed columns
+elec_gen_em_agg.rename(columns={'Case_x' : 'Case'}, inplace=True)
+
+elec_gen_em_agg['Mitigation Case'] = '-'
+
+elec_gen_em_agg = elec_gen_em_agg.groupby(['Case', 'Mitigation Case', 'Sector', 'End Use Application',
+                                           'Energy carrier', 'Formula', 
+                                           'Year', 'Energy Unit', 'Emissions Unit']).agg({'Total Emissions' : 'sum',
+                                                                           'Electricity Production' : 'sum'}).reset_index()
+
 elec_gen_em_agg['CI'] = elec_gen_em_agg['Total Emissions'] / elec_gen_em_agg['Electricity Production']
-
-elec_gen_em_agg.drop(columns=['Electricity Production', 'Total Emissions', 'Unit'], inplace=True)
+elec_gen_em_agg['Mitigation Case'] = '-'
 
 if save_interim_files == True:
-    elec_gen_em_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_agg_CI.csv')
+    elec_gen_em_agg[cols_elec_CI].to_csv(interim_path_prefix + '\\' + f_elec_CI)
 
 # Separate non-electric, non-electric NEU, and electric activities --> merge to ef data frames and calculate total emissions
 
@@ -266,7 +313,7 @@ activity_non_elec_neu = activity_non_elec.loc[activity_non_elec['Energy carrier'
 activity_non_elec = activity_non_elec.loc[~activity_non_elec['Energy carrier'].isin(neu_energy_carriers), : ]
 
 # Map direct combustion wrt energy carrier for non-electric. For electric, map aggregrate CIs that we calculated and then calculate the net emissions and GWPs
-activity_elec = pd.merge(activity_elec, elec_gen_em_agg[['Year', 'Energy carrier', 'Energy Unit', 'Flow Name', 'Formula', 'Emissions Unit', 'CI']], 
+activity_elec = pd.merge(activity_elec, elec_gen_em_agg[['Year', 'Energy carrier', 'Formula', 'Emissions Unit', 'CI']], 
          how='left', on=['Year', 'Energy carrier'])
 
 activity_non_elec = pd.merge(activity_non_elec, ob_ef.ef, 
@@ -291,16 +338,13 @@ activity_non_elec['Scope'] = 'Direct, Combustion'
 activity_non_elec_neu['Total Emissions'] = activity_non_elec_neu['Value'] * activity_non_elec_neu['CI']
 
 # Re-arrange columns
-
-model_col_list = ['Data Source', 'AEO Case', 'Case', 'Sector', 'Subsector', 
-                  'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                  'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                  'Unit', 'Value', 'CI', 'Total Emissions']
-
+activity_elec['Mitigation Case'] = '-'
 activity_elec = activity_elec[model_col_list]
 
+activity_non_elec['Mitigation Case'] = '-'
 activity_non_elec = activity_non_elec[model_col_list]
 
+activity_non_elec_neu['Mitigation Case'] = '-'
 activity_non_elec_neu = activity_non_elec_neu[model_col_list]
 
 # Generate the Environmental Matrix
@@ -315,17 +359,12 @@ activity_BAU.loc[~activity_BAU['Emissions Unit'].isnull(), ['Emissions Unit', 'L
    Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
    if_given_category=True, unit_category = 'Emissions')
 
+activity_BAU['Mitigation Case'] = '-'
+
 print("Status: Saving activity_reference case table to file ..")
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case.csv')
-
-activity_BAU_agg = activity_BAU.copy()
-activity_BAU_agg['EIA type'] = ["Electric use activities" if x == 'Electricity, Combustion' else "Non-electric use activities" for x in activity_BAU_agg['Scope']]
-activity_BAU_agg = activity_BAU_agg.groupby(['Year', 'Sector', 'EIA type', 'Formula', 'Emissions Unit']).agg({
-                                            'LCIA_estimate' : 'sum'}).reset_index()
-
-if save_interim_files == True:
-    activity_BAU_agg.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_case_agg.csv')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -337,16 +376,18 @@ Generating Electric power mitigation scenarios
 
 print("Status: Constructing Electric generation Mitigation scenario ..")
 
+# subsetting electric generation data from mitigation modeling
 elec_gen_mtg = ob_elec.NREL_elec['generation'].\
     groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy Unit'], as_index=False). \
     agg({'Electricity Production' : 'sum'}).reset_index()
 
-# Merge and calculate based on T&D loss
+# Merge and calculate electric generation considering on T&D loss
 elec_gen_mtg = pd.merge(elec_gen_mtg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
 elec_gen_mtg['Electricity Production'] = elec_gen_mtg['Electricity Production'] * (1 - elec_gen_mtg['loss_frac'])
 
+electric_gen = pd.concat([electric_gen, elec_gen_mtg], axis = 0).reset_index(drop=True)
 if save_interim_files == True:
-    elec_gen_mtg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_mtg.csv')
+    electric_gen[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 elec_gen_ef_mtg = pd.merge(ob_elec.NREL_elec['generation'][['Sector', 'Subsector', 'Case', 'Mitigation Case',
@@ -362,73 +403,72 @@ elec_gen_ef_mtg['Total Emissions'] = elec_gen_ef_mtg['Reference case'] * elec_ge
 # Rename and re-arrange columns
 elec_gen_ef_mtg.rename(columns={'Reference case' : 'EF_withElec',
                                 'Elec0' : 'EF_Elec0'}, inplace = True)
-elec_gen_ef_mtg[['AEO Case',
-                 'Basis',
+elec_gen_ef_mtg[['Basis',
                  'Fuel Pool']] = '-'
 
-elec_gen_ef_mtg = elec_gen_ef_mtg[['AEO Case', 'Case', 'Mitigation Case', 'GREET Pathway', 'Sector', 'Subsector', 'End Use Application', 
-                          'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 'Generation Type',
-                          'Year', 'Energy Unit', 'Electricity Production', 'Scope', 'Flow Name', 'Formula', 
-                          'EF_Unit (Numerator)', 'EF_Unit (Denominator)', 
-                          'EF_withElec', 'Total Emissions']]
-
-elec_gen_ef_mtg.drop(columns=['Electricity Production', 'EF_Unit (Denominator)'], inplace=True)
-
-
+# Save electric gen environmental matrix
 if save_interim_files == True:
-    elec_gen_ef_mtg.loc[:, ~(elec_gen_ef_mtg.columns.isin(['EF_withElec', 'Energy Unit'])) ].\
-        to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_mtg.xlsx')
+    tempdf = pd.concat([electric_gen_ef[cols_elec_env], elec_gen_ef_mtg[cols_elec_env] ], axis=0).reset_index(drop=True)
+    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_env)
+    del tempdf
         
-    elec_gen_ef_mtg.loc[:, ~(elec_gen_ef_mtg.columns.isin(['Total Emissions'])) ].\
-        to_excel(interim_path_prefix + '\\' + 'interim_electric_gen_CImultiplier_mtg.xlsx')
-
 # Aggregrate emissions
 electric_gen_ef_mtg_agg = elec_gen_ef_mtg.groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 
                                                    'Flow Name', 'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).\
                                                 agg({'Total Emissions' : 'sum'}).reset_index()   
-                                                
+                                               
 if save_interim_files == True:
-    electric_gen_ef_mtg_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_gen_emissions_mtg_agg.csv')
+    tempdf = electric_gen_ef_agg.groupby(['Case', 'Mitigation Case', 'Sector',
+                                          'Energy carrier', 'Formula', 
+                                          'Year', 'EF_Unit (Numerator)'], as_index=False).agg({'Total Emissions' : 'sum'})
+    tempdf = pd.concat([tempdf[cols_elec_env_agg], electric_gen_ef_mtg_agg[cols_elec_env_agg]], axis=0).reset_index()
+    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
+    del tempdf
  
 # merging the electricity production data with the total emissions data    
 elec_gen_em_mtg_agg = pd.merge(elec_gen_mtg, electric_gen_ef_mtg_agg, how='left', on=['Sector', 'Subsector', 'Case', 
                         'Mitigation Case', 'Year', 'Energy carrier', 'Energy Unit']).reset_index(drop=True).drop(columns=['loss_frac']) 
 
 elec_gen_em_mtg_agg.rename(columns={
-    'Formula' : 'Emissions Type',
     'Unit' : 'Energy Unit', 
     'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
 
 elec_gen_em_mtg_agg['CI'] = elec_gen_em_mtg_agg['Total Emissions'] / elec_gen_em_mtg_agg['Electricity Production']
 
-elec_gen_em_mtg_agg.drop(columns=['Electricity Production', 'Total Emissions'], inplace=True)
-
 if save_interim_files == True:
-    elec_gen_em_mtg_agg.to_csv(interim_path_prefix + '\\' + 'interim_electric_mtg_agg_CI.csv')
+    tempdf = pd.concat([elec_gen_em_agg[cols_elec_CI], elec_gen_em_mtg_agg[cols_elec_CI]], axis=0).reset_index(drop=True)
+    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_CI)
+    del tempdf
 
 # constructing the Electricity mitigation matrix calculating difference in Electricity grid CIs
+
 elec_gen_em_mtg_agg_m = pd.merge(elec_gen_em_agg, elec_gen_em_mtg_agg, 
-         how='outer', on = ['Year', 'Sector', 'Energy carrier', 'Flow Name', 'Emissions Type',
+         how='outer', on = ['Year', 'Sector', 'Energy carrier', 'Formula',
                 'Energy Unit', 'Emissions Unit'] ).reset_index(drop=True)
 
-elec_gen_em_mtg_agg_m.rename(columns={'CI_x' : 'CI_ref_case_elec', 
+elec_gen_em_mtg_agg_m.rename(columns={'Case_y' : 'Case',
+                                      'Mitigation Case_y' : 'Mitigation Case',
+                                      'CI_x' : 'CI_ref_case_elec', 
                                       'CI_y' : 'CI_elec_mtg',
                                       'Total Emissions_x' : 'Total Emissions_ref_case',
                                       'Total Emissions_y' : 'Total Emissions_mtg_elec',
                                       'Electricity Production_x' : 'Electricity Production_ref_case',
                                       'Electricity Production_y' : 'Electricity Production_mtg_elec'}, inplace=True)
+elec_gen_em_mtg_agg_m.drop(columns=['Case_x', 'Mitigation Case_x'], inplace=True)
 elec_gen_em_mtg_agg_m ['CI_diff_elec_mtg_ref_case'] = elec_gen_em_mtg_agg_m  ['CI_elec_mtg'] - elec_gen_em_mtg_agg_m ['CI_ref_case_elec']
 
 if save_interim_files == True:
     elec_gen_em_mtg_agg_m.to_csv(interim_path_prefix + '\\' + 'interim_electric_ref_mtg_agg_CI.csv')
 
-activity_mtg_elec = ob_eia.EIA_data['energy_demand'].loc[ob_eia.EIA_data['energy_demand']['Energy carrier'] == 'Electricity',:]
+# Constructing mitigation scenarios for Electricity based activities
+activity_mtg_elec = ob_eia.EIA_data['energy_demand'].loc[ob_eia.EIA_data['energy_demand']['Energy carrier'] == 'Electricity', : ]
 
-activity_mtg_elec = pd.merge(activity_mtg_elec, elec_gen_em_mtg_agg_m[['Case', 'Mitigation Case', 'Year', 
-                                                   'Flow Name', 'Emissions Type', 
+activity_mtg_elec = pd.merge(activity_mtg_elec, elec_gen_em_mtg_agg_m[['Case', 'Year', 
+                                                   'Formula',
                                                    'Emissions Unit', 'Energy Unit', 
                                                    'CI_diff_elec_mtg_ref_case']], 
-         how='left', on=['Year']).reset_index(drop=True)
+                             how='left', 
+                             on=['Year']).reset_index(drop=True)
 
 activity_mtg_elec['Total Emissions'] = activity_mtg_elec['Value'] * activity_mtg_elec['CI_diff_elec_mtg_ref_case']
 
@@ -447,17 +487,15 @@ activity_mtg_elec.loc[~activity_mtg_elec['Emissions Unit'].isnull(), ['Emissions
    if_given_category=True, unit_category = 'Emissions')
 
 # Adding 'Mitigation Case' to model column list
-model_col_list_mtg = ['Data Source', 'AEO Case', 'Case', 'Mitigation Case', 'Sector', 'Subsector', 
-                      'End Use Application', 'Scope', 'Energy carrier', 'Energy carrier type', 
-                      'Basis', 'Fuel Pool', 'Year', 'Flow Name', 'Formula', 'Emissions Unit', 
-                      'Unit', 'Value', 'CI', 'Total Emissions', 'LCIA_estimate']
-activity_mtg_elec = activity_mtg_elec[model_col_list_mtg]
 activity_BAU['Mitigation Case'] = '-'
+activity_mtg_elec['Mitigation Case'] = '-'
+activity_mtg_elec = activity_mtg_elec[model_col_list]
 
 activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -486,7 +524,8 @@ activity_ref_mtg = pd.concat([activity_ref_mtg, temp.copy()], axis=0).reset_inde
 del temp
 
 if save_interim_files == True:
-    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
+    activity_ref_mtg.to_csv(interim_path_prefix + '\\' + f_interim_activity)
+    activity_ref_mtg[cols_activity_out].to_csv(output_path_prefix + '\\' + f_out_activity)
 
 # Separate electric and non electric activities
 activity_mtg_scout_elec = activity_mtg_scout.loc[activity_mtg_scout['Energy carrier'] == 'Electricity', : ]
@@ -531,7 +570,7 @@ activity_mtg_scout.loc[~activity_mtg_scout['Emissions Unit'].isnull(), ['Emissio
 activity_mtg_scout[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
 activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
 
-activity_mtg_scout = activity_mtg_scout[model_col_list_mtg]
+#activity_mtg_scout = activity_mtg_scout[model_col_list]
 
 # Mapping EIA AEO sector, etc. to SCOUT conventions
 temp_activity = activity_BAU.loc[(activity_BAU['Sector'].isin(corr_EIA_SCOUT['Sector'].unique()) ) &
@@ -558,13 +597,15 @@ temp_activity.drop(columns=['Energy carrier_x', 'EIA: Energy carrier', 'EIA: Ene
 temp_activity.rename(columns={'Energy carrier_y' : 'Energy carrier',
                              'SCOUT: End Use Application' : 'End Use Application'}, inplace=True)
 
-# Concatenating to main activity matrix
-activity_BAU = pd.concat([activity_BAU, temp_activity, activity_mtg_scout], axis=0).reset_index(drop=True)
+# Concatenating to environmental matrix
+activity_BAU = pd.concat([activity_BAU, 
+                          temp_activity[activity_BAU.columns], 
+                          activity_mtg_scout[activity_BAU.columns]], axis=0).reset_index(drop=True)
 del temp_activity
-activity_BAU = activity_BAU[model_col_list_mtg]
 
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -596,11 +637,12 @@ activity_mtg_vision.rename(columns={'Data Source_x' : 'Data Source',
                                     'Unit_x' : 'Unit',
                                     'Case_x' : 'Case'}, inplace=True)
 activity_mtg_vision = activity_mtg_vision[temp_activity.columns]
-#activity_mtg_vision.to_excel(output_path_prefix + '\\' + 'test_df.xlsx')
-activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_vision.copy()], axis=0). reset_index(drop=True)
+
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_vision.copy()], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
+    activity_ref_mtg.to_csv(interim_path_prefix + '\\' + f_interim_activity)
+    activity_ref_mtg[cols_activity_out].to_csv(output_path_prefix + '\\' + f_out_activity)
   
 del temp_activity
 
@@ -648,15 +690,12 @@ activity_mtg_vision.loc[~activity_mtg_vision['Emissions Unit'].isnull(), ['Emiss
 activity_mtg_vision[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
 activity_mtg_vision = activity_mtg_vision[activity_BAU.columns]
 
-activity_mtg_vision = activity_mtg_vision[model_col_list_mtg]
-
 # Concatenating to main activity matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_vision], axis=0).reset_index(drop=True)
 
-activity_BAU = activity_BAU[model_col_list_mtg]
-
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
+   activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+   activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
@@ -719,10 +758,11 @@ activity_mtg_ag_d['Case'] = 'Mitigation'
 activity_mtg_ag_d['Mitigation Case'] = 'On-Farm Mitigation'
 
 # Append to activity matrix and save
-activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag_d.copy()], axis=0). reset_index(drop=True)
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_ag_d.copy()], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
-    activity_ref_mtg.to_csv(output_path_prefix + '\\' + 'activity_ref_mtg_cases.csv')
+    activity_ref_mtg.to_csv(interim_path_prefix + '\\' + f_interim_activity)
+    activity_ref_mtg[cols_activity_out].to_csv(output_path_prefix + '\\' + f_out_activity)
 
 # Seperate electric and non-electric activities
 activity_mtg_ag_d_elec = activity_mtg_ag_d.loc[activity_mtg_ag_d['Energy carrier'] == 'Electricity', : ]
@@ -764,17 +804,14 @@ activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions
    if_given_category=True, unit_category = 'Emissions')
 
 activity_mtg_ag_d[['AEO Case', 'Basis']] = '-'
-#activity_mtg_ag_d = activity_mtg_ag_d[activity_BAU.columns]
-
-activity_mtg_ag_d = activity_mtg_ag_d[model_col_list_mtg]
 
 # Concatenating to main activity matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(drop=True)
 
-#activity_BAU = activity_BAU[model_col_list_mtg]
-
+# Save interim and final environmental matrix
 if save_interim_files == True:
-    activity_BAU.to_csv(interim_path_prefix + '\\' + 'interim_activity_reference_mtg_case.csv')
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
