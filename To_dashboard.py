@@ -77,4 +77,6 @@ wb.save()
 wb.close()
 app.quit()
 
+print("Status: Writing to Dashboard completed!")
+
 #%%

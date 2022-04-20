@@ -875,16 +875,16 @@ mtg_ag_N2O = activity_mtg_ag.loc[activity_mtg_ag['Subsector'] == 'N2O from Agric
 trend_reduce = ob_utils.trend_linear(mtg_ag_N2O[['Year']], 'Year', 0 , Ag_mtg_params['rice_cultv'])
 mtg_ag_N2O = pd.merge(mtg_ag_N2O, trend_reduce, how='left', on='Year')
 mtg_ag_N2O['Total Emissions'] = -1 * mtg_ag_N2O['Total Emissions'] * mtg_ag_N2O['mtg_frac']
-mtg_ag_manure['Case'] = 'Mitigation'
-mtg_ag_manure['Mitigation Case'] = 'Soil N2O emissions, linear reduction'
+mtg_ag_N2O['Case'] = 'Mitigation'
+mtg_ag_N2O['Mitigation Case'] = 'Soil N2O emissions, linear reduction'
 
 #Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
 mtg_ag_rice = activity_mtg_ag.loc[activity_mtg_ag['Subsector'] == 'Rice Cultivation', : ]
 trend_reduce = ob_utils.trend_linear(mtg_ag_rice[['Year']], 'Year', 0 , Ag_mtg_params['soil_N2O'])
 mtg_ag_rice = pd.merge(mtg_ag_rice, trend_reduce, how='left', on='Year')
 mtg_ag_rice['Total Emissions'] = -1 * mtg_ag_rice['Total Emissions'] * mtg_ag_rice['mtg_frac']
-mtg_ag_manure['Case'] = 'Mitigation'
-mtg_ag_manure['Mitigation Case'] = 'Rice Cultivation, linear reduction'
+mtg_ag_rice['Case'] = 'Mitigation'
+mtg_ag_rice['Mitigation Case'] = 'Rice Cultivation, linear reduction'
 
 # Concatenate the mitigation scenarios
 activity_mtg_ag_d = pd.concat([mtg_ag_manure, mtg_ag_N2O, mtg_ag_rice], axis=0).reset_index(drop=True)

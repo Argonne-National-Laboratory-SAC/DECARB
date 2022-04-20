@@ -83,7 +83,7 @@ class EIA_AEO:
                          }
         
         self.curr_user = getpass.getuser()
-        self.api_key = pd.read_csv(self.input_path_EIA + '\\' + self.file_key, index_col=0, squeeze=True).to_dict()[self.curr_user]
+        self.api_key = pd.read_csv(self.input_path_EIA + '\\' + self.file_key, index_col=0).squeeze("columns").to_dict()[self.curr_user]
         
         # Read correspondence files
         self.corr_EIA_EERE = pd.read_csv(self.input_path_corr + '\\' + self.file_corr_eia, header = 3)
