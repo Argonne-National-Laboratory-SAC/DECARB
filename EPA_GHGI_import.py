@@ -216,7 +216,8 @@ class EPA_GHGI_import:
         # Rename the industry to industrial for alligning with EIA data set
         self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Sector'] == 'Industry', 'Sector'] = 'Industrial'
         
-        # Drop Electric Power economic sector data as those will be included within the reference case electric power calculations
+        # Seperate Electric Power economic sector data as those will be included within the reference case electric power calculations
+        self.activity_elec_non_combust_exp = self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Sector'] == 'Electric Power', : ]
         self.activity_non_combust_exp = self.activity_non_combust_exp.loc[~(self.activity_non_combust_exp['Sector'] == 'Electric Power'), : ]
 
 if __name__ == "__main__":

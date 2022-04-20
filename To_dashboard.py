@@ -56,6 +56,15 @@ sheet_1['A4'].options(chunksize=5000).value = activity
 sheet_1 = wb.sheets['Env Matrix']
 sheet_1['A4'].options(chunksize=5000).value = env
 
+sheet_1 = wb.sheets['EPS - Net Gen']
+sheet_1['A4'].options(chunksize=5000).value = elec_net_gen
+
+sheet_1 = wb.sheets['EPS - Env']
+sheet_1['A4'].options(chunksize=5000).value = elec_env
+
+sheet_1 = wb.sheets['EPS - CI']
+sheet_1['A4'].options(chunksize=5000).value = elec_CI
+
 """
 sheet_2 = wb.sheets['metadata']
 sheet_2['A5'].options(chunksize=5000).value = df_metadata

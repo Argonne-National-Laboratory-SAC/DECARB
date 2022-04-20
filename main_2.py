@@ -66,7 +66,7 @@ cols_env_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Appli
                 'Year', 'Formula', 'Emissions Unit', 'Total Emissions', 'LCIA_estimate']
 
 cols_elec_net_gen = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
-                     'Energy carrier', 'Unit', 'Electricity Production']
+                     'Energy carrier', 'Energy carrier type', 'Year', 'Unit', 'Electricity Production']
 
 cols_elec_env = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                  'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 'Generation Type',
@@ -103,7 +103,7 @@ lcia_timeframe = 100
 EIA_AEO_case_option = ['Reference case']
 
 # T&D assumption, constant or calculated
-#T_and_D_loss_constant = True
+# T_and_D_loss_constant = True
 # T_and_D_loss = 0.06
 
 # parameter to print out additional information when code is running
@@ -204,18 +204,27 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
 
 # Calculate aggregrated electricity generation and merge T&D loss
 # Merge T&D loss data
+# Two data frames, electric_gen_interim and electric_gen created to group by separately for output files
+electric_gen_interim = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End Use', 'Energy carrier', 'Energy carrier type', 'Unit']).\
+                                                agg({'Value' : 'sum'}).reset_index().\
+                                                rename(columns = {'Value' : 'Electricity Production'})
+electric_gen_interim = pd.merge(electric_gen_interim, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
+electric_gen_interim['Electricity Production'] = electric_gen_interim['Electricity Production'] * (1 - electric_gen_interim['loss_frac'])
+electric_gen_interim.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
+electric_gen_interim['Case'] = 'Reference Case'
+electric_gen_interim[['Mitigation Case', 'Subsector']] = '-'
+
 electric_gen = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End Use', 'Energy carrier', 'Unit']).\
                                                 agg({'Value' : 'sum'}).reset_index().\
                                                 rename(columns = {'Value' : 'Electricity Production'})
-
 electric_gen = pd.merge(electric_gen, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
 electric_gen['Electricity Production'] = electric_gen['Electricity Production'] * (1 - electric_gen['loss_frac'])
 electric_gen.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
-
 electric_gen['Case'] = 'Reference Case'
 electric_gen[['Mitigation Case', 'Subsector']] = '-'
+
 if save_interim_files == True:
-    electric_gen[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
+    electric_gen_interim[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 electric_gen_ef = pd.merge(ob_eia.EIA_data['energy_supply'][['AEO Case', 'End Use', 'Sector', 'Subsector', 'Energy carrier', 
@@ -242,6 +251,20 @@ electric_gen_ef = electric_gen_ef[['AEO Case', 'Case', 'GREET Pathway', 'Sector'
                           'EF_withElec', 'Total Emissions']]
 
 electric_gen_ef['Mitigation Case'] = '-'
+
+# Adding non-combustion upstream emissions fron Incineration of Waste', 'Electrical Transmission and Distribution', and 'Other Process Uses of Carbonates'
+ob_EPA_GHGI.activity_elec_non_combust_exp[['GREET Pathway', 'Generation Type', 
+                                           'Energy Unit', 'Electricity Production',                                             
+                                           'EF_Unit (Denominator)', 
+                                           'EF_withElec', 'Mitigation Case']] = '-'
+ob_EPA_GHGI.activity_elec_non_combust_exp.rename(columns={'Emissions Unit' : 'EF_Unit (Numerator)'}, inplace=True)
+# unit conversion
+ob_EPA_GHGI.activity_elec_non_combust_exp [['EF_Unit (Numerator)', 'Total Emissions']] = ob_units.unit_convert_df (
+    ob_EPA_GHGI.activity_elec_non_combust_exp [['EF_Unit (Numerator)', 'Total Emissions']], Unit='EF_Unit (Numerator)', Value='Total Emissions', if_given_unit = True, 
+    given_unit = electric_gen_ef['EF_Unit (Numerator)'].unique()[0]).copy()
+
+electric_gen_ef = pd.concat([electric_gen_ef, ob_EPA_GHGI.activity_elec_non_combust_exp[electric_gen_ef.columns]], axis=0).reset_index(drop=True)
+
 if save_interim_files == True:
     electric_gen_ef[cols_elec_env].to_csv(interim_path_prefix + '\\' + f_elec_env)
 
@@ -259,32 +282,7 @@ elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, how='left', on=['Y
 elec_gen_em_agg.rename(columns={
     'Unit' : 'Energy Unit', 'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
 
-# Adding GHG emissions from: 
-# 'Incineration of Waste', 
-# 'Electrical Transmission and Distribution', 
-# 'Other Process Uses of Carbonates'
-
-EPA_GHGI_maxyear = np.max(ob_EPA_GHGI.df_ghgi['Year'])
-EPA_GHGI_addn_em = ob_EPA_GHGI.df_ghgi.loc[(ob_EPA_GHGI.df_ghgi['Economic Sector'] == 'Electric Power') & 
-   (ob_EPA_GHGI.df_ghgi['Year'] == EPA_GHGI_maxyear)]
-
-EPA_GHGI_addn_em = EPA_GHGI_addn_em.\
-    groupby(['Year', 'Source', 'Emissions Type', 'Unit']).\
-        agg({'GHG Emissions' : 'sum'}).reset_index()
-        
-EPA_GHGI_addn_em_agg = EPA_GHGI_addn_em.groupby(['Emissions Type', 'Unit']).agg({'GHG Emissions' : 'sum'}).reset_index()
-         
-# unit conversion
-EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']] = ob_units.unit_convert_df (
-    EPA_GHGI_addn_em_agg [['Unit', 'GHG Emissions']], Unit='Unit', Value='GHG Emissions', if_given_unit = True, 
-    given_unit = elec_gen_em_agg['Emissions Unit'].unique()[0]).copy()
-
-elec_gen_em_agg = pd.merge(elec_gen_em_agg, EPA_GHGI_addn_em_agg, 
-                               how='left', left_on='Formula', right_on='Emissions Type')
-
-elec_gen_em_agg['Total Emissions'] = elec_gen_em_agg['Total Emissions'] + elec_gen_em_agg['GHG Emissions']
-
-elec_gen_em_agg.rename(columns={'Case_x' : 'Case'}, inplace=True)
+elec_gen_em_agg.rename(columns={'Case_x' : 'Case'}, inplace=True) 
 
 elec_gen_em_agg['Mitigation Case'] = '-'
 
@@ -385,9 +383,16 @@ elec_gen_mtg = ob_elec.NREL_elec['generation'].\
 elec_gen_mtg = pd.merge(elec_gen_mtg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
 elec_gen_mtg['Electricity Production'] = elec_gen_mtg['Electricity Production'] * (1 - elec_gen_mtg['loss_frac'])
 
-electric_gen = pd.concat([electric_gen, elec_gen_mtg], axis = 0).reset_index(drop=True)
+# Separate grouping variables for saving 
+tempdf = ob_elec.NREL_elec['generation'].\
+    groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy carrier type', 'Energy Unit'], as_index=False). \
+    agg({'Electricity Production' : 'sum'}).reset_index()
+tempdf = pd.merge(tempdf, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
+tempdf['Electricity Production'] = tempdf['Electricity Production'] * (1 - tempdf['loss_frac'])
+electric_gen_interim = pd.concat([electric_gen, tempdf], axis = 0).reset_index(drop=True)
 if save_interim_files == True:
-    electric_gen[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
+    electric_gen_interim[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
+del tempdf
 
 # Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
 elec_gen_ef_mtg = pd.merge(ob_elec.NREL_elec['generation'][['Sector', 'Subsector', 'Case', 'Mitigation Case',
