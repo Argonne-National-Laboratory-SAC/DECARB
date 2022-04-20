@@ -19,6 +19,8 @@ import xlwings as xw
 
 # Set file paths, file names and read output data files
 
+print("Status: Writing data files to Dashboard ..")
+
 code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
 
 interim_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\2_intermediate_files'

@@ -108,11 +108,11 @@ lcia_timeframe = 100
 EIA_AEO_case_option = ['Reference case']
 
 # Mitigation scenario design and target parameters
-Ag_mtg_params = {'D2E_mtg_2050' : 0.99, # targetted Diesel to Electricity use ratio in 2050 year
+Ag_mtg_params = {'D2E_mtg_2050' : 1.0, # targetted Diesel to Electricity use ratio in 2050 year
                  'D2E_relative_eff' : 0.40/0.90, # The relative efficiency of directly using Diesel compared to directly using Electricity. Considering 40% energy from diesel used into activity and 90% electricity energy used into activity
-                 'manure_mgmt' : 0.70, # Target percentage of reduced GHG emissions from manure management activities. Ag / Anaerobic Digestion / Manure MGMT / CH4, N2O
-                 'soil_N2O' : 0.70, # Target percentage of reduced GHG emissions from precisiion farming activitis. Ag / Precision Farming / Soil N2O / N2O
-                 'rice_cultv' : 0.70 # Target percentage of reduced GHG emissions from rice cultivation. Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
+                 'manure_mgmt' : 1.0, # Target percentage of reduced GHG emissions from manure management activities. Ag / Anaerobic Digestion / Manure MGMT / CH4, N2O
+                 'soil_N2O' : 1.0, # Target percentage of reduced GHG emissions from precisiion farming activitis. Ag / Precision Farming / Soil N2O / N2O
+                 'rice_cultv' : 1.0 # Target percentage of reduced GHG emissions from rice cultivation. Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
                 }
 
 # T&D assumption, constant or calculated
@@ -521,7 +521,9 @@ activity_mtg_elec.loc[~activity_mtg_elec['Emissions Unit'].isnull(), ['Emissions
 
 # Adding 'Mitigation Case' to model column list
 activity_BAU['Mitigation Case'] = '-'
-activity_mtg_elec['Mitigation Case'] = '-'
+
+activity_mtg_elec['Case'] = 'Mitigation'
+activity_mtg_elec['Mitigation Case'] = 'NREL Electric Power Decarb'
 activity_mtg_elec = activity_mtg_elec[model_col_list]
 
 activity_mtg_elec = pd.merge(activity_mtg_elec, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
