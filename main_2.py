@@ -40,12 +40,14 @@ sheet_neu = 'Sheet1'
 # Declaring correlation filenames
 f_eia = 'EIA Dataset.csv'
 f_NREL_elec_option = 'report - All Options EFS.xlsx'
-f_corr_ef_greet = 'corr_EF_GREET.xlsx'
 
+f_corr_ef_greet = 'corr_EF_GREET.xlsx'
 sheet_corr_ef_greet = 'corr_EF_GREET'
 
 f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
 sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
+
+f_corr_ghgs = 'corr_ghgi_emissions_categories.csv'
 
 # defining the intermediate and final data table files and their columns
 f_interim_activity = 'interim_activity_ref_mtg_cases.csv'
@@ -63,14 +65,17 @@ cols_activity_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use 
 
 cols_env_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                 'Scope', 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
-                'Year', 'Formula', 'Emissions Unit', 'Total Emissions', 'LCIA_estimate']
+                'Year', 'Formula', 'Emissions Category, Detailed', 'Emissions Category, Aggregate',
+                'Emissions Unit', 'Total Emissions', 'LCIA_estimate']
 
 cols_elec_net_gen = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
-                     'Energy carrier', 'Energy carrier type', 'Year', 'Unit', 'Electricity Production']
+                     'Energy carrier', 'Energy carrier type', 'Generation Type', 'Year',
+                     'Unit', 'Electricity Production']
 
 cols_elec_env = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                  'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool', 'Generation Type',
-                 'Scope', 'Formula', 'Year', 'EF_Unit (Numerator)', 'Total Emissions']
+                 'Scope', 'Formula', 'Emissions Category, Detailed', 'Emissions Category, Aggregate',
+                 'Year', 'EF_Unit (Numerator)', 'Total Emissions']
 
 cols_elec_env_agg = ['Case', 'Mitigation Case', 'Sector',
                      'Energy carrier', 'Formula', 
@@ -102,6 +107,14 @@ lcia_timeframe = 100
 # EIA AEO data cases
 EIA_AEO_case_option = ['Reference case']
 
+# Mitigation scenario design and target parameters
+Ag_mtg_params = {'D2E_mtg_2050' : 0.99, # targetted Diesel to Electricity use ratio in 2050 year
+                 'D2E_relative_eff' : 0.40/0.90, # The relative efficiency of directly using Diesel compared to directly using Electricity. Considering 40% energy from diesel used into activity and 90% electricity energy used into activity
+                 'manure_mgmt' : 0.70, # Target percentage of reduced GHG emissions from manure management activities. Ag / Anaerobic Digestion / Manure MGMT / CH4, N2O
+                 'soil_N2O' : 0.70, # Target percentage of reduced GHG emissions from precisiion farming activitis. Ag / Precision Farming / Soil N2O / N2O
+                 'rice_cultv' : 0.70 # Target percentage of reduced GHG emissions from rice cultivation. Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
+                }
+
 # T&D assumption, constant or calculated
 # T_and_D_loss_constant = True
 # T_and_D_loss = 0.06
@@ -132,6 +145,7 @@ from EPA_GHGI_import import EPA_GHGI_import
 from NREL_electricity_import import NREL_elec
 from GREET_EF_import import GREET_EF
 from unit_conversions import model_units   
+from utilities import Utilities
 
 #%%
 
@@ -141,6 +155,9 @@ init_time = datetime.now()
 
 # Unit conversion class object
 ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
+
+# Utilities class object
+ob_utils = Utilities()
 
 # EIA data import and processing
 ob_eia = EIA_AEO(input_path_EIA, input_path_corr)
@@ -167,6 +184,7 @@ ob_ef = GREET_EF(input_path_GREET )
 # Data tables for correspondence across data sets
 corr_EF_GREET = pd.read_excel(input_path_corr + '\\' + f_corr_ef_greet, sheet_name = sheet_corr_ef_greet, header = 3)
 corr_EIA_SCOUT = pd.read_excel(input_path_corr + '\\' + f_corr_EIA_SCOUT, sheet_name = sheet_corr_EIA_SCOUT, header = 3, index_col=None)
+corr_ghgs = pd.read_csv(input_path_corr + '\\' + f_corr_ghgs, header = 3, index_col=None)
 
 # Life Cycle Impact Assessment metrics table
 lcia_data = pd.read_excel(input_path_EPA + '\\' + f_lcia, sheet_name = f_lcia_sheet)         
@@ -205,7 +223,8 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
 # Calculate aggregrated electricity generation and merge T&D loss
 # Merge T&D loss data
 # Two data frames, electric_gen_interim and electric_gen created to group by separately for output files
-electric_gen_interim = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End Use', 'Energy carrier', 'Energy carrier type', 'Unit']).\
+electric_gen_interim = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End Use', 'Energy carrier', 
+                                                                 'Energy carrier type', 'Generation Type', 'Unit']).\
                                                 agg({'Value' : 'sum'}).reset_index().\
                                                 rename(columns = {'Value' : 'Electricity Production'})
 electric_gen_interim = pd.merge(electric_gen_interim, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
@@ -266,6 +285,7 @@ ob_EPA_GHGI.activity_elec_non_combust_exp [['EF_Unit (Numerator)', 'Total Emissi
 electric_gen_ef = pd.concat([electric_gen_ef, ob_EPA_GHGI.activity_elec_non_combust_exp[electric_gen_ef.columns]], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
+    electric_gen_ef = pd.merge(electric_gen_ef, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
     electric_gen_ef[cols_elec_env].to_csv(interim_path_prefix + '\\' + f_elec_env)
 
 # Aggregrate emissions
@@ -278,7 +298,10 @@ if save_interim_files == True:
     electric_gen_ef_agg[cols_elec_env_agg].to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
  
 # merging the electricity production data with the total emissions data    
-elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, how='left', on=['Year', 'Sector', 'End Use Application', 'Energy carrier']).drop(columns=['loss_frac']) 
+elec_gen_em_agg = pd.merge(electric_gen, electric_gen_ef_agg, 
+                           how='left', 
+                           on=['Year', 'Sector', 'End Use Application', 'Energy carrier']). \
+                  reset_index(drop=True).drop(columns=['loss_frac']) 
 elec_gen_em_agg.rename(columns={
     'Unit' : 'Energy Unit', 'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
 
@@ -361,6 +384,7 @@ activity_BAU['Mitigation Case'] = '-'
 
 print("Status: Saving activity_reference case table to file ..")
 if save_interim_files == True:
+    activity_BAU = pd.merge(activity_BAU, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
@@ -385,7 +409,9 @@ elec_gen_mtg['Electricity Production'] = elec_gen_mtg['Electricity Production'] 
 
 # Separate grouping variables for saving 
 tempdf = ob_elec.NREL_elec['generation'].\
-    groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy carrier type', 'Energy Unit'], as_index=False). \
+    groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 
+             'Energy carrier', 'Energy carrier type', 'Generation Type',
+             'Energy Unit'], as_index=False). \
     agg({'Electricity Production' : 'sum'}).reset_index()
 tempdf = pd.merge(tempdf, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
 tempdf['Electricity Production'] = tempdf['Electricity Production'] * (1 - tempdf['loss_frac'])
@@ -413,7 +439,9 @@ elec_gen_ef_mtg[['Basis',
 
 # Save electric gen environmental matrix
 if save_interim_files == True:
-    tempdf = pd.concat([electric_gen_ef[cols_elec_env], elec_gen_ef_mtg[cols_elec_env] ], axis=0).reset_index(drop=True)
+    tempdf = elec_gen_ef_mtg.copy()
+    tempdf = pd.merge(tempdf, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+    tempdf = pd.concat([electric_gen_ef, tempdf[cols_elec_env] ], axis=0).reset_index(drop=True)
     tempdf.to_csv(interim_path_prefix + '\\' + f_elec_env)
     del tempdf
         
@@ -496,6 +524,7 @@ activity_BAU['Mitigation Case'] = '-'
 activity_mtg_elec['Mitigation Case'] = '-'
 activity_mtg_elec = activity_mtg_elec[model_col_list]
 
+activity_mtg_elec = pd.merge(activity_mtg_elec, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
@@ -573,9 +602,7 @@ activity_mtg_scout.loc[~activity_mtg_scout['Emissions Unit'].isnull(), ['Emissio
    if_given_category=True, unit_category = 'Emissions')
 
 activity_mtg_scout[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
-activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
-
-#activity_mtg_scout = activity_mtg_scout[model_col_list]
+#activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
 
 # Mapping EIA AEO sector, etc. to SCOUT conventions
 temp_activity = activity_BAU.loc[(activity_BAU['Sector'].isin(corr_EIA_SCOUT['Sector'].unique()) ) &
@@ -601,6 +628,8 @@ temp_activity.drop(columns=['Energy carrier_x', 'EIA: Energy carrier', 'EIA: Ene
                            'End Use Application'], inplace=True)
 temp_activity.rename(columns={'Energy carrier_y' : 'Energy carrier',
                              'SCOUT: End Use Application' : 'End Use Application'}, inplace=True)
+
+activity_mtg_scout = pd.merge(activity_mtg_scout, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 
 # Concatenating to environmental matrix
 activity_BAU = pd.concat([activity_BAU, 
@@ -693,9 +722,11 @@ activity_mtg_vision.loc[~activity_mtg_vision['Emissions Unit'].isnull(), ['Emiss
    if_given_category=True, unit_category = 'Emissions')
 
 activity_mtg_vision[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
-activity_mtg_vision = activity_mtg_vision[activity_BAU.columns]
+#activity_mtg_vision = activity_mtg_vision[activity_BAU.columns]
 
-# Concatenating to main activity matrix
+activity_mtg_vision = pd.merge(activity_mtg_vision, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+
+# Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_vision], axis=0).reset_index(drop=True)
 
 if save_interim_files == True:
@@ -706,7 +737,7 @@ print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 # next steps
 # change values from absolute to relative
-# append to the activity matrix
+# append to the Environment matrix
 # merge with GREET EFs for non electric 
 # merge with EERE electric EFs for electric
 # merge with the environmental matrix
@@ -717,12 +748,7 @@ Generating mitigation scenarios for Agriculture sector
 """
 
 print("Status: Constructing Agriculture sector Mitigation scenario ..")
-
-# Defining targetted Diesel to Electricity use ratio in 2050 year
-D2E_mtg_2050 = 0.99
-# Defining the relative efficiency of directly using Diesel compared to directly using Electricity
-D2E_relative_eff = 0.40/0.90 # considering 40% energy from diesel used into activity and 90% electricity energy used into activity
-
+    
 # Subsetting Reference case energy demand for Agriculture sector
 activity_mtg_ag = ob_eia.EIA_data['energy_demand']
 activity_mtg_ag = activity_mtg_ag.loc[activity_mtg_ag['Sector']=='Agriculture', : ].copy()
@@ -735,15 +761,15 @@ activity_mtg_ag_d = activity_mtg_ag.loc[(activity_mtg_ag['End Use Application'] 
 activity_mtg_ag = activity_mtg_ag.loc[~(activity_mtg_ag['End Use Application'] == 'On farm energy use') |
                                       ~(activity_mtg_ag['Energy carrier'] == 'Diesel'), : ]
 
-# Defining series of linearly increasing fraction of Electricity implementation and replacing Diesel
-mtg_ag_df = pd.DataFrame({'Year' : np.linspace(min(activity_mtg_ag['Year']), max(activity_mtg_ag['Year']), max(activity_mtg_ag['Year']) - min(activity_mtg_ag['Year']) + 1 ), 
-                          'mtg_frac' : np.linspace(0, D2E_mtg_2050, max(activity_mtg_ag['Year']) - min(activity_mtg_ag['Year']) + 1 ) } )
+# Creating series of linearly increasing fraction of Electricity implementation and replacing Diesel
+mtg_ag_df = ob_utils.trend_linear(activity_mtg_ag[['Year']], 'Year', 0, Ag_mtg_params['D2E_mtg_2050'])
 
 activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, mtg_ag_df, how='left', on='Year').reset_index(drop=True)
 
 # Identifying the amount of diesel use and electricity use
-activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac'] * D2E_relative_eff
+activity_mtg_ag_d['Value Elec Use'] = activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac'] * Ag_mtg_params['D2E_relative_eff']
 activity_mtg_ag_d['Value Diesel Use'] = -1 * activity_mtg_ag_d['Value'] * activity_mtg_ag_d['mtg_frac'] # relative Diesel use, mitigation case - reference case
+activity_mtg_ag_d.drop(columns=['mtg_frac'], inplace=True)
 
 # Rows with Electricity use
 temp_activity = activity_mtg_ag_d.drop(columns = ['Value', 'Value Diesel Use'])
@@ -810,14 +836,76 @@ activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions
 
 activity_mtg_ag_d[['AEO Case', 'Basis']] = '-'
 
-# Concatenating to main activity matrix
+# Concatenating to main Environment matrix
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(drop=True)
+
+"""
+Mitigation Option:
+
+<Setor / Mitigation Option / Subsector / GHGs>
+
+Ag / Anaerobic Digestion / Manure MGMT / CH4, N2O
+Ag / Precision Farming / Soil N2O / N2O
+Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
+
+LULUCF/ Sustainable Farming / Croppland remaining Cropland / CO2
+"""
+
+# Implementing mitigation scenarios for additional agriculture subsectors 
+
+ag_mtg_subsector = ['Manure Management', 
+                     'N2O from Agricultural Soil Management',
+                     'Rice Cultivation']
+
+activity_mtg_ag = ob_EPA_GHGI.activity_non_combust_exp.loc[(ob_EPA_GHGI.activity_non_combust_exp['Case'] == 'Reference case') &
+                                                           (ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Agriculture') &
+                                                           (ob_EPA_GHGI.activity_non_combust_exp['Subsector'].isin(ag_mtg_subsector)), : ]
+
+# Ag / Anaerobic Digestion / Manure MGMT / CH4, N2O
+mtg_ag_manure = activity_mtg_ag.loc[activity_mtg_ag['Subsector'] == 'Manure Management', : ]
+trend_reduce = ob_utils.trend_linear(mtg_ag_manure[['Year']], 'Year', 0 , Ag_mtg_params['manure_mgmt'])
+mtg_ag_manure = pd.merge(mtg_ag_manure, trend_reduce, how='left', on='Year')
+mtg_ag_manure['Total Emissions'] = -1 * mtg_ag_manure['Total Emissions'] * mtg_ag_manure['mtg_frac']
+mtg_ag_manure['Case'] = 'Mitigation'
+mtg_ag_manure['Mitigation Case'] = 'Manure Management, linear reduction'
+
+#Ag / Precision Farming / Soil N2O / N2O
+mtg_ag_N2O = activity_mtg_ag.loc[activity_mtg_ag['Subsector'] == 'N2O from Agricultural Soil Management', : ]
+trend_reduce = ob_utils.trend_linear(mtg_ag_N2O[['Year']], 'Year', 0 , Ag_mtg_params['rice_cultv'])
+mtg_ag_N2O = pd.merge(mtg_ag_N2O, trend_reduce, how='left', on='Year')
+mtg_ag_N2O['Total Emissions'] = -1 * mtg_ag_N2O['Total Emissions'] * mtg_ag_N2O['mtg_frac']
+mtg_ag_manure['Case'] = 'Mitigation'
+mtg_ag_manure['Mitigation Case'] = 'Soil N2O emissions, linear reduction'
+
+#Ag / Improved Water and Residue MGMT / Rice Cultivation / CH4
+mtg_ag_rice = activity_mtg_ag.loc[activity_mtg_ag['Subsector'] == 'Rice Cultivation', : ]
+trend_reduce = ob_utils.trend_linear(mtg_ag_rice[['Year']], 'Year', 0 , Ag_mtg_params['soil_N2O'])
+mtg_ag_rice = pd.merge(mtg_ag_rice, trend_reduce, how='left', on='Year')
+mtg_ag_rice['Total Emissions'] = -1 * mtg_ag_rice['Total Emissions'] * mtg_ag_rice['mtg_frac']
+mtg_ag_manure['Case'] = 'Mitigation'
+mtg_ag_manure['Mitigation Case'] = 'Rice Cultivation, linear reduction'
+
+# Concatenate the mitigation scenarios
+activity_mtg_ag_d = pd.concat([mtg_ag_manure, mtg_ag_N2O, mtg_ag_rice], axis=0).reset_index(drop=True)
+
+# Calculate LCIA metric
+activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_ag_d['LCIA_estimate'] = activity_mtg_ag_d['Total Emissions'] * activity_mtg_ag_d['GWP']
+
+activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+# Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(drop=True)
 
 # Save interim and final environmental matrix
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
-
+    
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
