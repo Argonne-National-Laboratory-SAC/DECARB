@@ -524,10 +524,12 @@ activity_BAU['Mitigation Case'] = '-'
 
 activity_mtg_elec['Case'] = 'Mitigation'
 activity_mtg_elec['Mitigation Case'] = 'NREL Electric Power Decarb'
-activity_mtg_elec = activity_mtg_elec[model_col_list]
+#activity_mtg_elec = activity_mtg_elec[model_col_list]
 
 activity_mtg_elec = pd.merge(activity_mtg_elec, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 activity_BAU = pd.concat([activity_BAU, activity_mtg_elec], axis=0).reset_index(drop=True)
+
+activity_BAU.drop(columns=['Case_x'], inplace=True)
 
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
@@ -603,7 +605,7 @@ activity_mtg_scout.loc[~activity_mtg_scout['Emissions Unit'].isnull(), ['Emissio
    Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
    if_given_category=True, unit_category = 'Emissions')
 
-activity_mtg_scout[['AEO Case', 'Basis', 'Fuel Pool']] = '-'
+activity_mtg_scout[['AEO Case', 'Basis', 'Fuel Pool', 'Generation Type']] = '-'
 #activity_mtg_scout = activity_mtg_scout[activity_BAU.columns]
 
 # Mapping EIA AEO sector, etc. to SCOUT conventions
