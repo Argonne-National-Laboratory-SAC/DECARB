@@ -21,12 +21,24 @@ class VISION:
         self.input_path_VISION = input_path_VISION
         self.input_path_corr = input_path_corr
         
-        self.f_name_VISION = 'EERE_VISION Output_Fuel Use_0411.csv'        
-        self.f_corr_VISION_EIA = 'corr_vision_ldv.csv'
+        self.f_name_VISION_LDV = 'EERE_VISION Output_LDV_Fuel Use_0411.csv'   
+        self.f_name_VISION_MDV = 'EERE_VISION Output_MDV_Fuel Use_0419.csv'  
+        self.f_name_VISION_HDV = 'EERE_VISION Output_HDV_Fuel Use_0419.csv'  
+        
+        self.f_corr_VISION_EIA = 'corr_vision.csv'
         
         # Load VISION and correspondence excel workborks
-        self.vision = pd.read_csv(self.input_path_VISION + '\\' + self.f_name_VISION, header = 3)        
+        vision_ldv = pd.read_csv(self.input_path_VISION + '\\' + self.f_name_VISION_LDV, header = 3)  
+        vision_mdv = pd.read_csv(self.input_path_VISION + '\\' + self.f_name_VISION_MDV, header = 3)  
+        vision_hdv = pd.read_csv(self.input_path_VISION + '\\' + self.f_name_VISION_HDV, header = 3)  
+        
         self.corr_vision = pd.read_csv(self.input_path_corr + '\\' + self.f_corr_VISION_EIA)
+        
+        # Concatenate vision data
+        vision_ldv['Energy Carrier'] = '-'
+        vision_mdv['Powertrain'] = '-'
+        vision_hdv[['Powertrain', 'Energy Carrier']] = '-'
+        self.vision = pd.concat([vision_ldv, vision_mdv, vision_hdv], axis=0).reset_index()
         
         # Foward fill NaN/missing entries 
         self.vision = self.vision.ffill(axis = 0)
@@ -41,6 +53,7 @@ class VISION:
                                      'VISION Category',
                                      'End-Use Application',
                                      'Powertrain',
+                                     'Energy Carrier',
                                      'Energy Carrier Type'])
 
         # Drop un-necessary columns

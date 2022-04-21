@@ -129,7 +129,6 @@ verbose = True
 
 # import packages
 import pandas as pd
-import numpy as np
 import os
 from datetime import datetime
 
@@ -146,6 +145,7 @@ from NREL_electricity_import import NREL_elec
 from GREET_EF_import import GREET_EF
 from unit_conversions import model_units   
 from utilities import Utilities
+from collections import Counter
 
 #%%
 
@@ -914,3 +914,56 @@ if save_interim_files == True:
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
+"""
+Generating mitigation scenarios for LULUCF
+"""
+
+print("Status: Constructing LULUCF sector Mitigation scenario ..")
+
+n_years = 30
+
+cropland_2050 = 137.234 # million Ha of cropland available in 2050 year
+
+c_seq_rate = 0.404 * 44.01 / 12.01 # CO2 MT per million Ha increased carbon sequestration rate. Conventional sequestration rate is 0.105 MT C per million Ha, that is assumed to increase to 5 MT C per Ha
+
+net_seq = c_seq_rate * cropland_2050 # CO2 MT in 2050
+
+net_seq_yearly = net_seq / n_years # CO2 MT per year
+
+activity_mtg_lulucf = pd.DataFrame({'Year' : [x for x in range(2020, 2051)],
+                                    'Total Emissions' : [(-1 * net_seq_yearly * x)  for x in range(0, n_years+1)] })
+
+activity_mtg_lulucf['Case' ] = 'Mitigation'
+activity_mtg_lulucf['Mitigation Case'] = 'LULUCF: Sustainable Farming'
+activity_mtg_lulucf['Sector'] = 'LULUCF'
+activity_mtg_lulucf['Subsector'] = 'Cropland remaining cropland'
+activity_mtg_lulucf['End Use Application'] = 'Sustainable farming'
+activity_mtg_lulucf['Formula'] = 'CO2'
+activity_mtg_lulucf['Unit'] = 'mmmt'
+
+# Calculate LCIA metric
+activity_mtg_lulucf = pd.merge(activity_mtg_lulucf, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_lulucf['LCIA_estimate'] = activity_mtg_lulucf['Total Emissions'] * activity_mtg_lulucf['GWP']
+
+# Create rest of the empty columns
+activity_mtg_lulucf [ list(( Counter(activity_BAU.columns) - Counter(activity_mtg_lulucf.columns )).elements()) ] = '-'
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, activity_mtg_lulucf], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+    
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
+
+#%%
+"""
+Generating mitigation scenarios for Industrial sector
+"""
+
+print("Status: Constructing Industrial sector Mitigation scenario ..")
+
