@@ -86,7 +86,12 @@ class model_units:
             # considering 1 for derived energy and average of 0.9 for unspecified or GREET-unclassified feedstocks
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Electricity', '-', 'Renewables']), 'LHV_by_HHV'] = 1
             self.hv_EIA.loc[self.hv_EIA['Energy carrier'].isin(['Lubricants', 'Hydrocarbon Gas Liquid Feedstocks', 'Petrochemical Feedstocks']), 'LHV_by_HHV'] = 0.9
-                    
+             
+        # Define feedstock conversion efficiencies
+        self.feedstock_convert = {'NG_to_H2' : 0.72, # assuming that 72% of natural gas energy will be needed as Electricity only
+                                  'NG_to_Elec' : 0.45,
+                                  'Coal_to_Elec' : 0.38}
+                
     def conv_to_lower_list(self, lst):
         return [x.lower() for x in lst].copy()
         

@@ -962,8 +962,114 @@ print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
 """
-Generating mitigation scenarios for Industrial sector
+Generating mitigation scenarios for the Industrial sector
 """
+# Declaring parameters for Industry mitigation sectors
+Id_mtg_params = {'mtg_paper' : 0.32 # targetted efficiency improvement across all activities of paper industries
+                 }
 
 print("Status: Constructing Industrial sector Mitigation scenario ..")
 
+# Subsetting Reference case energy demand for Industrial sector
+activity_mtg_id = ob_eia.EIA_data['energy_demand']
+activity_mtg_id = activity_mtg_id.loc[activity_mtg_id['Sector']=='Industrial', : ].copy()
+
+# Designing mitigation scenarios for paper industry
+mtg_id_paper = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Paper Industry', : ]
+
+# Implementing efficiency improvements
+trend_reduce = ob_utils.trend_linear(mtg_id_paper[['Year']], 'Year', 0 , (1-Id_mtg_params['mtg_paper']) )
+mtg_id_paper = pd.merge(mtg_id_paper, trend_reduce, how='left', on='Year').reset_index(drop=True)
+mtg_id_paper['Value'] = mtg_id_paper['Value'] * mtg_id_paper['mtg_frac']
+
+# Implementing fuel switching. NG and Coal --> Electricity
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Natural Gas', 'Value'] = \
+    mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Natural Gas', 'Value'] * ob_units.feedstock_convert['NG_to_Elec']
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Natural Gas', 'Energy carrier type'] = 'U.S. Average Grid Mix'
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Natural Gas', 'Energy carrier'] = 'Electricity'
+
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Steam Coal', 'Value'] = \
+    mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Steam Coal', 'Value'] * ob_units.feedstock_convert['Coal_to_Elec']
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Steam Coal', 'Energy carrier type'] = 'U.S. Average Grid Mix'
+mtg_id_paper.loc[mtg_id_paper['Energy carrier'] == 'Steam Coal', 'Energy carrier'] = 'Electricity'
+mtg_id_paper['Mitigation Case'] = 'Paper Industry, fuel switching and efficiency improvements'
+
+# Desigining mitigation scenarios for food industry
+mtg_id_food = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Food Industry', : ]
+
+# Designing mitigation scenarios for the bulk chemical industry
+mtg_id_chem = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Bulk Chemical Industry', : ]
+
+# Designing mitigation scenarios for the refining industry
+mtg_id_refi = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Refining Industry', : ]
+
+# Defining mitigation scenarios for the cement and lime industry
+mtg_id_cheli = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Cement and Lime Industry', : ]
+
+# Defining mitigation scenarios for the iron and steel industry
+mtg_id_iron = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Iron and Steel Industry', : ]
+
+# Defining mitigation scenarios for all other industries
+mtg_id_oth = activity_mtg_id.loc[~(activity_mtg_id['Subsector'].\
+                                   isin(['Paper Industry', 'Food Industry', 'Bulk Chemical Industry', 
+                                         'Refining Industry', 'Cement and Lime Industry', 'Iron and Steel Industry'])), : ]
+
+    
+    
+activity_mtg_id = pd.concat([mtg_id_paper, mtg_id_food, mtg_id_chem, mtg_id_cheli, mtg_id_iron, mtg_id_oth], axis=0).reset_index(drop=True)
+
+activity_mtg_id['Case'] = 'Mitigation'
+
+# Append to activity matrix and save
+activity_ref_mtg = pd.concat([activity_ref_mtg, activity_mtg_id.copy()], axis=0).reset_index(drop=True)
+
+if save_interim_files == True:
+    activity_ref_mtg.to_csv(interim_path_prefix + '\\' + f_interim_activity)
+    activity_ref_mtg[cols_activity_out].to_csv(output_path_prefix + '\\' + f_out_activity)
+
+# Seperate electric and non-electric activities
+activity_mtg_id_elec = activity_mtg_id.loc[activity_mtg_id['Energy carrier'] == 'Electricity', : ]
+activity_mtg_id = activity_mtg_id.loc[~(activity_mtg_id['Energy carrier'] == 'Electricity'), : ]
+
+# Merge GREET correspondence table
+activity_mtg_id = pd.merge(activity_mtg_id, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
+                               on=['Sector', 'Subsector', 'Energy carrier', 'Energy carrier type', 
+                                   'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+activity_mtg_id = pd.merge(activity_mtg_id, ob_ef.ef_raw, 
+                               how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
+
+# Merge NREL mitigation scenario electricity CIs to VISION
+activity_mtg_ag_d_elec = pd.merge(activity_mtg_ag_d_elec, 
+                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   how='left',
+                                   on=['Year'])
+activity_mtg_id_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+
+activity_mtg_id.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
+                               'Unit (Denominator)' : 'Energy Unit',
+                               'Reference case' : 'CI'}, inplace=True)
+activity_mtg_id.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+
+# Concatenate electric and non-electric activities
+activity_mtg_id = pd.concat([activity_mtg_id, activity_mtg_id_elec], axis = 0).reset_index(drop=True)
+
+activity_mtg_id['Total Emissions'] = activity_mtg_id['Value'] * activity_mtg_id['CI']
+
+# Calculate LCIA metric
+activity_mtg_id = pd.merge(activity_mtg_id, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+activity_mtg_id['LCIA_estimate'] = activity_mtg_id['Total Emissions'] * activity_mtg_id['GWP']
+
+# Create rest of the empty columns
+activity_mtg_id [ list(( Counter(activity_BAU.columns) - Counter(activity_mtg_id.columns )).elements()) ] = '-'
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, activity_mtg_id], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time))

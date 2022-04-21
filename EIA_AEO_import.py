@@ -236,7 +236,7 @@ class EIA_AEO:
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     
     # EERE tool based data transformations
-    def transform_EERE_tool (self):
+    def transform_EERE_tool (self, ob_units):
         
         # Filter out 'Net Coke Import' when in 'Energy carrier'
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
@@ -249,7 +249,7 @@ class EIA_AEO:
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Value' ] = \
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
-            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Value' ] * 0.72
+            (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Value' ] * ob_units.feedstock_convert['NG_to_H2']
         
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
@@ -533,7 +533,7 @@ class EIA_AEO:
         else:
             self.eia_multi_sector_import_disk(self.aeo_case_dict.keys())   
         
-        self.transform_EERE_tool()
+        self.transform_EERE_tool(ob_units)
         
         self.standardize_units(ob_units)
         
@@ -591,7 +591,7 @@ if __name__ == "__main__":
     else:
         ob.eia_multi_sector_import_disk(ob.aeo_case_dict.keys())   
     
-    ob.transform_EERE_tool()
+    ob.transform_EERE_tool(ob_units)
     
     ob.standardize_units(ob_units)
     
