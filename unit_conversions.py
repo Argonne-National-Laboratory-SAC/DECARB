@@ -89,9 +89,9 @@ class model_units:
              
         # Define feedstock conversion efficiencies
         self.feedstock_convert = {'NG_to_H2' : 0.72, # assuming that 72% of natural gas energy will be needed as Electricity only
-                                  'NG_to_Elec' : 0.45,
-                                  'Coal_to_Elec' : 0.38}
-                
+                                  'NG_to_Elec' : 0.50,
+                                  'Coal_to_Elec' : 0.50,
+                                  'Coal_to_NG' : 1} 
     def conv_to_lower_list(self, lst):
         return [x.lower() for x in lst].copy()
         
