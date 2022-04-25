@@ -965,8 +965,8 @@ print( 'Elapsed time: ' + str(datetime.now() - init_time))
 Generating mitigation scenarios for the Industrial sector
 """
 # Declaring parameters for Industry mitigation sectors
-Id_mtg_params = {'mtg_paper' : 0.32 # targetted efficiency improvement across all activities of paper industries
-                 }
+Id_mtg_params = {'mtg_paper' : 0.32, # targetted efficiency improvement across all activities of paper industries
+                 'mtg_food' : 0.37}
 
 print("Status: Constructing Industrial sector Mitigation scenario ..")
 
@@ -978,7 +978,7 @@ activity_mtg_id = activity_mtg_id.loc[activity_mtg_id['Sector']=='Industrial', :
 mtg_id_paper = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Paper Industry', : ]
 
 # Implementing efficiency improvements
-trend_reduce = ob_utils.trend_linear(mtg_id_paper[['Year']], 'Year', 0 , (1-Id_mtg_params['mtg_paper']) )
+trend_reduce = ob_utils.trend_linear(mtg_id_paper[['Year']], 'Year', 0 , (Id_mtg_params['mtg_paper']) )
 mtg_id_paper_ef = pd.merge(mtg_id_paper, trend_reduce, how='left', on='Year').reset_index(drop=True)
 mtg_id_paper_ef['Value'] = -1 * mtg_id_paper_ef['Value'] * mtg_id_paper_ef['mtg_frac']
 mtg_id_paper_ef['Mitigation Case'] = 'Paper Industry, efficiency improvements'
@@ -1003,11 +1003,21 @@ mtg_id_paper_fs.loc[mtg_id_paper_fs['Energy carrier'] == 'Steam Coal', 'Energy c
 mtg_id_paper_fs['Mitigation Case'] = 'Paper Industry, fuel switchings'
 
 mtg_id_paper = pd.concat([mtg_id_paper_ef, mtg_id_paper_fs_sub, mtg_id_paper_fs], axis=0).reset_index(drop=True)
-"""
-# Desigining mitigation scenarios for food industry
+
+# Desigining mitigation scenarios for the Food industry
 mtg_id_food = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Food Industry', : ].copy()
 
 mtg_id_food['Mitigation Case'] = 'Food Industry, fuel switching and efficiency improvements'
+
+# Implementing efficiency improvements
+trend_reduce = ob_utils.trend_linear(mtg_id_paper[['Year']], 'Year', 0 , (Id_mtg_params['mtg_food']) )
+mtg_id_food_ef = pd.merge(mtg_id_food, trend_reduce, how='left', on='Year').reset_index(drop=True)
+mtg_id_food_ef['Value'] = -1 * mtg_id_food_ef['Value'] * mtg_id_food_ef['mtg_frac']
+mtg_id_food_ef['Mitigation Case'] = 'Food Industry, efficiency improvements'
+
+mtg_id_food = mtg_id_food_ef
+
+"""
 
 # Designing mitigation scenarios for the bulk chemical industry
 mtg_id_chem = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Bulk Chemical Industry', : ].copy()
@@ -1048,7 +1058,7 @@ mtg_id_oth.loc[mtg_id_oth['Energy carrier'] == 'Steam Coal', 'Energy carrier'] =
 mtg_id_oth['Mitigation Case'] = 'Other Industries, fuel switching'
 """
 
-activity_mtg_id = pd.concat([mtg_id_paper], axis=0).reset_index(drop=True)
+activity_mtg_id = pd.concat([mtg_id_paper, mtg_id_food], axis=0).reset_index(drop=True)
 
 activity_mtg_id['Case'] = 'Mitigation'
 
@@ -1111,3 +1121,19 @@ if save_interim_files == True:
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
+
+
+#%%
+"""
+Generating mitigation scenarios for the Other sectors including other industries
+"""
+
+print("Status: Constructing Other sectors' Mitigation scenario ..")
+
+
+
+
+#%%
+"""
+Mitigation scenario of replacing natural gas based Hydrogen to other feedstock or renewable hydrogen
+"""
