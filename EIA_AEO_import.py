@@ -67,7 +67,8 @@ class EIA_AEO:
                          #'energy_price' : '',
                          #'emissions_end_use' : '',
                          #'emissions_energy_type' : '',
-                         'supplemental' : ''
+                         'supplemental' : '',
+                         'chemical_industry_supp' : ''
                          }
         
         # Create a dictionary of AEO cases, and their corresponding API Ids
@@ -198,7 +199,7 @@ class EIA_AEO:
                 df_temp['Series Id'] = series_id
                 df_temp['Table'] = row['Table']
             
-            elif tab == 'supplemental':
+            elif tab in ['supplemental', 'chemical_industry_supp'] :
                 df_temp['Sector'] = row['Sector']
                 df_temp['Subsector'] = row['Subsector']
                 df_temp['Parameter'] = row['Parameter']
@@ -236,7 +237,7 @@ class EIA_AEO:
             #self.EIA_data[key] = self.EIA_data[key][self.EIA_data[key]['AEO Case'].isin(aeo_cases)].copy()
     
     # EERE tool based data transformations
-    def transform_EERE_tool (self, ob_units):
+    def transform_EERE_tool (self, ob_units, base_year = 2020):
         
         # Filter out 'Net Coke Import' when in 'Energy carrier'
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
@@ -258,6 +259,12 @@ class EIA_AEO:
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
+        
+        # Calculate ratio for the chemical industry supp data set        
+        self.EIA_data['chemical_industry_supp']['Year'] = self.EIA_data['chemical_industry_supp']['Year'].astype('int')
+        self.EIA_data['chemical_industry_supp']['Value'] = self.EIA_data['chemical_industry_supp']['Value'].astype('float32')
+        self.val_base_year = self.EIA_data['chemical_industry_supp'].loc[self.EIA_data['chemical_industry_supp']['Year'] == base_year, 'Value'].values[0]
+        self.EIA_data['chemical_industry_supp']['frac_increase'] = self.EIA_data['chemical_industry_supp']['Value'] / self.val_base_year
        
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
