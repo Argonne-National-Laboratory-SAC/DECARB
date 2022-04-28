@@ -88,8 +88,8 @@ class VISION:
         self.conv_HHV_to_LHV()
     
     def conv_HHV_to_LHV (self):
-        self.vision = pd.merge(self.vision, self.ob_units.hv_EIA[['Energy carrier', 'LHV_by_HHV']].drop_duplicates(), 
-                                    how='left', on=['Energy carrier'])        
+        self.vision = pd.merge(self.vision, self.ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']].drop_duplicates(), 
+                                    how='left', on=['Energy carrier', 'Energy carrier type'])        
         self.vision['Value'] = self.vision['Value'] * self.vision['LHV_by_HHV']
         self.vision.drop(columns=['LHV_by_HHV'], inplace=True)
 

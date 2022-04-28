@@ -91,8 +91,8 @@ class SCOUT:
         self.conv_HHV_to_LHV()
         
     def conv_HHV_to_LHV (self):
-        self.df_scout = pd.merge(self.df_scout, self.ob_units.hv_EIA[['Energy carrier', 'LHV_by_HHV']].drop_duplicates(), 
-                                    how='left', on=['Energy carrier'])        
+        self.df_scout = pd.merge(self.df_scout, self.ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']].drop_duplicates(), 
+                                    how='left', on=['Energy carrier', 'Energy carrier type'])        
         self.df_scout['Value'] = self.df_scout['Value'] * self.df_scout['LHV_by_HHV']
         self.df_scout.drop(columns=['LHV_by_HHV'], inplace=True)
         
