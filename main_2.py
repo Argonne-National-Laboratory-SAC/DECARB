@@ -189,7 +189,7 @@ if save_interim_files:
 ob_elec = NREL_elec( ob_units, input_path_electricity, input_path_corr )
 
 # VISION Transportation data import
-ob_VISION = VISION(input_path_VISION, input_path_corr)
+ob_VISION = VISION(ob_units, input_path_VISION, input_path_corr)
 
 # GREET emission factor load
 ob_ef = GREET_EF(input_path_GREET )
@@ -1111,24 +1111,7 @@ mtg_id_food_ef['Mitigation Case'] = 'Food Industry, efficiency improvements'
 # Append to activity matrix and save
 activity_ref_mtg = save_activity_mx(activity_ref_mtg,  mtg_id_food_ef.copy(), save_interim_files)
 
-# Implementing fuel switching, NG to Electricity, after implementing efficiency improvements
-mtg_id_food_fsng = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
-                                         (activity_ref_mtg['Subsector'] == 'Food Industry') &
-                                         (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_food_fsng = mtg_id_food_fsng.fillna(value='-')
-mtg_id_food_fsng = mtg_id_food_fsng.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
-                                               'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
-                                               'Generation Type', 'Fuel Pool']).\
-                                              agg({'Value' : 'sum'}).reset_index()
-mtg_id_food_fsng = \
-    ob_utils.fuel_switching(mtg_id_food_fsng,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
-                            'Electricity', 'U.S. Average Grid Mix', ob_units.feedstock_convert['NG_to_Elec'], 
-                            trend_start_val=0, trend_end_val=1)
-mtg_id_food_fsng['Case'] = 'Mitigation'
-mtg_id_food_fsng['Mitigation Case'] = 'Food Industry, fuel switching Natural Gas to Electricity'
-
-# Implementing fuel switching, Steam Coal to Electricity, after implementing efficiency improvements
+# Implementing fuel switching, Steam Coal to Natural Gas, after implementing efficiency improvements
 mtg_id_food_fssc = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Food Industry') &
                                          (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
@@ -1140,13 +1123,12 @@ mtg_id_food_fssc = mtg_id_food_fssc.groupby(['Data Source', 'AEO Case', 'Sector'
 mtg_id_food_fssc = \
     ob_utils.fuel_switching(mtg_id_food_fssc,
                             'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
-                            'Electricity', 'U.S. Average Grid Mix', ob_units.feedstock_convert['Coal_to_Elec'], 
+                            'Natural Gas', 'U.S. Average Mix', ob_units.feedstock_convert['Coal_to_NG'], 
                             trend_start_val=0, trend_end_val=1)
 mtg_id_food_fssc['Case'] = 'Mitigation'
-mtg_id_food_fssc['Mitigation Case'] = 'Food Industry, fuel switching Steam Coal to Electricity'  
+mtg_id_food_fssc['Mitigation Case'] = 'Food Industry, fuel switching Steam Coal to Natural Gas'  
 
 # Append to activity matrix and save
-activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_food_fsng, save_interim_files)
 activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_food_fssc, save_interim_files)
 
 # Implementing fuel switching H2 blend to NG

@@ -274,12 +274,13 @@ class EIA_AEO:
             
    
     def conv_HHV_to_LHV (self, aeo_cases, ob_units, verbose):
-        
-        self.EIA_data_QA = self.EIA_data.copy()
-        self.EIA_data_QA['energy_demand'] = pd.merge(self.EIA_data_QA['energy_demand'], ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
+             
+        self.EIA_data ['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
                                     how='left', on=['Energy carrier', 'Energy carrier type'])        
-        self.EIA_data_QA['energy_demand']['Value'] = self.EIA_data_QA['energy_demand']['Value'] * self.EIA_data_QA['energy_demand']['LHV_by_HHV']
-    
+        self.EIA_data['energy_demand']['Value'] = self.EIA_data['energy_demand']['Value'] * self.EIA_data['energy_demand']['LHV_by_HHV']
+        self.EIA_data['energy_demand'].drop(columns=['LHV_by_HHV'], inplace=True)
+        self.EIA_data_QA = self.EIA_data.copy()
+           
     # T&D loss
     def calc_TandD_loss (self, aeo_cases, verbose):
         
@@ -542,9 +543,7 @@ class EIA_AEO:
         
         self.transform_EERE_tool(ob_units)
         
-        self.standardize_units(ob_units)
-        
-        self.conv_HHV_to_LHV (self.aeo_case_dict.keys(), ob_units, verbose)
+        self.standardize_units(ob_units)        
         
         self.calc_TandD_loss(self.aeo_case_dict.keys(), verbose) 
         
@@ -552,11 +551,13 @@ class EIA_AEO:
         
         self.classify_Egasoline(self.aeo_case_dict.keys(), verbose)
         
-        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), verbose)
+        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), verbose)     
         
         self.calc_EIA_fuel_demand_by_source()
         
         self.map_corr_tables()
+        
+        self.conv_HHV_to_LHV (self.aeo_case_dict.keys(), ob_units, verbose)
         
         if save_to_file:
             self.save_EIA_data_to_file(raw_file_save=False)
@@ -579,7 +580,7 @@ if __name__ == "__main__":
     input_path_GREET = input_path_prefix + '\\GREET'    
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
-    EIA_AEO_fetch_data = True
+    EIA_AEO_fetch_data = False
     save_to_file = True
     verbose = True
     load_from_disk = True
@@ -602,8 +603,6 @@ if __name__ == "__main__":
     
     ob.standardize_units(ob_units)
     
-    ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, verbose)
-    
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), verbose)
     
     ob.classify_E85(ob.aeo_case_dict.keys(), verbose)
@@ -615,6 +614,8 @@ if __name__ == "__main__":
     ob.calc_EIA_fuel_demand_by_source()
     
     ob.map_corr_tables()
+    
+    ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, verbose)
     
     if save_to_file:
         ob.save_EIA_data_to_file(raw_file_save=False)

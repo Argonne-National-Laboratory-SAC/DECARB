@@ -13,9 +13,10 @@ import pandas as pd
 
 class VISION:
     
-    def __init__ (self, input_path_VISION, input_path_corr):
+    def __init__ (self, ob_units, input_path_VISION, input_path_corr):
         
         # Set Filepaths and Load input files
+        self.ob_units = ob_units
         
         # Set path and filenames for input files
         self.input_path_VISION = input_path_VISION
@@ -83,12 +84,26 @@ class VISION:
         self.vision = self.vision.groupby(by=['Data Source', 'Case', 'Sector', 'Subsector', 'End Use Application',
                                               'Energy carrier', 'Energy carrier type', 'Year', 'Unit']). \
                                   agg({'Value' : 'sum'}).reset_index()
+        # convert HHV to LHV
+        self.conv_HHV_to_LHV()
+    
+    def conv_HHV_to_LHV (self):
+        self.vision = pd.merge(self.vision, self.ob_units.hv_EIA[['Energy carrier', 'LHV_by_HHV']].drop_duplicates(), 
+                                    how='left', on=['Energy carrier'])        
+        self.vision['Value'] = self.vision['Value'] * self.vision['LHV_by_HHV']
+        self.vision.drop(columns=['LHV_by_HHV'], inplace=True)
 
 if __name__ == "__main__":
-    
-    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
         
+    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_GREET = input_path_prefix + '\\GREET' 
+    input_path_units = input_path_prefix + '\\Units'
+    input_path_corr = input_path_prefix + '\\correspondence_files'
+    
+    from  unit_conversions import model_units    
+    ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
+    
     input_path_VISION = input_path_prefix + '\\Transportation'
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
-    ob_VISION = VISION(input_path_VISION, input_path_corr)
+    ob_VISION = VISION(ob_units, input_path_VISION, input_path_corr)

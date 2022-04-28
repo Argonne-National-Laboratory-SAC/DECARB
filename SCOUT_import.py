@@ -86,7 +86,15 @@ class SCOUT:
         
         # Data type conversion
         self.df_scout['Year'] = self.df_scout['Year'].astype('float64')
-        #self.temp_scout = self.df_scout.copy()
+        
+        # HHV to LHV conversion
+        self.conv_HHV_to_LHV()
+        
+    def conv_HHV_to_LHV (self):
+        self.df_scout = pd.merge(self.df_scout, self.ob_units.hv_EIA[['Energy carrier', 'LHV_by_HHV']].drop_duplicates(), 
+                                    how='left', on=['Energy carrier'])        
+        self.df_scout['Value'] = self.df_scout['Value'] * self.df_scout['LHV_by_HHV']
+        self.df_scout.drop(columns=['LHV_by_HHV'], inplace=True)
         
 if __name__ == "__main__":
     
@@ -100,4 +108,4 @@ if __name__ == "__main__":
     from  unit_conversions import model_units    
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
-    ob = SCOUT(ob_units, input_path_SCOUT, input_path_corr)
+    ob_SCOUT = SCOUT(ob_units, input_path_SCOUT, input_path_corr)
