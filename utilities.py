@@ -59,3 +59,134 @@ class Utilities:
             return 0
         else:
             return value
+    
+    def adoption_curve (self,
+                        min_val,
+                        max_val,
+                        k,
+                        start_yr,
+                        end_yr,
+                        curr_yr,
+                        a):
+        x = curr_yr
+        x_0 = int ( (start_yr + end_yr) /2 )
+        val = min_val + (max_val - min_val) * pow ((1 / (1 + np.exp( -k * (x - x_0)))), a) 
+        return val
+    
+    def efficiency_improvement (self, 
+                                df, colname_time, colname_value,
+                                trend_start_val,
+                                trend_end_val,
+                                trend_type = 'adoption curve',
+                                min_val = 0,
+                                max_val = 1,
+                                k = 0.5,
+                                start_yr = 2020,
+                                end_yr = 2050,
+                                a = 1):
+        self.trend_type = trend_type
+        
+        if self.trend_type == 'linear':
+            self.df_trend_ef = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : self.trend_linear(df[[colname_time]], colname_time, trend_start_val , trend_end_val)})
+        
+        elif self.trend_type == 'adoption curve':
+            self.df_trend_ef = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : [ self.adoption_curve(min_val, max_val, k, start_yr, end_yr, curr_yr, a) 
+                                                            for curr_yr in range(min(self.df[colname_time]), (max(self.df[colname_time])+1)) ] })
+                
+        df = pd.merge(df, self.df_trend_ef, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)
+        
+        df[colname_value] = -1 * df[colname_value] * df['frac']
+        
+        df.drop(columns=['time', 'frac'], inplace=True)
+        
+        return df
+    
+    def fuel_switching (self,
+                        df, colname_time, colname_value, colname_energy_carrier, colname_energy_carrier_type,
+                        to_energy_carrier, to_energy_carrier_type,
+                        feedstock_convert_frac,
+                        trend_start_val,
+                        trend_end_val,                        
+                        trend_type = 'adoption curve',
+                        min_val = 0,
+                        max_val = 1,
+                        k = 0.5,
+                        start_yr = 2020,
+                        end_yr = 2050,
+                        a = 1):
+        
+        self.trend_type = trend_type
+        
+        if self.trend_type == 'linear':
+            self.df_trend_fs = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : self.trend_linear(df[[colname_time]], colname_time, trend_start_val , trend_end_val)})
+        
+        elif self.trend_type == 'adoption curve':
+            self.df_trend_fs = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : [ self.adoption_curve(min_val, max_val, k, start_yr, end_yr, curr_yr, a) 
+                                                            for curr_yr in range(min(self.df[colname_time]), (max(self.df[colname_time])+1)) ] })
+        
+        df = pd.merge(df, self.df_trend_fs, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)
+        
+        # Rows for new fuels
+        df_fs = df.copy()
+        df_fs[colname_value] = df_fs[colname_value] * df_fs['frac'] * feedstock_convert_frac
+        df_fs[colname_energy_carrier] = to_energy_carrier
+        df_fs[colname_energy_carrier_type] = to_energy_carrier_type
+                        
+        # Rows to subtract existing fuels
+        df_fs_sub = df.copy()
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac']       
+        
+        df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
+        
+        df.drop(columns=['time', 'frac'], inplace=True)
+        
+        return df
+    
+    def calc_H2_by_energy_NG (self, vol_H2, LHV_NG = 983, LHV_H2 = 290):  # LHV values are from GREET 2021 in units of BTU/ft^3. NG and H2 are gaseous fuels.
+        return  1 / (1 + ( (1 - vol_H2) * LHV_NG / (vol_H2 * LHV_H2) ) )
+    
+    def fuel_switching_H2NG (self,
+                        df, colname_time, colname_value, colname_energy_carrier, colname_energy_carrier_type,
+                        to_energy_carrier, to_energy_carrier_type,
+                        trend_start_val,
+                        trend_end_val,                        
+                        trend_type = 'adoption curve',
+                        min_val = 0,
+                        max_val = 1,
+                        k = 0.5,
+                        start_yr = 2020,
+                        end_yr = 2050,
+                        a = 1):
+        
+        self.trend_type = trend_type
+        
+        if self.trend_type == 'linear':
+            self.df_trend_fs = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : self.trend_linear(df[[colname_time]], colname_time, trend_start_val , trend_end_val)})
+        
+        elif self.trend_type == 'adoption curve':
+            self.df_trend_fs = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
+                                          'frac' : [ self.adoption_curve(min_val, max_val, k, start_yr, end_yr, curr_yr, a) 
+                                                            for curr_yr in range(min(self.df[colname_time]), (max(self.df[colname_time])+1)) ] })
+        
+        df = pd.merge(df, self.df_trend_fs, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)
+        
+        # Rows for new fuels
+        df_fs = df.copy()
+        df_fs[colname_value] = df_fs[colname_value] * [self.calc_H2_by_energy_NG (x) for x in df_fs['frac']]
+        df_fs[colname_energy_carrier] = to_energy_carrier
+        df_fs[colname_energy_carrier_type] = to_energy_carrier_type
+                        
+        # Rows to subtract existing fuels
+        df_fs_sub = df.copy()
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac']       
+        
+        df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
+        
+        df.drop(columns=['time', 'frac'], inplace=True)
+        
+        return df

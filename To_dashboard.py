@@ -16,6 +16,7 @@ Summary: This python script writes the output data to the Excel Dashboard
 
 import pandas as pd
 import xlwings as xw
+from xlwings.constants import DeleteShiftDirection
 
 # Set file paths, file names and read output data files
 
@@ -52,19 +53,24 @@ wb = xw.Book(dashboard_path + "\\" + f_dashboard)
 
 # Write to the Activity Matrix tab
 sheet_1 = wb.sheets['Energy Demand']
+sheet_1.range(str(4) + ':1048576').api.Delete(DeleteShiftDirection.xlShiftUp)
 sheet_1['A4'].options(chunksize=10000).value = activity
 
 # Write to the Environmental Matrix tab
 sheet_1 = wb.sheets['Env Matrix']
+sheet_1.range(str(4) + ':1048576').api.Delete(DeleteShiftDirection.xlShiftUp)
 sheet_1['A4'].options(chunksize=10000).value = env
 
 sheet_1 = wb.sheets['EPS - Net Gen']
+sheet_1.range(str(4) + ':1048576').api.Delete(DeleteShiftDirection.xlShiftUp)
 sheet_1['A4'].options(chunksize=10000).value = elec_net_gen
 
 sheet_1 = wb.sheets['EPS - Env']
+sheet_1.range(str(4) + ':1048576').api.Delete(DeleteShiftDirection.xlShiftUp)
 sheet_1['A4'].options(chunksize=10000).value = elec_env
 
 sheet_1 = wb.sheets['EPS - CI']
+sheet_1.range(str(4) + ':1048576').api.Delete(DeleteShiftDirection.xlShiftUp)
 sheet_1['A4'].options(chunksize=10000).value = elec_CI
 
 """
