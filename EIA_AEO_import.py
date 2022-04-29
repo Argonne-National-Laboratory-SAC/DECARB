@@ -242,7 +242,8 @@ class EIA_AEO:
         # Filter out 'Net Coke Import' when in 'Energy carrier'
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
             self.EIA_data['energy_demand']['End Use'] != 'Net Coke Imports']
-                       
+        
+        """               
         # replacing industrial flows that use natural gas for hydrogen production to hydrogen as energy carrier
         # Convert energy efficiency from natural gas to hydrogen
         self.EIA_data['energy_demand'].loc[
@@ -259,7 +260,7 @@ class EIA_AEO:
         self.EIA_data['energy_demand'].loc[
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
-        
+        """
         # Calculate ratio for the chemical industry supp data set        
         self.EIA_data['chemical_industry_supp']['Year'] = self.EIA_data['chemical_industry_supp']['Year'].astype('int')
         self.EIA_data['chemical_industry_supp']['Value'] = self.EIA_data['chemical_industry_supp']['Value'].astype('float32')

@@ -91,7 +91,12 @@ class model_units:
         self.feedstock_convert = {'NG_to_H2' : 0.72, # assuming that 72% of natural gas energy will be needed as Electricity only
                                   'NG_to_Elec' : 0.50,
                                   'Coal_to_Elec' : 0.50,
-                                  'Coal_to_NG' : 1} 
+                                  'Coal_to_NG' : 1,
+                                  'Diesel_to_Elec' : 1,
+                                  'Other_Petroleum_to_Elec' : 1,
+                                  'Petroleum_Coke_to_Elec' : 1,
+                                  'Propane_to_Elec' : 1,
+                                  'Residual_fuel_oil_to_Elec' : 1} 
     def conv_to_lower_list(self, lst):
         return [x.lower() for x in lst].copy()
         
