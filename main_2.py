@@ -157,6 +157,22 @@ def save_activity_mx (df_to, df, save_interim_files):
         
     return df_to.copy()
 
+# calculate the emission factors
+
+def calc_ef_clinker (frac_CaO = 0.650) :
+    # Calculation from pg. 271 of EPA GHGI  Inventory of Greenhouse Gas Emissions and Sinks: 1990-2019
+    # Formula: EF_clinker = 0.650 CaO × [(44.01 g/mole CO2) ÷ (56.08 g/mole CaO)] = 0.510 tons CO2/ton clinker
+    
+    return  frac_CaO * 44.01 /56.08 # metric ton CO2 per metric ton clinker production
+
+def calc_high_calcium_lime ():
+    # [(44.01 g/mole CO2) ÷ (56.08 g/mole CaO)] × (0.9500 CaO/lime) = 0.7455 g CO2/g lime
+    return 0.7455 # g CO2 per g lime
+
+def calc_dolomitic_lime ():
+    # [(88.02 g/mole CO2) ÷ (96.39 g/mole CaO)] × (0.9500 CaO/lime) = 0.8675 g CO2/g lime
+    return 0.8675 # g CO2 per g lime
+
 #%%
 
 init_time = datetime.now()
@@ -402,6 +418,7 @@ ob_EPA_GHGI.activity_non_combust_exp = pd.concat([activity_non_combust_ammonia, 
 ob_EPA_GHGI.activity_non_combust_exp.drop(columns=['Parameter', 'frac_increase'], inplace=True)
 ob_EPA_GHGI.activity_non_combust_exp['Case'] = 'Reference case'
 ob_EPA_GHGI.activity_non_combust_exp['Mitigation Case'] = '-'
+
 
 # Generate the Environmental Matrix
 activity_BAU = pd.concat ([ob_EPA_GHGI.activity_non_combust_exp, activity_elec, activity_non_elec, activity_non_elec_neu], axis=0).reset_index(drop=True)
@@ -996,8 +1013,11 @@ Generating mitigation scenarios for the Industrial sector
 # Declaring parameters for Industry mitigation sectors
 Id_mtg_params = {'mtg_paper' : 0.32, # target efficiency improvement across all activities of paper industries
                  'mtg_food' : 0.37,   # target efficiency improvement across all activities of food industry
-                 'mtg_bulk_chemicals' : 13   # target efficiency improvement across all bulk chemicals except green ammonia
-                 }
+                 'mtg_bulk_chemicals' : 13,   # target efficiency improvement across all bulk chemicals except green ammonia
+                 'mtg_clinker_new_tech' : 0.30}  # improvement in cement production technology over years
+
+ef_mtg_clinker_replace = 0 # mt CO2 emissions per mt CO2 clinker production
+
 Id_mtg_switching = {'mtg_NG_to_H2' : 0.3, # target switching of N2 to H2
                     'mtg_fossilH2_to_renewableH2' : 1} # target implementation of renewable H2 in place of fossil hydrogen
 
@@ -1345,21 +1365,101 @@ ghgi_mtg_am['Case'] = 'Mitigation'
 ghgi_mtg_am['Mitigation Case'] = 'Bulk Chenical Industry, Green Ammonia'
 ghgi_mtg_am['Scope'] = 'Direct, Non-Combustion'
 
+# Constructing mitigation scenarios for the Cement and Lime Industry
+
+print("      : Cement and Lime Industry")
+
 """
-# Designing mitigation scenarios for the bulk chemical industry
-mtg_id_chem = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Bulk Chemical Industry', : ].copy()
+# Cement and Lime Industry Reference case adjustment as per increase in production per shipment revenue
+activity_non_combust_cem = ob_EPA_GHGI.activity_non_combust_exp.loc[(ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Industrial') & 
+                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'] == 'Cement Production'), :]
 
-mtg_id_chem['Mitigation Case'] = 'Bulk Chemical Industry, fuel switching and efficiency improvements'
+activity_non_combust_oth = ob_EPA_GHGI.activity_non_combust_exp.loc[~((ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Industrial') & 
+                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'] == 'Cement Production')), :]
 
+activity_non_combust_cem = pd.merge(activity_non_combust_cem, 
+                                    ob_eia.EIA_data['chemical_industry_supp'][['Sector', 'Parameter', 'Year', 'frac_increase']],
+                                    how='left',
+                                    left_on=['Sector', 'Subsector', 'Year'],
+                                    right_on=['Sector', 'Parameter', 'Year']).reset_index(drop=True)
+"""
+
+# Create Reference case scenarios for Cement
+bulk_chem_cem = bulk_chem_exp.loc[bulk_chem_exp['Type'].isin(['Clinker Production']), : ].copy()
+        
+# Scale the activity based on increase in shipment over the years
+bulk_chem_cem = pd.merge(bulk_chem_cem, ob_eia.EIA_data['chemical_industry_supp']. \
+                           loc[ob_eia.EIA_data['chemical_industry_supp']['Parameter'] == 'Cement', ['Year', 'frac_increase']].drop_duplicates(),
+                           how='left',
+                           on=['Year']).reset_index(drop=True)
+bulk_chem_cem['activity_value'] = bulk_chem_cem['activity_value'] * bulk_chem_cem['frac_increase'] # metric ton
+
+# Create Reference case for Lime
+bulk_chem_li = bulk_chem_exp.loc[bulk_chem_exp['Type'].isin(['High-Calcium Lime', 'Dolomitic Lime']), : ].copy()
+
+# Scale the activity based on increase in shipment over the years
+bulk_chem_li = pd.merge(bulk_chem_li, ob_eia.EIA_data['chemical_industry_supp']. \
+                           loc[ob_eia.EIA_data['chemical_industry_supp']['Parameter'] == 'Cement', ['Year', 'frac_increase']].drop_duplicates(),
+                           how='left',
+                           on=['Year']).reset_index(drop=True)
+bulk_chem_li['activity_value'] = bulk_chem_li['activity_value'] * bulk_chem_li['frac_increase'] # metric ton
+
+# Calculate total emissions
+bulk_chem_cem['energy_value'] = calc_ef_clinker()
+bulk_chem_li.loc[bulk_chem_li['Type'] == 'High-Calcium Lime', 'energy_value'] = calc_high_calcium_lime()
+bulk_chem_li.loc[bulk_chem_li['Type'] == 'Dolomitic Lime', 'energy_value'] = calc_dolomitic_lime()
+
+bulk_chem_cemli = pd.concat([bulk_chem_cem, bulk_chem_li], axis=0).reset_index(drop=True)
+
+bulk_chem_cemli['Total Emissions'] = bulk_chem_cemli['activity_value'] * bulk_chem_cemli['energy_value'] # metric ton x metric ton CO2/metric ton = metric ton CO2
+
+bulk_chem_cemli['End Use Application'] = bulk_chem_cemli['Type']
+bulk_chem_cemli['energy_unit_numerator'] = 'mt'
+bulk_chem_cemli['energy_unit_denominator'] = 'mt'
+bulk_chem_cemli['Case'] = 'Reference case'
+bulk_chem_cemli['Formula'] = 'CO2'
+bulk_chem_cemli.rename(columns={'energy_unit_numerator' : 'Emissions Unit'}, inplace=True)
+bulk_chem_cemli[['AEO Case', 'Scope', 'Basis', 'Fuel Pool', 
+                 'Flow Name', 'Unit', 'Value', 'CI', 'Mitigation Case']] = '-'
+
+# unit conversion
+tempdf = bulk_chem_cemli.copy()
+tempdf.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
+  ob_units.unit_convert_df(tempdf.loc[ : , ['Emissions Unit', 'Total Emissions']],
+   Unit = 'Emissions Unit', Value = 'Total Emissions',
+   if_given_category = True, unit_category = 'Emissions')
+
+# Replacing the existing reference case for Cement and Lime with calculated reference case
+activity_non_combust_oth = ob_EPA_GHGI.activity_non_combust_exp.loc[~((ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Industrial') & 
+                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'].isin(['Cement Production', 'Lime Production']) )), :]
+ob_EPA_GHGI.activity_non_combust_exp = pd.concat([activity_non_combust_oth, tempdf], axis=0).reset_index(drop=True)
+del tempdf
+
+# designing mitigation scenario for clinker (cement) and Lime non-combustion emissions
+bulk_chem_cemli_mtg = ob_utils.efficiency_improvement(bulk_chem_cemli,
+                                                      'Year', 'activity_value', 
+                                                      trend_start_val=0, trend_end_val=Id_mtg_params['mtg_clinker_new_tech']).copy()
+bulk_chem_cemli_mtg['Total Emissions'] = bulk_chem_cemli_mtg['activity_value'] * ( bulk_chem_cemli_mtg['energy_value'] - ef_mtg_clinker_replace)
+
+# unit conversion
+bulk_chem_cemli_mtg.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
+  ob_units.unit_convert_df(bulk_chem_cemli_mtg.loc[ : , ['Emissions Unit', 'Total Emissions']],
+   Unit = 'Emissions Unit', Value = 'Total Emissions',
+   if_given_category = True, unit_category = 'Emissions')
+
+bulk_chem_cemli_mtg['Case'] = 'Mitigation'
+bulk_chem_cemli_mtg['Mitigation Case'] = 'Cement and Lime Industry, cement chemistry'
+
+
+
+# design mitigation scenarios for clinker and lime for combustion emissions
+
+
+"""
 # Designing mitigation scenarios for the refining industry
 mtg_id_refi = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Refining Industry', : ].copy()
 
 mtg_id_refi['Mitigation Case'] = 'Refining Industry, fuel switching and efficiency improvements'
-
-# Defining mitigation scenarios for the cement and lime industry
-mtg_id_cheli = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Cement and Lime Industry', : ].copy()
-
-mtg_id_cheli['Mitigation Case'] = 'Cement and Lime Industry, fuel switching and efficiency improvements'
 
 # Defining mitigation scenarios for the iron and steel industry
 mtg_id_iron = activity_mtg_id.loc[activity_mtg_id['Subsector'] == 'Iron and Steel Industry', : ].copy()
@@ -1430,6 +1530,8 @@ if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
+
+
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 
@@ -1439,7 +1541,6 @@ Generating mitigation scenarios for the Other sectors including other industries
 """
 
 print("Status: Constructing Other sectors' Mitigation scenario ..")
-
 
 
 

@@ -89,15 +89,15 @@ class Utilities:
         if self.trend_type == 'linear':
             self.df_trend_ef = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
                                           'frac' : self.trend_linear(df[[colname_time]], colname_time, trend_start_val , trend_end_val)})
+            df = pd.merge(df, self.df_trend_ef, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)            
+            df[colname_value] = -1 * df[colname_value] * df['frac']
         
         elif self.trend_type == 'adoption curve':
             self.df_trend_ef = pd.DataFrame({'time' : np.linspace(min(self.df[colname_time]), max(self.df[colname_time]), max(self.df[colname_time]) - min(self.df[colname_time]) + 1 ),
                                           'frac' : [ self.adoption_curve(min_val, max_val, k, start_yr, end_yr, curr_yr, a) 
                                                             for curr_yr in range(min(self.df[colname_time]), (max(self.df[colname_time])+1)) ] })
-                
-        df = pd.merge(df, self.df_trend_ef, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)
-        
-        df[colname_value] = -1 * df[colname_value] * df['frac']
+            df = pd.merge(df, self.df_trend_ef, how='left', left_on=colname_time, right_on='time').reset_index(drop=True)            
+            df[colname_value] = -1 * df[colname_value] * df['frac'] * trend_end_val
         
         df.drop(columns=['time', 'frac'], inplace=True)
         

@@ -264,8 +264,16 @@ class EIA_AEO:
         # Calculate ratio for the chemical industry supp data set        
         self.EIA_data['chemical_industry_supp']['Year'] = self.EIA_data['chemical_industry_supp']['Year'].astype('int')
         self.EIA_data['chemical_industry_supp']['Value'] = self.EIA_data['chemical_industry_supp']['Value'].astype('float32')
-        self.val_base_year = self.EIA_data['chemical_industry_supp'].loc[self.EIA_data['chemical_industry_supp']['Year'] == base_year, 'Value'].values[0]
-        self.EIA_data['chemical_industry_supp']['frac_increase'] = self.EIA_data['chemical_industry_supp']['Value'] / self.val_base_year
+        self.test_data = self.EIA_data['chemical_industry_supp']
+        self.EIA_data['chemical_industry_supp'] = \
+        pd.merge( self.EIA_data['chemical_industry_supp'],
+                  self.EIA_data['chemical_industry_supp'].loc[self.EIA_data['chemical_industry_supp']['Year'] == base_year, ['Sector', 'Subsector', 'Parameter', 'Parameter Levels', 'Value']],
+                  how='left',
+                  on=['Sector', 'Subsector', 'Parameter', 'Parameter Levels']).reset_index(drop=True)        
+       
+        self.EIA_data['chemical_industry_supp']['frac_increase'] = self.EIA_data['chemical_industry_supp']['Value_x'] / self.EIA_data['chemical_industry_supp']['Value_y']
+        self.EIA_data['chemical_industry_supp'].drop(columns=['Value_y'], inplace=True)
+        self.EIA_data['chemical_industry_supp'].rename(columns={'Value_x' : 'Value'}, inplace=True)
        
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
@@ -581,7 +589,7 @@ if __name__ == "__main__":
     input_path_GREET = input_path_prefix + '\\GREET'    
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
-    EIA_AEO_fetch_data = False
+    EIA_AEO_fetch_data = True
     save_to_file = True
     verbose = True
     load_from_disk = True
