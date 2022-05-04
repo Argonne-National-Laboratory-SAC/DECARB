@@ -78,11 +78,13 @@ class SCOUT:
         # Adding additional columns with values to match existing Environmental Matrix
         self.df_scout['Case'] = 'Mitigation'
         self.df_scout['Data Source'] = 'SCOUT Model'
+        self.df_scout.loc[self.df_scout['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'
+        self.df_scout.loc[self.df_scout['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
         
         # Select and arrange columns
         self.df_scout = self.df_scout[['Data Source', 'Case', 'Mitigation Case', 'Sector', 'Subsector', 
                                        'Energy carrier', 'Energy carrier type', 
-                                       'End Use Application', 'Year', 'Value', 'Unit']]
+                                       'End Use Application', 'Scope', 'Year', 'Value', 'Unit']]
         
         # Data type conversion
         self.df_scout['Year'] = self.df_scout['Year'].astype('float64')
