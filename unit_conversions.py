@@ -135,7 +135,7 @@ class model_units:
         df[Unit] = self.conv_to_lower_list(df[Unit])
         
         if if_given_unit:
-            df['unit_to'] = given_unit
+            df['unit_to'] = given_unit.lower()
         elif if_given_category:
             df['unit_to'] = [self.select_units(x, unit_category) for x in df[Unit] ]
         else:

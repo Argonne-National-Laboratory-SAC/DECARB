@@ -132,10 +132,6 @@ class NREL_elec:
             'year' : 'Year',
             'Generation (TWh)' : 'Electricity Production'}, inplace = True)
         
-        """self.NREL_elec['capacity'].rename(columns = {
-            'year' : 'Year',
-            'Generation (TWh)' : 'Electricity Production'}, inplace = True)"""
-        
         self.NREL_elec['generation']['Energy Unit'] = 'TWh'
         #self.NREL_elec['capacity']['Energy Unit'] = 'GW'
         
@@ -144,19 +140,17 @@ class NREL_elec:
         self.NREL_elec['generation']['Case'] = 'Mitigation'
         self.NREL_elec['generation']['Mitigation Case'] = 'NREL Electric Power Decarb'
         self.NREL_elec['generation']['Energy carrier'] = 'Electricity'
+        self.NREL_elec['generation']['End Use Application'] = 'Electricity Generation'
         
         # Subset data for relevent years for EERE tool
         self.NREL_elec['generation'] = self.NREL_elec['generation'].loc[(self.NREL_elec['generation']['Year'] >= min_year) & 
                                                                         (self.NREL_elec['generation']['Year'] <= max_year) , : ]
-        """self.NREL_elec['capacity'] = self.NREL_elec['capacity'].loc[(self.NREL_elec['capacity']['Year'] >= min_year) & 
-                                                                    (self.NREL_elec['capacity']['Year'] <= max_year) , : ]"""
-        
+               
         self.NREL_elec['generation'].drop(['tech'], axis=1, inplace=True)
         self.NREL_elec['generation'] = self.NREL_elec['generation'].\
             groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy carrier type','Energy Unit'], as_index=False). \
             agg({'Electricity Production' : 'sum'}).reset_index()
-        
-                
+                        
         # unit conversion
         self.NREL_elec['generation'][['Energy Unit', 'Electricity Production']] = \
           self.ob_units.unit_convert_df(self.NREL_elec['generation'][['Energy Unit', 'Electricity Production']],

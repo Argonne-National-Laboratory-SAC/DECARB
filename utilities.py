@@ -16,7 +16,42 @@ import numpy as np
 
 class Utilities:    
     
+    def calc_LCIA_with_EFs(self, df, corr_EF_GREET, ob_ef, elec_gen_em_mtg_agg_m):
+        
+        # Seperate electric and non-electric activities
+        
+        df_elec = df.loc[df['Energy carrier'] == 'Electricity', : ]
+        df = df.loc[~(df['Energy carrier'] == 'Electricity'), : ]
 
+        # Merge GREET correspondence table
+        df = pd.merge(df, corr_EF_GREET, how='left', 
+                      on=['Sector', 'Scope', 'Subsector', 'Energy carrier', 'Energy carrier type', 
+                      'End Use Application']).reset_index(drop=True)
+
+        # Merge GREET EF
+        df = pd.merge(df, ob_ef.ef_raw, 
+                      how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
+
+        # Merge NREL mitigation scenario electricity CIs to VISION
+        df_elec = pd.merge(df_elec, 
+                           elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                           how='left',
+                           on=['Year'])
+        df_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
+
+        df.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
+                                       'Unit (Denominator)' : 'Energy Unit',
+                                       'Reference case' : 'CI'}, inplace=True)
+        df.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+
+        # Concatenate electric and non-electric activities
+        df = pd.concat([df, df_elec], axis = 0).reset_index(drop=True)
+
+        df['Total Emissions'] = df['Value'] * df['CI']
+        
+        return df
+    
+    
     def trend_linear(self, df, colname_time, start_frac, end_frac):
         """
         Function to create a linearly spaced multiplier dataframe for implementation
@@ -138,7 +173,7 @@ class Utilities:
                         
         # Rows to subtract existing fuels
         df_fs_sub = df.copy()
-        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac']       
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac'] * trend_end_val 
         
         df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
         
@@ -183,10 +218,12 @@ class Utilities:
                         
         # Rows to subtract existing fuels
         df_fs_sub = df.copy()
-        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac']       
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac'] * trend_end_val       
         
         df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
         
         df.drop(columns=['time', 'frac'], inplace=True)
         
-        return df
+        return df 
+    
+    

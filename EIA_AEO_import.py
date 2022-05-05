@@ -338,12 +338,16 @@ class EIA_AEO:
         self.E_sources['E_frac_by_source'] = self.E_sources['E_by_source'] / self.E_sources['E_total']
         
     # Function to calculate the fraction of Ethanol in E85 fuel blend over the years
-    def classify_E85 (self, aeo_cases, verbose):        
+    def classify_E85 (self, ob_units, aeo_cases, verbose):        
             
         # sum over End Use==E85, for each year
         E85_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'E85')]
         E85_use = E85_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
         Eth_use_E85 = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in E85')][['Year', 'Value', 'Unit']].drop_duplicates()
+        
+        # Unit conversion        
+        Eth_use_E85[['Unit', 'Value']] = ob_units.unit_convert_df(Eth_use_E85[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
+        
         self.Eth_frac_E85 = pd.merge(E85_use, Eth_use_E85, how='left', on = 'Year')
         self.Eth_frac_E85.rename(columns={
             'Value_x' : 'E85_use',
@@ -357,12 +361,16 @@ class EIA_AEO:
         
     
     # Function to calculate the fraction of Ethanol in Motor Gasoline fuel blend over the years
-    def classify_Egasoline (self, aeo_case, verbose):
+    def classify_Egasoline (self, ob_units, aeo_case, verbose):
         
         # sum over End Use=='Motor Gasoline', for each year
         Egas_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Motor Gasoline')]
         Egas_use = Egas_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
         Eth_use_Egas = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in Gasoline Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
+        
+        # Unit conversion        
+        Eth_use_Egas[['Unit', 'Value']] = ob_units.unit_convert_df(Eth_use_Egas[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
+        
         self.Eth_frac_Egas = pd.merge(Egas_use, Eth_use_Egas, how='left', on = 'Year')
         self.Eth_frac_Egas.rename(columns={
             'Value_x' : 'Egas_use',
@@ -375,7 +383,7 @@ class EIA_AEO:
         self.Eth_frac_Egas = pd.merge(self.Eth_frac_Egas, self.E_sources[['Year', 'Parameter Levels', 'E_frac_by_source']], how='left', on='Year')
         
     # Function to calculate the fraction of Biodiesel in Distillate Blending fuel blend over the years
-    def classify_BioDieselDistlBlend (self, aeo_case, verbose):
+    def classify_BioDieselDistlBlend (self, ob_units, aeo_case, verbose):
         
         # sum over End Use=='Motor Gasoline', for each year
         #DB_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'Distillate Fuel Oil')]
@@ -385,6 +393,10 @@ class EIA_AEO:
         
         DB_use = DB_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
         BD_use_DB = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Biodiesel used in Distillate Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
+        
+        # Unit conversion        
+        BD_use_DB[['Unit', 'Value']] = ob_units.unit_convert_df(BD_use_DB[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
+        
         self.BD_frac_DB = pd.merge(DB_use, BD_use_DB, how='left', on = 'Year')
         self.BD_frac_DB.rename(columns={
             'Value_x' : 'DB_use',
@@ -556,11 +568,11 @@ class EIA_AEO:
         
         self.calc_TandD_loss(self.aeo_case_dict.keys(), verbose) 
         
-        self.classify_E85(self.aeo_case_dict.keys(), verbose)
+        self.classify_E85(ob_units, self.aeo_case_dict.keys(), verbose)
         
-        self.classify_Egasoline(self.aeo_case_dict.keys(), verbose)
+        self.classify_Egasoline(ob_units, self.aeo_case_dict.keys(), verbose)
         
-        self.classify_BioDieselDistlBlend(self.aeo_case_dict.keys(), verbose)     
+        self.classify_BioDieselDistlBlend(ob_units, self.aeo_case_dict.keys(), verbose)     
         
         self.calc_EIA_fuel_demand_by_source()
         
@@ -616,7 +628,7 @@ if __name__ == "__main__":
     
     ob.classify_E85(ob.aeo_case_dict.keys(), verbose)
     
-    ob.classify_Egasoline(ob.aeo_case_dict.keys(), verbose)
+    ob.classify_Egasoline(ob_units, ob.aeo_case_dict.keys(), verbose)
     
     ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), verbose)
     
