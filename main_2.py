@@ -58,7 +58,8 @@ f_elec_net_gen = 'interim_elec_gen.csv'
 f_elec_env = 'interim_elec_gen_env.csv'
 f_elec_env_agg = 'interim_elec_gen_env_agg.csv'
 f_elec_CI = 'interim_elec_gen_CI.csv'
-f_industrial = 'industrial_flows.csv'
+f_industrial_energy = 'industrial_activity_energy.csv'
+f_industrial_quantity = 'industrial_activity_quantity.csv'
 
 cols_activity_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
@@ -158,21 +159,19 @@ def save_activity_mx (df_to, df, save_interim_files):
         
     return df_to.copy()
 
-# calculate the emission factors
-
+# Calculate emission factors for lime production
+# Calculation from pg. 271 of EPA GHGI Inventory of Greenhouse Gas Emissions and Sinks: 1990-2019
 def calc_ef_clinker (frac_CaO = 0.650) :
-    # Calculation from pg. 271 of EPA GHGI  Inventory of Greenhouse Gas Emissions and Sinks: 1990-2019
-    # Formula: EF_clinker = 0.650 CaO × [(44.01 g/mole CO2) ÷ (56.08 g/mole CaO)] = 0.510 tons CO2/ton clinker
-    
+    # Formula: EF_clinker = 0.650 CaO × [(44.01 g/mole CO2) ÷ (56.08 g/mole CaO)] = 0.510 tons CO2/ton clinker    
     return  frac_CaO * 44.01 /56.08 # metric ton CO2 per metric ton clinker production
 
 def calc_high_calcium_lime ():
     # [(44.01 g/mole CO2) ÷ (56.08 g/mole CaO)] × (0.9500 CaO/lime) = 0.7455 g CO2/g lime
-    return 0.7455 # g CO2 per g lime
+    return 0.7455 # metric ton CO2 per metric ton high calcium lime
 
 def calc_dolomitic_lime ():
     # [(88.02 g/mole CO2) ÷ (96.39 g/mole CaO)] × (0.9500 CaO/lime) = 0.8675 g CO2/g lime
-    return 0.8675 # g CO2 per g lime
+    return 0.8675 # metric ton CO2 per metric ton dolomitic lime
 
 #%%
 
@@ -224,8 +223,10 @@ lcia_select = lcia_data.loc[ (lcia_data['LCIA Method'] == LCIA_Method) & (lcia_d
 neu_EF_GREET = pd.read_excel(input_path_neu + '\\' + f_neu, sheet_name = sheet_neu, header = 3)
 
 # Loading industrial data for constructing mitigation scenarios 
-industry_flows = pd.read_csv(input_path_EPA + '\\' + f_industrial)
-industry_flows.drop(columns=['notes'], inplace=True)
+id_quantity = pd.read_csv(input_path_EPA + '\\' + f_industrial_quantity)
+id_energy = pd.read_csv(input_path_EPA + '\\' + f_industrial_energy)
+id_quantity.drop(columns=['Table'], inplace=True)
+id_energy.drop(columns=['notes'], inplace=True)
 
 #%%
 
@@ -1014,10 +1015,8 @@ activity_BAU = pd.concat([activity_BAU, activity_mtg_lulucf], axis=0).reset_inde
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
-    
 
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
-
 
 #%%
 """
@@ -1230,79 +1229,74 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_food_h2, save_inter
 #%%
 # Design mitigation scenarios for Ammonia industry based on GHGI data
 
-#print("      : Ammonia Industry")
+print("      : Ammonia Industry")
 
 # combustion emissions
 
 # unit conversion for file loaded values
-industry_flows.loc[ : , ['activity_unit', 'activity_value']] = \
-  ob_units.unit_convert_df(industry_flows.loc[ : , ['activity_unit', 'activity_value']],
+id_quantity.loc[ : , ['activity_unit', 'activity_value']] = \
+  ob_units.unit_convert_df(id_quantity.loc[ : , ['activity_unit', 'activity_value']],
    Unit = 'activity_unit', Value = 'activity_value')
  
 # Expand data to all years
-industry_flows['Year'] = decarb_year_min
-industry_flows_exp = industry_flows.copy()
+id_quantity['Year'] = decarb_year_min
+id_quantity_exp = id_quantity.copy()
 for yr in range(decarb_year_min+1, decarb_year_max+1): # [a,)
-    industry_flows['Year'] = yr
-    industry_flows_exp = pd.concat ([industry_flows_exp, industry_flows], axis=0).copy().reset_index(drop=True)
-"""
-# Create mitigation scenarios for Green ammonia
-bulk_chem_amm = industry_flows_exp.loc[industry_flows_exp['Type'].isin(['Conventional Ammonia', 'Green Ammonia']), : ].copy()
-        
+    id_quantity['Year'] = yr
+    id_quantity_exp = pd.concat ([id_quantity_exp, id_quantity], axis=0).copy().reset_index(drop=True)
+
+# Create mitigation scenarios for ammonia
+mtg_green_amm = id_quantity_exp.loc[id_quantity_exp['Type'].isin(['Green Ammonia']), : ].copy()
+       
 # Scale the activity based on increase in shipment over the years
-bulk_chem_amm = pd.merge(bulk_chem_amm, ob_eia.EIA_data['chemical_industry_supp']. \
+mtg_green_amm = pd.merge(mtg_green_amm, ob_eia.EIA_data['chemical_industry_supp']. \
                          loc[ob_eia.EIA_data['chemical_industry_supp']['Parameter'] == 'Ammonia Production', ['Year', 'frac_increase']].drop_duplicates(),
                          how='left',
                          on=['Year']).reset_index(drop=True)
-
-bulk_chem_amm['activity_value'] = bulk_chem_amm['activity_value'] * bulk_chem_amm['frac_increase']
-
-bulk_green_amm = bulk_chem_amm.loc[bulk_chem_amm['Type'] == 'Green Ammonia', : ].copy()
-bulk_conv_amm = bulk_chem_amm.loc[bulk_chem_amm['Type'] == 'Conventional Ammonia', : ].copy()
+mtg_green_amm['activity_value'] = mtg_green_amm['activity_value'] * mtg_green_amm['frac_increase']
 
 # Trend for Green ammonia implementation over years as mitigation scenarios
 ob_utils.model_2d_ammonia() # model run
-bulk_green_amm['mtg_frac'] = [ob_utils.trend_2d_ammonia(x) for x in bulk_green_amm['Year']] # model predict
+mtg_green_amm['mtg_frac'] = [ob_utils.trend_2d_ammonia(x) for x in mtg_green_amm['Year']] # model predict
+mtg_green_amm['activity_value'] = mtg_green_amm['activity_value'] * mtg_green_amm['mtg_frac'] # metric Ton of green ammonia coming online
 
-bulk_green_amm['activity_value'] = bulk_green_amm['activity_value'] * bulk_green_amm['mtg_frac']
+# Reduction in conventional ammonia     
+mtg_conv_amm = mtg_green_amm.copy()
+mtg_conv_amm['Type'] = 'Conventional Ammonia'
+mtg_conv_amm['activity_value'] = -1 * mtg_conv_amm['activity_value'] # metric Ton of conventional ammonia going offline
 
-bulk_green_amm['Value'] = bulk_green_amm['activity_value'] * bulk_green_amm['energy_value'] # absolute amount of green ammonia coming online
-
-bulk_conv_amm = pd.merge(bulk_green_amm, 
-                         bulk_conv_amm[['Year', 'End Use Application', 'Energy carrier', 'Energy carrier type', 'energy_value']],
+mtg_green_amm = pd.merge(mtg_green_amm, id_energy,
                          how='left',
-                         on=['Year', 'End Use Application', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
-bulk_conv_amm['Value'] = -1 * bulk_conv_amm['activity_value'] * bulk_conv_amm['energy_value_y'] # absolute amount of conventional ammonia going offline
+                         on=['Sector', 'Subsector', 'Type']).reset_index(drop=True)
+mtg_conv_amm = pd.merge(mtg_conv_amm, id_energy,
+                        how='left',
+                        on=['Sector', 'Subsector', 'Type']).reset_index(drop=True)
+mtg_green_amm['Value'] = mtg_green_amm['activity_value'] * mtg_green_amm['energy_value'] # mmbtu green ammonia energy demand, coming online
+mtg_conv_amm['Value'] = mtg_conv_amm['activity_value'] * mtg_conv_amm['energy_value'] # mmbtu conventional ammonia energy demand, going offline
+mtg_amm = pd.concat([mtg_green_amm, mtg_conv_amm], axis=0).reset_index(drop=True)
+mtg_amm.drop(columns=['Type', 'activity_unit', 'activity_value', 'frac_increase', 'mtg_frac', 'energy_unit_denominator', 'energy_value'], inplace=True)
+mtg_amm = mtg_amm.groupby(['Data Source', 'Sector', 'Subsector', 'Year', 'End Use Application',
+                           'Energy carrier', 'Energy carrier type', 'energy_unit_numerator']).\
+                  agg({'Value' : 'sum'}).reset_index()
 
-colnames = ['Mitigation Case', 'Sector', 'Subsector', 'Data Source', 
-            'End Use Application', 'Energy carrier', 'Energy carrier type', 
-            'Year', 'energy_unit_numerator', 'Value']
-bulk_conv_amm['Mitigation Case'] = 'Bulk Chenical Industry, Green Ammonia'
-bulk_green_amm['Mitigation Case'] = 'Bulk Chenical Industry, Green Ammonia'
-
-bulk_chem_amm = pd.concat([bulk_conv_amm[colnames], bulk_green_amm[colnames]], axis=0).reset_index(drop=True)
-
-bulk_chem_amm['Case'] = 'Mitigation'
-
-bulk_chem_amm.loc[bulk_chem_amm['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
-bulk_chem_amm.loc[bulk_chem_amm['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'
-
-bulk_chem_amm[['AEO Case',
-              'Generation Type',
-              'Fuel Pool',
-              'Basis']] = '-'
-
-bulk_chem_amm.rename(columns={'energy_unit_numerator' : 'Unit'}, inplace=True)
+mtg_amm.rename(columns={'energy_unit_numerator' : 'Unit'}, inplace=True)
+mtg_amm.loc[mtg_amm['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
+mtg_amm.loc[mtg_amm['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'
+mtg_amm['Case'] = 'Mitigation'
+mtg_amm['Mitigation Case'] = 'Bulk Chemical Industry, Green Ammonia' 
+         
+mtg_amm[['AEO Case',
+         'Generation Type',
+         'Fuel Pool',
+         'Basis']] = '-'
 
 # Append to activity matrix and save
-activity_ref_mtg = save_activity_mx(activity_ref_mtg, bulk_chem_amm, save_interim_files) 
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_amm, save_interim_files) 
+del mtg_conv_amm, mtg_green_amm, mtg_amm
 
 # Implementing efficiency improvement
-
-# Firstly, get the activity for bulk chemical industries, excluding ammonia only, 
 bulk_chem_ef = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
-                                         (activity_ref_mtg['Subsector'] == 'Bulk Chemical Industry'), : ]
-bulk_chem_ef = bulk_chem_ef.loc[bulk_chem_ef['Mitigation Case'] != 'Bulk Chenical Industry, Green Ammonia', : ]
+                                    (activity_ref_mtg['Subsector'] == 'Bulk Chemical Industry'), : ]
 bulk_chem_ef = bulk_chem_ef.fillna(value='-')
 bulk_chem_ef = bulk_chem_ef.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
@@ -1328,9 +1322,7 @@ bulk_chem_fs = bulk_chem_fs.groupby(['Data Source', 'AEO Case', 'Sector', 'Subse
                             agg({'Value' : 'sum'}).reset_index()
 # declaring low quality process heat
 bulk_chem_fs['Value'] = bulk_chem_fs['Value'] * 0.61 * 0.30
-# Fuel switching
-# Identify all the unique fuels to switch to electricity
-# Perform switching
+
 fuels =  bulk_chem_fs['Energy carrier'].unique()   
 
 bulk_chem_fs_mtg = \
@@ -1406,14 +1398,14 @@ ghgi_mtg_am['Case'] = 'Mitigation'
 ghgi_mtg_am['Mitigation Case'] = 'Bulk Chenical Industry, Green Ammonia'
 ghgi_mtg_am.loc[ghgi_mtg_am['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Non-Combustion'
 ghgi_mtg_am.loc[ghgi_mtg_am['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Non-Combustion'
- """ 
+
 #%%
 # Constructing mitigation scenarios for the Cement and Lime Industry
 
 print("      : Cement and Lime Industry")
 
 # Create Reference case for Cement Industry
-id_cement = industry_flows_exp.loc[industry_flows_exp['Type'].isin(['Clinker Production']), : ].copy()
+id_cement = id_quantity_exp.loc[id_quantity_exp['Type'].isin(['Clinker Production']), : ].copy()
         
 # Scale the activity based on increase in shipment over the years
 id_cement = pd.merge(id_cement, ob_eia.EIA_data['chemical_industry_supp']. \
@@ -1423,13 +1415,13 @@ id_cement = pd.merge(id_cement, ob_eia.EIA_data['chemical_industry_supp']. \
 id_cement['activity_value'] = id_cement['activity_value'] * id_cement['frac_increase'] # metric ton
 
 # Create Reference case for Lime Industry
-id_lime = industry_flows_exp.loc[industry_flows_exp['Type'].isin(['High-Calcium Lime', 'Dolomitic Lime']), : ].copy()
+id_lime = id_quantity_exp.loc[id_quantity_exp['Type'].isin(['High-Calcium Lime', 'Dolomitic Lime']), : ].copy()
 
 # Scale the activity based on increase in shipment over the years
 id_lime = pd.merge(id_lime, ob_eia.EIA_data['chemical_industry_supp']. \
-                           loc[ob_eia.EIA_data['chemical_industry_supp']['Parameter'] == 'Cement', ['Year', 'frac_increase']].drop_duplicates(),
-                           how='left',
-                           on=['Year']).reset_index(drop=True)
+                   loc[ob_eia.EIA_data['chemical_industry_supp']['Parameter'] == 'Cement', ['Year', 'frac_increase']].drop_duplicates(),
+                   how='left',
+                   on=['Year']).reset_index(drop=True)
 id_lime['activity_value'] = id_lime['activity_value'] * id_lime['frac_increase'] # metric ton
 
 # Calculate total emissions
@@ -1437,6 +1429,7 @@ id_cement['energy_value'] = calc_ef_clinker()
 id_lime.loc[id_lime['Type'] == 'High-Calcium Lime', 'energy_value'] = calc_high_calcium_lime()
 id_lime.loc[id_lime['Type'] == 'Dolomitic Lime', 'energy_value'] = calc_dolomitic_lime()
 
+# Concatenate cement and lime scenarios
 id_cement_lime = pd.concat([id_cement, id_lime], axis=0).reset_index(drop=True)
 
 id_cement_lime['Total Emissions'] = id_cement_lime['activity_value'] * id_cement_lime['energy_value'] # metric ton x metric ton CO2/metric ton = metric ton CO2
@@ -1448,7 +1441,7 @@ id_cement_lime['Case'] = 'Reference case'
 id_cement_lime['Formula'] = 'CO2'
 id_cement_lime.rename(columns={'energy_unit_numerator' : 'Emissions Unit'}, inplace=True)
 id_cement_lime[['AEO Case', 'Scope', 'Basis', 'Fuel Pool', 
-                 'Flow Name', 'Unit', 'Value', 'CI', 'Mitigation Case']] = '-'
+                'Flow Name', 'Unit', 'Value', 'CI', 'Mitigation Case']] = '-'
 
 # unit conversion
 tempdf = id_cement_lime.copy()
@@ -1477,8 +1470,7 @@ id_cement_lime_mtg.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
 
 id_cement_lime_mtg['Case'] = 'Mitigation'
 id_cement_lime_mtg['Mitigation Case'] = 'Cement and Lime Industry, cement chemistry'
-id_cement_lime_mtg.loc[id_cement_lime_mtg['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Non-Combustion'
-id_cement_lime_mtg.loc[id_cement_lime_mtg['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Non-Combustion'  
+id_cement_lime_mtg['Scope'] = 'Direct, Non-Combustion'
 
 # Design mitigation scenarios for clinker and lime for combustion emissions
 # Implement efficiency improvement across all energy carriers
@@ -1672,8 +1664,8 @@ activity_mtg_id = pd.concat([activity_mtg_id, activity_mtg_id_elec], axis = 0).r
 activity_mtg_id['Total Emissions'] = activity_mtg_id['Value'] * activity_mtg_id['CI']
 
 # Concatenate non-combustion mitigation scope for ammonia industry
-#activity_mtg_id = pd.concat([activity_mtg_id, ghgi_mtg_am, id_cement_lime, id_cement_lime_mtg], axis=0).reset_index(drop=True)
-activity_mtg_id = pd.concat([activity_mtg_id, id_cement_lime, id_cement_lime_mtg], axis=0).reset_index(drop=True)
+activity_mtg_id = pd.concat([activity_mtg_id, ghgi_mtg_am, id_cement_lime, id_cement_lime_mtg], axis=0).reset_index(drop=True)
+#activity_mtg_id = pd.concat([activity_mtg_id, id_cement_lime, id_cement_lime_mtg], axis=0).reset_index(drop=True)
 #activity_mtg_id = pd.concat([activity_mtg_id, ghgi_mtg_am], axis=0).reset_index(drop=True)
 
 """
@@ -1721,6 +1713,7 @@ mtg_id_ccs['Mitigation Case'] = 'Industrial, CCS implementation'
 # Concatenate CCS carbon reduction rows and CCS process emission rows to environmental matrix
 activity_mtg_id = pd.concat([activity_mtg_id, mtg_id_ccs], axis=0).reset_index(drop=True)
 """
+
 # Calculate LCIA metric
 activity_mtg_id = pd.merge(activity_mtg_id, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
 activity_mtg_id['LCIA_estimate'] = activity_mtg_id['Total Emissions'] * activity_mtg_id['GWP']
