@@ -323,9 +323,11 @@ if save_interim_files == True:
     electric_gen_ef[cols_elec_env].to_csv(interim_path_prefix + '\\' + f_elec_env)
 
 # Aggregrate emissions
-electric_gen_ef_agg = electric_gen_ef.groupby(['Year', 'Sector', 'End Use Application', 'Energy carrier', 'Flow Name', 'Formula', 'EF_Unit (Numerator)']).\
+electric_gen_ef_agg = electric_gen_ef.groupby(['Year', 'Sector', 'Formula', 'EF_Unit (Numerator)']).\
                                                 agg({'Total Emissions' : 'sum'}).reset_index()   
-                                                
+
+electric_gen_ef_agg['End Use Application'] = 'Electricity Generation'
+electric_gen_ef_agg['Energy carrier'] = 'Electricity'                                                
 electric_gen_ef_agg['Case'] = 'Reference Case'
 electric_gen_ef_agg['Mitigation Case'] = '-'
 if save_interim_files == True:
