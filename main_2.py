@@ -254,7 +254,6 @@ ob_ef.ef_electric.rename(columns = {'Unit (Numerator)' : 'EF_Unit (Numerator)',
                                     'Unit (Denominator)' : 'EF_Unit (Denominator)'}, inplace = True)                
 
 # Calculate aggregrated electricity generation and merge T&D loss
-# Merge T&D loss data
 # Two data frames, electric_gen_interim and electric_gen created to group by separately for output files
 electric_gen_interim = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End Use', 'Energy carrier', 
                                                                  'Energy carrier type', 'Generation Type', 'Unit']).\
@@ -279,7 +278,7 @@ electric_gen.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
 electric_gen['Case'] = 'Reference Case'
 electric_gen[['Mitigation Case', 'Subsector']] = '-'
 
-# Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
+# Calculate Total emissions
 electric_gen_ef = pd.merge(ob_eia.EIA_data['energy_supply'][['AEO Case', 'End Use', 'Sector', 'Subsector', 'Energy carrier', 
                                      'Energy carrier type', 'Basis', 'Year', 'Unit', 'Value',
                                      'Fuel Pool', 'Generation Type', 'Case' ]],
@@ -460,35 +459,35 @@ Generating Electric power mitigation scenarios
 
 print("Status: Constructing Electric generation Mitigation scenario ..")
 
-# subsetting electric generation data from mitigation modeling
 elec_gen_mtg = ob_elec.NREL_elec['generation'].\
     groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy Unit'], as_index=False). \
     agg({'Electricity Production' : 'sum'}).reset_index()
 
-# Merge and calculate electric generation considering on T&D loss
+# T&D loss
 elec_gen_mtg = pd.merge(elec_gen_mtg, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year').reset_index(drop=True)
 elec_gen_mtg['Electricity Production'] = elec_gen_mtg['Electricity Production'] * (1 - elec_gen_mtg['loss_frac'])
 
 # Separate grouping variables for saving 
 tempdf = ob_elec.NREL_elec['generation'].\
-    groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 
-             'Energy carrier', 'Energy carrier type', 'Generation Type',
-             'Energy Unit']). \
-    agg({'Electricity Production' : 'sum'}).reset_index()
+         groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 
+                  'Energy carrier', 'Energy carrier type', 'Generation Type',
+                  'Energy Unit']). \
+         agg({'Electricity Production' : 'sum'}).reset_index()
 tempdf = pd.merge(tempdf, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year').reset_index(drop=True)
 tempdf['Electricity Production'] = tempdf['Electricity Production'] * (1 - tempdf['loss_frac'])
 electric_gen_interim = pd.concat([electric_gen_interim, tempdf], axis = 0).reset_index(drop=True)
+
 if save_interim_files == True:
     electric_gen_interim[cols_elec_net_gen].to_csv(interim_path_prefix + '\\' + f_elec_net_gen)
 del tempdf
 
-# Merge emission factors for fuel-feedstock combustion used for electricity generation with net electricity generation
+# Merge emission factors with net electricity generation
 elec_gen_ef_mtg = pd.merge(ob_elec.NREL_elec['generation'][['Sector', 'Subsector', 'Case', 'Mitigation Case',
                                                             'Generation Type','Year', 'Energy carrier', 
                                                             'Energy carrier type', 'Electricity Production', 'Energy Unit']],
                            ob_ef.ef_electric, 
                            how='left',
-                           on=['Sector', 'Subsector', 'Case', 'Year', 'Energy carrier', 'Energy carrier type']).reset_index()
+                           on=['Sector', 'Subsector', 'Case', 'Year', 'Energy carrier', 'Energy carrier type']).reset_index(drop=True)
 
 # Calculate net emission by GHG species, from electricity generation    
 elec_gen_ef_mtg['Total Emissions'] = elec_gen_ef_mtg['Reference case'] * elec_gen_ef_mtg['Electricity Production'] 
@@ -499,41 +498,53 @@ elec_gen_ef_mtg.rename(columns={'Reference case' : 'EF_withElec',
 elec_gen_ef_mtg[['Basis',
                  'Fuel Pool']] = '-'
 
+# adding non-combustion emissions
+tempdf = ob_EPA_GHGI.activity_elec_non_combust_exp.copy()
+tempdf['Case'] = 'Mitigation'
+tempdf['EF_Elec0'] = '-'
+tempdf = tempdf[elec_gen_ef_mtg.columns]
+elec_gen_ef_mtg = pd.concat([elec_gen_ef_mtg, tempdf], axis=0).reset_index(drop=True)
+del tempdf
+
+tempdf = elec_gen_ef_mtg.copy()
+tempdf = pd.merge(tempdf, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+electric_gen_ef = pd.concat([electric_gen_ef, tempdf[cols_elec_env] ], axis=0).reset_index(drop=True)
+
 # Save electric gen environmental matrix
 if save_interim_files == True:
-    tempdf = elec_gen_ef_mtg.copy()
-    tempdf = pd.merge(tempdf, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
-    tempdf = pd.concat([electric_gen_ef, tempdf[cols_elec_env] ], axis=0).reset_index(drop=True)
-    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_env)
-    del tempdf
+    electric_gen_ef.to_csv(interim_path_prefix + '\\' + f_elec_env)
+
+del tempdf
         
 # Aggregrate emissions
-electric_gen_ef_mtg_agg = elec_gen_ef_mtg.groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 
-                                                   'Flow Name', 'Formula', 'Energy Unit', 'EF_Unit (Numerator)']).\
-                                                agg({'Total Emissions' : 'sum'}).reset_index()   
-                                               
-if save_interim_files == True:
-    tempdf = electric_gen_ef_agg.groupby(['Case', 'Mitigation Case', 'Sector',
-                                          'Energy carrier', 'Formula', 
-                                          'Year', 'EF_Unit (Numerator)'], as_index=False).agg({'Total Emissions' : 'sum'})
-    tempdf = pd.concat([tempdf[cols_elec_env_agg], electric_gen_ef_mtg_agg[cols_elec_env_agg]], axis=0).reset_index()
-    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
-    del tempdf
+electric_gen_ef_mtg_agg = elec_gen_ef_mtg.groupby(['Case', 'Mitigation Case', 'Sector',
+                                                   'Energy carrier', 'Formula', 
+                                                   'Year', 'EF_Unit (Numerator)']).agg({'Total Emissions' : 'sum'}).reset_index() 
+electric_gen_ef_mtg_agg['End Use Application'] = 'Electricity Generation'
+electric_gen_ef_mtg_agg['Energy carrier'] = 'Electricity'
+electric_gen_ef_mtg_agg['Subsector'] = 'Electric Power Sector'
+electric_gen_ef_agg = pd.concat([electric_gen_ef_agg, electric_gen_ef_mtg_agg[cols_elec_env_agg]], axis=0).reset_index()                                               
+
+if save_interim_files == True:    
+    electric_gen_ef_agg.to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
  
-# merging the electricity production data with the total emissions data    
+# Calculate total emissions 
 elec_gen_em_mtg_agg = pd.merge(elec_gen_mtg, electric_gen_ef_mtg_agg, how='left', on=['Sector', 'Subsector', 'Case', 
-                        'Mitigation Case', 'Year', 'Energy carrier', 'Energy Unit']).reset_index(drop=True).drop(columns=['loss_frac']) 
+                                                                                      'Year', 'Energy carrier']).\
+                      reset_index(drop=True).drop(columns=['loss_frac']) 
 
 elec_gen_em_mtg_agg.rename(columns={
     'Unit' : 'Energy Unit', 
-    'EF_Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
+    'EF_Unit (Numerator)' : 'Emissions Unit',
+    'Mitigation Case_x' : 'Mitigation Case'}, inplace=True)
+elec_gen_em_mtg_agg.drop(columns=['Mitigation Case_y'], inplace=True)
 
 elec_gen_em_mtg_agg['CI'] = elec_gen_em_mtg_agg['Total Emissions'] / elec_gen_em_mtg_agg['Electricity Production']
 
-if save_interim_files == True:
-    tempdf = pd.concat([elec_gen_em_agg[cols_elec_CI], elec_gen_em_mtg_agg[cols_elec_CI]], axis=0).reset_index(drop=True)
-    tempdf.to_csv(interim_path_prefix + '\\' + f_elec_CI)
-    del tempdf
+elec_gen_em_agg = pd.concat([elec_gen_em_agg, elec_gen_em_mtg_agg], axis=0).reset_index(drop=True)
+
+if save_interim_files == True:    
+    elec_gen_em_agg[cols_elec_CI].to_csv(interim_path_prefix + '\\' + f_elec_CI)
 
 # constructing the Electricity mitigation matrix calculating difference in Electricity grid CIs
 
@@ -642,7 +653,7 @@ activity_mtg_scout = pd.merge(activity_mtg_scout, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to SCOUT
 activity_mtg_scout_elec = pd.merge(activity_mtg_scout_elec, 
-                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
 activity_mtg_scout_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
@@ -761,7 +772,7 @@ activity_mtg_vision = pd.merge(activity_mtg_vision, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to VISION
 activity_mtg_vision_elec = pd.merge(activity_mtg_vision_elec, 
-                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
 activity_mtg_vision_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
@@ -871,7 +882,7 @@ activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to VISION
 activity_mtg_ag_d_elec = pd.merge(activity_mtg_ag_d_elec, 
-                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
 activity_mtg_ag_d_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
@@ -1650,7 +1661,7 @@ activity_mtg_id = pd.merge(activity_mtg_id, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to VISION
 activity_mtg_id_elec = pd.merge(activity_mtg_id_elec, 
-                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
 activity_mtg_id_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
@@ -1690,7 +1701,7 @@ df = pd.merge(df, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to VISION
 df_elec = pd.merge(df_elec, 
-                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                    how='left',
                    on=['Year'])
 df_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
@@ -1840,7 +1851,7 @@ mtg_global = pd.merge(mtg_global, ob_ef.ef_raw,
 
 # Merge NREL mitigation scenario electricity CIs to VISION
 mtg_global_elec = pd.merge(mtg_global_elec, 
-                                   elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                                    how='left',
                                    on=['Year'])
 mtg_global_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
