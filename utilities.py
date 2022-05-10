@@ -34,7 +34,7 @@ class Utilities:
 
         # Merge NREL mitigation scenario electricity CIs to VISION
         df_elec = pd.merge(df_elec, 
-                           elec_gen_em_mtg_agg_m[['Flow Name', 'Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                           elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
                            how='left',
                            on=['Year'])
         df_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)

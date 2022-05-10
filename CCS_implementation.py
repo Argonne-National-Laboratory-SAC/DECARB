@@ -85,31 +85,36 @@ class CCS_implementation:
         
      self.calc_ccs_trend()   
      
+     self.env_df = env_df
+         
      # Filter by the sector to implement CCS and GHG emission as CO2
-     env_df = env_df.loc[(env_df[colname_sector] == sector) &
-                         (env_df[colname_formula] == 'CO2'), : ]
+     self.env_df = self.env_df.loc[(self.env_df[colname_sector] == sector) &
+                         (self.env_df[colname_formula] == 'CO2'), : ] 
      
      # Identify the subsectors and scope to implement CCS as per input file
-     env_df = pd.merge(env_df, self.ccs_to_implement,
+     self.env_df = pd.merge(self.env_df, self.ccs_to_implement,
                        how = 'left',
                        on = [colname_sector, colname_subsector, colname_scope]).reset_index(drop=True)
      
      # Filter by rows that are marked for CCS implementation
-     env_df = env_df.loc[env_df['Marker'] == 1, : ]
+     self.env_df = self.env_df.loc[self.env_df['Marker'] == 1, : ]
      
      # Summarize total emissions by the needed columns
-     env_df = env_df.groupby([colname_sector, colname_subsector, colanme_year,
+     self.env_df = self.env_df.groupby([colname_sector, colname_subsector, colanme_year,
                               colname_emissions_unit, colname_formula, colname_multiplier]).agg({colname_emissions : 'sum'}).reset_index()
      
+     self.env_df_prev = self.env_df
+     
+     # Filter by rows those have positive emissions
+     self.env_df = self.env_df.loc[self.env_df[colname_emissions] > 0, :]
+     
      # Merge CCS implementation trend
-     env_df = pd.merge(env_df, self.ccs_trend[[colname_sector, colname_subsector, colanme_year, 'frac']],
+     self.env_df = pd.merge(self.env_df, self.ccs_trend[[colname_sector, colname_subsector, colanme_year, 'frac']],
                        how='left',
                        on=[colname_sector, colname_subsector, colanme_year]).reset_index(drop=True)
         
      # Calculate CO2 sequestration through CCS
-     env_df[colname_emissions] = -1 * env_df[colname_emissions] * env_df['frac'] * self.ccs_sequestration_potential
-     
-     self.env_df = env_df
+     self.env_df[colname_emissions] = -1 * self.env_df[colname_emissions] * self.env_df['frac'] * self.ccs_sequestration_potential     
    
  def calc_ccs_activity(self, ob_units,
                        colname_sector = 'Sector',

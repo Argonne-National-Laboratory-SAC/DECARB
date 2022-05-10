@@ -148,7 +148,7 @@ class NREL_elec:
                
         self.NREL_elec['generation'].drop(['tech'], axis=1, inplace=True)
         self.NREL_elec['generation'] = self.NREL_elec['generation'].\
-            groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy carrier type','Energy Unit'], as_index=False). \
+            groupby(['Sector', 'Subsector', 'Case', 'Mitigation Case', 'Year', 'Energy carrier', 'Energy carrier type','Energy Unit']). \
             agg({'Electricity Production' : 'sum'}).reset_index()
                         
         # unit conversion
