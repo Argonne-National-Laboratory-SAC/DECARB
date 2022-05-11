@@ -100,11 +100,9 @@ class CCS_implementation:
      self.env_df = self.env_df.loc[self.env_df['Marker'] == 1, : ]
      
      # Summarize total emissions by the needed columns
-     self.env_df = self.env_df.groupby([colname_sector, colname_subsector, colanme_year,
+     self.env_df = self.env_df.groupby([colname_sector, colname_subsector, colname_scope, colanme_year,
                               colname_emissions_unit, colname_formula, colname_multiplier]).agg({colname_emissions : 'sum'}).reset_index()
-     
-     self.env_df_prev = self.env_df
-     
+             
      # Filter by rows those have positive emissions
      self.env_df = self.env_df.loc[self.env_df[colname_emissions] > 0, :]
      
@@ -114,27 +112,26 @@ class CCS_implementation:
                        on=[colname_sector, colname_subsector, colanme_year]).reset_index(drop=True)
         
      # Calculate CO2 sequestration through CCS
-     self.env_df[colname_emissions] = -1 * self.env_df[colname_emissions] * self.env_df['frac'] * self.ccs_sequestration_potential     
-   
+     self.env_df[colname_emissions] = -1 * self.env_df[colname_emissions] * self.env_df['frac'] * self.ccs_sequestration_potential   
+       
  def calc_ccs_activity(self, ob_units,
                        colname_sector = 'Sector',
                        colname_subsector = 'Subsector',
                        colname_emissions = 'Total Emissions'):
        
-       self.ccs_process = pd.merge(self.ccs_demand, self.env_df,
+       self.ccs_process = pd.merge(self.ccs_demand, self.env_df[['Sector', 'Subsector', 'Year', 'Emissions Unit', 'Formula', 'Total Emissions']],
                                    how='left',
                                    on=['Sector', 'Subsector']).reset_index(drop=True)
        
-       # unit conversion       
+       """# unit conversion       
        self.ccs_process.loc[~self.ccs_process['Emissions Unit'].isnull(), ['Emissions Unit', 'Total Emissions']] = \
          ob_units.unit_convert_df(self.ccs_process.loc[~self.ccs_process['Emissions Unit'].isnull(), ['Emissions Unit', 'Total Emissions']],
           Unit = 'Emissions Unit', Value = 'Total Emissions',          
           if_given_unit=True, given_unit = self.ccs_process['unit_denominator'][0])
-       
-       # Calculate total energy demand for CCS activity by energy carrier 
-       self.ccs_process['Value'] = self.ccs_process[colname_emissions] * self.ccs_process['Value']
-       
-       #self.ccs_process.drop(columns=['unit_denominator'], inplace=True)
+       """
+       # Calculate total energy demand for CCS activity by energy carrier        
+       self.ccs_process['Value'] = -1 * self.ccs_process[colname_emissions] * self.ccs_process['Value']
+       self.ccs_process = self.ccs_process.loc[~self.ccs_process['Value'].isna(), : ]
 
 # Create object and call function if script is ran directly
 if __name__ == "__main__":    

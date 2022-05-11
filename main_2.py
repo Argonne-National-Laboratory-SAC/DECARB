@@ -1727,7 +1727,7 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_iron, save_interim_
 
 #%%
 
-# CCS implementation and LCIA metric calculation
+# LCIA metric calculation
 
 # Seperate electric and non-electric activities
 activity_mtg_id = activity_ref_mtg.loc[(activity_ref_mtg['Case'] == 'Mitigation') &
@@ -1761,52 +1761,8 @@ activity_mtg_id = pd.concat([activity_mtg_id, activity_mtg_id_elec], axis = 0).r
 
 activity_mtg_id['Total Emissions'] = activity_mtg_id['Value'] * activity_mtg_id['CI']
 
-# Concatenate non-combustion mitigation scope for ammonia industry
+# Concatenate non-combustion mitigation scope for ammonia, lime and cement industries
 activity_mtg_id = pd.concat([activity_mtg_id, ghgi_mtg_am, id_cement_lime, id_cement_lime_mtg], axis=0).reset_index(drop=True)
-
-
-# Implement CCS for industrial sectors and selected subsectors
-
-ob_ccs.implement_ccs(activity_mtg_id, 'Industrial')
-ob_ccs.calc_ccs_activity(ob_units)
-
-# Calculate LCIA for CCS process energy demands
-df_elec = ob_ccs.ccs_process.loc[ob_ccs.ccs_process['Energy carrier'] == 'Electricity', : ].reset_index(drop=True)
-df = ob_ccs.ccs_process.loc[~(ob_ccs.ccs_process['Energy carrier'] == 'Electricity'), : ].reset_index(drop=True)
-
-# Merge GREET correspondence table
-df = pd.merge(df, corr_EF_GREET, how='left', 
-              on=['Sector', 'Scope', 'Subsector', 'Energy carrier', 'Energy carrier type', 
-                  'End Use Application']).reset_index(drop=True)
-
-# Merge GREET EF
-df = pd.merge(df, ob_ef.ef_raw, 
-              how='left', on=['Case', 'Scope', 'Year', 'Formula', 'GREET Pathway']).reset_index(drop=True)
-df.rename(columns={'Unit (Denominator)' : 'Energy Unit',
-                   'Reference case' : 'CI'}, inplace=True)
-df.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
-
-# Merge NREL mitigation scenario electricity CIs to VISION
-df_elec = pd.merge(df_elec, 
-                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
-                   how='left',
-                   on=['Year', 'Formula', 'Emissions Unit']).reset_index(drop=True)
-df_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
-
-# Concatenate electric and non-electric activities
-mtg_id_ccs = pd.concat([df, df_elec], axis = 0).reset_index(drop=True)
-
-mtg_id_ccs['Total Emissions'] = mtg_id_ccs['Value'] * mtg_id_ccs['CI']
-
-del df, df_elec
-
-#mtg_id_ccs = ob_utils.calc_LCIA_with_EFs(ob_ccs.ccs_process, corr_EF_GREET, ob_ef, elec_gen_em_mtg_agg_m)
-#mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis=0).reset_index(drop=True)
-mtg_id_ccs['Case'] = 'Mitigation'
-mtg_id_ccs['Mitigation Case'] = 'Industrial, CCS implementation'
-
-# Concatenate CCS carbon reduction rows and CCS process emission rows to environmental matrix
-activity_mtg_id = pd.concat([activity_mtg_id, mtg_id_ccs], axis=0).reset_index(drop=True)
 
 # Calculate LCIA metric
 activity_mtg_id = pd.merge(activity_mtg_id, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
@@ -1831,8 +1787,96 @@ if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
-print( 'Elapsed time: ' + str(datetime.now() - init_time))
+#%%
 
+# Implement CCS for industrial sectors and selected subsectors
+
+print("      : CCS implementation for Industry subsectors")
+
+ob_ccs.implement_ccs(activity_BAU, 'Industrial')
+ob_ccs.calc_ccs_activity(ob_units)
+
+ob_ccs.ccs_process['End Use Application'] = '-'
+ob_ccs.ccs_process['Mitigation Case'] = 'Industrial, CCS implementation'
+ob_ccs.ccs_process[['Data Source', 'AEO Case', 'Basis', 'Unit', 'Generation Type', 'Fuel Pool']] = '-'
+ob_ccs.ccs_process = ob_ccs.ccs_process.loc[~ob_ccs.ccs_process['Total Emissions'].isna(), : ]
+
+# Append to activity matrix and save
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, ob_ccs.ccs_process[activity_ref_mtg.columns], save_interim_files) 
+
+# Calculate LCIA for CCS process energy demands
+df_elec = ob_ccs.ccs_process.loc[ob_ccs.ccs_process['Energy carrier'] == 'Electricity', : ].reset_index(drop=True)
+df = ob_ccs.ccs_process.loc[~(ob_ccs.ccs_process['Energy carrier'] == 'Electricity'), : ].reset_index(drop=True)
+
+# Merge GREET correspondence table
+df = pd.merge(df, corr_EF_GREET, how='left', 
+              on=['Sector', 'Subsector', 'Scope', 'Energy carrier', 'Energy carrier type', 
+                  'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+df = pd.merge(df, ob_ef.ef_raw, 
+              how='left', on=['Case', 'Scope', 'Year', 'Formula', 'GREET Pathway']).reset_index(drop=True)
+df.rename(columns={'Unit (Denominator)' : 'Energy Unit',
+                   'Reference case' : 'CI'}, inplace=True)
+df['Emissions Unit'] = df['Unit (Numerator)']
+
+df['Total Emissions'] = df['Value'] * df['CI'] # grams GHGs
+
+df.drop(columns=['unit_numerator', 'unit_denominator', 'Value', 'Unit (Numerator)', 'Energy Unit', 'CI',
+                 'GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0', 'Flow Name'], inplace=True)
+
+# Merge NREL mitigation scenario electricity CIs to VISION
+df_elec = pd.merge(df_elec, 
+                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                   how='left',
+                   on=['Year', 'Formula']).reset_index(drop=True)
+df_elec.rename(columns={'CI_elec_mtg' : 'CI',
+                        'Emissions Unit_y' : 'Emissions Unit'}, inplace=True)
+
+df_elec['Total Emissions'] = df_elec['Value'] * df_elec['CI'] # grams GHGs
+
+df_elec.drop(columns=['unit_numerator', 'unit_denominator', 'Value', 
+                      'Emissions Unit_x', 'Energy Unit', 'CI'], inplace=True)
+
+# Concatenate electric and non-electric activities
+mtg_id_ccs = pd.concat([df, df_elec], axis = 0).reset_index(drop=True)
+
+del df, df_elec
+
+tempdf = ob_ccs.env_df.copy()
+tempdf[['Energy carrier', 'Energy carrier type', 'Data Source', 'AEO Case', 
+             'Basis', 'Unit', 'Generation Type', 'Fuel Pool']] = '-'
+tempdf.drop(columns=['Marker', 'frac'], inplace=True)  
+
+mtg_id_ccs = pd.concat([mtg_id_ccs, tempdf], axis=0).reset_index(drop=True)
+mtg_id_ccs['Case'] = 'Mitigation'
+mtg_id_ccs['Mitigation Case'] = 'Industrial, CCS implementation'
+del tempdf
+
+# Calculate LCIA metric
+mtg_id_ccs = pd.merge(mtg_id_ccs, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+mtg_id_ccs['LCIA_estimate'] = mtg_id_ccs['Total Emissions'] * activity_mtg_id['GWP']
+
+# unit conversions
+mtg_id_ccs.loc[~mtg_id_ccs['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(mtg_id_ccs.loc[~mtg_id_ccs['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+mtg_id_ccs = pd.merge(mtg_id_ccs, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+  
+# Create rest of the empty columns
+mtg_id_ccs [ list(( Counter(activity_BAU.columns) - Counter(mtg_id_ccs.columns )).elements()) ] = '-'
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_id_ccs], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
 """
@@ -1873,10 +1917,12 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper I
                                                                         'Iron and Steel Industry'])) & 
                                   (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
 mtg_global = mtg_global.fillna(value='-')
+mtg_global = mtg_global.loc[~(mtg_global['Value'] == '-'), : ]
 mtg_global = mtg_global.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                    'Scope', 'Generation Type', 'Fuel Pool']).\
                           agg({'Value' : 'sum'}).reset_index()
+mtg_global['Value'] = mtg_global['Value'] .astype('float64')
 mtg_global = \
     ob_utils.fuel_switching_H2NG(mtg_global,
                             'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
@@ -1902,7 +1948,7 @@ mtg_global = mtg_global.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector
                                            'Scope', 'Generation Type', 'Fuel Pool']).\
                                     agg({'Value' : 'sum'}).reset_index()
 mtg_global = \
-    ob_utils.fuel_switching(mtg_id_refi,
+    ob_utils.fuel_switching(mtg_global,
                             'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Renewables', 1, 
                             trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_fossilH2_to_renewableH2'])
@@ -1917,39 +1963,42 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_global, save_interim_f
 
 # Seperate electric and non-electric activities
 mtg_global = activity_ref_mtg.loc[(activity_ref_mtg['Case'] == 'Mitigation') &
-                                       (activity_ref_mtg['Sector'] == 'Industrial'), : ]
-mtg_global_elec = mtg_global.loc[mtg_global['Energy carrier'] == 'Electricity', : ]
+                                       (activity_ref_mtg['Mitigation Case'].isin(['Global, fuel switching Steam Coal to Natural Gas',
+                                                                                  'Global, fuel switching Steam Coal to Natural Gas',
+                                                                                  'Global, fuel switching Natural Gas to Hydrogen',
+                                                                                  'Global, fuel switching Fossil H2 to renewable H2'])), : ]
+#mtg_global_elec = mtg_global.loc[mtg_global['Energy carrier'] == 'Electricity', : ]
 mtg_global = mtg_global.loc[~(mtg_global['Energy carrier'] == 'Electricity'), : ]
 
 # Merge GREET correspondence table
-mtg_global = pd.merge(mtg_global, corr_EF_GREET.loc[corr_EF_GREET['Scope'] == 'Direct, Combustion', :], how='left', 
+mtg_global = pd.merge(mtg_global, corr_EF_GREET, how='left', 
                                on=['Sector', 'Scope', 'Subsector', 'Energy carrier', 'Energy carrier type', 
                                    'End Use Application']).reset_index(drop=True)
 
 # Merge GREET EF
 mtg_global = pd.merge(mtg_global, ob_ef.ef_raw, 
                            how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
-
+"""
 # Merge NREL mitigation scenario electricity CIs to VISION
 mtg_global_elec = pd.merge(mtg_global_elec, 
-                                   elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
-                                   how='left',
-                                   on=['Year'])
+                           elec_gen_em_mtg_agg_m[['Formula', 'Emissions Unit', 'Energy Unit', 'Year', 'CI_elec_mtg']], 
+                           how='left',
+                           on=['Year', 'Emissions Unit'])
 mtg_global_elec.rename(columns={'CI_elec_mtg' : 'CI'}, inplace=True)
-
-mtg_global.rename(columns={'Unit (Numerator)' : 'Emissions Unit',
-                               'Unit (Denominator)' : 'Energy Unit',
-                               'Reference case' : 'CI'}, inplace=True)
+"""
+mtg_global.rename(columns={'Unit (Denominator)' : 'Energy Unit',
+                           'Reference case' : 'CI'}, inplace=True)
 mtg_global.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
 
 # Concatenate electric and non-electric activities
-mtg_global = pd.concat([mtg_global, mtg_global_elec], axis = 0).reset_index(drop=True)
+#mtg_global = pd.concat([mtg_global, mtg_global_elec], axis = 0).reset_index(drop=True)
 
 mtg_global['Total Emissions'] = mtg_global['Value'] * mtg_global['CI']
 
 # Calculate LCIA metric
 mtg_global = pd.merge(mtg_global, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
 mtg_global['LCIA_estimate'] = mtg_global['Total Emissions'] * mtg_global['GWP']
+mtg_global.rename(columns={'Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
 
 # unit conversions
 mtg_global.loc[~mtg_global['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
