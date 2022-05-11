@@ -1055,12 +1055,13 @@ Id_mtg_params = {'mtg_paper' : 0.32, # target efficiency improvement across all 
                  'mtg_bulk_chemicals' : 0.13,   # target efficiency improvement across all bulk chemicals except green ammonia
                  'mtg_clinker_new_tech' : 0.30,  # improvement in cement production technology over years
                  'mtg_cement_lime' : 0.10, # target efficiency of cement and lime industry
-                 'mtg_refinery' : 0.13 } # target efficiency improvement of refining industry
-
+                 'mtg_refinery' : 0.13, # target efficiency improvement of refining industry
+                 'mtg_ironandsteel' : 0.13 } # target efficiency improvenent of iron and steel industry 
 ef_mtg_clinker_replace = 0 # mt CO2 emissions per mt CO2 clinker production
 
-Id_mtg_switching = {'mtg_NG_to_H2' : 0.3, # target switching of N2 to H2, default 0.3
+Id_mtg_switching = {'mtg_NG_to_H2' : 0.3, # target switching of NG to H2, default 0.3
                     'mtg_NG_to_H2_refineries' : 1.0,
+                    'mtg_NG_to_H2_ironandsteel' : 0.3, # target switching of NG to H2
                     'mtg_fossilH2_to_renewableH2' : 1.0} # target implementation of renewable H2 in place of fossil hydrogen
 
 ammonia_ng_frac_for_heatandpower = 0.283 # fraction of natural gas used for heat and power
@@ -1656,6 +1657,76 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_refi, save_interim_
 
 #%%
 
+# Designing mitigation scenarios for the Iron & Steel industry
+
+print("      : Iron & Steel Industry")
+
+mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
+                                   (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry'), : ]
+mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
+                                     'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
+                                     'Scope', 'Generation Type', 'Fuel Pool']).\
+                            agg({'Value' : 'sum'}).reset_index()
+# Implementing efficiency improvements
+mtg_id_iron = ob_utils.efficiency_improvement(ob_eia.EIA_data['energy_demand'].loc[(ob_eia.EIA_data['energy_demand']['Sector']=='Industrial') &
+                                                                                   (ob_eia.EIA_data['energy_demand']['Subsector'] == 'Iron and Steel Industry'), : ],
+                                              'Year', 'Value', trend_start_val=0, trend_end_val=Id_mtg_params['mtg_ironandsteel']).copy()
+mtg_id_iron['Case'] = 'Mitigation'
+mtg_id_iron['Mitigation Case'] = 'Iron and Steel Industry, efficiency improvements'
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'    
+
+# Append to activity matrix and save
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_iron, save_interim_files)
+
+# Implementing fuel switching NG to H2 blend
+mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
+                                   (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry') &
+                                   (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
+mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
+                                   'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
+                                   'Scope', 'Generation Type', 'Fuel Pool']).\
+                          agg({'Value' : 'sum'}).reset_index()
+mtg_id_iron = \
+    ob_utils.fuel_switching_H2NG(mtg_id_iron,
+                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Hydrogen', 'Natural Gas', 
+                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2_ironandsteel'])
+mtg_id_iron['Case'] = 'Mitigation'
+mtg_id_iron['Mitigation Case'] = 'Iron and Steel Industry, fuel switching Natural Gas to Hydrogen' 
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'
+
+# Append to activity matrix and save
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_iron, save_interim_files)  
+
+# Mitigation scenario for switching from fossil H2 and renewable H2
+mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
+                                       (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry') &
+                                       (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
+                                       (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
+mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
+                                           'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
+                                           'Scope', 'Generation Type', 'Fuel Pool']).\
+                                    agg({'Value' : 'sum'}).reset_index()
+mtg_id_iron = \
+    ob_utils.fuel_switching(mtg_id_iron,
+                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Hydrogen', 'Renewables', 1, 
+                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_fossilH2_to_renewableH2'])
+mtg_id_iron['Case'] = 'Mitigation'
+mtg_id_iron['Mitigation Case'] = 'Iron and Steel Industry, fuel switching Fossil H2 to renewable H2'
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
+mtg_id_iron.loc[mtg_id_iron['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Combustion'
+
+# Append to activity matrix and save
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_iron, save_interim_files) 
+
+#%%
+
 # CCS implementation and LCIA metric calculation
 
 # Seperate electric and non-electric activities
@@ -1695,7 +1766,6 @@ activity_mtg_id = pd.concat([activity_mtg_id, ghgi_mtg_am, id_cement_lime, id_ce
 
 
 # Implement CCS for industrial sectors and selected subsectors
-
 
 ob_ccs.implement_ccs(activity_mtg_id, 'Industrial')
 ob_ccs.calc_ccs_activity(ob_units)
@@ -1738,7 +1808,6 @@ mtg_id_ccs['Mitigation Case'] = 'Industrial, CCS implementation'
 # Concatenate CCS carbon reduction rows and CCS process emission rows to environmental matrix
 activity_mtg_id = pd.concat([activity_mtg_id, mtg_id_ccs], axis=0).reset_index(drop=True)
 
-
 # Calculate LCIA metric
 activity_mtg_id = pd.merge(activity_mtg_id, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
 activity_mtg_id['LCIA_estimate'] = activity_mtg_id['Total Emissions'] * activity_mtg_id['GWP']
@@ -1771,7 +1840,7 @@ Global Mitigation scenario of replacing Steam Coal with NG and consequently with
 """
 print("Status: Constructing global Mitigation scenarios ..")
 
-# DO not apply to any of the current decarb scenarios in industrial sector
+# Do not apply to any of the current decarb scenarios in industrial sector
 mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper Industry', 'Food Industry', 
                                                                         'Cement and Lime Industry', 'Refining Industry',
                                                                         'Bulk Chemical Industry',
