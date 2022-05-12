@@ -343,6 +343,7 @@ elec_gen_em_agg.rename(columns={
 elec_gen_em_agg.rename(columns={'Case_x' : 'Case'}, inplace=True) 
 
 elec_gen_em_agg['Mitigation Case'] = '-'
+elec_gen_em_agg['Subsector'] = 'Electric Power Sector'
 
 elec_gen_em_agg = elec_gen_em_agg.groupby(['Case', 'Mitigation Case', 'Sector', 'End Use Application',
                                            'Energy carrier', 'Formula', 
@@ -562,9 +563,12 @@ if save_interim_files == True:
 
 # constructing the Electricity mitigation matrix calculating difference in Electricity grid CIs
 
-elec_gen_em_mtg_agg_m = pd.merge(elec_gen_em_agg, elec_gen_em_mtg_agg, 
-         how='outer', on = ['Year', 'Sector', 'Energy carrier', 'Formula',
-                'Energy Unit', 'Emissions Unit'] ).reset_index(drop=True)
+tempdf = elec_gen_em_agg.loc[elec_gen_em_agg['Case'] == 'Reference Case', : ][['Sector', 'End Use Application', 'Year', 
+                                                                               'Energy carrier', 'Formula', 'Energy Unit', 'Emissions Unit',
+                                                                               'Total Emissions', 'Electricity Production', 'CI']]
+elec_gen_em_mtg_agg_m = pd.merge(tempdf, elec_gen_em_mtg_agg[['Case', 'Mitigation Case', 'Year', 'Formula', 'Energy Unit', 'Emissions Unit', 'Total Emissions', 'Electricity Production', 'CI']], 
+                                 how='left', on = ['Year', 'Formula', 'Energy Unit', 'Emissions Unit'] ).reset_index(drop=True)
+del tempdf
 
 elec_gen_em_mtg_agg_m.rename(columns={'Case_y' : 'Case',
                                       'Mitigation Case_y' : 'Mitigation Case',
@@ -574,7 +578,7 @@ elec_gen_em_mtg_agg_m.rename(columns={'Case_y' : 'Case',
                                       'Total Emissions_y' : 'Total Emissions_mtg_elec',
                                       'Electricity Production_x' : 'Electricity Production_ref_case',
                                       'Electricity Production_y' : 'Electricity Production_mtg_elec'}, inplace=True)
-elec_gen_em_mtg_agg_m.drop(columns=['Case_x', 'Mitigation Case_x'], inplace=True)
+
 elec_gen_em_mtg_agg_m ['CI_diff_elec_mtg_ref_case'] = elec_gen_em_mtg_agg_m  ['CI_elec_mtg'] - elec_gen_em_mtg_agg_m ['CI_ref_case_elec']
 
 if save_interim_files == True:
@@ -1843,15 +1847,12 @@ mtg_id_ccs = pd.concat([df, df_elec], axis = 0).reset_index(drop=True)
 
 del df, df_elec
 
-tempdf = ob_ccs.env_df.copy()
-tempdf[['Energy carrier', 'Energy carrier type', 'Data Source', 'AEO Case', 
-             'Basis', 'Unit', 'Generation Type', 'Fuel Pool']] = '-'
-tempdf.drop(columns=['Marker', 'frac'], inplace=True)  
-
-mtg_id_ccs = pd.concat([mtg_id_ccs, tempdf], axis=0).reset_index(drop=True)
-mtg_id_ccs['Case'] = 'Mitigation'
-mtg_id_ccs['Mitigation Case'] = 'Industrial, CCS implementation'
-del tempdf
+# Concatenate combustion and non-combustion emissions
+ob_ccs.env_df['Mitigation Case'] = 'Industrial, CCS implementation'
+ob_ccs.env_df.drop(columns=['Marker', 'frac'], inplace=True)
+ob_ccs.env_df['Emissions Unit'] = 'g'
+mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis = 0).reset_index()
+mtg_id_ccs = mtg_id_ccs.fillna(value='-')
 
 # Calculate LCIA metric
 mtg_id_ccs = pd.merge(mtg_id_ccs, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
