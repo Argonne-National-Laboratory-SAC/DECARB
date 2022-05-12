@@ -222,6 +222,7 @@ class EPA_GHGI_import:
         
         # Rename subsectors as per EERE Decarb Tool
         self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Cement Production', 'Subsector'] = 'Cement and Lime Industry'
+        self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Lime Production', 'Subsector'] = 'Cement and Lime Industry'
         
 
 if __name__ == "__main__":

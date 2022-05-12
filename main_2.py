@@ -1063,7 +1063,7 @@ Id_mtg_params = {'mtg_paper' : 0.32, # target efficiency improvement across all 
                  'mtg_ironandsteel' : 0.13 } # target efficiency improvenent of iron and steel industry 
 ef_mtg_clinker_replace = 0 # mt CO2 emissions per mt CO2 clinker production
 
-Id_mtg_switching = {'mtg_NG_to_H2' : 0.3, # target switching of NG to H2, default 0.3
+Id_mtg_switching = {'mtg_NG_to_H2' : 1, # target switching of NG to H2, default 0.3
                     'mtg_NG_to_H2_refineries' : 1.0,
                     'mtg_NG_to_H2_ironandsteel' : 0.3, # target switching of NG to H2
                     'mtg_fossilH2_to_renewableH2' : 1.0} # target implementation of renewable H2 in place of fossil hydrogen
@@ -1484,8 +1484,9 @@ tempdf.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
 
 # Replacing the existing reference case for Cement and Lime with calculated reference case
 activity_non_combust_oth = ob_EPA_GHGI.activity_non_combust_exp.loc[~((ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Industrial') & 
-                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'].isin(['Cement Production', 'Lime Production']) )), :]
-ob_EPA_GHGI.activity_non_combust_exp = pd.concat([activity_non_combust_oth, tempdf], axis=0).reset_index(drop=True)
+                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'] == 'Cement and Lime Industry') ), : ]
+tempdf[['Energy carrier', 'Energy carrier type']] = '-'
+ob_EPA_GHGI.activity_non_combust_exp = pd.concat([activity_non_combust_oth, tempdf[activity_non_combust_oth.columns]], axis=0).reset_index(drop=True)
 del tempdf
 
 # designing mitigation scenario for clinker (cement) and Lime non-combustion emissions
@@ -1493,6 +1494,8 @@ id_cement_lime_mtg = ob_utils.efficiency_improvement(id_cement_lime,
                                                       'Year', 'activity_value', 
                                                       trend_start_val=0, trend_end_val=Id_mtg_params['mtg_clinker_new_tech']).copy()
 id_cement_lime_mtg['Total Emissions'] = id_cement_lime_mtg['activity_value'] * ( id_cement_lime_mtg['energy_value'] - ef_mtg_clinker_replace)
+
+id_cement_lime_mtg['Emissions Unit'] = id_cement_lime_mtg['activity_unit']
 
 # unit conversion
 id_cement_lime_mtg.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
@@ -1803,7 +1806,7 @@ ob_ccs.calc_ccs_activity(ob_units)
 ob_ccs.ccs_process['End Use Application'] = '-'
 ob_ccs.ccs_process['Mitigation Case'] = 'Industrial, CCS implementation'
 ob_ccs.ccs_process[['Data Source', 'AEO Case', 'Basis', 'Unit', 'Generation Type', 'Fuel Pool']] = '-'
-ob_ccs.ccs_process = ob_ccs.ccs_process.loc[~ob_ccs.ccs_process['Total Emissions'].isna(), : ]
+ob_ccs.ccs_process = ob_ccs.ccs_process.loc[~ob_ccs.ccs_process['LCIA_estimate'].isna(), : ]
 
 # Append to activity matrix and save
 activity_ref_mtg = save_activity_mx(activity_ref_mtg, ob_ccs.ccs_process[activity_ref_mtg.columns], save_interim_files) 
@@ -1847,22 +1850,22 @@ mtg_id_ccs = pd.concat([df, df_elec], axis = 0).reset_index(drop=True)
 
 del df, df_elec
 
-# Concatenate combustion and non-combustion emissions
-ob_ccs.env_df['Mitigation Case'] = 'Industrial, CCS implementation'
-ob_ccs.env_df.drop(columns=['Marker', 'frac'], inplace=True)
-ob_ccs.env_df['Emissions Unit'] = 'g'
-mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis = 0).reset_index()
-mtg_id_ccs = mtg_id_ccs.fillna(value='-')
-
 # Calculate LCIA metric
 mtg_id_ccs = pd.merge(mtg_id_ccs, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
-mtg_id_ccs['LCIA_estimate'] = mtg_id_ccs['Total Emissions'] * activity_mtg_id['GWP']
+mtg_id_ccs['Total Emissions'] = mtg_id_ccs['Total Emissions'].astype('float64')
+mtg_id_ccs['LCIA_estimate'] = mtg_id_ccs['Total Emissions'] * mtg_id_ccs['GWP']
 
 # unit conversions
 mtg_id_ccs.loc[~mtg_id_ccs['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
   ob_units.unit_convert_df(mtg_id_ccs.loc[~mtg_id_ccs['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
    Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
    if_given_category=True, unit_category = 'Emissions')
+
+ob_ccs.env_df['Mitigation Case'] = 'Industrial, CCS implementation'
+ob_ccs.env_df['Case'] = 'Mitigation'
+ob_ccs.env_df.drop(columns=['Marker', 'frac'], inplace=True)
+
+mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis = 0).reset_index()
 
 mtg_id_ccs = pd.merge(mtg_id_ccs, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
   

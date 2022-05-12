@@ -80,7 +80,7 @@ class CCS_implementation:
                    colanme_year = 'Year',                   
                    colname_formula = 'Formula',
                    colname_multiplier = 'Marker',
-                   colname_emissions = 'Total Emissions',
+                   colname_emissions = 'LCIA_estimate',
                    colname_emissions_unit = 'Emissions Unit'):
         
      self.calc_ccs_trend()   
@@ -117,9 +117,13 @@ class CCS_implementation:
  def calc_ccs_activity(self, ob_units,
                        colname_sector = 'Sector',
                        colname_subsector = 'Subsector',
-                       colname_emissions = 'Total Emissions'):
+                       colanme_year = 'Year', 
+                       colname_formula = 'Formula',
+                       colname_emissions_unit = 'Emissions Unit',
+                       colname_emissions = 'LCIA_estimate'):
        
-       self.ccs_process = pd.merge(self.ccs_demand, self.env_df[['Sector', 'Subsector', 'Year', 'Emissions Unit', 'Formula', 'Total Emissions']],
+       self.ccs_process = pd.merge(self.ccs_demand, self.env_df[[colname_sector, colname_subsector, colanme_year, 
+                                                                 colname_emissions_unit, colname_formula, colname_emissions]],
                                    how='left',
                                    on=['Sector', 'Subsector']).reset_index(drop=True)
        
@@ -130,7 +134,7 @@ class CCS_implementation:
           if_given_unit=True, given_unit = self.ccs_process['unit_denominator'][0])
        """
        # Calculate total energy demand for CCS activity by energy carrier        
-       self.ccs_process['Value'] = -1 * self.ccs_process[colname_emissions] * self.ccs_process['Value']
+       self.ccs_process['Value'] = -1 * self.ccs_process[colname_emissions] * self.ccs_process['Value'] # MMmt x MMBtu/MMmt
        self.ccs_process = self.ccs_process.loc[~self.ccs_process['Value'].isna(), : ]
 
 # Create object and call function if script is ran directly
