@@ -28,6 +28,7 @@ input_path_GREET = input_path_prefix + '\\GREET'
 input_path_units = input_path_prefix + '\\Units'
 input_path_VISION = input_path_prefix + '\\Transportation'
 input_path_neu = input_path_prefix + '\\Non-Energy Use EFs'
+input_path_biofuel = input_path_prefix + '\\Biofuels'
 
 # LCIA factors
 f_lcia = 'gwp factors.xlsx'
@@ -40,6 +41,8 @@ sheet_neu = 'Sheet1'
 # Declaring correlation filenames
 f_eia = 'EIA Dataset.csv'
 f_NREL_elec_option = 'report - All Options EFS.xlsx'
+
+f_biofuel_decarb = 'DECARB Biofuel Mitigation.csv'
 
 f_corr_ef_greet = 'corr_EF_GREET.xlsx'
 sheet_corr_ef_greet = 'corr_EF_GREET'
@@ -227,6 +230,9 @@ id_quantity = pd.read_csv(input_path_EPA + '\\' + f_industrial_quantity)
 id_energy = pd.read_csv(input_path_EPA + '\\' + f_industrial_energy)
 id_quantity.drop(columns=['Table'], inplace=True)
 id_energy.drop(columns=['notes'], inplace=True)
+
+# Loading biofuels mitigation data
+mtg_biofuel = pd.read_csv(input_path_biofuel + '\\' + f_biofuel_decarb)
 
 #%%
 
@@ -2026,3 +2032,13 @@ if save_interim_files == True:
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
+"""
+Mitigation scenario for biofuels
+"""
+print("Status: Constructing Biofuels Mitigation scenarios ..")
+
+# Mitigation scenarios for the Jet Fuel/Petroleum
+mtg_jet = activity_ref_mtg.loc[(activity_ref_mtg['Energy carrier'] == 'Jet Fuel') &
+                               (activity_ref_mtg['Energy carrier type'] == 'Petroleum'), : ]
+
+
