@@ -2,7 +2,7 @@
 """
 Created on Mon Jan 10 20:08:36 2022
 
-@author: skar
+@authors: Saurajyoti Kar and Greg Zaimes
 """
 
 #%%
@@ -28,7 +28,7 @@ input_path_GREET = input_path_prefix + '\\GREET'
 input_path_units = input_path_prefix + '\\Units'
 input_path_VISION = input_path_prefix + '\\Transportation'
 input_path_neu = input_path_prefix + '\\Non-Energy Use EFs'
-input_path_biofuel = input_path_prefix + '\\Biofuels'
+input_path_biofuels = input_path_prefix + '\\Biofuels'
 
 # LCIA factors
 f_lcia = 'gwp factors.xlsx'
@@ -42,15 +42,24 @@ sheet_neu = 'Sheet1'
 f_eia = 'EIA Dataset.csv'
 f_NREL_elec_option = 'report - All Options EFS.xlsx'
 
-f_biofuel_decarb = 'DECARB Biofuel Mitigation.csv'
+#_biofuel_decarb = 'DECARB Biofuel Mitigation.csv'
 
 f_corr_ef_greet = 'corr_EF_GREET.xlsx'
 sheet_corr_ef_greet = 'corr_EF_GREET'
+
+f_corr_ef_greet_supply_chain = 'corr_EF_GREET_SUPPLY_CHAIN.csv'
+#sheet_corr_ef_greet_supply_chain = 'corr_EF_GREET'
+
+f_ef_greet_supply_chain = 'GREET_EF_SUPPLY_CHAIN.csv'
+#sheet_ef_greet_supply_chain = 'EF_GREET_SUPPLY_CHAIN'
 
 f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
 sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
 
 f_corr_ghgs = 'corr_ghgi_emissions_categories.csv'
+
+f_corr_ghgi_sources_EERE = 'corr_ghgi_sources_EERE.csv'
+f_corr_carbon_content_biofuels = 'corr_carbon_content_biofuels.csv'
 
 # defining the intermediate and final data table files and their columns
 f_interim_activity = 'interim_activity_ref_mtg_cases.csv'
@@ -63,6 +72,7 @@ f_elec_env_agg = 'interim_elec_gen_env_agg.csv'
 f_elec_CI = 'interim_elec_gen_CI.csv'
 f_industrial_energy = 'industrial_activity_energy.csv'
 f_industrial_quantity = 'industrial_activity_quantity.csv'
+f_biofuels = 'biofuels.csv'
 
 cols_activity_out = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
@@ -131,6 +141,7 @@ verbose = True
 
 # import packages
 import pandas as pd
+import numpy as np
 import os
 from datetime import datetime
 
@@ -182,6 +193,13 @@ init_time = datetime.now()
 
 # Create data class objects
 
+# Import GREET Supply Chain EF's and Correspondence files
+corr_ef_greet_supply_chain = pd.read_csv(input_path_corr + '\\' + f_corr_ef_greet_supply_chain,
+                                           header = 3) 
+
+ef_greet_supply_chain = pd.read_csv(input_path_GREET + '\\' + f_ef_greet_supply_chain,
+                                      header = 3)
+
 # Unit conversion class object
 ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
 
@@ -217,6 +235,8 @@ ob_ef = GREET_EF(input_path_GREET )
 corr_EF_GREET = pd.read_excel(input_path_corr + '\\' + f_corr_ef_greet, sheet_name = sheet_corr_ef_greet, header = 3)
 corr_EIA_SCOUT = pd.read_excel(input_path_corr + '\\' + f_corr_EIA_SCOUT, sheet_name = sheet_corr_EIA_SCOUT, header = 3, index_col=None)
 corr_ghgs = pd.read_csv(input_path_corr + '\\' + f_corr_ghgs, header = 3, index_col=None)
+corr_ghgi_sources_EERE = pd.read_csv(input_path_corr + '\\' + f_corr_ghgi_sources_EERE, header = 3, index_col=None)
+corr_carbon_content_biofuels = pd.read_csv(input_path_corr + '\\' + f_corr_carbon_content_biofuels, header = 3, index_col=None)
 
 # Life Cycle Impact Assessment metrics table
 lcia_data = pd.read_excel(input_path_EPA + '\\' + f_lcia, sheet_name = f_lcia_sheet)         
@@ -232,7 +252,7 @@ id_quantity.drop(columns=['Table'], inplace=True)
 id_energy.drop(columns=['notes'], inplace=True)
 
 # Loading biofuels mitigation data
-mtg_biofuel = pd.read_csv(input_path_biofuel + '\\' + f_biofuel_decarb)
+#mtg_biofuel = pd.read_csv(input_path_biofuel + '\\' + f_biofuel_decarb)
 
 #%%
 
@@ -1146,9 +1166,9 @@ mtg_id_paper_fsngh2 = mtg_id_paper_fsngh2.groupby(['Data Source', 'AEO Case', 'S
                                                   agg({'Value' : 'sum'}).reset_index()
 mtg_id_paper_fsngh2 = \
     ob_utils.fuel_switching_H2NG(mtg_id_paper_fsngh2,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2'])
 mtg_id_paper_fsngh2['Case'] = 'Mitigation'
 mtg_id_paper_fsngh2['Mitigation Case'] = 'Paper Industry, fuel switching Natural Gas to Hydrogen' 
 mtg_id_paper_fsngh2.loc[mtg_id_paper_fsngh2['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1230,9 +1250,9 @@ mtg_id_food_fsngh2 = mtg_id_food_fsngh2.groupby(['Data Source', 'AEO Case', 'Sec
                                                   agg({'Value' : 'sum'}).reset_index()
 mtg_id_food_fsngh2 = \
     ob_utils.fuel_switching_H2NG(mtg_id_food_fsngh2,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2'])
 mtg_id_food_fsngh2['Case'] = 'Mitigation'
 mtg_id_food_fsngh2['Mitigation Case'] = 'Food Industry, fuel switching Natural Gas to Hydrogen'  
 mtg_id_food_fsngh2.loc[mtg_id_food_fsngh2['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1564,9 +1584,9 @@ id_cement_lime_fsngh2 = id_cement_lime_fsngh2.groupby(['Data Source', 'AEO Case'
                                                   agg({'Value' : 'sum'}).reset_index()
 id_cement_lime_fsngh2 = \
     ob_utils.fuel_switching_H2NG(id_cement_lime_fsngh2,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2'])
 id_cement_lime_fsngh2['Case'] = 'Mitigation'
 id_cement_lime_fsngh2['Mitigation Case'] = 'Cement and Lime Industry, fuel switching Natural Gas to Hydrogen'
 id_cement_lime_fsngh2.loc[id_cement_lime_fsngh2['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1634,9 +1654,9 @@ mtg_id_refi = mtg_id_refi.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsect
                           agg({'Value' : 'sum'}).reset_index()
 mtg_id_refi = \
     ob_utils.fuel_switching_H2NG(mtg_id_refi,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2_refineries'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2_refineries'])
 mtg_id_refi['Case'] = 'Mitigation'
 mtg_id_refi['Mitigation Case'] = 'Refinery Industry, fuel switching Natural Gas to Hydrogen' 
 mtg_id_refi.loc[mtg_id_refi['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1704,9 +1724,9 @@ mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsect
                           agg({'Value' : 'sum'}).reset_index()
 mtg_id_iron = \
     ob_utils.fuel_switching_H2NG(mtg_id_iron,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2_ironandsteel'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2_ironandsteel'])
 mtg_id_iron['Case'] = 'Mitigation'
 mtg_id_iron['Mitigation Case'] = 'Iron and Steel Industry, fuel switching Natural Gas to Hydrogen' 
 mtg_id_iron.loc[mtg_id_iron['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1901,10 +1921,13 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper I
                                                                         'Iron and Steel Industry'])) & 
                                   (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
 mtg_global = mtg_global.fillna(value='-')
-mtg_global = mtg_global.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
-                                     'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
-                                     'Scope', 'Generation Type', 'Fuel Pool']).\
+mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
+                                     'Energy carrier', 'Energy carrier type', 'Year']).\
                             agg({'Value' : 'sum'}).reset_index()
+                            
+mtg_global[['Data Source', 'AEO Case', 'Basis', 'Generation Type', 'Fuel Pool']] = '-'
+mtg_global['Unit'] = 'MMBtu'
+mtg_global['Scope'] = 'Direct, Combustion'
                             
 # Implementing fuel switching, Steam Coal to Natural Gas, after implementing efficiency improvements
 mtg_global = \
@@ -1928,16 +1951,21 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper I
                                   (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
 mtg_global = mtg_global.fillna(value='-')
 mtg_global = mtg_global.loc[~(mtg_global['Value'] == '-'), : ]
-mtg_global = mtg_global.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
-                                   'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
-                                   'Scope', 'Generation Type', 'Fuel Pool']).\
+mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
+                                 'Energy carrier', 'Energy carrier type', 'Year']).\
                           agg({'Value' : 'sum'}).reset_index()
+
+mtg_global[['Data Source', 'AEO Case', 'Basis', 'Generation Type', 'Fuel Pool']] = '-'
+mtg_global['Unit'] = 'MMBtu'
+mtg_global['Scope'] = 'Direct, Combustion'
 mtg_global['Value'] = mtg_global['Value'] .astype('float64')
+
 mtg_global = \
     ob_utils.fuel_switching_H2NG(mtg_global,
-                            'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
+                            'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Natural Gas', 
-                            trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_NG_to_H2'])
+                            min_val=0, max_val=Id_mtg_switching['mtg_NG_to_H2'])
+
 mtg_global['Case'] = 'Mitigation'
 mtg_global['Mitigation Case'] = 'Global, fuel switching Natural Gas to Hydrogen' 
 mtg_global.loc[mtg_global['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1952,16 +1980,22 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Refinin
                                                                          'Cement and Lime Industry', 'Iron and Steel Industry'])) &
                                   (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                   (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
+
 mtg_global = mtg_global.fillna(value='-')
-mtg_global = mtg_global.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
-                                           'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
-                                           'Scope', 'Generation Type', 'Fuel Pool']).\
+mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
+                                 'Energy carrier', 'Energy carrier type', 'Year']).\
                                     agg({'Value' : 'sum'}).reset_index()
+
+mtg_global[['Data Source', 'AEO Case', 'Basis', 'Generation Type', 'Fuel Pool']] = '-'
+mtg_global['Unit'] = 'MMBtu'
+mtg_global['Scope'] = 'Direct, Combustion'
+
 mtg_global = \
     ob_utils.fuel_switching(mtg_global,
                             'Year', 'Value', 'Energy carrier', 'Energy carrier type', 
                             'Hydrogen', 'Renewables', 1, 
                             trend_start_val=0, trend_end_val=Id_mtg_switching['mtg_fossilH2_to_renewableH2'])
+
 mtg_global['Case'] = 'Mitigation'
 mtg_global['Mitigation Case'] = 'Global, fuel switching Fossil H2 to renewable H2'
 mtg_global.loc[mtg_global['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Combustion'
@@ -1974,7 +2008,6 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_global, save_interim_f
 # Seperate electric and non-electric activities
 mtg_global = activity_ref_mtg.loc[(activity_ref_mtg['Case'] == 'Mitigation') &
                                        (activity_ref_mtg['Mitigation Case'].isin(['Global, fuel switching Steam Coal to Natural Gas',
-                                                                                  'Global, fuel switching Steam Coal to Natural Gas',
                                                                                   'Global, fuel switching Natural Gas to Hydrogen',
                                                                                   'Global, fuel switching Fossil H2 to renewable H2'])), : ]
 #mtg_global_elec = mtg_global.loc[mtg_global['Energy carrier'] == 'Electricity', : ]
@@ -2033,12 +2066,739 @@ print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
 """
-Mitigation scenario for biofuels
+Biofuel Mitigation Strategy
 """
-print("Status: Constructing Biofuels Mitigation scenarios ..")
+print("Status: Constructing Biofuel Mitigation Scenario ..")
 
-# Mitigation scenarios for the Jet Fuel/Petroleum
-mtg_jet = activity_ref_mtg.loc[(activity_ref_mtg['Energy carrier'] == 'Jet Fuel') &
-                               (activity_ref_mtg['Energy carrier type'] == 'Petroleum'), : ]
+print("      : Sustainable Aviation Fuels")
 
+activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'energy_demand_test.csv')
+
+activity_ref_mtg.drop(columns = {'AEO Case', 'Data Source', 'Generation Type'}, inplace=True)
+
+# Import Biofuel Supply Data
+biofuel = pd.read_csv(input_path_biofuels + '\\' + f_biofuels)
+
+# Subset Jet-Like Biofuels
+biofuel_jet = biofuel.loc[biofuel['Energy carrier'].isin(['Sustainable Aviation Fuel']), : ].copy()
+
+# Create dataframe of unique biofuel energy carriers & energy carrier types
+biofuel_jet_unique = biofuel_jet[['Energy carrier', 'Energy carrier type']].drop_duplicates()
+
+# Rename columns to avoid merge conflicts
+biofuel_jet.rename(columns = {'Value' :'Biofuel Value',
+                              'Energy carrier' : 'Biofuel',
+                              'Energy carrier type' : 'Biofuel type'}, inplace=True)
+
+# Determine relative fraction of SAF fuels
+biofuel_jet_agg = biofuel_jet.groupby(['Year'], as_index = False)['Biofuel Value'].sum().reset_index()
+biofuel_jet_agg.rename(columns = {'Biofuel Value' : 'Agg Biofuel Value'}, inplace=True)
+biofuel_jet_merge = pd.merge(biofuel_jet, biofuel_jet_agg, how='left', on = "Year")
+biofuel_jet_merge['Biofuel Ratio'] = biofuel_jet_merge['Biofuel Value'] / biofuel_jet_merge['Agg Biofuel Value'] 
+biofuel_jet_merge = biofuel_jet_merge[['Year','Biofuel','Biofuel type','Biofuel Ratio']]
+
+# Subset Energy Demand Matrix into associated fossil fuel pools
+jet_fp = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier'].isin(['Jet Fuel'])]
+jet_fp = jet_fp.groupby(['Sector', 'Subsector', 'End Use Application',
+                         'Energy carrier', 'Energy carrier type', 'Year',
+                         'Scope'], as_index = False)['Value'].sum()
+jet_fp['Unit'] = 'MMBtu'
+jet_fp['Basis'] = 'Energy demand'
+jet_fp_agg = jet_fp.groupby(['Year'], as_index = False)['Value'].sum()
+jet_fp_agg = jet_fp_agg.rename(columns = {'Value':'Petroleum'})
+
+# Calculate the fraction of Biofuel to Petroleum fuel in the Fuel Pool
+jet_fp_merge = pd.merge(jet_fp_agg,biofuel_jet_agg, how='left', on = "Year")
+jet_fp_merge['Ratio'] = jet_fp_merge['Agg Biofuel Value'] / jet_fp_merge['Petroleum'] 
+jet_fp_merge = jet_fp_merge[['Year', 'Ratio']]
+
+# Petroleum Jet Fuel Comming Offline
+jet_fp_v2 = pd.merge(jet_fp, jet_fp_merge, how = 'left', on = 'Year')
+jet_fp_petro_off = jet_fp_v2.copy()
+jet_fp_petro_off['Value'] = jet_fp_petro_off['Value']*jet_fp_petro_off['Ratio']*(-1)
+jet_fp_petro_off.loc[:, 'Case' ] = 'Mitigation'
+jet_fp_petro_off.loc[:,'Mitigation Case' ] = 'Biofuels, SAF'
+jet_fp_petro_off.loc[:,'Fuel Pool' ] = 'Jet'
+jet_fp_petro_off.drop(columns = {'Ratio'}, inplace = True)
+
+# Update Energy Demand Matrix
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, jet_fp_petro_off, save_interim_files) 
+
+# SAF Coming online: Loop through SAF fuel types, append to energry demand matrix 
+for i, (energy_carriers, energy_carrier_types) in enumerate(zip(biofuel_jet_unique['Energy carrier'], biofuel_jet_unique['Energy carrier type'])):
+    biofuel_jet_v2 = biofuel_jet_merge[(biofuel_jet_merge['Biofuel'] == energy_carriers) \
+                                       & (biofuel_jet_merge['Biofuel type'] == energy_carrier_types)]
+    jet_fp_biofuel_online = pd.merge(jet_fp_v2, biofuel_jet_v2, how = 'left', on = 'Year')
+    jet_fp_biofuel_online['Value'] = jet_fp_biofuel_online['Value'] * jet_fp_biofuel_online['Ratio'] * jet_fp_biofuel_online['Biofuel Ratio']
+    jet_fp_biofuel_online.loc[:, 'Energy carrier' ] = energy_carriers
+    jet_fp_biofuel_online.loc[:, 'Energy carrier type' ] = energy_carrier_types
+    jet_fp_biofuel_online.loc[:, 'Case' ] = 'Mitigation'
+    jet_fp_biofuel_online.loc[:,'Mitigation Case' ] = 'Biofuels, SAF'
+    jet_fp_biofuel_online.loc[:,'Fuel Pool' ] = 'Jet'
+    jet_fp_biofuel_online.drop(columns = {'Ratio','Biofuel', 'Biofuel type','Biofuel Ratio'}, inplace = True)
+    activity_ref_mtg = save_activity_mx(activity_ref_mtg, jet_fp_biofuel_online, save_interim_files) 
+
+activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'energy_demand_test_jet.csv')
+    
+print("      : Diesel-like Biofuels")
+
+# Subset Diesel-Like Biofuels
+biofuel_diesel = biofuel.loc[biofuel['Energy carrier'].isin(['Biodiesel',
+                                                          'FT-Diesel',
+                                                          'Renewable Diesel'
+                                                          ])]
+
+# Create dataframe of unique biofuel energy carriers & energy carrier types
+biofuel_diesel_unique = biofuel_diesel[['Energy carrier', 'Energy carrier type']].drop_duplicates()
+
+# Rename columns to avoid merge conflicts
+biofuel_diesel = biofuel_diesel.rename(columns = {'Value':'Biofuel Value',
+                                                    'Energy carrier': 'Biofuel',
+                                                    'Energy carrier type': 'Biofuel type'})
+# Determine relative fraction of Diesel fuels
+biofuel_diesel_agg =  biofuel_diesel.groupby(['Year'], as_index = False)['Biofuel Value'].sum()
+biofuel_diesel_agg = biofuel_diesel_agg.rename(columns = {'Biofuel Value':'Agg Biofuel Value'})
+biofuel_diesel_merge = pd.merge(biofuel_diesel,biofuel_diesel_agg, how='left', on = "Year")
+biofuel_diesel_merge['Biofuel Ratio'] = biofuel_diesel_merge['Biofuel Value'] / biofuel_diesel_merge['Agg Biofuel Value'] 
+biofuel_diesel_merge = biofuel_diesel_merge[['Year','Biofuel','Biofuel type','Biofuel Ratio']]
+
+# Subset Energy Demand Matrix into associated fossil fuel pools
+diesel_fp = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier type'].isin(['Petroleum Distillate']), :]
+#diesel_fp.to_csv(interim_path_prefix + '\\' + 'Test.csv')
+diesel_fp = diesel_fp.groupby(['Sector', 'Subsector', 'End Use Application',
+       'Energy carrier', 'Energy carrier type', 'Year',
+       'Scope'], as_index = False)['Value'].sum()
+diesel_fp['Unit'] = 'MMBtu'
+diesel_fp['Basis'] = 'Energy demand'
+diesel_fp_agg = diesel_fp.groupby(['Year'], as_index = False)['Value'].sum()
+diesel_fp_agg = diesel_fp_agg.rename(columns = {'Value':'Petroleum'})
+
+
+# Calculate the fraction of Biofuel to Petroleum fuel in the Fuel Pool
+diesel_fp_merge = pd.merge(diesel_fp_agg,biofuel_diesel_agg, how='left', on = "Year")
+diesel_fp_merge['Ratio'] = diesel_fp_merge['Agg Biofuel Value'] / diesel_fp_merge['Petroleum'] 
+diesel_fp_merge = diesel_fp_merge[['Year', 'Ratio']]
+
+# Petroleum Diesel Fuel Comming Offline
+diesel_fp_v2 = pd.merge(diesel_fp, diesel_fp_merge, how = 'left', on = 'Year')
+diesel_fp_petro_off = diesel_fp_v2.copy()
+diesel_fp_petro_off['Value'] = diesel_fp_petro_off['Value'] * diesel_fp_petro_off['Ratio'] * (-1)
+diesel_fp_petro_off.loc[:, 'Case' ] = 'Mitigation'
+diesel_fp_petro_off.loc[:,'Mitigation Case' ] = 'Biofuels, Diesel'
+diesel_fp_petro_off.loc[:,'Fuel Pool' ] = 'Diesel'
+diesel_fp_petro_off.drop(columns = {'Ratio'}, inplace = True)
+
+
+# Update Energy Demand Matrix
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, diesel_fp_petro_off, save_interim_files) 
+
+# Diesel Coming online: Loop through Diesel fuel types, append to energry demand matrix 
+for i, (energy_carriers, energy_carrier_types) in enumerate(zip(biofuel_diesel_unique['Energy carrier'], biofuel_diesel_unique['Energy carrier type'])):
+    biofuel_diesel_v2 = biofuel_diesel_merge[(biofuel_diesel_merge['Biofuel'] == energy_carriers) \
+                                       & (biofuel_diesel_merge['Biofuel type'] == energy_carrier_types)]
+    diesel_fp_biofuel_online = pd.merge(diesel_fp_v2, biofuel_diesel_v2, how = 'left', on = 'Year')
+    diesel_fp_biofuel_online['Value'] = diesel_fp_biofuel_online['Value'] * diesel_fp_biofuel_online['Ratio'] * diesel_fp_biofuel_online['Biofuel Ratio']
+    diesel_fp_biofuel_online.loc[:, 'Energy carrier' ] = energy_carriers
+    diesel_fp_biofuel_online.loc[:, 'Energy carrier type' ] = energy_carrier_types
+    diesel_fp_biofuel_online.loc[:, 'Case' ] = 'Mitigation'
+    diesel_fp_biofuel_online.loc[:,'Mitigation Case' ] = 'Biofuels, Diesel'
+    diesel_fp_biofuel_online.loc[:,'Fuel Pool' ] = 'Diesel'
+    diesel_fp_biofuel_online.drop(columns = {'Ratio','Biofuel', 'Biofuel type','Biofuel Ratio'}, inplace = True)
+    activity_ref_mtg = save_activity_mx(activity_ref_mtg, diesel_fp_biofuel_online, save_interim_files) 
+
+activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'energy_demand_test_diesel.csv')
+
+
+print("      : Gasoline-like Biofuels")
+
+# Subset Gasoline-Like Biofuels
+biofuel_gasoline = biofuel.loc[biofuel['Energy carrier'].isin(['Renewable Gasoline'])]
+
+# Create dataframe of unique biofuel energy carriers & energy carrier types
+biofuel_gasoline_unique = biofuel_gasoline[['Energy carrier', 'Energy carrier type']].drop_duplicates()
+
+# Rename columns to avoid merge conflicts
+biofuel_gasoline = biofuel_gasoline.rename(columns = {'Value':'Biofuel Value',
+                                                    'Energy carrier': 'Biofuel',
+                                                    'Energy carrier type': 'Biofuel type'})
+# Determine relative fraction of Gasoline fuels
+biofuel_gasoline_agg =  biofuel_gasoline.groupby(['Year'], as_index = False)['Biofuel Value'].sum()
+biofuel_gasoline_agg = biofuel_gasoline_agg.rename(columns = {'Biofuel Value':'Agg Biofuel Value'})
+biofuel_gasoline_merge = pd.merge(biofuel_gasoline,biofuel_gasoline_agg, how='left', on = "Year")
+biofuel_gasoline_merge['Biofuel Ratio'] = biofuel_gasoline_merge['Biofuel Value'] / biofuel_gasoline_merge['Agg Biofuel Value'] 
+biofuel_gasoline_merge = biofuel_gasoline_merge[['Year','Biofuel','Biofuel type','Biofuel Ratio']]
+
+# Subset Energy Demand Matrix into associated fossil fuel pools
+gasoline_fp = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier type'].isin(['Petroleum Gasoline'])]
+gasoline_fp = gasoline_fp.groupby(['Sector', 'Subsector', 'End Use Application',
+       'Energy carrier', 'Energy carrier type', 'Year',
+       'Scope'], as_index = False)['Value'].sum()
+gasoline_fp['Generation Type'] = '-'
+gasoline_fp['Unit'] = 'MMBtu'
+gasoline_fp['Basis'] = 'Energy demand'
+gasoline_fp_agg = gasoline_fp.groupby(['Year'], as_index = False)['Value'].sum()
+gasoline_fp_agg = gasoline_fp_agg.rename(columns = {'Value':'Petroleum'})
+
+# Calculate the fraction of Biofuel to Petroleum fuel in the Fuel Pool
+gasoline_fp_merge = pd.merge(gasoline_fp_agg,biofuel_gasoline_agg, how='left', on = "Year")
+gasoline_fp_merge['Ratio'] = gasoline_fp_merge['Agg Biofuel Value'] / gasoline_fp_merge['Petroleum'] 
+gasoline_fp_merge.loc[gasoline_fp_merge['Ratio'] > 1, 'Ratio'] = 1
+gasoline_fp_merge = gasoline_fp_merge[['Year', 'Ratio']]
+
+# Petroleum Gasoline Fuel Comming Offline
+gasoline_fp_v2 = pd.merge(gasoline_fp, gasoline_fp_merge, how = 'left', on = 'Year')
+gasoline_fp_petro_off = gasoline_fp_v2.copy()
+gasoline_fp_petro_off['Value'] = gasoline_fp_petro_off['Value'] * gasoline_fp_petro_off['Ratio'] * (-1)
+gasoline_fp_petro_off.loc[:, 'Case' ] = 'Mitigation'
+gasoline_fp_petro_off.loc[:,'Mitigation Case' ] = 'Biofuels, Gasoline'
+gasoline_fp_petro_off.loc[:,'Fuel Pool' ] = 'Gasoline'
+gasoline_fp_petro_off.drop(columns = {'Ratio'}, inplace = True)
+
+# Update Energy Demand Matrix
+activity_ref_mtg = save_activity_mx(activity_ref_mtg, gasoline_fp_petro_off, save_interim_files) 
+
+# Gasoline Coming online: Loop through Diesel fuel types, append to energry demand matrix 
+for i, (energy_carriers, energy_carrier_types) in enumerate(zip(biofuel_gasoline_unique['Energy carrier'], biofuel_gasoline_unique['Energy carrier type'])):
+    biofuel_gasoline_v2 = biofuel_gasoline_merge[(biofuel_gasoline_merge['Biofuel'] == energy_carriers) \
+                                       & (biofuel_gasoline_merge['Biofuel type'] == energy_carrier_types)]
+    gasoline_fp_biofuel_online = pd.merge(gasoline_fp_v2, biofuel_gasoline_v2, how = 'left', on = 'Year')
+    gasoline_fp_biofuel_online['Value'] = gasoline_fp_biofuel_online['Value'] * gasoline_fp_biofuel_online['Ratio'] * gasoline_fp_biofuel_online['Biofuel Ratio']
+    gasoline_fp_biofuel_online.loc[:, 'Energy carrier' ] = energy_carriers
+    gasoline_fp_biofuel_online.loc[:, 'Energy carrier type' ] = energy_carrier_types
+    gasoline_fp_biofuel_online.loc[:, 'Case' ] = 'Mitigation'
+    gasoline_fp_biofuel_online.loc[:,'Mitigation Case' ] = 'Biofuels, Gasoline'
+    gasoline_fp_biofuel_online.loc[:,'Fuel Pool' ] = 'Gasoline'
+    gasoline_fp_biofuel_online.drop(columns = {'Ratio','Biofuel', 'Biofuel type','Biofuel Ratio'}, inplace = True)
+    
+    activity_ref_mtg = save_activity_mx(activity_ref_mtg, gasoline_fp_biofuel_online, save_interim_files)
+
+activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'energy_demand_test_gasoline.csv')
+
+
+# Subset on Biofuel Mitigation Strategies
+mtg_biofuels = activity_ref_mtg.loc[(activity_ref_mtg['Case'] == 'Mitigation') &
+                                       (activity_ref_mtg['Mitigation Case'].isin(['Biofuels, SAF',
+                                                                                  'Biofuels, Diesel',
+                                                                                  'Biofuels, Gasoline'])), : ]
+# Ensure that only non-electric entries are selected
+mtg_biofuels = mtg_biofuels.loc[~(mtg_biofuels['Energy carrier'] == 'Electricity'), : ]
+
+# Merge GREET correspondence table
+mtg_biofuels = pd.merge(mtg_biofuels, corr_EF_GREET, how='left', 
+                               on=['Sector', 'Scope', 'Subsector', 'Energy carrier', 'Energy carrier type', 
+                                   'End Use Application']).reset_index(drop=True)
+
+# Merge GREET EF
+mtg_biofuels = pd.merge(mtg_biofuels, ob_ef.ef_raw, 
+                           how='left', on=['Case', 'Scope', 'Year', 'GREET Pathway'])
+
+mtg_biofuels.rename(columns={'Unit (Denominator)' : 'Energy Unit',
+                           'Reference case' : 'CI'}, inplace=True)
+
+# Drop Unnecessary columns
+mtg_biofuels.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
+
+# Drop Unnecessary columns
+mtg_biofuels['Total Emissions'] = mtg_biofuels['Value'] * mtg_biofuels['CI']
+
+# Calculate LCIA metric
+mtg_biofuels = pd.merge(mtg_biofuels, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+mtg_biofuels['LCIA_estimate'] = mtg_biofuels['Total Emissions'] * mtg_biofuels['GWP']
+mtg_biofuels.rename(columns={'Unit (Numerator)' : 'Emissions Unit'}, inplace=True)
+
+# unit conversions
+mtg_biofuels.loc[~mtg_biofuels['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']] = \
+  ob_units.unit_convert_df(mtg_biofuels.loc[~mtg_biofuels['Emissions Unit'].isnull(), ['Emissions Unit', 'LCIA_estimate']],
+   Unit = 'Emissions Unit', Value = 'LCIA_estimate',          
+   if_given_category=True, unit_category = 'Emissions')
+
+mtg_biofuels = pd.merge(mtg_biofuels, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+  
+# Create rest of the empty columns
+mtg_biofuels [ list(( Counter(activity_BAU.columns) - Counter(mtg_biofuels.columns )).elements()) ] = '-'
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_biofuels], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time)) 
+
+#%%
+"""
+Calculate LULUCF Impacts from Biofuel Mitigation Strategy
+
+"""
+
+print("Status: Constructing Biofuel LULUCF Impacts ..")
+
+#activity_BAU.head()
+#activity_BAU.columns.to_list()
+
+activity_BAU = activity_BAU[['Case',
+                             'Mitigation Case',
+                             'Sector',
+                             'Subsector',
+                             'End Use Application',
+                             'Scope',
+                             'Energy carrier',
+                             'Energy carrier type',
+                             'Basis',
+                             'Fuel Pool',
+                             'Year',
+                             'Formula',
+                             'Emissions Category, Detailed',
+                             'Emissions Category, Aggregate',
+                             'Emissions Unit',
+                             'Total Emissions',
+                             'LCIA_estimate']]
+
+# Aboveground Carbon Stock Changes from Biomass Resources
+#activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'test.csv')
+# Carbon fraction Biofuels
+temp_df = activity_ref_mtg.copy()
+
+# Determine Change in Aboveground Carbon Stocks, based on differences in fuel consumption
+temp_df = pd.merge(temp_df,corr_carbon_content_biofuels, how = 'inner')
+temp_df['LULUCF'] = temp_df['Value'] * temp_df['Carbon Content (MMmt CO2 / MMBtu)']
+temp_df = temp_df[['Energy carrier', 'Energy carrier type', 'Case', 'Value', 'Year', 'LULUCF']]
+
+mit_case_biofuels = temp_df.groupby(['Year'], as_index = False)['LULUCF'].sum()
+mit_case_biofuels['Change in Abv C Stock_Mit'] =  mit_case_biofuels['LULUCF']
+
+# Append Updates to Env Matrix
+mit_case_biofuels = mit_case_biofuels.drop(columns = {'LULUCF'})
+mit_case_biofuels = mit_case_biofuels.rename(columns = {'Change in Abv C Stock_Mit': 'LCIA_estimate'})
+mit_case_biofuels['Case'] = 'Mitigation'
+mit_case_biofuels['Mitigation Case'] = 'Biofuels, Changes in Above C stock'
+mit_case_biofuels['Sector'] = 'LULUCF'
+mit_case_biofuels['Subsector'] = 'Changes in Aboveground C stock'
+mit_case_biofuels['End Use Application'] = '-'
+mit_case_biofuels['Scope'] = 'Direct, Non-Combustion'
+mit_case_biofuels['Energy carrier'] = '-'
+mit_case_biofuels['Energy carrier type'] = '-'
+mit_case_biofuels['Basis'] = '-'
+mit_case_biofuels['Fuel Pool'] = '-'
+mit_case_biofuels['Formula'] = 'CO2'
+mit_case_biofuels['Emissions Category, Detailed'] = 'CO2'
+mit_case_biofuels['Emissions Category, Aggregate'] = 'CO2'
+mit_case_biofuels['Emissions Unit'] = 'mmmt'
+mit_case_biofuels['Total Emissions'] = mit_case_biofuels['LCIA_estimate']
+
+activity_BAU = pd.concat([activity_BAU, mit_case_biofuels], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+
+'''
+Use the following code if changes are made to which biofuel pools are considered in the calculation of 'Above Ground Biomass'
+
+baseline_case_biofuels = temp_df[(temp_df['Case'] == 'Reference case') & (temp_df['Year'] == 2020)]
+baseline_case_biofuels =  baseline_case_biofuels.groupby(['Year'], as_index = False)['LULUCF'].sum()
+
+ref_case_biofuels = temp_df[(temp_df['Case'] == 'Reference case')]
+ref_case_biofuels = ref_case_biofuels.groupby(['Year'], as_index = False)['LULUCF'].sum()
+ref_case_biofuels['Change in Abv C Stock_Ref'] =  ref_case_biofuels['LULUCF'] - baseline_case_biofuels.loc[0,'LULUCF']
+
+mit_case_biofuels = temp_df.groupby(['Year'], as_index = False)['LULUCF'].sum()
+mit_case_biofuels = pd.merge(mit_case_biofuels, ref_case_biofuels[['Change in Abv C Stock_Ref', 'Year']], how = 'left', on = 'Year')
+mit_case_biofuels['Change in Abv C Stock_Mit'] =  mit_case_biofuels['LULUCF'] - mit_case_biofuels['Change in Abv C Stock_Ref']
+
+# Append Updates to Env Matrix
+ref_case_biofuels = ref_case_biofuels.drop(columns = {'LULUCF'})
+ref_case_biofuels = ref_case_biofuels.rename(columns = {'Change in Abv C Stock_Ref': 'LCIA_estimate'})
+ref_case_biofuels['Case'] = 'Reference case'
+ref_case_biofuels['Mitigation Case'] = '-'
+ref_case_biofuels['Sector'] = 'LULUCF'
+ref_case_biofuels['Subsector'] = 'Changes in Aboveground C stock'
+ref_case_biofuels['End Use Application'] = '-'
+ref_case_biofuels['Scope'] = 'Direct, Non-Combustion'
+ref_case_biofuels['Energy carrier'] = '-'
+ref_case_biofuels['Energy carrier type'] = '-'
+ref_case_biofuels['Basis'] = '-'
+ref_case_biofuels['Fuel Pool'] = '-'
+ref_case_biofuels['Formula'] = 'CO2'
+ref_case_biofuels['Emissions Category, Detailed'] = 'CO2'
+ref_case_biofuels['Emissions Category, Aggregate'] = 'CO2'
+ref_case_biofuels['Emissions Unit'] = 'mmmt'
+ref_case_biofuels['Total Emissions'] = ref_case_biofuels['LCIA_estimate']
+
+activity_BAU = pd.concat([activity_BAU, ref_case_biofuels], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+# Append Updates to Env Matrix
+mit_case_biofuels = mit_case_biofuels.drop(columns = {'LULUCF',
+                                                      'Change in Abv C Stock_Ref'})
+mit_case_biofuels = mit_case_biofuels.rename(columns = {'Change in Abv C Stock_Mit': 'LCIA_estimate'})
+mit_case_biofuels['Case'] = 'Mitigation'
+mit_case_biofuels['Mitigation Case'] = 'Biofuels'
+mit_case_biofuels['Sector'] = 'LULUCF'
+mit_case_biofuels['Subsector'] = 'Changes in Aboveground C stock'
+mit_case_biofuels['End Use Application'] = '-'
+mit_case_biofuels['Scope'] = 'Direct, Non-Combustion'
+mit_case_biofuels['Energy carrier'] = '-'
+mit_case_biofuels['Energy carrier type'] = '-'
+mit_case_biofuels['Basis'] = '-'
+mit_case_biofuels['Fuel Pool'] = '-'
+mit_case_biofuels['Formula'] = 'CO2'
+mit_case_biofuels['Emissions Category, Detailed'] = 'CO2'
+mit_case_biofuels['Emissions Category, Aggregate'] = 'CO2'
+mit_case_biofuels['Emissions Unit'] = 'mmmt'
+mit_case_biofuels['Total Emissions'] = mit_case_biofuels['LCIA_estimate']
+
+activity_BAU = pd.concat([activity_BAU, mit_case_biofuels], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+'''
+
+# Consider GHG Emissions from SOC from Cellulosic Biomass
+
+cellulosic_etoh = activity_ref_mtg.copy()
+cellulosic_etoh = cellulosic_etoh[cellulosic_etoh['Case'] == 'Mitigation']
+cellulosic_etoh = cellulosic_etoh.loc[(cellulosic_etoh['Energy carrier type'].isin(['Ethanol, Cellulosic', 'ETJ, Cellulosic ethanol'])) & \
+                             (~activity_ref_mtg['Energy carrier'].isin(['Renewable Diesel', 'Renewable Gasoline'])), : ]
+ 
+# Calculate cellulosic fuel yields (Metric Tonnes Dry Biomass / MMBtu Fuel)
+fuel_yields = pd.DataFrame(data = [('Ethanol, Cellulosic', 0.150),
+                                   ('ETJ, Cellulosic ethanol', 0.215)],
+                           columns = ['Energy carrier type', 'Fuel Yield'])
+
+cellulosic_etoh = pd.merge(cellulosic_etoh,fuel_yields, how = 'left', on = 'Energy carrier type')
+
+# Biomass yield (ha / Dry Metric Tonne) --> Assume 2 dt/ac for Corn Stover (Based on BT16) --> 0.20 ha / dry MT 
+biomass_yield = {'Corn Stover': 0.22}
+
+cellulosic_etoh['Biomass'] = cellulosic_etoh['Value'] * cellulosic_etoh['Fuel Yield'] * biomass_yield['Corn Stover']
+
+# SOC Changes from Cellulosic Biomass [Units MMmt CO2] --> Assumes 0.19 MT C / (ha-yr) x 44/12 (convert from C to CO2) x 10^-6 (Convert from MT to MMmt)
+soc_changes = {'Corn Stover': 6.9667*10**-7}
+
+cellulosic_etoh['SOC Change'] = cellulosic_etoh['Biomass'] * soc_changes['Corn Stover']
+
+mit_case_etoh_soc = cellulosic_etoh[['Year', 'SOC Change']]
+mit_case_etoh_soc = mit_case_etoh_soc.rename(columns = {'SOC Change': 'LCIA_estimate'})
+mit_case_etoh_soc['Case'] = 'Mitigation'
+mit_case_etoh_soc['Mitigation Case'] = 'Biofuels, SOC Change'
+mit_case_etoh_soc['Sector'] = 'LULUCF'
+mit_case_etoh_soc['Subsector'] = 'Cropland Remaining Cropland'
+mit_case_etoh_soc['End Use Application'] = '-'
+mit_case_etoh_soc['Scope'] = 'Direct, Non-Combustion'
+mit_case_etoh_soc['Energy carrier'] = '-'
+mit_case_etoh_soc['Energy carrier type'] = '-'
+mit_case_etoh_soc['Basis'] = '-'
+mit_case_etoh_soc['Fuel Pool'] = '-'
+mit_case_etoh_soc['Formula'] = 'CO2'
+mit_case_etoh_soc['Emissions Category, Detailed'] = 'CO2'
+mit_case_etoh_soc['Emissions Category, Aggregate'] = 'CO2'
+mit_case_etoh_soc['Emissions Unit'] = 'mmmt'
+mit_case_etoh_soc['Total Emissions'] = mit_case_etoh_soc['LCIA_estimate']
+
+activity_BAU = pd.concat([activity_BAU, mit_case_etoh_soc], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+#%%
+"""
+Reduce Emissions from Natural Gas Systems / Abandoned Mines / Landfills
+
+"""
+
+print("Status: Post processing Results DataFrames ..")
+
+# Reduce Methane emissions from Natural Gas / Petroleum Systems
+
+temp_list = []
+
+years = list(range(2020, 2051))
+for year in years:
+    start_yr = 2020 
+    end_yr = 2050
+    min_val = 0 
+    max_val = 0.30
+    k = 0.5
+    a = 1
+    x_0 = int ( (start_yr + end_yr) /2 )
+    val = min_val + (max_val - min_val) * pow((1 / (1 + np.exp( -k * (year - x_0)))), a) 
+    temp_list.append(val)
+
+ch4_mit_rate_og = pd.DataFrame(data = list(zip(temp_list, years)), columns = ['Methane Reduction %', 'Year'] )
+
+mtg_og_ch4 = activity_BAU.copy()
+mtg_og_ch4 = pd.merge(activity_BAU, ch4_mit_rate_og, how = 'left', on = 'Year')
+mtg_og_ch4 = mtg_og_ch4.loc[(mtg_og_ch4['Formula'] == 'CH4') \
+                                      & (mtg_og_ch4['Case'] == 'Reference case') \
+                                      & (mtg_og_ch4['Scope'] == 'Direct, Non-Combustion') \
+                                      & (mtg_og_ch4['Subsector'].isin(['Natural Gas Systems', 'Petroleum Systems'])), : ]
+
+mtg_og_ch4['LCIA_estimate'] = -mtg_og_ch4['LCIA_estimate'] * mtg_og_ch4['Methane Reduction %'] 
+mtg_og_ch4['Case'] = 'Mitigation'
+mtg_og_ch4['Mitigation Case'] = 'Reduction in Fugitive Methane emissions from O&G'
+
+
+mtg_og_ch4.drop(columns = {'Methane Reduction %'}, inplace = True)
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_og_ch4], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+# Reduce Methane emissions from Abandoned Wells
+temp_list = []
+
+years = list(range(2020, 2051))
+for year in years:
+    start_yr = 2020 
+    end_yr = 2050
+    min_val = 0 
+    max_val = 1
+    k = 0.5
+    a = 1
+    x_0 = int ( (start_yr + end_yr) /2 )
+    val = min_val + (max_val - min_val) * pow((1 / (1 + np.exp( -k * (year - x_0)))), a) 
+    temp_list.append(val)
+
+ch4_mit_rate_ab_wells = pd.DataFrame(data = list(zip(temp_list, years)), columns = ['Methane Reduction %', 'Year'] )
+
+mtg_ab_wells_ch4 = activity_BAU.copy()
+mtg_ab_wells_ch4 = pd.merge(activity_BAU, ch4_mit_rate_ab_wells, how = 'left', on = 'Year')
+mtg_ab_wells_ch4 = mtg_ab_wells_ch4.loc[(mtg_ab_wells_ch4['Formula'] == 'CH4') \
+                                      & (mtg_ab_wells_ch4['Case'] == 'Reference case') \
+                                      & (mtg_ab_wells_ch4['Scope'] == 'Direct, Non-Combustion') \
+                                      & (mtg_ab_wells_ch4['Subsector'].isin(['Abandoned Oil and Gas Wells'])), : ]
+
+mtg_ab_wells_ch4['LCIA_estimate'] = -mtg_ab_wells_ch4['LCIA_estimate'] * mtg_ab_wells_ch4['Methane Reduction %'] 
+mtg_ab_wells_ch4['Case'] = 'Mitigation'
+mtg_ab_wells_ch4['Mitigation Case'] = 'Reduction in Fugitive Methane emissions from Abandoned Wells'
+
+mtg_ab_wells_ch4.drop(columns = {'Methane Reduction %'}, inplace = True)
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_ab_wells_ch4], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+    
+# Reduce Methane emissions from Landills
+
+biofuel_lfg = biofuel_jet.loc[biofuel_jet['Biofuel type'].isin(['FT-Synthesis, Landfill gas']), : ].copy()
+biofuel_lfg['Frac'] = biofuel_lfg['Biofuel Value'] / biofuel_lfg['Biofuel Value'].max()
+biofuel_lfg[['Year', 'Frac']]
+            
+mtg_lfg = activity_BAU.copy()
+mtg_lfg = pd.merge(activity_BAU, biofuel_lfg, how = 'left', on = 'Year')
+mtg_lfg = mtg_lfg[(mtg_lfg['Formula'] == 'CH4') \
+                                     & (mtg_lfg['Case'] == 'Reference case') \
+                                     & (mtg_lfg['Scope'] == 'Direct, Non-Combustion') \
+                                     & (mtg_lfg['Subsector'].isin(['Landfills']))]
+
+mtg_lfg['LCIA_estimate'] = -mtg_lfg['LCIA_estimate'] * mtg_lfg['Frac'] 
+mtg_lfg['Case'] = 'Mitigation'
+mtg_lfg['Mitigation Case'] = 'Biofuels, Reduction in Fugitive Methane Emissions from Landfills'
+
+mtg_lfg.drop(columns = {'Frac'}, inplace = True)
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_lfg], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time)) 
+
+
+#%%
+"""
+Post Processing
+
+"""
+print("Status: Add in GREET Supply Chain Impacts ..")
+
+# Calculate GREET EF's as a function of Carbon Intensity (CI) of Electricity
+elec_ci = elec_gen_em_agg[['Case', 
+                           'Year',
+                           'Formula',
+                           'CI']]
+
+elec_ci = elec_ci[(elec_ci['Case'] == 'Mitigation') & ~(elec_ci['Formula'] == 'SF6')]
+
+elec_ci = elec_ci[['Year',
+                   'Formula',
+                   'CI']]
+
+greet_ts_ef = pd.merge(ef_greet_supply_chain, elec_ci, how = 'left', on = ['Year', 'Formula'])
+greet_ts_ef['EF'] = greet_ts_ef['Zero Elec Comb'] + greet_ts_ef['CI'] * greet_ts_ef['Factor']
+
+# Filter End Demand matrix to consider non-electricity flows (electricity-based impacts will be handeled seperately)
+test = activity_ref_mtg.copy()
+test = test[(test['Case'] == 'Mitigation')]
+test = test[(test['Case'] == 'Mitigation') & \
+                  ~(test['Energy carrier'] == 'Electricity')]
+
+
+temp_df = activity_ref_mtg.copy()
+temp_df = temp_df[(temp_df['Case'] == 'Mitigation') & \
+                  ~(temp_df['Energy carrier'] == 'Electricity')]
+temp_df['Scope'] = "Supply Chain"
+
+temp_df_merge = pd.merge(temp_df, corr_ef_greet_supply_chain, how = 'left', on = ['Sector',
+                                                    'Subsector',
+                                                    'Scope',
+                                                    'Energy carrier',
+                                                    'Energy carrier type',
+                                                    'End Use Application'])
+
+temp_df_merge = temp_df_merge[~(temp_df_merge['GREET Pathway'].isnull())]
+
+temp_df_merge = pd.merge(temp_df_merge, greet_ts_ef, how = 'left', on = ['GREET Pathway',
+                                                     'Year',
+                                                     'Case',
+                                                     'Scope']
+                                                     )
+
+temp_df_merge['Total Emissions'] = temp_df_merge['Value'] * temp_df_merge['EF']                                                       
+temp_df_merge['Total Emissions'] = temp_df_merge['Total Emissions'] *(10**-12) # convert from g to MMmt
+
+mtg_supply_chain = pd.merge(temp_df_merge, lcia_select, how='left', left_on=['Formula'], right_on=['Emissions Type'] ).reset_index(drop=True)
+mtg_supply_chain['LCIA_estimate'] = mtg_supply_chain['Total Emissions'] * mtg_supply_chain['GWP']
+
+# Concatenating to main Environment matrix
+activity_BAU = pd.concat([activity_BAU, mtg_supply_chain], axis=0).reset_index(drop=True)
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+#activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'test.csv')
+
+#%%
+"""
+Post Processing
+
+"""
+
+print("Status: Reformatting Results Dataframes ..")
+
+# Map flows to new 'Waste' sector 
+
+# Create list of specific waste sources
+wastes = ['Anaerobic Digestion at Biogas Facilities',
+          'Composting',
+          'Landfills',
+          'Wastewater Treatment and Discharge']
+
+for waste in wastes:
+    activity_BAU.loc[(activity_BAU['Subsector'] == waste), 'Sector'] = 'Waste'
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+
+# Map Non-Combustion Sources to Specific Inventory Sectors
+
+for i, (ghgi_sectors, 
+        ghgi_subsectors,
+        eere_subsectors,
+        eere_end_use) in enumerate(zip(corr_ghgi_sources_EERE['Sector'],
+                                       corr_ghgi_sources_EERE['Subsector'],
+                                       corr_ghgi_sources_EERE['DECARB_Subsector'],
+                                       corr_ghgi_sources_EERE['DECARB_End Use Application']
+                                       )):                                       
+                                       activity_BAU.loc[((activity_BAU['Sector'] == ghgi_sectors) & (activity_BAU['Subsector'] == ghgi_subsectors)), 'End Use Application' ] = eere_end_use
+
+
+for i, (ghgi_sectors, 
+        ghgi_subsectors,
+        eere_subsectors,
+        eere_end_use) in enumerate(zip(corr_ghgi_sources_EERE['Sector'],
+                                       corr_ghgi_sources_EERE['Subsector'],
+                                       corr_ghgi_sources_EERE['DECARB_Subsector'],
+                                       corr_ghgi_sources_EERE['DECARB_End Use Application']
+                                       )):
+                                       activity_BAU.loc[((activity_BAU['Sector'] == ghgi_sectors) & (activity_BAU['Subsector'] == ghgi_subsectors)), 'Subsector' ] = eere_subsectors
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
+# Use 'Assigned' Column
+
+col_names = ['Sector', 'Scope', 'Assigned Sector']
+
+data = [('Agriculture', 'Direct, Combustion', 'Agriculture'),
+        ('Agriculture', 'Direct, Non-Combustion', 'Agriculture'),
+        ('Agriculture', 'Electricity, Combustion', 'Agriculture'),
+        ('Agriculture', 'Supply Chain', 'Industrial'),
+        ('Residential', 'Direct, Combustion', 'Residential'),
+        ('Residential', 'Direct, Non-Combustion', 'Residential'),
+        ('Residential', 'Electricity, Combustion', 'Residential'),
+        ('Residential', 'Supply Chain', 'Industrial'),
+        ('Commercial', 'Direct, Combustion', 'Commercial'),
+        ('Commercial', 'Direct, Non-Combustion', 'Commercial'),
+        ('Commercial', 'Electricity, Combustion', 'Commercial'),
+        ('Commercial', 'Supply Chain', 'Industrial'),
+        ('Industrial', 'Direct, Combustion', 'Industrial'),
+        ('Industrial', 'Direct, Non-Combustion', 'Industrial'),
+        ('Industrial', 'Electricity, Combustion', 'Industrial'),
+        ('Industrial', 'Supply Chain', 'Industrial'),
+        ('Transportation', 'Direct, Combustion', 'Transportation'),
+        ('Transportation', 'Direct, Non-Combustion', 'Transportation'),
+        ('Transportation', 'Electricity, Combustion', 'Transportation'),
+        ('Transportation', 'Supply Chain', 'Industrial'),
+        ('LULUCF', 'Direct, Combustion', 'LULUCF'),
+        ('LULUCF', 'Direct, Non-Combustion', 'LULUCF'),
+        ('LULUCF', 'Electricity, Combustion', 'LULUCF'),
+        ('LULUCF', 'Supply Chain', 'Industrial'),
+        ('Waste', 'Direct, Combustion', 'Waste'),
+        ('Waste', 'Direct, Non-Combustion', 'Waste'),
+        ('Waste', 'Electricity, Combustion', 'Waste'),
+        ('Waste', 'Supply Chain', 'Industrial')]
+
+assign_sectors = pd.DataFrame(data = data, columns = col_names)
+
+activity_BAU = pd.merge(activity_BAU, assign_sectors, how = 'left', on = ['Sector', 'Scope'])
+
+# apply mask for aggregated and disaggregated emissions types
+
+activity_BAU = activity_BAU.drop(columns = {'Emissions Category, Detailed',
+                                            'Emissions Category, Aggregate'})
+
+activity_BAU = pd.merge(activity_BAU, corr_ghgs, how = 'left', on = 'Formula')
+
+cols_env_out_v2 = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
+                'Scope', 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
+                'Year', 'Formula', 'Emissions Category, Detailed', 'Emissions Category, Aggregate',
+                'Emissions Unit', 'Total Emissions', 'LCIA_estimate', 'Assigned Sector']                        
+
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out_v2].to_csv(output_path_prefix + '\\' + f_out_env)
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time)) 
 

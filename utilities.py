@@ -185,6 +185,48 @@ class Utilities:
         return  1 / (1 + ( (1 - vol_H2) * LHV_NG / (vol_H2 * LHV_H2) ) )
     
     def fuel_switching_H2NG (self,
+                        df, colname_value, colname_energy_carrier, colname_energy_carrier_type,
+                        to_energy_carrier, to_energy_carrier_type,
+                        min_val,
+                        max_val,
+                        k = 0.5,
+                        start_yr = 2020,
+                        end_yr = 2050,
+                        a = 1):
+        
+        h2_energy_frac = []
+        years = list(range(start_yr, end_yr + 1))
+        x_0 = int ( (start_yr + end_yr) /2 )
+        
+        for x in years:    
+            val = min_val + (max_val - min_val) * pow ((1 / (1 + np.exp( -k * (x - x_0)))), a) 
+            energy_frac = self.calc_H2_by_energy_NG(vol_H2 = val)
+            h2_energy_frac.append(energy_frac)
+        
+        # Calculate Adoption Rate
+        adoption_rate = pd.DataFrame(list(zip(h2_energy_frac, years)), columns = ['Frac', 'Year']) 
+        
+        # Fuel Switching
+        df_temp = df.copy()
+        df_temp = pd.merge(df_temp, adoption_rate, how =  'left', on = 'Year')
+        df_fs = df_temp.copy()
+        df_fs[colname_value] = df_fs[colname_value] * df_fs['Frac']
+        df_fs[colname_energy_carrier] = to_energy_carrier
+        df_fs[colname_energy_carrier_type] = to_energy_carrier_type
+                        
+        # Rows to subtract existing fuels
+        df_fs_sub = df_temp.copy()
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['Frac']       
+        
+        df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
+        
+        df.drop(columns=['Frac'], inplace=True)
+        
+        return df
+
+# GGZ Bug was found in fuel_switching script. Insufficient time to revise code, new function created instead
+    '''    
+    def fuel_switching_H2NG (self,
                         df, colname_time, colname_value, colname_energy_carrier, colname_energy_carrier_type,
                         to_energy_carrier, to_energy_carrier_type,
                         trend_start_val,
@@ -226,4 +268,4 @@ class Utilities:
         
         return df 
     
-    
+'''    
