@@ -762,6 +762,27 @@ if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
+# GGZ: Maping Energy Demand Matrix so that the flows use the SCOUT conventions.
+
+activity_ref_mtg = pd.merge(activity_ref_mtg, 
+         corr_EIA_SCOUT[['Sector', 'Subsector', 'EIA: End Use Application', 'SCOUT: End Use Application', 
+                         'EIA: Energy carrier', 'EIA: Energy carrier type', 'Energy carrier', 'Energy carrier type']].drop_duplicates(), 
+         how='left', 
+         left_on=['Sector', 'Subsector', 'End Use Application', 'Energy carrier', 'Energy carrier type'], 
+         right_on=['Sector', 'Subsector', 'EIA: End Use Application', 'EIA: Energy carrier', 'EIA: Energy carrier type'])
+
+activity_ref_mtg.loc[activity_ref_mtg['SCOUT: End Use Application'].notnull(),'End Use Application'] = activity_ref_mtg.loc[activity_ref_mtg['SCOUT: End Use Application'].notnull(),'SCOUT: End Use Application']
+activity_ref_mtg.loc[activity_ref_mtg['Energy carrier_y'].notnull(),'Energy carrier_x'] = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier_y'].notnull(),'Energy carrier_y']
+activity_ref_mtg.loc[activity_ref_mtg['Energy carrier type_y'].notnull(),'Energy carrier type_x'] = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier type_y'].notnull(),'Energy carrier type_y']
+
+activity_ref_mtg = activity_ref_mtg.drop(columns = {'EIA: End Use Application',
+       'SCOUT: End Use Application', 'EIA: Energy carrier',
+       'EIA: Energy carrier type', 'Energy carrier_y',
+       'Energy carrier type_y'})
+
+activity_ref_mtg = activity_ref_mtg.rename(columns = {'Energy carrier_x': 'Energy carrier',
+                         'Energy carrier type_x': 'Energy carrier type'})
+
 print( 'Elapsed time: ' + str(datetime.now() - init_time))
 
 #%%
@@ -1089,8 +1110,8 @@ Id_mtg_params = {'mtg_paper' : 0.32, # target efficiency improvement across all 
                  'mtg_ironandsteel' : 0.13 } # target efficiency improvenent of iron and steel industry 
 ef_mtg_clinker_replace = 0 # mt CO2 emissions per mt CO2 clinker production
 
-Id_mtg_switching = {'mtg_NG_to_H2' : 1, # target switching of NG to H2, default 0.3
-                    'mtg_NG_to_H2_refineries' : 1.0,
+Id_mtg_switching = {'mtg_NG_to_H2' : 0.3, # target switching of NG to H2, default 0.3
+                    'mtg_NG_to_H2_refineries' : 0.7,
                     'mtg_NG_to_H2_ironandsteel' : 0.3, # target switching of NG to H2
                     'mtg_fossilH2_to_renewableH2' : 1.0} # target implementation of renewable H2 in place of fossil hydrogen
 
