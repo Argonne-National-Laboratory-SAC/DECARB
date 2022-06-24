@@ -1510,7 +1510,7 @@ tempdf.loc[ : , ['Emissions Unit', 'Total Emissions']] = \
 
 # Replacing the existing reference case for Cement and Lime with calculated reference case
 activity_non_combust_oth = ob_EPA_GHGI.activity_non_combust_exp.loc[~((ob_EPA_GHGI.activity_non_combust_exp['Sector'] == 'Industrial') & 
-                                                                       (ob_EPA_GHGI.activity_non_combust_exp['Subsector'] == 'Cement and Lime Industry') ), : ]
+                                                                      (ob_EPA_GHGI.activity_non_combust_exp['Subsector'] == 'Cement and Lime Industry') ), : ]
 tempdf[['Energy carrier', 'Energy carrier type']] = '-'
 ob_EPA_GHGI.activity_non_combust_exp = pd.concat([activity_non_combust_oth, tempdf[activity_non_combust_oth.columns]], axis=0).reset_index(drop=True)
 del tempdf
@@ -1929,7 +1929,7 @@ mtg_global[['Data Source', 'AEO Case', 'Basis', 'Generation Type', 'Fuel Pool']]
 mtg_global['Unit'] = 'MMBtu'
 mtg_global['Scope'] = 'Direct, Combustion'
                             
-# Implementing fuel switching, Steam Coal to Natural Gas, after implementing efficiency improvements
+# Implementing fuel switching, Steam Coal to Natural Gas
 mtg_global = \
     ob_utils.fuel_switching(mtg_global,
                             'Year', 'Value', 'Energy carrier', 'Energy carrier type', 

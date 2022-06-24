@@ -17,6 +17,9 @@ Summary: This python script writes the output data to the Excel Dashboard
 import pandas as pd
 import xlwings as xw
 from xlwings.constants import DeleteShiftDirection
+from datetime import datetime
+
+init_time = datetime.now()
 
 # Set file paths, file names and read output data files
 
@@ -35,7 +38,7 @@ f_elec_net_gen = 'interim_elec_gen.csv'
 f_elec_env = 'interim_elec_gen_env.csv'
 f_elec_CI = 'interim_elec_gen_CI.csv'
 
-f_dashboard = 'US Decarbonization Tool_04_20 - Copy.xlsx'
+f_dashboard = 'US Decarbonization Tool - test.xlsx'
 
 activity =  pd.read_csv(output_path_prefix + '\\' + f_activity, index_col=0)    
 env = pd.read_csv(output_path_prefix + '\\' + f_env, index_col=0)
@@ -86,5 +89,8 @@ wb.close()
 app.quit()
 
 print("Status: Writing to Dashboard completed!")
+
+
+print( 'Elapsed time: ' + str(datetime.now() - init_time)) 
 
 #%%
