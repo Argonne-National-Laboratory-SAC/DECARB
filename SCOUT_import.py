@@ -21,7 +21,8 @@ class SCOUT:
         self.input_path_SCOUT = input_path_SCOUT
         self.input_path_corr = input_path_corr
         
-        self.f_name = 'scenario_3-1_savings_SA_data_request_v3.xlsx'
+        #self.f_name = 'scenario_3-1_savings_SA_data_request_v3.xlsx'
+        self.f_name = 'scenario_3-1_savings_SA_data_request_061722.xlsx'
         
         self.f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
         self.sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
@@ -60,6 +61,10 @@ class SCOUT:
                           (self.df_scout['Sector'] == 'Residential'), 'Mitigation Case'] = 'Residential: Fuel switching'
         self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'FS') & 
                           (self.df_scout['Sector'] == 'Commercial'), 'Mitigation Case'] = 'Commercial: Fuel switching'
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_of_FS') & 
+                          (self.df_scout['Sector'] == 'Residential'), 'Mitigation Case'] = 'Residential: Energy efficiency of Fuel switching'
+        self.df_scout.loc[(self.df_scout['Mitigation Case'] == 'EE_of_FS') & 
+                          (self.df_scout['Sector'] == 'Commercial'), 'Mitigation Case'] = 'Commercial: Energy efficiency of Fuel switching'
         self.df_scout_test = self.df_scout.copy()        
         # unit conversion
         self.df_scout[['Units', 'Value']] = self.ob_units.unit_convert_df ( self.df_scout[['Units', 'Value']],
