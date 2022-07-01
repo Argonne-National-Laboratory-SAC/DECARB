@@ -144,6 +144,7 @@ import pandas as pd
 import numpy as np
 import os
 from datetime import datetime
+from collections import Counter
 
 # Import user defined modules
 os.chdir(code_path_prefix)
@@ -159,7 +160,7 @@ from GREET_EF_import import GREET_EF
 from unit_conversions import model_units   
 from utilities import Utilities
 from CCS_implementation import CCS_implementation
-from collections import Counter
+
 
 #%%
 # Utility functions
@@ -1393,7 +1394,7 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, bulk_chem_ef, save_interim
 # Implement Fuel Switching {all} to Electricity for 61% (process heating) x 30% (low quality heat) of all fuel uses (except green ammonia) to Electricity
 bulk_chem_fs = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Bulk Chemical Industry'), : ]
-bulk_chem_fs = bulk_chem_fs.loc[bulk_chem_fs['Mitigation Case'] != 'Bulk Chenical Industry, Green Ammonia', : ]
+bulk_chem_fs = bulk_chem_fs.loc[bulk_chem_fs['Mitigation Case'] != 'Bulk Chemical Industry, Green Ammonia', : ]
 bulk_chem_fs = bulk_chem_fs.fillna(value='-')
 bulk_chem_fs = bulk_chem_fs.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
@@ -1474,7 +1475,7 @@ ghgi_mtg_am['mtg_frac'] = [ob_utils.trend_2d_ammonia(x) for x in ghgi_mtg_am['Ye
 ghgi_mtg_am['Total Emissions'] = -1 * ghgi_mtg_am['Total Emissions'] * ghgi_mtg_am['mtg_frac'] # reduction in GHGI emissions due to ammonia production
 
 ghgi_mtg_am['Case'] = 'Mitigation'
-ghgi_mtg_am['Mitigation Case'] = 'Bulk Chenical Industry, Green Ammonia'
+ghgi_mtg_am['Mitigation Case'] = 'Bulk Chemical Industry, Green Ammonia'
 ghgi_mtg_am.loc[ghgi_mtg_am['Energy carrier'] == 'Electricity', 'Scope'] = 'Electricity, Non-Combustion'
 ghgi_mtg_am.loc[ghgi_mtg_am['Energy carrier'] != 'Electricity', 'Scope'] = 'Direct, Non-Combustion'
 
