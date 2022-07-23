@@ -2183,14 +2183,14 @@ conv_fuel_agg = conv_fuel_agg.rename(columns = {'Value':'Petroleum'})
 conv_fuel_agg = pd.merge(biofuel_sub_agg, conv_fuel_agg, how='left', on = ['Year']).reset_index(drop=True)
 conv_fuel_agg['Ratio'] = conv_fuel_agg['Agg Biofuel Value'] / conv_fuel_agg['Petroleum'] 
 
-# Petroleum Jet Fuel Comming Offline
+# Diesel like fuel going offline
 mtg_biof = pd.merge(conv_fuel, conv_fuel_agg[['Year', 'Ratio']], how = 'left', on = 'Year').reset_index(drop=True)
 mtg_biof_off = mtg_biof.copy()
 mtg_biof_off['Value'] = mtg_biof_off['Value'] * mtg_biof_off['Ratio'] * -1
-mtg_biof_off.loc[:, 'Case' ] = 'Mitigation'
-mtg_biof_off.loc[:,'Mitigation Case' ] = 'Biofuels, Diesel'
-mtg_biof_off.loc[:,'Fuel Pool' ] = 'Diesel'
-mtg_biof_off.loc[:, 'Unit'] = 'mmbtu'
+mtg_biof_off['Case' ] = 'Mitigation'
+mtg_biof_off['Mitigation Case' ] = 'Biofuels, Diesel'
+mtg_biof_off['Fuel Pool' ] = 'Diesel'
+mtg_biof_off['Unit'] = 'mmbtu'
 mtg_biof_off.drop(columns = {'Ratio'}, inplace = True)
 
 # Update Energy Demand Matrix
@@ -2289,10 +2289,9 @@ mtg_biofuels = pd.merge(mtg_biofuels, ob_ef.ef_raw,
 mtg_biofuels.rename(columns={'Unit (Denominator)' : 'Energy Unit',
                            'Reference case' : 'CI'}, inplace=True)
 
-# Drop Unnecessary columns
+# Drop not needed columns
 mtg_biofuels.drop(columns=['GREET Version', 'GREET Tab', 'GREET Pathway', 'Elec0'], inplace=True)
 
-# Drop Unnecessary columns
 mtg_biofuels['Total Emissions'] = mtg_biofuels['Value'] * mtg_biofuels['CI']
 
 # Calculate LCIA metric
@@ -2707,36 +2706,25 @@ wastes = ['Anaerobic Digestion at Biogas Facilities',
           'Landfills',
           'Wastewater Treatment and Discharge']
 
-for waste in wastes:
-    activity_BAU.loc[(activity_BAU['Subsector'] == waste), 'Sector'] = 'Waste'
+activity_BAU.loc[activity_BAU['Subsector'].isin(wastes), 'Sector'] = 'Waste'
 
 # Save interim and final environmental matrix
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
-
 # Map Non-Combustion Sources to Specific Inventory Sectors
 
-for i, (ghgi_sectors, 
-        ghgi_subsectors,
-        eere_subsectors,
-        eere_end_use) in enumerate(zip(corr_ghgi_sources_EERE['Sector'],
-                                       corr_ghgi_sources_EERE['Subsector'],
-                                       corr_ghgi_sources_EERE['DECARB_Subsector'],
-                                       corr_ghgi_sources_EERE['DECARB_End Use Application']
-                                       )):                                       
-                                       activity_BAU.loc[((activity_BAU['Sector'] == ghgi_sectors) & (activity_BAU['Subsector'] == ghgi_subsectors)), 'End Use Application' ] = eere_end_use
+temp_df = activity_BAU.loc[activity_BAU['Sector'].isin(corr_ghgi_sources_EERE['Sector']) & 
+                 activity_BAU['Subsector'].isin(corr_ghgi_sources_EERE['Subsector']), :]
+temp_df = pd.merge(temp_df, corr_ghgi_sources_EERE, how='left', on=['Sector', 'Subsector']).reset_index()
+temp_df.drop(columns=['Sector', 'Subsector', 'End Use Application', 'DECARB_Sector'], inplace=True)
+temp_df.rename(columns={'DECARB_Subsector' : 'Sector',
+                       'DECARB_End Use Application' : 'End Use Application'}, inplace=True)
 
-for i, (ghgi_sectors, 
-        ghgi_subsectors,
-        eere_subsectors,
-        eere_end_use) in enumerate(zip(corr_ghgi_sources_EERE['Sector'],
-                                       corr_ghgi_sources_EERE['Subsector'],
-                                       corr_ghgi_sources_EERE['DECARB_Subsector'],
-                                       corr_ghgi_sources_EERE['DECARB_End Use Application']
-                                       )):
-                                       activity_BAU.loc[((activity_BAU['Sector'] == ghgi_sectors) & (activity_BAU['Subsector'] == ghgi_subsectors)), 'Subsector' ] = eere_subsectors
+activity_BAU = activity_BAU.loc[~( activity_BAU['Sector'].isin(corr_ghgi_sources_EERE['Sector']) & 
+                                   activity_BAU['Subsector'].isin(corr_ghgi_sources_EERE['Subsector']) ), :]
+activity_BAU = pd.concat([activity_BAU, temp_df], axis = 0).reset_index(drop=True)
 
 # Save interim and final environmental matrix
 if save_interim_files == True:
