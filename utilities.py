@@ -173,7 +173,7 @@ class Utilities:
                         
         # Rows to subtract existing fuels
         df_fs_sub = df.copy()
-        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac'] * trend_end_val 
+        df_fs_sub[colname_value] = -1 * df_fs_sub[colname_value] * df_fs_sub['frac'] * feedstock_convert_frac 
         
         df = pd.concat([df_fs, df_fs_sub], axis=0).reset_index(drop=True)
         
