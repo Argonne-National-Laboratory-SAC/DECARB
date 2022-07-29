@@ -293,7 +293,7 @@ electric_gen_interim = pd.merge(electric_gen_interim, ob_eia.TandD[['Year', 'los
 electric_gen_interim['Electricity Production'] = electric_gen_interim['Electricity Production'] * (1 - electric_gen_interim['loss_frac'])
 electric_gen_interim.rename(columns={'End Use' : 'End Use Application',
                                      'Unit' : 'Energy Unit'}, inplace=True)
-electric_gen_interim['Case'] = 'Reference Case'
+electric_gen_interim['Case'] = 'Reference case'
 electric_gen_interim[['Mitigation Case', 'Subsector']] = '-'
 
 if save_interim_files == True:
@@ -305,7 +305,7 @@ electric_gen = ob_eia.EIA_data['energy_supply'].groupby(['Year', 'Sector', 'End 
 electric_gen = pd.merge(electric_gen, ob_eia.TandD[['Year', 'loss_frac']], how='left', on='Year')
 electric_gen['Electricity Production'] = electric_gen['Electricity Production'] * (1 - electric_gen['loss_frac'])
 electric_gen.rename(columns={'End Use' : 'End Use Application'}, inplace=True)
-electric_gen['Case'] = 'Reference Case'
+electric_gen['Case'] = 'Reference case'
 electric_gen[['Mitigation Case', 'Subsector']] = '-'
 
 # Calculate Total emissions
@@ -357,7 +357,7 @@ electric_gen_ef_agg = electric_gen_ef.groupby(['Year', 'Sector', 'Formula', 'EF_
 
 electric_gen_ef_agg['End Use Application'] = 'Electricity Generation'
 electric_gen_ef_agg['Energy carrier'] = 'Electricity'                                                
-electric_gen_ef_agg['Case'] = 'Reference Case'
+electric_gen_ef_agg['Case'] = 'Reference case'
 electric_gen_ef_agg['Mitigation Case'] = '-'
 if save_interim_files == True:
     electric_gen_ef_agg[cols_elec_env_agg].to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
@@ -593,7 +593,7 @@ if save_interim_files == True:
 
 # constructing the Electricity mitigation matrix calculating difference in Electricity grid CIs
 
-tempdf = elec_gen_em_agg.loc[elec_gen_em_agg['Case'] == 'Reference Case', : ][['Sector', 'End Use Application', 'Year', 
+tempdf = elec_gen_em_agg.loc[elec_gen_em_agg['Case'] == 'Reference case', : ][['Sector', 'End Use Application', 'Year', 
                                                                                'Energy carrier', 'Formula', 'Energy Unit', 'Emissions Unit',
                                                                                'Total Emissions', 'Electricity Production', 'CI']]
 elec_gen_em_mtg_agg_m = pd.merge(tempdf, elec_gen_em_mtg_agg[['Case', 'Mitigation Case', 'Year', 'Formula', 'Energy Unit', 'Emissions Unit', 'Total Emissions', 'Electricity Production', 'CI']], 
@@ -2636,7 +2636,9 @@ print( '    Elapsed time: ' + str(datetime.now() - init_time))
 Post Processing
 
 """
-print("Status: Add in GREET Supply Chain Impacts ..")
+print("Status: Add in GREET Supply Chain Impacts for activity changes in mitigation scenarios..")
+
+# Reference case supply chain emissions are already accounted in EPA GHGI non-combustion emissions.
 
 # Calculate GREET EF's as a function of Carbon Intensity (CI) of Electricity
 elec_ci = elec_gen_em_agg[['Case', 
@@ -2646,17 +2648,22 @@ elec_ci = elec_gen_em_agg[['Case',
 
 elec_ci = elec_ci[(elec_ci['Case'] == 'Mitigation') & ~(elec_ci['Formula'] == 'SF6')]
 
+
 elec_ci = elec_ci[['Year',
                    'Formula',
-                   'CI']]
+                   'CI',
+                   'Case']]
 
-greet_ts_ef = pd.merge(ef_greet_supply_chain, elec_ci, how = 'left', on = ['Year', 'Formula'])
+greet_ts_ef = pd.merge(ef_greet_supply_chain, elec_ci, how = 'left', on = ['Year', 'Formula']).reset_index(drop=True)
+greet_ts_ef.drop(columns=['Case_x'], inplace=True)
+greet_ts_ef.rename(columns={'Case_y' : 'Case'}, inplace=True)
 greet_ts_ef['EF'] = greet_ts_ef['Zero Elec Comb'] + greet_ts_ef['CI'] * greet_ts_ef['Factor']
 
 # Filter End Demand matrix to consider non-electricity flows (electricity-based impacts will be handeled seperately)
-temp_df = activity_ref_mtg.copy()
+temp_df = activity_ref_mtg.copy()    
 temp_df = temp_df[(temp_df['Case'] == 'Mitigation') & \
                   ~(temp_df['Energy carrier'] == 'Electricity')]
+temp_df = temp_df[~(temp_df['Energy carrier'] == 'Electricity')]
 temp_df['Scope'] = "Supply Chain"
 
 temp_df_merge = pd.merge(temp_df, corr_ef_greet_supply_chain, how = 'left', on = ['Sector',
@@ -2664,15 +2671,15 @@ temp_df_merge = pd.merge(temp_df, corr_ef_greet_supply_chain, how = 'left', on =
                                                     'Scope',
                                                     'Energy carrier',
                                                     'Energy carrier type',
-                                                    'End Use Application'])
+                                                    'End Use Application']).reset_index(drop=True)
 
-temp_df_merge = temp_df_merge[~(temp_df_merge['GREET Pathway'].isnull())]
+temp_df_merge = temp_df_merge.loc[~(temp_df_merge['GREET Pathway'].isnull()), :]
 
 temp_df_merge = pd.merge(temp_df_merge, greet_ts_ef, how = 'left', on = ['GREET Pathway',
                                                      'Year',
                                                      'Case',
                                                      'Scope']
-                                                     )
+                                                     ).reset_index(drop=True)
 
 temp_df_merge['Total Emissions'] = temp_df_merge['Value'] * temp_df_merge['EF']                                                       
 temp_df_merge['Total Emissions'] = temp_df_merge['Total Emissions'] *(10**-12) # convert from g to MMmt
@@ -2697,6 +2704,26 @@ Post Processing
 """
 
 print("Status: Reformatting Results Dataframes ..")
+
+# Map energy carrier types which are blanks
+ec_petroleum = ['Propane',
+'Still Gas',
+'Other Petroleum',
+'Diesel',
+'Hydrocarbon Gas Liquid Feedstocks',
+'Petrochemical Feedstocks',
+]
+
+ec_br = ['Biofuels Heat and Coproducts',
+'Renewables']
+
+activity_BAU.loc[activity_BAU['Energy carrier'].isin (ec_petroleum), 'Energy carrier type'] = 'Petroleum'
+activity_BAU.loc[activity_BAU['Energy carrier'].isin(ec_br), 'Energy carrier type'] = 'Biofuels and Renewables'
+
+# Save interim and final environmental matrix
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
 # Map flows to new 'Waste' sector 
 
