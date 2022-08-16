@@ -1078,7 +1078,7 @@ activity_mtg_lulucf['Sector'] = 'LULUCF'
 activity_mtg_lulucf['Subsector'] = 'Cropland remaining cropland'
 activity_mtg_lulucf['End Use Application'] = 'Sustainable farming'
 activity_mtg_lulucf['Formula'] = 'CO2'
-activity_mtg_lulucf['Unit'] = 'mmmt'
+activity_mtg_lulucf['Emissions Unit'] = 'mmmt'
 activity_mtg_lulucf['Scope'] = 'Direct, Non-Combustion'
 
 # Calculate LCIA metric
@@ -2806,6 +2806,45 @@ cols_env_out_v2 = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Ap
                 'Scope', 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
                 'Year', 'Formula', 'Emissions Category, Detailed', 'Emissions Category, Aggregate',
                 'Emissions Unit', 'Total Emissions', 'LCIA_estimate', 'Assigned Sector']                        
+
+
+# updating rows with blank or empty subsector and end use applications
+activity_BAU.loc[(activity_BAU['Sector'].isin(['Residential', 'Commercial'])) & 
+                 (activity_BAU['Subsector'] == '-') &
+                 (activity_BAU['End Use Application'] == '-'), ['Subsector', 'End Use Application']] = 'Other Building Uses'
+
+activity_BAU.loc[(activity_BAU['Sector'].isin(['Residential', 'Commercial'])) & 
+                 (activity_BAU['Subsector'] == '-'), 'Subsector'] = 'Building Mechanicals and Electricals'
+
+activity_BAU.loc[(activity_BAU['Sector'].isin(['Agriculture'])) & 
+                 (activity_BAU['Subsector'] == '-'), 'Subsector'] = 'On farm Activities'
+
+activity_BAU.loc[(activity_BAU['End Use Application'] == '-, -') |
+                 (activity_BAU['End Use Application'] == '-') |
+                 (activity_BAU['End Use Application'].isna()), 'End Use Application'] = 'Other End Uses'
+
+activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry', 
+                                               'Bulk Chemical Industry',
+                                               'Other Manufacturing Industry',
+                                               'Iron and Steel Industry',
+                                               'Aluminum Industry',
+                                               'Metal Based Durables Industry']), 'Subsector'] = \
+                activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry', 
+                                                              'Bulk Chemical Industry',
+                                                              'Other Manufacturing Industry',
+                                                              'Iron and Steel Industry',
+                                                              'Aluminum Industry',
+                                                              'Metal Based Durables Industry']), 'Sector']
+activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry', 
+                                               'Bulk Chemical Industry',
+                                               'Other Manufacturing Industry',
+                                               'Iron and Steel Industry',
+                                               'Aluminum Industry',
+                                               'Metal Based Durables Industry']), 'Sector'] = 'Industrial'
+
+activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
+
+activity_BAU = activity_BAU.loc[~activity_BAU['LCIA_estimate'].isna()].copy()
 
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
