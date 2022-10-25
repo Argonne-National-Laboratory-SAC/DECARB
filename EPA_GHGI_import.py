@@ -220,9 +220,14 @@ class EPA_GHGI_import:
         self.activity_elec_non_combust_exp = self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Sector'] == 'Electric Power', : ]
         self.activity_non_combust_exp = self.activity_non_combust_exp.loc[~(self.activity_non_combust_exp['Sector'] == 'Electric Power'), : ]
         
-        # Rename subsectors as per EERE Decarb Tool
+        # Rename sectors, subsectors as per EERE Decarb Tool
+        self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Sector'] == 'Nonmanufacturing Sector', 'Sector'] = 'Industrial'
+        self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Nonmanufacturing Sector', 'Subsector'] = 'Non-manufacturing'
+        self.activity_elec_non_combust_exp.loc[self.activity_elec_non_combust_exp['Subsector'] == 'Nonmanufacturing Sector', 'Subsector'] = 'Non-manufacturing'
+        
         self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Cement Production', 'Subsector'] = 'Cement and Lime Industry'
         self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Lime Production', 'Subsector'] = 'Cement and Lime Industry'
+        self.activity_non_combust_exp.loc[self.activity_non_combust_exp['Subsector'] == 'Iron and Steel Production', 'Subsector'] = 'Iron and Steel Industry'
         
 
 if __name__ == "__main__":

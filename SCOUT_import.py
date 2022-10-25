@@ -8,6 +8,7 @@ Date: 03/22/2022
 #%%
 # Python Packages
 import pandas as pd
+import os
 
 #%%
 
@@ -21,8 +22,12 @@ class SCOUT:
         self.input_path_SCOUT = input_path_SCOUT
         self.input_path_corr = input_path_corr
         
-        #self.f_name = 'scenario_3-1_savings_SA_data_request_v3.xlsx'
-        self.f_name = 'scenario_3-1_savings_SA_data_request_061722.xlsx'
+        #self.f_name = 'scenario_3-1_savings_SA_data_request_v3'
+        self.f_name = 'scenario_3-1_savings_SA_data_request_061722'
+        
+        self.f_out_longform = self.f_name + '_longform.xlsx'
+        
+        self.f_name = self.f_name + '.xlsx'
         
         self.f_corr_EIA_SCOUT = 'corr_EERE_SCOUT.xlsx'
         self.sheet_corr_EIA_SCOUT = 'Mapping EIA_to_Scout'
@@ -106,13 +111,18 @@ class SCOUT:
 if __name__ == "__main__":
     
     input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    input_path_code = 'C:/Users/skar/repos/EERE_decarb'
     
     input_path_units = input_path_prefix + '\\Units'  
     input_path_GREET = input_path_prefix + '\\GREET'        
     input_path_corr = input_path_prefix + '\\correspondence_files'
     input_path_SCOUT = input_path_prefix + '\\Buildings\\SCOUT'
-    
+         
+    os.chdir(input_path_code)
     from  unit_conversions import model_units    
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     ob_SCOUT = SCOUT(ob_units, input_path_SCOUT, input_path_corr)
+    
+    # save processed SCOUT data
+    ob_SCOUT.df_scout.to_excel(input_path_SCOUT + '/' + ob_SCOUT.f_out_longform)
