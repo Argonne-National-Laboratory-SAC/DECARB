@@ -2857,6 +2857,8 @@ activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry',
                                                'Metal Based Durables Industry']), 'Sector'] = 'Industrial'
 
 activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
+activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Sector'] = 'Industrial'
+activity_BAU.loc[activity_BAU['Subsector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
 
 activity_BAU = activity_BAU.loc[~activity_BAU['LCIA_estimate'].isna()].copy()
 
