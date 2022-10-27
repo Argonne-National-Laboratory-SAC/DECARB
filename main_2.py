@@ -1326,7 +1326,7 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_food_h2, save_inter
 #%%
 # Design mitigation scenarios for Ammonia industry based on GHGI data
 
-print("      : Ammonia Industry")
+print("      : Bulk Chemicals Industry, Ammonia")
 
 # combustion emissions
 
@@ -1390,6 +1390,10 @@ mtg_amm[['AEO Case',
 # Append to activity matrix and save
 activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_amm, save_interim_files) 
 del mtg_conv_amm, mtg_green_amm, mtg_amm
+
+#%%
+
+print("      : Bulk Chemicals Industry, overall")
 
 # Implementing efficiency improvement
 bulk_chem_ef = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
@@ -2759,9 +2763,10 @@ if save_interim_files == True:
 temp_df = activity_BAU.loc[activity_BAU['Sector'].isin(corr_ghgi_sources_EERE['Sector']) & 
                  activity_BAU['Subsector'].isin(corr_ghgi_sources_EERE['Subsector']), :]
 temp_df = pd.merge(temp_df, corr_ghgi_sources_EERE, how='left', on=['Sector', 'Subsector']).reset_index()
-temp_df.drop(columns=['Sector', 'Subsector', 'End Use Application', 'DECARB_Sector'], inplace=True)
-temp_df.rename(columns={'DECARB_Subsector' : 'Sector',
-                       'DECARB_End Use Application' : 'End Use Application'}, inplace=True)
+temp_df.drop(columns=['Sector', 'Subsector', 'End Use Application'], inplace=True)
+temp_df.rename(columns={'DECARB_Sector' : 'Sector',
+                        'DECARB_Subsector' : 'Subsector',
+                        'DECARB_End Use Application' : 'End Use Application'}, inplace=True)
 
 activity_BAU = activity_BAU.loc[~( activity_BAU['Sector'].isin(corr_ghgi_sources_EERE['Sector']) & 
                                    activity_BAU['Subsector'].isin(corr_ghgi_sources_EERE['Subsector']) ), :]
@@ -2809,6 +2814,10 @@ assign_sectors = pd.DataFrame(data = data, columns = col_names)
 
 activity_BAU = pd.merge(activity_BAU, assign_sectors, how = 'left', on = ['Sector', 'Scope'])
 
+if save_interim_files == True:
+    activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
+    activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
+
 # apply mask for aggregated and disaggregated emissions types
 
 activity_BAU = activity_BAU.drop(columns = {'Emissions Category, Detailed',
@@ -2837,6 +2846,7 @@ activity_BAU.loc[(activity_BAU['End Use Application'] == '-, -') |
                  (activity_BAU['End Use Application'] == '-') |
                  (activity_BAU['End Use Application'].isna()), 'End Use Application'] = 'Other End Uses'
 
+"""
 activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry', 
                                                'Bulk Chemical Industry',
                                                'Other Manufacturing Industry',
@@ -2855,6 +2865,7 @@ activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry',
                                                'Iron and Steel Industry',
                                                'Aluminum Industry',
                                                'Metal Based Durables Industry']), 'Sector'] = 'Industrial'
+"""
 
 activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
 activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Sector'] = 'Industrial'
