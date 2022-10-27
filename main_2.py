@@ -1392,6 +1392,7 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_amm, save_interim_file
 del mtg_conv_amm, mtg_green_amm, mtg_amm
 
 #%%
+
 # Design mitigation scenarios for the Bulk chemicals industry
 
 print("      : Bulk Chemicals Industry, overall")
@@ -2815,7 +2816,10 @@ assign_sectors = pd.DataFrame(data = data, columns = col_names)
 
 activity_BAU = pd.merge(activity_BAU, assign_sectors, how = 'left', on = ['Sector', 'Scope'])
 
+<<<<<<< HEAD
 # Save interim and final environmental matrix
+=======
+>>>>>>> check_non-manufacturing
 if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
@@ -2870,9 +2874,11 @@ activity_BAU.loc[activity_BAU['Sector'].isin(['Glass Industry',
                                                'Aluminum Industry',
                                                'Metal Based Durables Industry']), 'Sector'] = 'Industrial'
 """
-"""
+
 activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
-"""
+activity_BAU.loc[activity_BAU['Sector'].isin(['Nonmanufacturing Sector']), 'Sector'] = 'Industrial'
+activity_BAU.loc[activity_BAU['Subsector'].isin(['Nonmanufacturing Sector']), 'Subsector'] = 'Non-manufacturing'
+>>>>>>> check_non-manufacturing
 
 activity_BAU = activity_BAU.loc[~activity_BAU['LCIA_estimate'].isna()].copy()
 
