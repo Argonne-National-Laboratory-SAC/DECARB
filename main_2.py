@@ -2351,6 +2351,7 @@ print("Status: Constructing Biofuel LULUCF Impacts ..")
 #activity_BAU.head()
 #activity_BAU.columns.to_list()
 
+"""
 activity_BAU = activity_BAU[['Case',
                              'Mitigation Case',
                              'Sector',
@@ -2368,6 +2369,7 @@ activity_BAU = activity_BAU[['Case',
                              'Emissions Unit',
                              'Total Emissions',
                              'LCIA_estimate']]
+"""
 
 # Aboveground Carbon Stock Changes from Biomass Resources
 #activity_ref_mtg.to_csv(interim_path_prefix + '\\' + 'test.csv')
