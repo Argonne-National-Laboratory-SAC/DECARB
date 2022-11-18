@@ -577,7 +577,7 @@ electric_gen_ef_mtg_agg['Energy carrier'] = 'Electricity'
 electric_gen_ef_mtg_agg['Subsector'] = 'Electric Power Sector'
 electric_gen_ef_mtg_agg['Mitigation Case'] = 'NREL Electric Power Decarb'
 
-electric_gen_ef_agg = pd.concat([electric_gen_ef_agg, electric_gen_ef_mtg_agg[cols_elec_env_agg]], axis=0).reset_index()                                               
+electric_gen_ef_agg = pd.concat([electric_gen_ef_agg, electric_gen_ef_mtg_agg[cols_elec_env_agg]], axis=0).reset_index(drop=True)                                               
 
 if save_interim_files == True:    
     electric_gen_ef_agg.to_csv(interim_path_prefix + '\\' + f_elec_env_agg)
@@ -1054,6 +1054,8 @@ activity_mtg_ag_d.loc[~activity_mtg_ag_d['Emissions Unit'].isnull(), ['Emissions
    if_given_category=True, unit_category = 'Emissions')
 
 activity_mtg_ag_d = pd.merge(activity_mtg_ag_d, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
+
+activity_mtg_ag_d.drop(columns=['mtg_frac'], inplace=True)
 
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_ag_d], axis=0).reset_index(drop=True)
@@ -1859,6 +1861,9 @@ activity_mtg_id = pd.merge(activity_mtg_id, corr_ghgs, how='left', on='Formula')
 # Create rest of the empty columns
 activity_mtg_id [ list(( Counter(activity_BAU.columns) - Counter(activity_mtg_id.columns )).elements()) ] = '-'
 
+# Drop not needed columns
+activity_mtg_id = activity_mtg_id[activity_BAU.columns].copy()
+
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, activity_mtg_id], axis=0).reset_index(drop=True)
 
@@ -1944,6 +1949,9 @@ mtg_id_ccs = pd.merge(mtg_id_ccs, corr_ghgs, how='left', on='Formula').reset_ind
   
 # Create rest of the empty columns
 mtg_id_ccs [ list(( Counter(activity_BAU.columns) - Counter(mtg_id_ccs.columns )).elements()) ] = '-'
+
+# Drop not needed columns
+mtg_id_ccs = mtg_id_ccs[activity_BAU.columns].copy()
 
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, mtg_id_ccs], axis=0).reset_index(drop=True)
@@ -2100,6 +2108,9 @@ mtg_global = pd.merge(mtg_global, corr_ghgs, how='left', on='Formula').reset_ind
   
 # Create rest of the empty columns
 mtg_global [ list(( Counter(activity_BAU.columns) - Counter(mtg_global.columns )).elements()) ] = '-'
+
+# Drop not needed columns
+mtg_global = mtg_global[activity_BAU.columns].copy()
 
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, mtg_global], axis=0).reset_index(drop=True)
@@ -2331,6 +2342,9 @@ mtg_biofuels = pd.merge(mtg_biofuels, corr_ghgs, how='left', on='Formula').reset
 # Create rest of the empty columns
 mtg_biofuels [ list(( Counter(activity_BAU.columns) - Counter(mtg_biofuels.columns )).elements()) ] = '-'
 
+# Drop not needed columns
+mtg_biofuels = mtg_biofuels[activity_BAU.columns].copy()
+
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, mtg_biofuels], axis=0).reset_index(drop=True)
 
@@ -2403,6 +2417,12 @@ mit_case_biofuels['Emissions Category, Detailed'] = 'CO2'
 mit_case_biofuels['Emissions Category, Aggregate'] = 'CO2'
 mit_case_biofuels['Emissions Unit'] = 'mmmt'
 mit_case_biofuels['Total Emissions'] = mit_case_biofuels['LCIA_estimate']
+
+# Create rest of the empty columns
+mit_case_biofuels [ list(( Counter(activity_BAU.columns) - Counter(mit_case_biofuels.columns )).elements()) ] = '-'
+
+# Drop not needed columns
+mit_case_biofuels = mit_case_biofuels[activity_BAU.columns].copy()
 
 activity_BAU = pd.concat([activity_BAU, mit_case_biofuels], axis=0).reset_index(drop=True)
 
@@ -2522,6 +2542,12 @@ mit_case_etoh_soc['Emissions Category, Aggregate'] = 'CO2'
 mit_case_etoh_soc['Emissions Unit'] = 'mmmt'
 mit_case_etoh_soc['Total Emissions'] = mit_case_etoh_soc['LCIA_estimate']
 
+# Create rest of the empty columns
+mit_case_etoh_soc [ list(( Counter(activity_BAU.columns) - Counter(mit_case_etoh_soc.columns )).elements()) ] = '-'
+
+# Drop not needed columns
+mit_case_etoh_soc = mit_case_etoh_soc[activity_BAU.columns].copy()
+
 activity_BAU = pd.concat([activity_BAU, mit_case_etoh_soc], axis=0).reset_index(drop=True)
 
 # Save interim and final environmental matrix
@@ -2612,6 +2638,9 @@ mtg_ab_wells_ch4['Mitigation Case'] = 'Reduction in Fugitive Methane emissions f
 
 mtg_ab_wells_ch4.drop(columns = {'Methane Reduction %'}, inplace = True)
 
+# Drop not needed columns
+mtg_ab_wells_ch4 = mtg_ab_wells_ch4[activity_BAU.columns].copy()
+
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, mtg_ab_wells_ch4], axis=0).reset_index(drop=True)
 
@@ -2642,6 +2671,9 @@ mtg_lfg['Case'] = 'Mitigation'
 mtg_lfg['Mitigation Case'] = 'Biofuels, Reduction in Fugitive Methane Emissions from Landfills'
 
 mtg_lfg.drop(columns = {'Frac'}, inplace = True)
+
+# Drop not needed columns
+mtg_lfg = mtg_lfg[activity_BAU.columns].copy()
 
 # Concatenating to main Environment matrix
 activity_BAU = pd.concat([activity_BAU, mtg_lfg], axis=0).reset_index(drop=True)
@@ -2730,15 +2762,13 @@ print("Status: Reformatting Results Dataframes ..")
 
 # Map energy carrier types which are blanks
 ec_petroleum = ['Propane',
-'Still Gas',
-'Other Petroleum',
-'Diesel',
-'Hydrocarbon Gas Liquid Feedstocks',
-'Petrochemical Feedstocks',
-]
+                'Still Gas',
+                'Other Petroleum',
+                'Diesel',
+                'Hydrocarbon Gas Liquid Feedstocks',
+                'Petrochemical Feedstocks']
 
-ec_br = ['Biofuels Heat and Coproducts',
-'Renewables']
+ec_br = ['Biofuels Heat and Coproducts', 'Renewables']
 
 activity_BAU.loc[activity_BAU['Energy carrier'].isin (ec_petroleum), 'Energy carrier type'] = 'Petroleum'
 activity_BAU.loc[activity_BAU['Energy carrier'].isin(ec_br), 'Energy carrier type'] = 'Biofuels and Renewables'
@@ -2767,7 +2797,7 @@ if save_interim_files == True:
 
 temp_df = activity_BAU.loc[activity_BAU['Sector'].isin(corr_ghgi_sources_EERE['Sector']) & 
                  activity_BAU['Subsector'].isin(corr_ghgi_sources_EERE['Subsector']), :]
-temp_df = pd.merge(temp_df, corr_ghgi_sources_EERE, how='left', on=['Sector', 'Subsector']).reset_index()
+temp_df = pd.merge(temp_df, corr_ghgi_sources_EERE, how='left', on=['Sector', 'Subsector']).reset_index(drop=True)
 temp_df.drop(columns=['Sector', 'Subsector', 'End Use Application'], inplace=True)
 temp_df.rename(columns={'DECARB_Sector' : 'Sector',
                         'DECARB_Subsector' : 'Subsector',
@@ -2817,7 +2847,7 @@ data = [('Agriculture', 'Direct, Combustion', 'Agriculture'),
 
 assign_sectors = pd.DataFrame(data = data, columns = col_names)
 
-activity_BAU = pd.merge(activity_BAU, assign_sectors, how = 'left', on = ['Sector', 'Scope'])
+activity_BAU = pd.merge(activity_BAU, assign_sectors, how = 'left', on = ['Sector', 'Scope']).reset_index(drop=True)
 
 # Save interim and final environmental matrix
 if save_interim_files == True:
@@ -2829,7 +2859,7 @@ if save_interim_files == True:
 activity_BAU = activity_BAU.drop(columns = {'Emissions Category, Detailed',
                                             'Emissions Category, Aggregate'})
 
-activity_BAU = pd.merge(activity_BAU, corr_ghgs, how = 'left', on = 'Formula')
+activity_BAU = pd.merge(activity_BAU, corr_ghgs, how = 'left', on = 'Formula').reset_index(drop=True)
 
 cols_env_out_v2 = ['Case', 'Mitigation Case', 'Sector', 'Subsector', 'End Use Application', 
                 'Scope', 'Energy carrier', 'Energy carrier type', 'Basis', 'Fuel Pool',
