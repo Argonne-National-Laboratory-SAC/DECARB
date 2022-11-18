@@ -1101,6 +1101,7 @@ activity_mtg_lulucf['LCIA_estimate'] = activity_mtg_lulucf['Total Emissions'] * 
 
 # Create rest of the empty columns
 activity_mtg_lulucf [ list(( Counter(activity_BAU.columns) - Counter(activity_mtg_lulucf.columns )).elements()) ] = '-'
+activity_mtg_lulucf.drop(columns=['Emissions Category, Detailed', 'Emissions Category, Aggregate'], inplace=True)
 
 activity_mtg_lulucf = pd.merge(activity_mtg_lulucf, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 
@@ -1937,7 +1938,7 @@ ob_ccs.env_df['Mitigation Case'] = 'Industrial, CCS implementation'
 ob_ccs.env_df['Case'] = 'Mitigation'
 ob_ccs.env_df.drop(columns=['Marker', 'frac'], inplace=True)
 
-mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis = 0).reset_index()
+mtg_id_ccs = pd.concat([mtg_id_ccs, ob_ccs.env_df], axis = 0).reset_index(drop=True)
 
 mtg_id_ccs = pd.merge(mtg_id_ccs, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
   
