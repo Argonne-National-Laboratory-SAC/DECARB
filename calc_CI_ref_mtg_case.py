@@ -143,4 +143,12 @@ d_CI = d_CI[['Sector', 'Year', 'Energy Unit', 'Emissions Unit', 'CI_Reference', 
 d_CI['Energy Unit'] = 'MJ'
 d_CI['Emissions Unit'] = 'g'
 
+temp = d_CI.loc[d_CI['Year'] == 2020, ['Sector', 'CI_Reference']]
+temp.rename(columns={'CI_Reference' : 'baseline_CI'}, inplace=True)
+
+d_CI = pd.merge(d_CI, temp, how='left', on='Sector').reset_index(drop=True)
+
+d_CI['CI_Reference_perc'] = (d_CI['CI_Reference'] - d_CI['baseline_CI']) / d_CI['baseline_CI'] * 100
+d_CI['CI_Mitigation_perc'] = (d_CI['CI_Mitigation'] - d_CI['baseline_CI']) / d_CI['baseline_CI'] * 100
+
 d_CI.to_csv(output_path_prefix + '//' + f_out_CI)
