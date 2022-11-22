@@ -31,6 +31,10 @@ fout_GREET_CIs = 'GREET1_all_pathways.csv'
 f_gwp = 'gwp factors.xlsx'
 s_gwp = 'Tidy'
 
+f_path_GREET_supplychain = 'C:/Users/skar/Box/EERE SA Decarbonization/1. Tool/EERE Tool/Data/Script_data_model/1_input_files/GREET'
+f_GREET_supplychain = 'GREET_EF_SUPPLY_CHAIN.csv'
+f_corr_GREET_supplychain = 'corr_EF_GREET_SUPPLY_CHAIN.csv'
+
 save_interim_files = True
 
 #%%
@@ -216,12 +220,6 @@ d1_sub1 = d1_sub1.pivot(index=['source_str',
                         columns='Year',
                         values='Emissions_CO2e').reset_index().copy()
 
-#d1_sub3.columns = d1_sub3.columns.to_flat_index()
-#d1_sub3.columns = d1_sub3.columns.get_level_values(0) + '_' +  str(d1_sub3.columns.get_level_values(1))
-
-#d1_sub1 = d1_sub1.T.reset_index().T.copy()
-#d1_sub1.columns = d1_sub1.iloc[0, : ].copy()
-#d1_sub1 = d1_sub1.iloc[1:, : ].copy()
 
 # remove rows with GHG metric from original table
 d1 = d1.loc[~ d1['Metric'].isin(['GHGs']), : ].reset_index(drop=True).copy()
@@ -232,5 +230,10 @@ d1 = pd.concat([d1, d1_sub1], axis=0).reset_index(drop=True)
 if save_interim_files == True:
     d1.to_csv(fpath + '/' + fout_GREET_CIs, index=False)
     
+del d1_sub1
+    
+#%%
 
 # Adding supply chain emissions to GREET CIs
+CI_supplychain = pd.read_csv(f_path_GREET_supplychain + '/' + f_GREET_supplychain)
+corr_CI_supplychain = pd.read_csv(fpath_corr + '/' + f_corr_GREET_supplychain)
