@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """
+Copyright © 2022, UChicago Argonne, LLC
+The full description is available in the LICENSE.md file at location:
+    https://github.com/Argonne-National-Laboratory-SAC/DECARB 
+    
 Created on Tue Nov 22 09:43:33 2022
 
 @author: skar
@@ -27,12 +31,15 @@ d1.loc[d1['Case'] == 'CI_Reference_perc', 'Case'] = 'Reference'
 d1.loc[d1['Case'] == 'CI_Mitigation_perc', 'Case'] = 'Mitigation'
 d1['category'] = d1['Sector'] + ', ' + d1['Case'] 
 
+sns.set_theme(style="white", font_scale=1.5)
+
 g = sns.relplot(
     data=d1, kind="line",
     x='Year', y='CI Percentage', hue='Sector', col='Case',
-    palette='dark', alpha=.6, height=5,
+    palette='dark', alpha=.6, height=6,
     facet_kws=dict(margin_titles=True))
-g.set(xlabel='Year', ylabel='Percentage CI change over 2020 baseline')
+g.set(xlabel='Year', ylabel='Percentage CI change')
+
 
 g.savefig(path_plots + '/' + 'CI_perc_line_plot.png', dpi=400)
 

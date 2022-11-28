@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 """
+Copyright © 2022, UChicago Argonne, LLC
+The full description is available in the LICENSE.md file at location:
+    https://github.com/Argonne-National-Laboratory-SAC/DECARB 
+    
 Created on Mon Oct 31 17:16:19 2022
 
 @author: skar

@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
 """
+Copyright © 2022, UChicago Argonne, LLC
+The full description is available in the LICENSE.md file at location:
+    https://github.com/Argonne-National-Laboratory-SAC/DECARB 
+    
 Author: George G. Zaimes and Saurajyoti Kar
 Affiliation: Argonne National Laboratory
 Date: 01/25/2022
