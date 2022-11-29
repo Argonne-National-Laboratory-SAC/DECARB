@@ -1,0 +1,56 @@
+Table A-94:  Emission Factors for CH4 and N2O for On-Road Vehicles,,
+,,
+Vehicle Type/Control Technology,N2O (g/mi),CH4 (g/mi)
+Gasoline Passenger Cars,,
+  EPA Tier 3,0.0015,0.0055
+  ARB LEV III,0.0012,0.0045
+  EPA Tier 2,0.0048,0.0072
+  ARB LEV II,0.0043,0.007
+  ARB LEV,0.0205,0.01
+  EPA Tier 1 a,0.0429,0.0271
+  EPA Tier 0 a,0.0647,0.0704
+  Oxidation Catalyst,0.0504,0.1355
+  Non-Catalyst Control,0.0197,0.1696
+  Uncontrolled,0.0197,0.178
+Gasoline Light-Duty Trucks,,
+  EPA Tier 3,0.0012,0.0092
+  ARB LEV III,0.0012,0.0065
+  EPA Tier 2,0.0025,0.01
+  ARB LEV II,0.0057,0.0084
+  ARB LEV,0.0223,0.0148
+  EPA Tier 1 a,0.0871,0.0452
+  EPA Tier 0 a,0.1056,0.0776
+  Oxidation Catalyst,0.0639,0.1516
+  Non-Catalyst Control,0.0218,0.1908
+  Uncontrolled,0.022,0.2024
+Gasoline Heavy-Duty Vehicles,,
+  EPA Tier 3,0.0063,0.0252
+  ARB LEV III,0.0136,0.0411
+  EPA Tier 2,0.0015,0.0297
+  ARB LEV II,0.0049,0.0391
+  ARB LEV,0.0466,0.03
+  EPA Tier 1 a,0.175,0.0655
+  EPA Tier 0 a,0.2135,0.263
+  Oxidation Catalyst,0.1317,0.2356
+  Non-Catalyst Control,0.0473,0.4181
+  Uncontrolled,0.0497,0.4604
+Diesel Passenger Cars,,
+  Aftertreatment,0.0192,0.0302
+  Advanced,0.001,0.0005
+  Moderate,0.001,0.0005
+  Uncontrolled,0.0012,0.0006
+Diesel Light-Duty Trucks,,
+  Aftertreatment,0.0214,0.029
+  Advanced,0.0014,0.0009
+  Moderate,0.0014,0.0009
+  Uncontrolled,0.0017,0.0011
+Diesel Medium- and Heavy-Duty Trucks and Buses,,
+  Aftertreatment,0.0431,0.0095
+  Advanced,0.0048,0.0051
+  Moderate,0.0048,0.0051
+  Uncontrolled,0.0048,0.0051
+Motorcycles,,
+  Non-Catalyst Control,0.0069,0.0672
+  Uncontrolled,0.0087,0.0899
+"a The categories “EPA Tier 0” and “EPA Tier 1” were substituted for the early three-way catalyst and advanced three-way catalyst categories, respectively, as defined in the 2006 IPCC Guidelines. Detailed descriptions of emissions control technologies are provided at the end of this Annex.",,
+Source: ICF (2006b and 2017a).,,

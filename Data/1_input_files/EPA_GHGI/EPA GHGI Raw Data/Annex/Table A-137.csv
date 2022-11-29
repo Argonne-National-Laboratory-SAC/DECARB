@@ -1,0 +1,10 @@
+Table A-137: Sterilization Market Transition Assumptions,,,,,,,,,,,,,,
+Initial Market Segment,Primary Substitute,,,,Secondary Substitute,,,,,Tertiary Substitute,,,,
+,Name of Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,Name of  Substitute,Start Date,Date of Full Penetration in New Equipment,Maximum Market Penetration,Name of Substitute,,Start Date,Date of Full Penetration in New Equipment,Maximum Market Penetration,Growth Rate
+,,,,,,,,,,,,,,
+Dec-88,EtO,1994,1995,95%,None,,,,,,,,,2.00%
+,Non-ODP/GWP,1994,1995,0.80%,None,,,,,,,,,
+,HCFC-124/EtO Blend,1993,1994,1.40%,Non-ODP/GWP,2015,2015,100%,None,,,,,
+,HCFC-22/HCFC-124/EtO Blend,1993,1994,3.10%,Non-ODP/GWP,2010,2010,100%,None,,,,,
+,,,,,,,,,,,,,,
+1 Transitions between the start year and date of full penetration in new equipment are assumed to be linear so that in total 100 percent of the market is assigned to the original ODS or the various ODS substitutes.,,,,,,,,,,,,,,

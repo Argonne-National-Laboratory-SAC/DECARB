@@ -1,0 +1,22 @@
+Table A-176:  Direct Nitrous Oxide Emission Factors (kg N2O-N/kg N excreted),,
+Waste Management System,,Direct N2O Emission Factor
+Aerobic Treatment (forced aeration),,0.005
+Aerobic Treatment (natural aeration),,0.01
+Anaerobic Digester,,0
+Anaerobic Lagoon,,0
+Cattle Deep Bed (active mix),,0.07
+Cattle Deep Bed (no mix),,0.01
+Composting_in vessel,,0.006
+Composting_intensive,,0.1
+Composting_passive,,0.01
+Composting_static,,0.006
+Daily Spread,,0
+Pit Storage,,0.002
+Dry Lot,,0.02
+Fuel,,0
+Liquid/Slurry,,0.005
+Pasture,,0
+Poultry with bedding,,0.001
+Poultry without bedding,,0.001
+Solid Storage,,0.005
+Source: 2006 IPCC Guidelines. ,,

@@ -1,0 +1,46 @@
+Table 6-26:  Quantitative Uncertainty Estimates for Forest C Pool Stock Changes (MMT CO2 Eq. per Year) in 2019 from Land Converted to Forest Land by Land Use Change ,,,,,
+,,,,,
+Land Use/Carbon Pool,2019 Flux Estimate,Uncertainty Range Relative to Flux Range a,,,
+,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),
+,,Lower,Upper,Lower,Upper
+,,Bound,Bound,Bound,Bound
+Cropland Converted to Forest Land,-39.8,-48.6,-31,-22%,22%
+   Aboveground Biomass,-23,-31.6,-14.4,-38%,37%
+   Belowground Biomass ,-4.5,-5.6,-3.4,-24%,24%
+   Dead Wood,-5.1,-6.3,-3.8,-24%,24%
+   Litter,-7,-8.1,-6,-15%,15%
+  Mineral Soils ,-0.2,-0.5,0.1,-134%,134%
+Grassland Converted to Forest Land,-10.5,-12.9,-8.1,23%,23%
+  Aboveground Biomass,-4.8,-6.2,-3.4,-29%,29%
+  Belowground Biomass ,-1,-1.3,-0.7,-29%,29%
+  Dead Wood,-1,-1.1,-0.8,-16%,16%
+  Litter,-4,-4.5,-3.4,-14%,14%
+  Mineral Soils,0.3,-0.1,0.6,-135%,135%
+Other Lands Converted to Forest Land,-11,-13.4,-8.7,-21%,21%
+  Aboveground Biomass,-4.8,-6.9,-2.7,-44%,44%
+  Belowground Biomass ,-0.9,-1.3,-0.5,-47%,47%
+  Dead Wood,-1.5,-2,-0.9,-38%,38%
+  Litter,-2.7,-3.4,-2.1,-23%,23%
+  Mineral Soils ,-1.1,-1.9,-0.4,-64%,64%
+Settlements Converted to Forest Land,-34.5,-41,-28,-19%,19%
+  Aboveground Biomass,-21.1,-27.3,-14.9,-29%,29%
+  Belowground Biomass ,-4,-5.4,-2.7,-33%,33%
+  Dead Wood,-4,-5.1,-2.8,-29%,29%
+  Litter,-5.4,-6.3,-4.5,-17%,17%
+  Mineral Soils,-0.1,-0.1,0,-40%,40%
+Wetlands Converted to Forest Land,-3.2,-3.4,-3.1,-5%,5%
+  Aboveground Biomass,-1.4,-1.5,-1.2,-10%,10%
+  Belowground Biomass ,-0.3,-0.3,-0.2,-12%,12%
+  Dead Wood,-0.4,-0.4,-0.3,-11%,11%
+  Litter,-1.2,-1.3,-1.2,-5%,5%
+  Mineral Soils ,+ ,+ ,+ ,na,na
+Total: Aboveground Biomass,-55.1,-66,-44.2,-20%,20%
+Total: Belowground Biomass ,-10.7,-12.5,-8.9,-17%,17%
+Total: Dead Wood,-11.8,-13.6,-10,-15%,15%
+Total: Litter,-20.4,-22,-18.8,-8%,8%
+Total: Mineral Soils,-1.1,-1.7,-0.6,-49%,49%
+Total: Lands Converted to Forest Lands,-99.1,-110.4,-87.8,-11%,11%
+Notes: Totals may not sum due to independent rounding. Parentheses indicate net uptake. It is not possible to separate emissions from drained organic soils between Forest Land Remaining Forest Land and Land Converted to Forest Land so estimates for organic soils are included in Table 6-8 and Table 6-9 of the Forest Land Remaining Forest Land section of the Inventory.  ,,,,,
++ Absolute value does not exceed 0.05 MMT CO2 Eq.,,,,,
+NA (Not Applicable),,,,,
+a Range of flux estimate for 95 percent confidence interval.,,,,,

@@ -1,0 +1,7 @@
+"Table A-196:  Carbon Loss Rates for Organic Soils Under Agricultural Management in the United States, and IPCC Default Rates (Metric Ton C/ha-yr)",,,,
+,Cropland,,Grassland,
+Region,IPCC,U.S. Revised,IPCC,U.S. Revised
+"Cold Temperate, Dry & Cold Temperate, Moist",1,11.2±2.5,0.25,2.8±0.5 a
+"Warm Temperate, Dry & Warm Temperate, Moist",10,14.0±2.5,2.5,3.5±0.8 a
+"Sub-Tropical, Dry & Sub-Tropical, Moist",1,14.3±2.5,0.25,2.8±0.5 a
+"a There are not enough data available to estimate a U.S. value for C losses from grassland. Consequently, estimates are 25 percent of the values for cropland, which is an assumption that is used for the IPCC default organic soil C losses on grassland.",,,,

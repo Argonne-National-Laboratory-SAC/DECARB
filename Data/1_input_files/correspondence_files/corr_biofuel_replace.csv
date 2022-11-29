@@ -1,0 +1,41 @@
+Energy carrier_mtg,Energy carrier type_mtg,Energy carrier_ref,Energy carrier type_ref,,,,,Diesel,Biodiesel
+Sustainable Aviation Fuel,"FT-Synthesis, MSW ",Jet Fuel,Petroleum,,,,,Diesel,Petroleum Distillate
+Sustainable Aviation Fuel,"FT-Synthesis, Poplar",Jet Fuel,Petroleum,,,,,Motor Gasoline,"Ethanol, Conventional"
+Sustainable Aviation Fuel,"FT-Synthesis, Willow",Jet Fuel,Petroleum,,,,,Motor Gasoline,"Ethanol, Cellulosic"
+Sustainable Aviation Fuel,"FT-Synthesis, Logging residues ",Jet Fuel,Petroleum,,,,,Motor Gasoline,Petroleum Gasoline
+Sustainable Aviation Fuel,"FT-Synthesis, Wood and wood wastes",Jet Fuel,Petroleum,,,,,E85,"Ethanol, Conventional"
+Sustainable Aviation Fuel,"FT-Synthesis, Whole tree biomass",Jet Fuel,Petroleum,,,,,E85,"Ethanol, Cellulosic"
+Sustainable Aviation Fuel,"FT-Synthesis, Landfill gas ",Jet Fuel,Petroleum,,,,,E85,Petroleum Gasoline
+Sustainable Aviation Fuel,"HEFA, Corn oil",Jet Fuel,Petroleum,,,,,Electricity,U.S. Average Grid Mix
+Sustainable Aviation Fuel,"HEFA, FOGs",Jet Fuel,Petroleum,,,,,Natural Gas,U.S. Average Mix
+Sustainable Aviation Fuel,"HEFA, UCO",Jet Fuel,Petroleum,,,,,Propane,-
+Sustainable Aviation Fuel,"HTL, Wastewater sludge",Jet Fuel,Petroleum,,,,,Biomass,Woody Biomass
+Sustainable Aviation Fuel,"HTL, Algae",Jet Fuel,Petroleum,,,,,Other Petroleum,-
+Sustainable Aviation Fuel,"HTL, Manure",Jet Fuel,Petroleum,,,,,Compressed Natural Gas,U.S. Average Mix
+Sustainable Aviation Fuel,"CAP, Algae",Jet Fuel,Petroleum,,,,,Hydrogen,Natural Gas
+Sustainable Aviation Fuel,"ETJ, Corn ethanol",Jet Fuel,Petroleum,,,,,Liquefied Natural Gas,U.S. Average Mix
+Sustainable Aviation Fuel,"ETJ, Cellulosic ethanol",Jet Fuel,Petroleum,,,,,Residual Fuel Oil,Petroleum Fuel Oil
+Biodiesel,Soybean,Diesel,Petroleum Distillate,,,,,Jet Fuel,Petroleum
+FT-Diesel,"FT-Synthesis, MSW",Diesel,Petroleum Distillate,,,,,Aviation Gasoline,Petroleum
+FT-Diesel,"FT-Synthesis, Poplar",Diesel,Petroleum Distillate,,,,,Gasoline,Petroleum Gasoline
+FT-Diesel,"FT-Synthesis, Willow",Diesel,Petroleum Distillate,,,,,Lubricants,Petroleum
+FT-Diesel,"FT-Synthesis, Logging residues ",Diesel,Petroleum Distillate,,,,,Liquefied Petroleum Gas,Petroleum
+FT-Diesel,"FT-Synthesis, Wood and wood wastes",Diesel,Petroleum Distillate,,,,,Petroleum Coke,Petroleum Coke
+FT-Diesel,"FT-Synthesis, Whole tree biomass",Diesel,Petroleum Distillate,,,,,Still Gas,-
+Renewable Diesel,"HTL, Algae",Diesel,Petroleum Distillate,,,,,Steam Coal,Fossil Coal
+Renewable Diesel,"HTL, Manure",Diesel,Petroleum Distillate,,,,,Biofuels Heat and Coproducts,-
+Renewable Diesel,"HTL, Wastewater sludge",Diesel,Petroleum Distillate,,,,,Renewables,-
+Renewable Diesel,"ETJ, Corn ethanol",Diesel,Petroleum Distillate,,,,,Hydrocarbon Gas Liquid Feedstocks,-
+Renewable Diesel,"ETJ, Cellulosic ethanol",Diesel,Petroleum Distillate,,,,,Petrochemical Feedstocks,-
+Renewable Gasoline,"FT-Synthesis, MSW",,,,,,,Metallurgical Coal,Fossil Coal
+Renewable Gasoline,"FT-Synthesis, Poplar",,,,,,,-,-
+Renewable Gasoline,"FT-Synthesis, Willow",,,,,,,Asphalt and Road Oil,-
+Renewable Gasoline,"FT-Synthesis, Logging Residues ",,,,,,,Diesel,FT-Diesel
+Renewable Gasoline,"FT-Synthesis, Wood and wood wastes",,,,,,,Hydrogen,Renewables
+Renewable Gasoline,"FT-Synthesis, Whole Tree Biomass",,,,,,,,
+Renewable Gasoline,"HTL, Algae",,,,,,,,
+Renewable Gasoline,"HTL, Sludge",,,,,,,,
+Renewable Gasoline,"HTL, Manure",,,,,,,,
+Renewable Gasoline,"CAP, Algae",,,,,,,,
+Renewable Gasoline,"ETJ, Corn ethanol",,,,,,,,
+Renewable Gasoline,"ETJ, Cellulosic ethanol",,,,,,,,

@@ -1,0 +1,13 @@
+Table 7-39:  Approach 2 Quantitative Uncertainty Estimates for 2019 Emissions from Wastewater Treatment (MMT CO2 Eq. and Percent),,,,,,,,,
+,,,,,,,,,
+,Source,Gas,2019 Emission Estimate,,Uncertainty Range Relative to Emission Estimatea,,,,
+,,,(MMT CO2 Eq.),,(MMT CO2 Eq.),,(%),,
+,,,,,Lower,Upper,,Lower,Upper
+,,,,,Bound,Bound,,Bound,Bound
+,Wastewater Treatment,CH4,18.4,,13.3,25.4,,-28%,38%
+,Domestic,CH4,12.1,,7.9,17.7,,-35%,47%
+,Industrial,CH4,6.4,,3.8,10.3,,-41%,62%
+,Wastewater Treatment,N2O,26.4,,16.7,81.6,,-37%,209%
+,Domestic,N2O,25.8,,15.7,80.5,,-39%,212%
+,Industrial,N2O,0.6,,0.6,1.7,,-2%,197%
+,a Range of emission estimates predicted by Monte Carlo Stochastic Simulation for a 95 percent confidence interval.,,,,,,,,

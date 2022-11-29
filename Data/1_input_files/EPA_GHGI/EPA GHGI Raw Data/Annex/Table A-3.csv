@@ -1,0 +1,155 @@
+Table A-3: U.S. Greenhouse Gas Inventory Source Categories with LULUCF,,,,,
+CRF Source/Sink Category,Greenhouse Gas,2019 Emissions (MMT CO2 Eq.),Key Category,ID Critera a,Level in which year(s) b
+Energy,,,,,
+1.A.3.b CO2 Emissions from Mobile Combustion: Road,CO2,"1,510.50",•,L1 T1 L2 T2,"1990, 2019"
+1.A.1 CO2 Emissions from Stationary Combustion - Coal - Electricity Generation,CO2,973.5,•,L1 T1 L2 T2,"1990, 2019"
+1.A.1 CO2 Emissions from Stationary Combustion - Gas - Electricity Generation,CO2,616,•,L1 T1 L2 T2,"1990 1, 2019"
+1.A.2 CO2 Emissions from Stationary Combustion - Gas - Industrial,CO2,503.3,•,L1 T1 L2 T2,"1990, 2019"
+1.A.4.b CO2 Emissions from Stationary Combustion - Gas - Residential,CO2,275.3,•,L1 T1 L2,"1990, 2019"
+1.A.2 CO2 Emissions from Stationary Combustion - Oil - Industrial,CO2,269.7,•,L1 T1 L2 T2,"1990, 2019"
+1.A.4.a CO2 Emissions from Stationary Combustion - Gas - Commercial,CO2,192.8,•,L1 T1 L2 T2,"1990, 2019"
+1.A.3.a CO2 Emissions from Mobile Combustion: Aviation,CO2,178.5,•,L1 T1 L2,"1990, 2019"
+1.A.5 CO2 Emissions from Non-Energy Use of Fuels,CO2,128.8,•,L1 T1 L2 T2,"1990, 2019"
+1.A.4.b CO2 Emissions from Stationary Combustion - Oil - Residential,CO2,61.5,•,L1 T1,"1990 1, 2019 1"
+1.A.4.a CO2 Emissions from Stationary Combustion - Oil - Commercial,CO2,55.3,•,L1 T1,"1990 1, 2019 1"
+1.A.3.e CO2 Emissions from Mobile Combustion: Other,CO2,53.7,•,L1 T1,"1990 1, 2019 1"
+1.A.2 CO2 Emissions from Stationary Combustion - Coal - Industrial,CO2,49.5,•,L1 T1 L2 T2,"1990, 2019 1 "
+1.B.2.a CO2 Emissions from Petroleum Systems,CO2,47.3,•,L1 T1 L2 T2,2019
+1.B.2.b CO2 Emissions from Natural Gas Systems,CO2,37.2,•,L1,"1990 1, 2019 1"
+1.A.3.c CO2 Emissions from Mobile Combustion: Railways,CO2,37.1,•,L1,"1990 1, 2019 1"
+1.A.3.d CO2 Emissions from Mobile Combustion: Marine,CO2,32.1,•,L1,"1990 1, 2019 1"
+1.A.5 CO2 Emissions from Stationary Combustion - Oil - U.S. Territories,CO2,19.5,•,L1,"1990 1, 2019 1"
+1.A.1 CO2 Emissions from Stationary Combustion - Oil - Electricity Generation,CO2,16.2,•,L1 T1 T2,1990 1
+1.A.5 CO2 Emissions from Incineration of Waste,CO2,11.5,,,
+1.A.5.b CO2 Emissions from Mobile Combustion: Military,CO2,5.3,•,T1,
+1.A.5 CO2 Emissions from Stationary Combustion - Gas - U.S. Territories,CO2,2.5,,,
+1.A.5 CO2 Emissions from Stationary Combustion - Coal - U.S. Territories,CO2,2.5,,,
+1.A.4.a CO2 Emissions from Stationary Combustion - Coal - Commercial,CO2,1.6,•,T1,
+1.A.1 CO2 Emissions from Stationary Combustion - Geothermal Energy,CO2,0.4,,,
+1.B.2 CO2 Emissions from Abandoned Oil and Gas Wells,CO2,+,,,
+1.A.4.b CO2 Emissions from Stationary Combustion - Coal - Residential,CO2,0,•,T2,
+1.B.2.b CH4 Emissions from Natural Gas Systems,CH4,157.6,•,L1 T1 L2 T2,"1990, 2019"
+1.B.1 Fugitive Emissions from Coal Mining,CH4,47.4,•,L1 T1 L2 T2,"1990, 2019 1"
+1.B.2.a CH4 Emissions from Petroleum Systems,CH4,39.1,•,L1 T1 L2 T2,"1990, 2019"
+1.B.2 CH4 Emissions from Abandoned Oil and Gas Wells,CH4,6.6,•,L2,"1990 2, 2019 2"
+1.B.1 Fugitive Emissions from Abandoned Underground Coal Mines,CH4,5.9,,,
+1.A.4.b CH4 Emissions from Stationary Combustion - Residential,CH4,4.6,•,L2,"1990 2, 2019 2"
+1.A.2 CH4 Emissions from Stationary Combustion - Industrial,CH4,1.5,,,
+1.A.4.a CH4 Emissions from Stationary Combustion - Commercial,CH4,1.2,,,
+1.A.1 CH4 Emissions from Stationary Combustion - Gas - Electricity Generation,CH4,1.1,,,
+1.A.3.e CH4 Emissions from Mobile Combustion: Other,CH4,0.9,,,
+1.A.3.b CH4 Emissions from Mobile Combustion: Road,CH4,0.9,,,
+1.A.3.d CH4 Emissions from Mobile Combustion: Marine,CH4,0.4,,,
+1.A.1 CH4 Emissions from Stationary Combustion - Coal - Electricity Generation,CH4,0.2,,,
+1.A.3.c CH4 Emissions from Mobile Combustion: Railways,CH4,0.1,,,
+1.A.5 CH4 Emissions from Stationary Combustion - U.S. Territories,CH4,+,,,
+1.A.3.a CH4 Emissions from Mobile Combustion: Aviation,CH4,+,,,
+1.A.1 CH4 Emissions from Stationary Combustion - Wood - Electricity Generation,CH4,+,,,
+1.A.1 CH4 Emissions from Stationary Combustion - Oil - Electricity Generation,CH4,+,,,
+1.A.5.b CH4 Emissions from Mobile Combustion: Military,CH4,+,,,
+1.A.5 CH4 Emissions from Incineration of Waste,CH4,+,,,
+1.A.1 N2O Emissions from Stationary Combustion - Coal - Electricity Generation,N2O,16.7,•,L2,1990 2
+1.A.3.b N2O Emissions from Mobile Combustion: Road,N2O,9.3,•,L1 T1 T2,1990 1
+1.A.3.e N2O Emissions from Mobile Combustion: Other,N2O,6.5,,,
+1.A.1 N2O Emissions from Stationary Combustion - Gas - Electricity Generation,N2O,4.4,,,
+1.A.2 N2O Emissions from Stationary Combustion - Industrial,N2O,2.5,,,
+1.A.3.a N2O Emissions from Mobile Combustion: Aviation,N2O,1.6,,,
+1.A.4.b N2O Emissions from Stationary Combustion - Residential,N2O,0.9,,,
+1.A.4.a N2O Emissions from Stationary Combustion - Commercial,N2O,0.3,,,
+1.A.5 N2O Emissions from Incineration of Waste,N2O,0.3,,,
+1.A.3.c N2O Emissions from Mobile Combustion: Railways,N2O,0.3,,,
+1.A.3.d N2O Emissions from Mobile Combustion: Marine,N2O,0.2,,,
+1.A.5 N2O Emissions from Stationary Combustion - U.S. Territories,N2O,0.1,,,
+1.B.2.a N2O Emissions from Petroleum Systems,N2O,+,,,
+1.A.1 N2O Emissions from Stationary Combustion - Wood - Electricity Generation,N2O,+,,,
+1.B.2.b N2O Emissions from Natural Gas Systems,N2O,+,,,
+1.A.1 N2O Emissions from Stationary Combustion - Oil - Electricity Generation,N2O,+,,,
+1.A.5.b N2O Emissions from Mobile Combustion: Military,N2O,+,,,
+Industrial Processes and Product Use,,,,,
+2.C.1 CO2 Emissions from Iron and Steel Production & Metallurgical Coke Production,CO2,41.3,•,L1 T1 L2 T2,"1990, 2019?"
+2.A.1 CO2 Emissions from Cement Production,CO2,40.9,•,L1 ,"1990 1, 2019 1"
+2.B.8 CO2 Emissions from Petrochemical Production,CO2,30.8,•,L1 T1,"1990 1, 2019 1"
+2.B.1 CO2 Emissions from Ammonia Production,CO2,12.3,,,
+2.A.2 CO2 Emissions from Lime Production,CO2,12.1,,,
+2.A.4 CO2 Emissions from Other Process Uses of Carbonates,CO2,7.5,,,
+2.B.10 CO2 Emissions from Urea Consumption for Non-Ag Purposes,CO2,6.2,,,
+2.B.10 CO2 Emissions from Carbon Dioxide Consumption,CO2,4.9,,,
+2.C.3 CO2 Emissions from Aluminum Production ,CO2,1.9,,,
+2.B.7 CO2 Emissions from Soda Ash Production,CO2,1.8,,,
+2.C.2 CO2 Emissions from Ferroalloy Production,CO2,1.6,,,
+2.B.6 CO2 Emissions from Titanium Dioxide Production,CO2,1.5,,,
+2.A.3 CO2 Emissions from Glass Production,CO2,1.3,,,
+2.C.6 CO2 Emissions from Zinc Production,CO2,1,,,
+2.B.10 CO2 Emissions from Phosphoric Acid Production,CO2,0.9,,,
+2.C.5 CO2 Emissions from Lead Production,CO2,0.5,,,
+2.B.5 CO2 Emissions from Silicon Carbide Production and Consumption,CO2,0.2,,,
+2.C.4 CO2 Emissions from Magnesium Production and Processing,CO2,+,,,
+2.B.8 CH4 Emissions from Petrochemical Production,CH4,0.3,,,
+2.C.2 CH4 Emissions from Ferroalloy Production,CH4,+,,,
+2.B.5 CH4 Emissions from Silicon Carbide Production and Consumption,CH4,+,,,
+2.C.1 CH4 Emissions from Iron and Steel Production & Metallurgical Coke Production,CH4,+,,,
+2.B.2 N2O Emissions from Nitric Acid Production,N2O,10,,,
+2.B.3 N2O Emissions from Adipic Acid Production,N2O,5.3,•,T1,
+2.G.3 N2O Emissions from Product Uses,N2O,4.2,,,
+"2.B.4 N2O Emissions from Caprolactam, Glyoxal, and Glyoxylic Acid Production",N2O,1.4,,,
+2.E N2O Emissions from Electronics Industry,N2O,0.2,,,
+2.F.1 Emissions from Substitutes for Ozone Depleting Substances: Refrigeration and Air conditioning,"HFCs, PFCs",133.4,•,L1 T1 L2 T2,2019
+2.F.4 Emissions from Substitutes for Ozone Depleting Substances: Aerosols,"HFCs, PFCs",16.3,•,T1 T2,
+2.F.2 Emissions from Substitutes for Ozone Depleting Substances: Foam Blowing Agents,"HFCs, PFCs",16.1,•,T1,
+2.F.3 Emissions from Substitutes for Ozone Depleting Substances: Fire Protection,"HFCs, PFCs",2.8,,,
+2.F.5 Emissions from Substitutes for Ozone Depleting Substances: Solvents,"HFCs, PFCs",2,,,
+"2.E PFC, HFC, SF6, and NF3 Emissions from Electronics Industry",HiGWPs,4.4,,,
+2.G.1 SF6 Emissions from Electrical Transmission and Distribution,SF6,4.2,•,L1 T1 T2,1990 1
+2.B.9 HFC-23 Emissions from HCFC-22 Production,HFCs,3.7,•,L1 T1 T2,1990 1
+2.C.3 PFC Emissions from Aluminum Production,PFCs,1.8,•,L1 T1 ,1990 1
+2.C.4 SF6 Emissions from Magnesium Production and Processing,SF6,0.9,,,
+2.C.4 HFC-134a Emissions from Magnesium Production and Processing,HFCs,0.1,,,
+Agriculture,,,,,
+3.H CO2 Emissions from Urea Fertilization,CO2,5.3,,,
+3.G CO2 Emissions from Liming,CO2,2.4,,,
+3.A.1 CH4 Emissions from Enteric Fermentation: Cattle,CH4,172.3,•,L1 T1 L2,"1990, 2019"
+3.B.1 CH4 Emissions from Manure Management: Cattle,CH4,35.4,•,L1 T1 T2,2019 1
+3.B.4 CH4 Emissions from Manure Management: Other Livestock,CH4,26.9,•,L1,2019 1
+3.C CH4 Emissions from Rice Cultivation,CH4,15.1,•,L2,"1990 2, 2019 2"
+3.A.4 CH4 Emissions from Enteric Fermentation: Other Livestock,CH4,6.3,,,
+3.F CH4 Emissions from Field Burning of Agricultural Residues,CH4,0.4,,,
+3.D.1 Direct N2O Emissions from Agricultural Soil Management,N2O,290.4,•,L1 T1 L2 T2,"1990, 2019"
+3.D.2 Indirect N2O Emissions from Applied Nitrogen,N2O,54.2,•,L1 T1 L2 T2,"1990, 2019"
+3.B.1 N2O Emissions from Manure Management: Cattle,N2O,15.4,,,
+3.B.4 N2O Emissions from Manure Management: Other Livestock,N2O,4.2,,,
+3.F N2O Emissions from Field Burning of Agricultural Residues,N2O,0.2,,,
+Waste,,,,,
+5.A CH4 Emissions from Landfills,CH4,114.5,•,L1 T1 L2 T2,"1990, 2019"
+5.D CH4 Emissions from Wastewater Treatment,CH4,18.4,•,L1,2019 1
+5.B.1 CH4 Emissions from Composting,CH4,2.3,,,
+5.B.2 CH4 Emissions from Anaerobic Digestion at Biogas Facilities,CH4,0.2,,,
+5.D N2O Emissions from Wastewater Treatment,N2O,26.4,•,L1 L2 T2,"1990 2, 2019"
+5.B.1 N2O Emissions from Composting,N2O,2,,,
+"Land Use, Land-Use Change, and Forestry",,,,,
+4.E.2 Net CO2 Emissions from Land Converted to Settlements,CO2,79.2,•,L1 T1 L2 T2,"1990, 2019"
+4.B.2 Net CO2 Emissions from Land Converted to Cropland,CO2,54.2,•,L1 L2,"1990, 2019"
+4.C.1 Net CO2 Emissions from Grassland Remaining Grassland,CO2,14.5,•,L2 T2,"1990 2, 2019 2"
+4.D.2 Net CO2 Emissions from Land Converted to Wetlands,CO2,(+),,,
+4.D.1 Net CO2 Emissions from Coastal Wetlands Remaining Coastal Wetlands,CO2,(+),,,
+4.B.1 Net CO2 Emissions from Cropland Remaining Cropland,CO2,(+),•,L1 T1 L2 T2,"1990, 2019 2"
+4.C.2 Net CO2 Emissions from Land Converted to Grassland,CO2,(+),•,L1 T1 L2 T2,2019
+4.A.2 Net CO2 Emissions from Land Converted to Forest Land,CO2,(+),•,L1 L2,"1990, 2019"
+4.E.1 Net CO2 Emissions from Settlements Remaining Settlements,CO2,(+),•,L1 T1 L2 T2,"1990, 2019"
+4.A.1 Net CO2 Emissions from Forest Land Remaining Forest Land,CO2,(+),•,L1 T1 L2 T2,"1990, 2019"
+4.A.1 CH4 Emissions from Forest Fires,CH4,9.5,•,T1,
+4.D.1 CH4 Emissions from Coastal Wetlands Remaining Coastal Wetlands,CH4,3.8,,,
+4.C.1 CH4 Emissions from Grass Fires,CH4,0.3,,,
+4.D.2 CH4 Emissions from Land Converted to Coastal Wetlands,CH4,0.2,,,
+4.A.4 CH4 Emissions from Drained Organic Soils,CH4,+,,,
+4.D.1 CH4 Emissions from Peatlands Remaining Peatlands,CH4,+,,,
+4.A.1 N2O Emissions from Forest Fires,N2O,6.2,,,
+4.E.1 N2O Emissions from Settlement Soils,N2O,2.4,,,
+4.A.1 N2O Emissions from Forest Soils,N2O,0.5,,,
+4.C.1 N2O Emissions from Grass Fires,N2O,0.3,,,
+4.D.1 N2O Emissions from Coastal Wetlands Remaining Coastal Wetlands,N2O,0.1,,,
+4.A.4 N2O Emissions from Drained Organic Soils,N2O,0.1,,,
+4.D.1 N2O Emissions from Peatlands Remaining Peatlands,N2O,+,,,
+Note: Parentheses indicate negative values (or sequestration).,,,,,
++ Does not exceed 0.05 MMT CO2 Eq.,,,,,
+"a If the source is a key category for both L1 and L2 (as designated in the ID criteria column), it is a key category for both assessments in the years provided unless noted by a subscript, in which case it is a key category only for that assessment in only that year (e.g., 1990 2 designates a source is a key category for the Approach 2 assessment only in 1990).",,,,,
+b Emissions from these sources not included in emission totals.,,,,,

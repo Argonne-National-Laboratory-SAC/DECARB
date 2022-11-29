@@ -1,0 +1,40 @@
+Table 5-33:  Parameters for Estimating Emissions from Field Burning of Agricultural Residues,,,,,
+Crop,Residue/Crop Ratio,Dry Matter Fraction,Carbon Fraction,Nitrogen Fraction,Combustion Efficiency (Fraction)
+Maize,0.707,0.56,0.47,0.01,0.9
+Rice,1.34,0.89,0.47,0.01,0.9
+Wheat,1.725,0.89,0.47,0.01,0.9
+Barley,1.181,0.89,0.47,0.01,0.9
+Oats,1.374,0.89,0.47,0.01,0.9
+Other Small Grains,1.777,0.88,0.47,0.01,0.9
+Sorghum,0.78,0.6,0.47,0.01,0.9
+Cotton,7.443,0.93,0.47,0.01,0.9
+Grass Hay,0.208,0.9,0.47,0.02,0.9
+Legume Hay,0.29,0.67,0.47,0.01,0.9
+Peas,1.677,0.91,0.47,0.01,0.9
+Sunflower,1.765,0.88,0.47,0.01,0.9
+Tobacco,0.3,0.87,0.47,0.01,0.9
+Vegetables,0.708,0.08,0.47,0.01,0.9
+Chickpeas,1.588,0.91,0.47,0.01,0.9
+Dry Beans,0.771,0.9,0.47,0.01,0.9
+Lentils,1.837,0.91,0.47,0.02,0.9
+Peanuts,1.6,0.94,0.47,0.02,0.9
+Soybeans,1.5,0.91,0.47,0.01,0.9
+Potatoes,0.379,0.25,0.47,0.02,0.9
+Sugarbeets,0.196,0.22,0.47,0.02,0.9
+Notes:,,,,,
+"Chickpeas: IPCC (2006), Table 11.2; values are for Beans & pulses.",,,,,
+Cotton: Combined sources (Heitholt et al. 1992; Halevy 1976; Wells and Meredith 1984; Sadras and Wilson 1997; Pettigrew and Meredith 1997; Torbert and Reeves 1994; Gerik et al. 1996; Brouder and Cassmen 1990; Fritschi et al. 2003; Pettigrew et al. 2005; Bouquet and Breitenbeck 2000; Mahroni and Aharonov 1964; Bange and Milroy 2004; Hollifield et al. 2000; Mondino et al. 2004; Wallach et al. 1978).,,,,,
+"Lentils: IPCC (2006), Table 11.2; Beans & pulses.",,,,,
+"Peas: IPCC (2006), Table 11.2; values are for Beans & pulses.",,,,,
+"Peanuts: IPCC (2006); Table 11.2; Root ratio and belowground N content values are for Root crops, other.",,,,,
+Sugarbeets: IPCC (2006); Table 11.2; values are for Tubers.,,,,,
+"Sunflower: IPCC (2006), Table 11.2; values are for Grains.",,,,,
+"Sugarcane: combined sources (Wiedenfels 2000, Dua and Sharma 1976; Singels & Bezuidenhout 2002; Stirling et al. 1999; Sitompul et al. 2000).",,,,,
+Tobacco: combined sources (Beyaert 1996; Moustakas and Ntzanis 2005; Crafts-Brandner et al. 1994; Hopkinson 1967; Crafts-Brandner et al. 1987).,,,,,
+"Vegetables (Combination of carrots, lettuce/cabbage, melons, onions, peppers and tomatoes):",,,,,
+Carrots: McPharlin et al. (1992); Gibberd et al. (2003); Reid and English (2000); Peach et al. (2000); see IPCC Tubers for R:S and N fraction.,,,,,
+"Lettuce, cabbage: combined sources (Huett and Dettman 1991; De Pinheiro Henriques & Marcelis 2000; Huett and Dettman 1989; Peach et al. 2000; Kage et al. 2003; Tan et al. 1999; Kumar et al. 1994; MacLeod et al. 1971; Jacobs et al. 2004; Jacobs et al. 2001; Jacobs et al. 2002); values from IPCC Grains used for N fraction.",,,,,
+Melons: Valantin et al. (1999); squash for R:S; IPCC Grains for N fraction.,,,,,
+"Onion: Peach et al. (2000), Halvorson et al. (2002); IPCC (2006) Tubers for N fraction.",,,,,
+Peppers: combined sources (Costa and Gianquinto 2002; Marcussi et al. 2004; Tadesse et al. 1999; Diaz-Perez et al. 2008); IPCC Grains for N fraction.,,,,,
+"Tomatoes: Scholberg et al. (2000a,b); Akintoye et al. (2005); values for AGR-N and BGR-N are from Grains.",,,,,

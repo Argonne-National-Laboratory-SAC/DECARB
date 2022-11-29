@@ -1,0 +1,77 @@
+"Table A-203:  Coefficients for Estimating the Ratio of C Density of Understory Vegetation (above- and belowground, T C/ha) by Region and Forest Type (a)",,,,
+Region b,Forest Type b,A,B,Maximum Ratio c
+NE,Aspen-Birch,0.855,1.032,2.023
+,MBB/Other Hardwood,0.892,1.079,2.076
+,Oak-Hickory,0.842,1.053,2.057
+,Oak-Pine,1.96,1.235,4.203
+,Other Pine,2.149,1.268,4.191
+,Spruce-Fir,0.825,1.121,2.14
+,White-Red-Jack Pine,1,1.116,2.098
+,Nonstocked,2.02,2.02,2.06
+NLS,Aspen-Birch,0.777,1.018,2.023
+,Lowland Hardwood,0.65,0.997,2.037
+,Maple-Beech-Birch,0.863,1.12,2.129
+,Oak-Hickory,0.965,1.091,2.072
+,Pine,0.74,1.014,2.046
+,Spruce-Fir,1.656,1.318,2.136
+,Nonstocked,1.928,1.928,2.117
+NPS,Conifer,1.189,1.19,2.114
+,Lowland Hardwood,1.37,1.177,2.055
+,Maple-Beech-Birch,1.126,1.201,2.13
+,Oak-Hickory,1.139,1.138,2.072
+,Oak-Pine,2.014,1.215,4.185
+,Nonstocked,2.052,2.052,2.072
+PSW,Douglas-fir,2.084,1.201,4.626
+,Fir-Spruce,1.983,1.268,4.806
+,Hardwoods,1.571,1.038,4.745
+,Other Conifer,4.032,1.785,4.768
+,Pinyon-Juniper,4.43,4.43,4.82
+,Redwood,2.513,1.312,4.698
+,Nonstocked,4.431,4.431,4.626
+PWE,Douglas-fir,1.544,1.064,4.626
+,Fir-Spruce,1.583,1.156,4.806
+,Hardwoods,1.9,1.133,4.745
+,Lodgepole Pine,1.79,1.257,4.823
+,Pinyon-Juniper,2.708,2.708,4.82
+,Ponderosa Pine,1.768,1.213,4.768
+,Nonstocked,4.315,4.315,4.626
+PWW,Douglas-fir,1.727,1.108,4.609
+,Fir-Spruce,1.77,1.164,4.807
+,Other Conifer,2.874,1.534,4.768
+,Other Hardwoods,2.157,1.22,4.745
+,Red Alder,2.094,1.23,4.745
+,Western Hemlock,2.081,1.218,4.693
+,Nonstocked,4.401,4.401,4.589
+RMN,Douglas-fir,2.342,1.36,4.731
+,Fir-Spruce,2.129,1.315,4.749
+,Hardwoods,1.86,1.11,4.745
+,Lodgepole Pine,2.571,1.5,4.773
+,Other Conifer,2.614,1.518,4.821
+,Pinyon-Juniper,2.708,2.708,4.82
+,Ponderosa Pine,2.099,1.344,4.776
+,Nonstocked,4.43,4.43,4.773
+RMS,Douglas-fir,5.145,2.232,4.829
+,Fir-Spruce,2.861,1.568,4.822
+,Hardwoods,1.858,1.11,4.745
+,Lodgepole Pine,3.305,1.737,4.797
+,Other Conifer,2.134,1.382,4.821
+,Pinyon-Juniper,2.757,2.757,4.82
+,Ponderosa Pine,3.214,1.732,4.82
+,Nonstocked,4.243,4.243,4.797
+SC,Bottomland Hardwood,0.917,1.109,1.842
+,Misc. Conifer,1.601,1.129,4.191
+,Natural Pine,2.166,1.26,4.161
+,Oak-Pine,1.903,1.19,4.173
+,Planted Pine,1.489,1.037,4.124
+,Upland Hardwood,2.089,1.235,4.17
+,Nonstocked,4.044,4.044,4.17
+SE,Bottomland Hardwood,0.834,1.089,1.842
+,Misc. Conifer,1.601,1.129,4.191
+,Natural Pine,1.752,1.155,4.178
+,Oak-Pine,1.642,1.117,4.195
+,Planted Pine,1.47,1.036,4.141
+,Upland Hardwood,1.903,1.191,4.182
+,Nonstocked,4.033,4.033,4.182
+"a Prediction of ratio of understory C to live tree C is based on the model: Ratio=exp(A - B × ln(tree_carbon_tph)), where “ratio” is the ratio of understory C density to live tree (above-and below- ground) C density, and “tree_carbon_density” is live tree (above-and below- ground) C density in T C/ha. Note that this ratio is multiplied by tree C density on each plot to produce understory vegetation.",,,,
+b Regions and types as defined in Smith et al. (2003).,,,,
+c Maximum ratio: any estimate predicted from the model that is greater than the maximum ratio is set equal to the maximum ratio.,,,,

@@ -1,0 +1,23 @@
+Table 7-14:  Variables and Data Sources for CH4 Emissions from Centrally Treated Aerobic Systems (Other than Constructed Wetlands),,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Centrally Treated Aerobic Systems (Other than Constructed Wetlands) (kt CH4/year),,,
+Saerobic,Organic component removed from aerobic wastewater treatment,Gg BOD/year,1990-2019: Calculated
+Smass,Raw sludge removed from wastewater treatment as dry mass a,Tg dry weight/year,1988: EPA (1993c); EPA (1999)
+,,,1990-1995: Calculated based on sewage sludge production change per year EPA (1993c); EPA (1999); Beecher et al. (2007)
+,,,1996: EPA (1999)
+,,,2004: Beecher et al. (2007)
+,,,Data for intervening years obtained by linear interpolation
+,,,2005-2019: Forecasted from the rest of the time series
+% aerobicOTCW,"Percent of flow to aerobic systems, other than wetlands a",%,"1990, 1991: Set equal to 1992"
+% aerobic w/primary,Percent of aerobic systems with primary treatment and no anaerobic sludge digestion (0),%,"1992, 1996, 2000, 2004: EPA (1992, 1996, 2000, 2004a), respectively"
+% aerobic w/out primary,Percent of aerobic systems without primary treatment,%,Data for intervening years obtained by linear interpolation.
+%aerobic+digestion,Percent of aerobic systems with primary and anaerobic sludge digestion,%,2005-2019: Forecasted from the rest of the time series
+"Krem,aer_prim","Sludge removal factor for aerobic treatment plants with primary treatment (mixed primary and secondary sludge, untreated or treated aerobically) (0.8)",kg BOD/kg sludge,1990-2019: IPCC (2019)
+"Krem,aer_noprim",Sludge removal factor for aerobic wastewater treatment plants without separate primary treatment (1.16),kg BOD/kg sludge,
+"Krem,aer_digest","Sludge removal factor for aerobic treatment plants with primary treatment and anaerobic sludge digestion (mixed primary and secondary sludge, treated anaerobically) (1)",kg BOD/kg sludge,
+1000,Conversion factor,metric tons to kilograms,
+EFaerobic,Emission factor – aerobic systems (0.018),kg CH4/kg BOD,
+Raerobic,Amount CH4 recovered or flared from aerobic wastewater treatment (0),kg CH4/year,
+,,,
+a Value of this activity data varies over the time series.,,,

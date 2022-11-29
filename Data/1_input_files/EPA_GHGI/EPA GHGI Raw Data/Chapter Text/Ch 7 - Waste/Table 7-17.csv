@@ -1,0 +1,16 @@
+Table 7-17:  Variables and Data Sources for Emissions from Anaerobic Sludge Digesters,,,
+,,,
+Variable,Variable Description,Units,Inventory years: Source of Value
+Emissions from Anaerobic Sludge Digesters (kt CH4/year),,,
+POTW_flow_AD,POTW Flow to Facilities with Anaerobic Sludge Digesters,MGD,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004: EPA (1992, 1996, 2000, and 2004a), respectively"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2005-2019: Forecasted from the rest of the time series
+biogas gen,Gas Generation Rate (1.0),ft3/capita/day,1990-2019: Metcalf & Eddy (2014)
+100,Per Capita POTW Flow (100),gal/capita/day,1990-2019: Ten-State Standards (2004)
+0.0283,Conversion factor,ft3 to m3,Standard Conversion
+FRAC_CH4,Proportion of Methane in Biogas (0.65),No units,1990-2019: Metcalf & Eddy (2014)
+365.25,Conversion factor,Days in a year,Standard conversion
+662,Density of Methane (662),g CH4/m3 CH4,1990-2019: EPA (1993a)
+DE,Destruction Efficiency (99% converted to fraction),No units,1990-2019: EPA (1998); CAR (2011); Sullivan (2007); Sullivan (2010); and UNFCCC (2012)
+1/109,Conversion factor,g to kt,Standard conversion

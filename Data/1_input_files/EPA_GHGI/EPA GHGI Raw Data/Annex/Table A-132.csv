@@ -1,0 +1,25 @@
+Table A-132: Aerosol Product Transition Assumptions,,,,,,,,,,,,,
+Initial Market Segment,Primary Substitute,,,,Secondary Substitute,,,,Tertiary Substitute,,,,Growth Rate 4
+,Name of  Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,Name of  Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,Name of  Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,
+MDIs,,,,,,,,,,,,,
+CFC Mix 2,HFC-134a,1997,1997,6%,None,,,,,,,,2.10%
+,Non-ODP/GWP,1998,2007,7%,None,,,,,,,,
+,CFC Mix a,2000,2000,87%,HFC-134a,2001,2011,28%,Non-ODP/GWP,2012,2018,64%,
+,,,,,Non-ODP/GWP,2001,2014,67%,None,,,,
+,,,,,HFC-227ea,2007,2013,5%,Non-ODP/GWP,2015,2018,44%,
+Consumer Aerosols (Non-MDIs),,,,,,,,,,,,,
+NA 3 ,HFC-152a,1990,1991,50%,None,,,,,,,,4.20%
+,HFC-134a,1995,1995,50%,HFC-152a,1997,1998,44%,None,,,,
+,,,,,HFC-152a,2001,2005,38%,None,,,,
+,,,,,HFO-1234ze(E),2016,2018,16%,None,,,,
+Technical Aerosols (Non-MDIs),,,,,,,,,,,,,
+CFC-12,HCFC-142b,1994,1994,10%,HFC-152a,2001,2010,90%,None,,,,4.20%
+,,,,,HFC-134a,2001,2010,10%,None,,,,
+,Non-ODP/GWP,1994,1994,5%,None,,,,,,,,
+,HCFC-22,1994,1994,50%,HFC-134a,2001,2010,100%,HFO-1234ze(E),2012,2016,10%,
+,HFC-152a,1994,1994,10%,None,,,,,,,,
+,HFC-134a,1994,1994,25%,None,,,,,,,,
+1 Transitions between the start year and date of full penetration in new products are assumed to be linear so that in total 100% of the market is assigned to the original ODS or the various ODS substitutes.,,,,,,,,,,,,,
+"2 CFC Mix consists of CFC-11, CFC-12 and CFC-114 and represents the weighted average of several CFCs consumed for essential use in MDIs from 1993 to 2008. It is assumed that CFC mix was stockpiled in the United States and used in new products through 2013. ",,,,,,,,,,,,,
+"3 Consumer Aerosols transitioned away from ODS prior to 1985, the year in which the Vintaging Model begins. The portion of the market that is now using HFC propellants is modeled.",,,,,,,,,,,,,
+4 Growth Rate is the average annual growth rate for individual market sectors from the base year to 2030. ,,,,,,,,,,,,,

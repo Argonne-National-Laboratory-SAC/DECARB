@@ -1,0 +1,23 @@
+Table A-188:  Soil Organic Carbon Stock Change Factors for the United States and the IPCC Default Values Associated with Management Impacts on Mineral Soils,,,,,
+,,U.S. Factor,,,
+,IPCC default,Warm Moist Climate,Warm Dry Climate,Cool Moist Climate,Cool Dry Climate
+Land-Use Change Factors,,,,,
+   Cultivated a,1,1,1,1,1
+"   General Uncult a,b  (n=251)",1.4,1.42±0.06,1.37±0.05,1.24±0.06,1.20±0.06
+   Set-Aside a (n=142),1.25,1.31±0.06,1.26±0.04,1.14±0.06,1.10±0.05
+Improved Grassland Factors,,,,,
+  Medium Input,1.1,1.14±0.06,1.14±0.06,1.14±0.06,1.14±0.06
+  High Input,NA,1.11±0.04,1.11±0.04,1.11±0.04,1.11±0.04
+Wetland Rice Production Factor b,1.1,1.1,1.1,1.1,1.1
+Tillage Factors,,,,,
+   Conv. Till,1,1,1,1,1
+   Red. Till (n=93),1.05,1.08±0.03,1.01±0.03,1.08±0.03,1.01±0.03
+   No-till (n=212),1.1,1.13±0.02,1.05±0.03,1.13±0.02,1.05±0.03
+Cropland Input Factors,,,,,
+   Low (n=85),0.9,0.94±0.01,0.94±0.01,0.94±0.01,0.94±0.01
+   Medium,1,1,1,1,1
+   High (n=22),1.1,1.07±0.02,1.07±0.02,1.07±0.02,1.07±0.02
+   High with amendment b,1.2,1.38±0.06,1.34±0.08,1.38±0.06,1.34±0.08
+a Factors in the IPCC documentation (IPCC 2006) are converted to represent changes in soil organic C storage from a cultivated condition rather than a native condition.,,,,,
+"b U.S.-specific factors are not estimated for land improvements, rice production, or high input with amendment because of few studies addressing the impact of legume mixtures, irrigation, or manure applications for crop and grassland in the United States, or the impact of wetland rice production in the US. Factors provided in IPCC (2006) are used as the best estimates of these impacts. ",,,,,
+Note: The “n” values refer to sample size.,,,,,

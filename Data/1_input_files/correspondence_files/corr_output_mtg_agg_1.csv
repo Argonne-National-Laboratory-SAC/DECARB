@@ -1,0 +1,58 @@
+Correspondence  mappingof aggregrating various mitigation cases by industry and mitigation case types,
+,
+,
+Mitigation Case_Decarb,Mitigation Case_Front
+-,Reference Case
+"Bulk Chemical Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Cement and Lime Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Food Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Iron and Steel Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Paper Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Refinery Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Refining Industry, efficiency improvements","Industry, Efficiency Improvements"
+"Bulk Chemical Industry, fuel switching for low quality heat to Electricity","Industry, Fuel Switching"
+"Bulk Chemical Industry, fuel switching Steam Coal to Natural Gas","Industry, Fuel Switching"
+"Cement and Lime Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Cement and Lime Industry, fuel switching Natural Gas to Hydrogen","Industry, Fuel Switching"
+"Cement and Lime Industry, fuel switching Steam Coal to Natural Gas","Industry, Fuel Switching"
+"Food Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Food Industry, fuel switching Natural Gas to Hydrogen","Industry, Fuel Switching"
+"Food Industry, fuel switching Steam Coal to Natural Gas","Industry, Fuel Switching"
+"Iron and Steel Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Iron and Steel Industry, fuel switching Natural Gas to Hydrogen","Industry, Fuel Switching"
+"Paper Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Paper Industry, fuel switching Natural Gas to Electricity","Industry, Fuel Switching"
+"Paper Industry, fuel switching Natural Gas to Hydrogen","Industry, Fuel Switching"
+"Paper Industry, fuel switching Steam Coal to Electricity","Industry, Fuel Switching"
+"Refinery Industry, fuel switching Natural Gas to Hydrogen","Industry, Fuel Switching"
+"Refinery Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Refining Industry, fuel switching Fossil H2 to renewable H2","Industry, Fuel Switching"
+"Bulk Chemical Industry, Green Ammonia","Industry, Other Mitigation Measures"
+"Bulk Chenical Industry, Green Ammonia","Industry, Other Mitigation Measures"
+"Cement and Lime Industry, cement chemistry","Industry, Other Mitigation Measures"
+Reduction in Fugitive Methane emissions from Abandoned Wells,"Industry, Other Mitigation Measures"
+Reduction in Fugitive Methane emissions from O&G,"Industry, Other Mitigation Measures"
+"Biofuels, Changes in Above C Stock",Biofuels
+"Biofuels, Diesel",Biofuels
+"Biofuels, Gasoline",Biofuels
+"Biofuels, Reduction in Fugitive Methane Emissions from Landfills",Biofuels
+"Biofuels, SAF",Biofuels
+"Biofuels, SOC Change",Biofuels
+"Biofuels, Changes in Above C stock",Biofuels
+"Global, fuel switching Fossil H2 to renewable H2",Global fuel switching
+"Global, fuel switching Natural Gas to Hydrogen",Global fuel switching
+"Global, fuel switching Steam Coal to Natural Gas",Global fuel switching
+"Rice Cultivation, linear reduction",Agriculture Mitigation Measures
+"Soil N2O emissions, linear reduction",Agriculture Mitigation Measures
+"Manure Management, linear reduction",Agriculture Mitigation Measures
+On-Farm Mitigation,Agriculture Mitigation Measures
+Commercial: Energy efficiency,Commercial Mitigation Measures
+Commercial: Energy efficiency of Fuel switching,Commercial Mitigation Measures
+Commercial: Fuel switching,Commercial Mitigation Measures
+"Industrial, CCS implementation",CCS
+Residential: Energy efficiency,Residential Mitigation Measures
+Residential: Energy efficiency of Fuel switching,Residential Mitigation Measures
+Residential: Fuel switching,Residential Mitigation Measures
+NREL Electric Power Decarb,Electric Power Decarb
+LULUCF: Sustainable Farming,LULUCF
+"Transportation, VISION scenarios",Transportation Mitigation Measures

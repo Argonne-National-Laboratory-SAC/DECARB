@@ -1,0 +1,20 @@
+Table 7-15:  Variables and Data Sources for CH4 Emissions from Centrally Treated Aerobic Systems (Constructed Wetlands),,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Constructed Wetlands Only (kt CH4/year),,,
+TOWCENTRALIZED,Total organics in centralized wastewater treatment,Gg BOD/year,1990-2019: Calculated
+% aerobicCW,"Flow to aerobic systems, constructed wetlands used as sole treatment / total flow to POTWs.",%,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008b, and 2012)"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2013-2019: Forecasted from the rest of the time series
+EFCW,Emission factor for constructed wetlands,kg CH4/kg BOD,1990-2019: IPCC (2014)
+Emissions from Constructed Wetlands used as Tertiary Treatment (kt CH4/year),,,
+POTW_flow_CW,Wastewater flow to POTWs that use constructed wetlands as tertiary treatmenta ,MGD,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008b, and 2012)"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2013-2019: Forecasted from the rest of the time series
+"BODCW,INF",BOD concentration in wastewater entering the constructed wetland (30),mg/L,1990-2019: EPA (2013)
+3.785,Conversion factor,liters to gallons,Standard conversion
+EFCW,Emission factor for constructed wetlands (0.24),kg CH4/kg BOD,1990-2019: IPCC (2014)
+1/106,Conversion factor,kg to kt,Standard conversion
+365.25,Conversion factor,Days in a year,Standard conversion

@@ -1,0 +1,7 @@
+Table A-126:  Aviation and Marine Carbon Contents (MMT Carbon/QBtu) and Fraction Oxidized,,
+,,
+Mode (Fuel),Carbon Content Coefficient,Fraction Oxidized
+Aviation (Jet Fuel),Variable,1
+Marine (Distillate),Variable,1
+Marine (Residual),20.48,1
+Source: EPA (2010) and IPCC (2006).,,

@@ -1,0 +1,29 @@
+Table A-46:  Carbon Content Coefficients and Underlying Data for Petroleum Products,,,,
+Fuel,Carbon Content (MMT C/QBtu),Gross Heat of Combustion (MMBtu/Barrel),Density (API Gravity),Percent Carbon
+Motor Gasoline,19.27,5.220,59.10,86.60
+LPG (Propane),17.15,3.841,155.30,81.80
+HGL (Energy Use) a,17.47,(See b),(See b),(See b)
+HGL (Non-Energy Use) a,16.85,(See b),(See b),(See b)
+Jet Fuel,19.33,5.670,42.00,86.30
+Distillate Fuel,19.95,5.825,35.50,86.34
+Residual Fuel,21.49,6.287,11.00,85.68
+Asphalt and Road Oil,20.62,6.636,5.60,83.47
+Lubricants,20.24,6.065,25.60,85.80
+Petrochemical Feedstocks,19.37,5.248 c,67.1 c,84.11 c
+Aviation Gas,18.87,5.048,69.00,85.00
+Kerosene,19.72,5.670,41.40,86.01
+Petroleum Coke,27.85,6.024,-,92.28
+Special Naphtha,19.86,5.248,51.20,84.76
+Petroleum Waxes,19.81,5.537,43.30,85.29
+Still Gas,17.51,6.000,-,-
+Crude Oil,20.33,5.800,30.50,85.49
+Unfinished Oils,20.33,5.825,30.50,85.49
+Miscellaneous Products d,0.00,0.000,30.50,85.49
+Pentanes Plus,18.24,4.620,81.70,83.70
+Natural Gasoline,18.24,4.620,81.70,83.70
+Note: “-“ Indicates no sample data available.,,,,
+"a HGL is a blend of multiple paraffinic and olefinic hydrocarbons: ethane, propane, isobutane, and normal butane, each with their own heat content, density and C content, see Table A-40. ",,,,
+"b Heat, density, and percent carbon values are provided separately for ethane, and isobutene, butane, ethylene, isobutylene, and butylene. ",,,,
+c Parameters presented are for naphthas with a boiling temperature less than 400 degrees Fahrenheit. Petrochemical feedstocks with higher boiling points are assumed to have the same characteristics as distillate fuel.,,,,
+d The miscellaneous products category reported by EIA is assumed to be mostly petroleum refinery sulfur compounds that do not contain carbon (EIA 2019).,,,,
+"Sources: EIA (1994), EIA (2008a), EPA (2009c), EPA (2020b), ICF (2020). ",,,,

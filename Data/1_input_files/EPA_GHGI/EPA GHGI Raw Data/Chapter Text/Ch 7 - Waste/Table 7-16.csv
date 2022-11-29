@@ -1,0 +1,12 @@
+Table 7-16:  Variables and Data Sources for CH4 Emissions from Centrally Treated Anaerobic Systems  ,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Centrally Treated Anaerobic Systems (kt CH4/year),,,
+TOWCENTRALIZED,Total organics in centralized wastewater treatment,Gg BOD/year,1990-2019: Calculated
+% anaerobic,Percent centralized wastewater that is anaerobically treateda,%,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004: EPA (1992, 1996, 2000, 2004a), respectively"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2005-2019: Forecasted from the rest of the time series
+Sanaerobic,Organic component removed from anaerobic wastewater treatment (0),Gg/year,1990-2019: IPCC (2019)
+EFanaerobic,Emission factor for anaerobic reactors/deep lagoons (0.48),kg CH4/kg BOD,
+Ranaerobic,Amount CH4 recovered or flared from anaerobic wastewater treatment (0),kg CH4/year,

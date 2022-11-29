@@ -1,0 +1,30 @@
+Table A-230: Conversion Factors to Energy Units (Heat Equivalents),,,,,,,,
+Fuel Category (Units),Fuel Type,Production,Imports,Exports,Stock Change,Adjustment,Bunkers,U.S. Territories
+Solid Fuels (Million Btu/Short Ton),Anthracite Coal,22.57,,,,,,
+,Bituminous Coal,23.89,,,,,,
+,Sub-bituminous Coal,17.14,,,,25.83,,
+,Lignite,12.87,,,,12.87,,
+,Coke,,20.56,24.58,20.56,,,
+,Unspecified,,25.00,25.97,20.86,21.72,,25.14
+Natural Gas (BTU/Cubic Foot),,1038.00,1025.00,1009.00,1038.00,1038.00,,1038.00
+Liquid Fuels (Million Btu/Barrel),Crude Oil,5.70,6.06,5.71,5.71,,5.71,5.71
+,HGL,4.21,4.21,4.21,4.21,,4.21,4.21
+,Other Liquids,5.83,5.83,5.83,5.83,,5.83,5.83
+,Motor Gasoline,5.05,5.05,5.05,5.05,5.05,5.05,5.05
+,Aviation Gasoline,,5.05,5.05,5.05,,5.05,5.05
+,Kerosene,,5.67,5.67,5.67,,5.67,5.67
+,Jet Fuel (a),,5.67,5.67,5.67,,5.77,5.67
+,Distillate Fuel,,5.76,5.76,5.76,5.76,5.76,5.76
+,Residual Oil,,6.29,6.29,6.29,6.29,6.29,6.29
+,Naphtha for petrochemical feedstocks,,5.25,5.25,5.25,,5.25,5.25
+,Petroleum Coke,,6.02,6.02,6.02,6.02,6.02,6.02
+,Other Oil for petrochemical feedstocks,,5.83,5.83,5.83,5.83,5.83,5.83
+,Special Naphthas,,5.25,5.25,5.25,,5.25,5.25
+,Lubricants,,6.07,6.07,6.07,,6.07,6.07
+,Waxes,,5.54,5.54,5.54,,5.54,5.54
+,Asphalt/Road Oil,,6.64,6.64,6.64,,6.64,6.64
+,Still Gas (b),,6.00,6.00,6.00,,6.00,6.00
+,Misc. Products,,5.80,5.80,5.80,,5.80,5.80
+"Sources: Coal and lignite production: EIA (1992); Coke, Natural Gas Crude Oil, HGL, and Motor Gasoline: EIA (2020b); Unspecified Solid Fuels: EIA (2011).",,,,,,,,
+"a Jet fuel used in bunkers has a different heating value based on data specific to that source.  When physical values are converted based on a combined heating value across all sources of jet fuel (as shown in Table 1.A(b) of CRF) it will not necessarily match jet fuel bunker data (as shown in Table 1.D of CRF).  The energy value for bunker fuel in Table 1.D is based on bunkers only and the values in Table 1.A(b) are based on apparent consumption including imports, exports, etc. and average heating value.  ",,,,,,,,
+"b Still gas is reported as petroleum product (liquid fuel) in this report. However, still gas physically exists as a gas, consisting primary of methane and ethane, and some hydrogen and other trace gases (EIA 2020d). ",,,,,,,,

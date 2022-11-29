@@ -1,0 +1,9 @@
+"Table 6-94:  Moisture Contents, C Storage Factors (Proportions of Initial C Sequestered), Initial C Contents, and Decay Rates for Yard Trimmings and Food Scraps in Landfills",,,,
+,,,,
+Variable,Yard Trimmings,,,Food Scraps
+,Grass,Leaves,Branches,
+Moisture Content (% H2O),70,30,10,70
+"C Storage Factor, Proportion of Initial C Stored (%)",53,85,77,16
+Initial C Content (%),45,46,49,51
+Decay Rate (year -1),0.313,0.179,0.015,0.151
+Note: The decay rates are presented as weighted averages based on annual precipitation categories and population residing in each precipitation category.,,,,

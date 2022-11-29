@@ -1,0 +1,48 @@
+Table A-27:  Key Assumptions for Estimating CO2 Emissions,
+Fuel Type,C Content Coefficient (MMT C/QBtu)
+Coal,
+Residential Coal,(See footnote b)
+Commercial Coal,(See footnote b)
+Industrial Coking Coal,(See footnote b)
+Industrial Other Coal,(See footnote b)
+Electric Power Coal,(See footnote b)
+U.S. Territory Coal (bit),25.14
+Natural Gas,
+Pipeline Natural Gas,(See footnote b)
+Petroleum,
+Asphalt & Road Oil,20.55
+Aviation Gasoline,18.86
+Distillate Fuel Oil No. 1,19.98
+Distillate Fuel Oil No. 2 a,(See footnote b)
+Distillate Fuel Oil No. 4,20.47
+Jet Fuel,(See footnote b)
+Kerosene,19.96
+LPG (Propane),17.15
+HGL (Energy Use),(See footnote b)
+HGL (Non-Energy Use),(See footnote b)
+Lubricants,20.2
+Motor Gasoline,(See footnote b)
+Residual Fuel Oil No. 5,19.89
+Residual Fuel Oil No. 6 a,20.48
+Other Petroleum,
+AvGas Blend Components,18.87
+Crude Oil,(See footnote b)
+MoGas Blend Components,(See footnote b)
+Misc. Products,(See footnote b)
+Misc. Products (Territories),20
+Naphtha (<401 deg. F),18.55
+Other Oil (>401 deg. F),20.17
+Pentanes Plus,18.24
+Petroleum Coke,27.85
+Still Gas,18.2
+Special Naphtha,19.74
+Unfinished Oils,(See footnote b)
+Waxes,19.8
+Geothermal,
+Flash Steam,2.18
+Dry Steam,3.22
+Binary,0
+Binary/Flash Steam,0
+"a Distillate fuel oil No. 2 and residual fuel oil No. 6 are used in the CO2 from fossil fuel combustion calculations, and other oil types are presented for informational purposes only. An additional discussion on the derivation of these carbon content coefficients is presented in Annex 2.2.",
+b These coefficients vary annually due to fluctuations in fuel quality (see Table A-28).,
+" Sources: C coefficients from EIA (2009), EPA (2010), and EPA (2020). ",

@@ -1,0 +1,22 @@
+Correspondence mapping of aggregating minor transportation end-use applications by other,,
+,,
+,,
+Transportation End-Use Application_Decarb,Assigned Sector,Transportation End-Use Application_Agg
+Air Transportation,Transportation,Air Transportation
+Commercial Light Trucks,Transportation,Commercial Light Trucks
+Commuter Rail,Transportation,Other*
+Domestic Shipping,Transportation,Other*
+Freight Rail,Transportation,Other*
+Freight Trucks,Transportation,Freight Trucks
+Intercity Bus,Transportation,Other*
+Intercity Rail,Transportation,Other*
+International Shipping,Transportation,Other*
+Light-Duty Vehicle,Transportation,Light-Duty Vehicle
+Military Use,Transportation,Military Use
+Pipeline Fuel Natural Gas,Transportation,Other*
+Recreational Boats,Transportation,Other*
+School Bus,Transportation,Other*
+Transit Bus,Transportation,Other*
+Transit Rail,Transportation,Other*
+"-, -",Transportation,"-, -"
+Lubricants,Transportation,Other*

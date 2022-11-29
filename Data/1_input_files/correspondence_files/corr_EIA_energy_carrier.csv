@@ -1,0 +1,329 @@
+"Correspondence matrix to merge EERE tool based Energy carrier, Energy carrier type conventions",,,,,,
+,,,,,,
+,,,,,,
+Sector,Subsector,End Use Application,EIA: Energy carrier,EIA: Energy carrier type,Energy carrier,Energy carrier type
+Agriculture,-,On farm energy use,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Agriculture,-,On farm energy use,Electricity,-,Electricity,U.S. Average Grid Mix
+Agriculture,-,On farm energy use,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Agriculture,-,On farm energy use,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Agriculture,-,On farm energy use,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Agriculture,-,On farm energy use,Natural Gas,-,Natural Gas,U.S. Average Mix
+Agriculture,-,On farm energy use,Other Petroleum,-,Other Petroleum,-
+Agriculture,-,On farm energy use,Propane,-,Propane,-
+Agriculture,-,On farm energy use,Renewables,-,Renewables,-
+Agriculture,-,On farm energy use,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Agriculture,-,On farm energy use,Steam Coal,-,Steam Coal,Fossil Coal
+Commercial,-,Computing,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Cooking,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Cooking,Natural Gas,-,Natural Gas,U.S. Average Mix
+Commercial,-,Lighting,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Marketed Renewables,Biomass,-,Biomass,Woody Biomass
+Commercial,-,Office Equipment,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Other Fuels,-,-,Other Petroleum,-
+Commercial,-,Other Uses,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Commercial,-,Other Uses,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Other Uses,Natural Gas,-,Natural Gas,U.S. Average Mix
+Commercial,-,Refrigeration,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Space Cooling,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Space Cooling,Natural Gas,-,Natural Gas,U.S. Average Mix
+Commercial,-,Space Heating,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Commercial,-,Space Heating,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Space Heating,Natural Gas,-,Natural Gas,U.S. Average Mix
+Commercial,-,Ventilation,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Water Heating,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Commercial,-,Water Heating,Electricity,-,Electricity,U.S. Average Grid Mix
+Commercial,-,Water Heating,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Aluminum Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Aluminum Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Aluminum Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Aluminum Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Aluminum Industry,-,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Aluminum Industry,-,Propane,-,Propane,-
+Industrial,Aluminum Industry,-,Renewables,-,Renewables,-
+Industrial,Aluminum Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Aluminum Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Bulk Chemical Industry,Feedstocks,Hydrocarbon Gas Liquid Feedstocks,-,Hydrocarbon Gas Liquid Feedstocks,-
+Industrial,Bulk Chemical Industry,Feedstocks,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Bulk Chemical Industry,Feedstocks,Petrochemical Feedstocks,-,Petrochemical Feedstocks,-
+Industrial,Bulk Chemical Industry,Heat and Power,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Bulk Chemical Industry,Heat and Power,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Bulk Chemical Industry,Heat and Power,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Bulk Chemical Industry,Heat and Power,Other Petroleum,-,Other Petroleum,-
+Industrial,Bulk Chemical Industry,Heat and Power,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Bulk Chemical Industry,Heat and Power,Propane,-,Propane,-
+Industrial,Bulk Chemical Industry,Heat and Power,Renewables,-,Renewables,-
+Industrial,Bulk Chemical Industry,Heat and Power,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Bulk Chemical Industry,Heat and Power,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Cement and Lime Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Cement and Lime Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Cement and Lime Industry,-,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Cement and Lime Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Cement and Lime Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Cement and Lime Industry,-,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Cement and Lime Industry,-,Propane,-,Propane,-
+Industrial,Cement and Lime Industry,-,Renewables,-,Renewables,-
+Industrial,Cement and Lime Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Cement and Lime Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Food Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Food Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Food Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Food Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Food Industry,-,Propane,-,Propane,-
+Industrial,Food Industry,-,Renewables,-,Renewables,-
+Industrial,Food Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Food Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Glass Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Glass Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Glass Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Glass Industry,-,Propane,-,Propane,-
+Industrial,Glass Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Glass Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Iron and Steel Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Iron and Steel Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Iron and Steel Industry,-,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Iron and Steel Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Iron and Steel Industry,-,Net Coke Imports,-,-,-
+Industrial,Iron and Steel Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Iron and Steel Industry,-,Propane,-,Propane,-
+Industrial,Iron and Steel Industry,-,Renewables,-,Renewables,-
+Industrial,Iron and Steel Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Iron and Steel Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Computers Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Metal Based Durables Industry,Computers Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Metal Based Durables Industry,Computers Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Metal Based Durables Industry,Computers Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Metal Based Durables Industry,Computers Consumption,Propane,-,Propane,-
+Industrial,Metal Based Durables Industry,Computers Consumption,Renewables,-,Renewables,-
+Industrial,Metal Based Durables Industry,Computers Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Metal Based Durables Industry,Computers Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Propane,-,Propane,-
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Renewables,-,Renewables,-
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Propane,-,Propane,-
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Renewables,-,Renewables,-
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Machinery Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Metal Based Durables Industry,Machinery Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Metal Based Durables Industry,Machinery Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Metal Based Durables Industry,Machinery Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Metal Based Durables Industry,Machinery Consumption,Propane,-,Propane,-
+Industrial,Metal Based Durables Industry,Machinery Consumption,Renewables,-,Renewables,-
+Industrial,Metal Based Durables Industry,Machinery Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Metal Based Durables Industry,Machinery Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Propane,-,Propane,-
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Renewables,-,Renewables,-
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Nonmanufacturing Sector,Construction,Asphalt and Road Oil,-,Asphalt and Road Oil,-
+Industrial,Nonmanufacturing Sector,Construction,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Nonmanufacturing Sector,Construction,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Nonmanufacturing Sector,Construction,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Industrial,Nonmanufacturing Sector,Construction,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Industrial,Nonmanufacturing Sector,Construction,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Industrial,Nonmanufacturing Sector,Construction,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Nonmanufacturing Sector,Construction,Other Petroleum,-,Other Petroleum,-
+Industrial,Nonmanufacturing Sector,Construction,Propane,-,Propane,-
+Industrial,Nonmanufacturing Sector,Mining,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Nonmanufacturing Sector,Mining,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Nonmanufacturing Sector,Mining,Lease and Plant Fuel,-,Natural Gas,U.S. Average Mix
+Industrial,Nonmanufacturing Sector,Mining,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Industrial,Nonmanufacturing Sector,Mining,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Industrial,Nonmanufacturing Sector,Mining,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Industrial,Nonmanufacturing Sector,Mining,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Nonmanufacturing Sector,Mining,Other Petroleum,-,Other Petroleum,-
+Industrial,Nonmanufacturing Sector,Mining,Renewables,-,Renewables,-
+Industrial,Nonmanufacturing Sector,Mining,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Nonmanufacturing Sector,Mining,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Other Petroleum,-,Other Petroleum,-
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Propane,-,Propane,-
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Renewables,-,Renewables,-
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Other Manufacturing Industry,Plastics Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Other Manufacturing Industry,Plastics Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Other Manufacturing Industry,Plastics Consumption,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Other Manufacturing Industry,Plastics Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Other Manufacturing Industry,Plastics Consumption,Propane,-,Propane,-
+Industrial,Other Manufacturing Industry,Plastics Consumption,Renewables,-,Renewables,-
+Industrial,Other Manufacturing Industry,Plastics Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Other Manufacturing Industry,Plastics Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Metallurgical Coal,-,Metallurgical Coal,Fossil Coal
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Propane,-,Propane,-
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Renewables,-,Renewables,-
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Paper Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Paper Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Paper Industry,-,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Paper Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Paper Industry,-,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Paper Industry,-,Propane,-,Propane,-
+Industrial,Paper Industry,-,Renewables,-,Renewables,-
+Industrial,Paper Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Paper Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Refining Industry,-,Biofuels Heat and Coproducts,-,Biofuels Heat and Coproducts,-
+Industrial,Refining Industry,-,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Industrial,Refining Industry,-,Electricity,-,Electricity,U.S. Average Grid Mix
+Industrial,Refining Industry,-,Liquefied Petroleum Gas Heat and Power,-,Liquefied Petroleum Gas,Petroleum
+Industrial,Refining Industry,-,Other Petroleum,-,Other Petroleum,-
+Industrial,Refining Industry,-,Petroleum Coke,-,Petroleum Coke,Petroleum Coke
+Industrial,Refining Industry,-,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Industrial,Refining Industry,-,Steam Coal,-,Steam Coal,Fossil Coal
+Industrial,Refining Industry,-,Still Gas,-,Still Gas,-
+Industrial,Refining Industry,Feedstocks,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Refining Industry,Gas-to-Liquids Heat,Natural Gas,-,Natural Gas,U.S. Average Mix
+Industrial,Refining Industry,Heat and Power,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Clothes Dryers,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Clothes Dryers,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Clothes Washers,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Computers and Related Equipment,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Cooking,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Cooking,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Cooking,Propane,-,Propane,-
+Residential,-,Dishwashers,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Freezers,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Furnace Fans and Boiler Circulation Pumps,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Lighting,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Other Uses,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Residential,-,Other Uses,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Other Uses,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Other Uses,Propane,-,Propane,-
+Residential,-,Refrigeration,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Space Cooling,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Space Cooling,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Space Heating,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Residential,-,Space Heating,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Space Heating,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Space Heating,Propane,-,Propane,-
+Residential,-,Space Heating,Wood,-,Biomass,Woody Biomass
+Residential,-,Televisions and Related Equipment,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Water Heating,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Residential,-,Water Heating,Electricity,-,Electricity,U.S. Average Grid Mix
+Residential,-,Water Heating,Natural Gas,-,Natural Gas,U.S. Average Mix
+Residential,-,Water Heating,Propane,-,Propane,-
+Transportation,Aviation,Air Transportation,Aviation Gasoline,-,Aviation Gasoline,Petroleum
+Transportation,Aviation,Air Transportation,Jet Fuel,-,Jet Fuel,Petroleum
+Transportation,Marine,Domestic Shipping,Compressed Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,Marine,Domestic Shipping,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Transportation,Marine,Domestic Shipping,Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Marine,Domestic Shipping,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Transportation,Marine,International Shipping,Compressed Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,Marine,International Shipping,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Transportation,Marine,International Shipping,Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Marine,International Shipping,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Transportation,Marine,Recreational Boats,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Transportation,Marine,Recreational Boats,Gasoline,-,Gasoline,Petroleum Gasoline
+Transportation,Military,Military Use,Distillates and Diesel,-,Diesel,Petroleum Distillate
+Transportation,Military,Military Use,Jet Fuel and Aviation Gasoline,-,Jet Fuel,Petroleum
+Transportation,Military,Military Use,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Transportation,On Road,Commercial Light Trucks,Compressed & Liquefied Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,On Road,Commercial Light Trucks,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,Commercial Light Trucks,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,Commercial Light Trucks,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,Commercial Light Trucks,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,Commercial Light Trucks,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,Commercial Light Trucks,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,Commercial Light Trucks,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,Commercial Light Trucks,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,Commercial Light Trucks,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,Commercial Light Trucks,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,Commercial Light Trucks,Propane,-,Propane,-
+Transportation,On Road,Freight Trucks,Compressed & Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,On Road,Freight Trucks,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,Freight Trucks,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,Freight Trucks,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,Freight Trucks,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,Freight Trucks,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,Freight Trucks,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,Freight Trucks,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,Freight Trucks,Propane,-,Propane,-
+Transportation,On Road,Intercity Bus,Compressed & Liquefied Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,On Road,Intercity Bus,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,Intercity Bus,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,Intercity Bus,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,Intercity Bus,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,Intercity Bus,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,Intercity Bus,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,Intercity Bus,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,Intercity Bus,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,Intercity Bus,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,Intercity Bus,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,Intercity Bus,Propane,-,Propane,-
+Transportation,On Road,Light-Duty Vehicle,Compressed & Liquefied Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,On Road,Light-Duty Vehicle,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,Light-Duty Vehicle,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,Light-Duty Vehicle,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,Light-Duty Vehicle,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,Light-Duty Vehicle,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,Light-Duty Vehicle,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,Light-Duty Vehicle,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,Light-Duty Vehicle,Propane,-,Propane,-
+Transportation,On Road,School Bus,Compressed & Liquefied Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,On Road,School Bus,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,School Bus,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,School Bus,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,School Bus,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,School Bus,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,School Bus,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,School Bus,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,School Bus,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,School Bus,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,School Bus,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,School Bus,Propane,-,Propane,-
+Transportation,On Road,Transit Bus,Compressed & Liquefied Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,On Road,Transit Bus,Distillate Fuel Oil,Biodiesel,Diesel,Biodiesel
+Transportation,On Road,Transit Bus,Distillate Fuel Oil,Petroleum Distillate,Diesel,Petroleum Distillate
+Transportation,On Road,Transit Bus,E85,"Ethanol, Cellulosic",E85,"Ethanol, Cellulosic"
+Transportation,On Road,Transit Bus,E85,"Ethanol, Conventional",E85,"Ethanol, Conventional"
+Transportation,On Road,Transit Bus,E85,Petroleum Gasoline,E85,Petroleum Gasoline
+Transportation,On Road,Transit Bus,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,On Road,Transit Bus,Hydrogen,-,Hydrogen,Natural Gas
+Transportation,On Road,Transit Bus,Motor Gasoline,"Ethanol, Cellulosic",Motor Gasoline,"Ethanol, Cellulosic"
+Transportation,On Road,Transit Bus,Motor Gasoline,"Ethanol, Conventional",Motor Gasoline,"Ethanol, Conventional"
+Transportation,On Road,Transit Bus,Motor Gasoline,Petroleum Gasoline,Motor Gasoline,Petroleum Gasoline
+Transportation,On Road,Transit Bus,Propane,-,Propane,-
+Transportation,Other,Lubricants,Lubricants,-,Lubricants,Petroleum
+Transportation,Other,Pipeline Fuel Natural Gas,Natural Gas,-,Natural Gas,U.S. Average Mix
+Transportation,Rail,Commuter Rail,Compressed Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,Rail,Commuter Rail,Diesel,-,Diesel,Petroleum Distillate
+Transportation,Rail,Commuter Rail,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,Rail,Commuter Rail,Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Rail,Freight Rail,Compressed Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,Rail,Freight Rail,Distillate Fuel Oil,-,Diesel,Petroleum Distillate
+Transportation,Rail,Freight Rail,Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Rail,Freight Rail,Residual Fuel Oil,-,Residual Fuel Oil,Petroleum Fuel Oil
+Transportation,Rail,Intercity Rail,Compressed Natural Gas,-,Compressed Natural Gas,U.S. Average Mix
+Transportation,Rail,Intercity Rail,Diesel,-,Diesel,Petroleum Distillate
+Transportation,Rail,Intercity Rail,Electricity,-,Electricity,U.S. Average Grid Mix
+Transportation,Rail,Intercity Rail,Liquefied Natural Gas,-,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Rail,Transit Rail,Electricity,-,Electricity,U.S. Average Grid Mix

@@ -1,0 +1,10 @@
+﻿Sector,Subsector,Type,Year,activity_unit,activity_value,Data Source,Table,End Use Application,Energy carrier,Energy carrier type,energy_unit_numerator,energy_unit_denominator,energy_value,notes
+Industrial,Bulk Chemical Industry,Conventional Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Feedstocks,Natural Gas,U.S. Average Mix,MMBtu,MT,24.80484801,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Conventional Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Heat and Power,Natural Gas,U.S. Average Mix,MMBtu,MT,9.790476969,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Conventional Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Heat and Power,Electricity,U.S. Average Grid Mix,MMBtu,MT,0.445474048,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Feedstocks,Natural Gas,U.S. Average Mix,MMBtu,MT,0,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Heat and Power,Natural Gas,U.S. Average Mix,MMBtu,MT,0,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,2019,kt,16410,EPA GHGI,Table 4-21,Heat and Power,Electricity,U.S. Average Grid Mix,MMBtu,MT,1.103999325,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Cement and Lime Industry,Clinker Production,2019,kt,78891,EPA GHGI,Table 4-4,,,,,,,
+Industrial,Cement and Lime Industry,High-Calcium Lime,2019,kt,13074,EPA GHGI,Table 4-9,,,,,,,
+Industrial,Cement and Lime Industry,Dolomitic Lime,2019,kt,3087,EPA GHGI,Table 4-9,,,,,,,

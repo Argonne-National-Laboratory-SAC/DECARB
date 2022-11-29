@@ -1,0 +1,26 @@
+Table 7-35:  Variables and Data Sources for N2O Emissions from Centrally Treated Systems Discharge,,,
+,,,
+Variable,Variable Description,Units,Source of Value
+"NEFFULENT,DOM",Total organics in centralized treatment effluent,kg N/year,1990-2019: Calculated
+44/28,Conversion factor,Molecular weight ratio of N2O to N2,Standard conversion
+1/106,Conversion factor,kg to kt,Standard conversion
+TNDOM_CENTRAL,Total nitrogen entering centralized treatment,kg N/year,1990-2019: Calculated
+1000,Conversion factor,kg to kt,Standard Conversion
+% primary,Percent of primary domestic centralized treatmenta,%,"1990,1991: Set equal to 1992."
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008, and 2012), respectively"
+% secondary,Percent of secondary domestic centralized treatmenta,%,Data for intervening years obtained by linear interpolation.
+% tertiary,Percent of tertiary domestic centralized treatmenta,%,2013-2019: Forecasted from the rest of the time series
+"Nrem,PRIMARY",Fraction of nitrogen removed from primary domestic centralized treatment (0.1),No units,1990-2019: IPCC (2019)
+"Nrem,SECONDARY",Fraction of nitrogen removed from secondary domestic centralized treatment (0.4),No units,
+"Nrem,TERTIARY",Fraction of nitrogen removed from tertiary domestic centralized treatment (0.9),No units,
+"NEFFLUENT,IMP",Total nitrogen in effluent discharged to impaired waterbodies,kg N/year,1990-2019: Calculated
+"NEFFLUENT,NONIMP",Total nitrogen in effluent discharged to nonimpaired waterbodies,kg N/year,
+EFIMP,EF (discharge to reservoirs/lakes/estuaries) (0.19),kg N2O-N/kg N,1990-2019: IPCC (2019)
+EFNONIMPr,EF (discharge to other waterbodies) (0.005),kg N2O-N/kg N,
+PercentIMP,Percent of wastewater discharged to impaired waterbodiesa,%,1990-2010: Set equal to 2010
+,,,2010: ERG (2021)
+,,,2011: Obtained by linear interpolation
+,,,2012: ERG (2021)
+PercentNONIMP,Percent of wastewater discharged to nonimpaired waterbodiesa,%,2013-2019: Set equal to 2012
+,,,
+a Value for this activity data varies over the Inventory time series.,,,

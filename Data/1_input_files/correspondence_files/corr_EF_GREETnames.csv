@@ -1,0 +1,71 @@
+Unique GREET scenarios,AGE Named Range
+Stationary Use: U.S. Mix,AGE_Stationary_Electricity
+Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input),AGE_SmallIndustryBoiler_NG
+Natural Gas: Stationary Reciprocating Engine,AGE_StationaryReciprocatingEngine_NG
+Diesel: Commercial Boiler,AGE_CommercialBoiler_Diesel
+LPG: Commercial Boiler,AGE_CommercialBoiler_LPG
+Willow: Utility Boiler,AGE_UtilityBoiler_Willow
+Gasoline Vehicle: Gasoline,AGE_SIEngine_CGnFRFG
+"EtOH FFV: E85, Corn",AGE_SIEngine_EtOHFFV
+CIDI Vehicle: Conventional and LS Diesel,AGE_LHT_CIDI_Diesel
+"LNGV: Dedicated, NA NG",AGE_LHT_SI_LNG
+"LPGV: Dedicated, Crude and NG Mix",AGE_SIEngine_DediLPG
+Electric Vehicle: U.S. Mix,AGE_EV
+"FCV: G.H2, Central Plants, NA NG",AGE_FCV_GH2
+"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)",AGE_SIEngine_EtOH_LLBlend
+"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn",AGE_SIEngine_EtOHFFV
+CIDI Heavy-Duty Pick-Up Trucks and Vans: Conventional and LS Diesel,AGE_HPT_CIDI_Diesel
+"SI Medium Heavy-Duty Vocational Vehicles, CNG, NA NG",AGE_MVV_SI_CNG
+"SI Heavy Heavy-Duty Vocational Vehicles, LNG, NA NG",AGE_HVT_SI_LNG
+"Heavy-Duty Pick-Up Trucks and Vans, Electricity: U.S. Mix",AGE_HPT_BEV
+"Fuel-Cell Heavy-Duty Pick-Up Trucks and Vans: G.H2, Central Plants, NA NG",AGE_HPT_FC_GH2
+"SI Heavy-Duty Pick-Up Trucks and Vans: Low-Level EtOH Blend with Gasoline (E10, Corn)",AGE_SIEngine_EtOH_LLBlend
+CIDI Combination Long-Haul Trucks: Conventional and LS Diesel,AGE_LHT_CIDI_Diesel
+"SI Combination Long-Haul Trucks: LNG, NA NG",AGE_LHT_SI_LNG
+"SI Combination Long-Haul Trucks: CNG, NA NG",AGE_LHT_SI_CNG
+"SI Heavy-Duty Pick-Up Trucks and Vans: E85, Corn",AGE_SIEngine_EtOHFFV
+"Combination Long-Haul Trucks: Electricity, U.S. Mix",AGE_LHT_BEV
+"Fuel-Cell Combination Short-Haul Trucks: G.H2, Central Plants, NA NG",AGE_SHT_FC_GH2
+Rail: Diesel,AGE_Rail_Diesel
+Rail: Natural Gas,AGE_Rail_NaturalGas
+MDO (0.5% sulfur),AGE_Marine_WTH_MDO_0.5
+HFO (0.5% sulfur),AGE_Marine_WTH_HFO_0.5
+Liquefied Natural Gas (LNG),AGE_Marine_WTH_LNG
+Petroleum Conv. Jet Fuel,JetFuel_WTP_PetroleumConv
+CIDI Transit Buses: Conventional and LS Diesel,AGE_TRB_CIDI_Diesel
+"SI Transit Buses, LNG, NA NG",AGE_TRB_SI_LNG
+"SI Transit Buses, CNG, NA NG",AGE_ICB_SI_CNG
+"Transit Buses, Electricity: U.S. Mix",AGE_TRB_BEV
+"Fuel-Cell Transit Buses: G.H2, Central Plants, NA NG",AGE_TRB_FC_GH2
+CIDI Intercity Buses: Conventional and LS Diesel,AGE_ICB_CIDI_Diesel
+"SI Intercity Buses, CNG, NA NG",AGE_ICB_SI_CNG
+CIDI School Buses: Conventional and LS Diesel,AGE_SCB_CIDI_Diesel
+"SI School Buses, CNG, NA NG",AGE_SCB_SI_CNG
+"SI School Buses, LPG, Crude and NG Mix",AGE_SCB_SI_LPG
+"Fuel-Cell School Buses: G.H2, Central Plants, NA NG",AGE_SCB_FC_GH2
+Rail: Electricity,AGE_Rail_Electricity
+Custom: Lubricants,This is pronanly not in GREET?
+Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input),AGE_UtilityIndustrialBoiler_NG
+CIDI Vehicle: Soybean-based BD100,"I could only find BD20 not BD100 of soybean. DO we need additional calculations, or are we considering BD20? There is RD100 (is this renewable diesel?), should we consider that as replacement for BD100?"
+"EtOH FFV: E100, Corn",AGE_SIEngine_DediEtOH
+"EtOH FFV: E100, Corn Stover",AGE_SIEngine_DediEtOH
+Residual Oil: Industrial Boiler,AGE_IndustrialBoiler_ResidualOil
+Diesel: Industrial Boiler,AGE_IndustrialBoiler_Diesel
+LPG: Industrial Boiler,AGE_IndustrialBoiler_LPG
+Petroleum Coke: Industrial Boiler,AGE_IndustrialBoiler_PetroleumCoke
+Refinery Still Gas: Industrial Boiler,AGE_IndustrialBoiler_RefineryStillGas
+Coal: Industrial Boiler,AGE_IndustrialBoiler_Coal
+Residual Oil: Stationary Reciprocating Engine,AGE_StationaryReciprocatingEngine_ResidualOil
+Diesel: Farming Tractor,AGE_FarmingTractor_Diesel
+Gasoline: Farming Tractor,AGE_StationaryReciprocatingEngine_Gasoline
+Gasoline: Stationary Reciprocating Engine,AGE_FarmingTractor_Gasoline
+Natural Gas as Stationary Fuels,AGE_StationaryFuel_NG
+Conv. Diesel,AGE_ConventionalDiesel
+Liquefied Petroleum Gas: Combined,AGE_LPG
+Total: Willow Farming and Transportation,AGE_FarmingandTransportation_Willow
+Crude for Use in U.S. Refineries,AGE_CrudeRefineriesUS
+Resi. Oil,AGE_ResidualOil
+Pet Coke,AGE_PetCoke
+Coal to Coking Plants,AGE_CoalToCokingPlant
+Gasoline,AGE_Gasoline
+Natural Gas to Liquefied Natural Gas (as an intermediate fuel),AGE_NGtoLNGintermediateFuel

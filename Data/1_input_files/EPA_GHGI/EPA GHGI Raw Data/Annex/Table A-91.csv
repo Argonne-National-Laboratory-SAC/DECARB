@@ -1,0 +1,46 @@
+Table A-91:  Emissions Control Technology Assignments for Gasoline Light-Duty Trucks (Percent of VMT) a,,,,,,,,,
+,,,,,,,,,
+Model Years,Non-catalyst,Oxidation,EPA Tier 0,EPA Tier 1,CARB LEV b,CARB LEV 2,EPA Tier 2,CARB LEV 3,EPA Tier 3
+1973-1974,100%,-,-,-,-,-,-,-,-
+1975,30%,70%,-,-,-,-,-,-,-
+1976,20%,80%,-,-,-,-,-,-,-
+1977-1978,25%,75%,-,-,-,-,-,-,-
+1979-1980,20%,80%,-,-,-,-,-,-,-
+1981, -   ,95%,5%, -   , -   , -   , -   , -   ,-
+1982, -   ,90%,10%, -   , -   ,-, -   ,-,-
+1983, -   ,80%,20%, -   , -   ,-, -   ,-,-
+1984, -   ,70%,30%, -   , -   ,-, -   ,-,-
+1985, -   ,60%,40%, -   , -   ,-, -   ,-,-
+1986, -   ,50%,50%, -   , -   ,-, -   ,-,-
+1987-1993, -   ,5%,95%, -   , -   ,-, -   ,-,-
+1994, -   , -   ,60%,40%, -   ,-, -   ,-,-
+1995, -   , -   ,20%,80%, -   ,-, -   ,-,-
+1996, -   , -   , -   ,100%, -   , -   , -   , -   ,-
+1997, -   , -   , -   ,100%, -   , -   , -   , -   ,-
+1998, -   , -   , -   ,87%,13%, -   , -   , -   ,-
+1999, -   , -   , -   ,61%,39%, -   , -   , -   ,-
+2000, -   , -   , -   ,63%,37%, -   , -   , -   ,-
+2001, -   , -   , -   ,24%,76%, -   , -   , -   ,-
+2002, -   , -   , -   ,31%,69%, -   , -   , -   ,-
+2003, -   , -   , -   ,25%,69%, -   ,6%, -   ,-
+2004, -   , -   , -   ,1%,26%,8%,65%, -   ,-
+2005, -   , -   , -   , -   ,17%,17%,66%, -   ,-
+2006, -   , -   , -   , -   ,24%,22%,54%, -   ,-
+2007, -   , -   , -   , -   ,14%,25%,61%, -   ,-
+2008, -   , -   , -   , -   ,<1%,34%,66%, -   ,-
+2009, -   , -   , -   , -   , -   ,34%,66%, -   ,-
+2010, -   , -   , -   , -   , -   ,30%,70%, -   ,-
+2011, -   , -   , -   , -   , -   ,27%,73%, -   ,-
+2012, -   , -   , -   , -   , -   ,24%,76%, -   ,-
+2013, -   , -   , -   , -   , -   ,31%,69%, -   ,-
+2014, -   , -   , -   , -   , -   ,26%,73%,1%,-
+2015, -   , -   , -   , -   , -   ,22%,72%,6%,-
+2016, -   , -   , -   , -   , -   ,20%,62%,16%,2%
+2017,-,-,-,-,-,9%,14%,28%,48%
+2018,-,-,-,-,-,7%,-,38%,55%
+2019,-,-,-,-,-,3%,0%,44%,53%
+"Note: In 2016, historical confidential vehicle sales data was re-evaluated to determine the engine technology assignments. First several light-duty trucks were re-characterized as heavy-duty vehicles based upon gross vehicle weight rating (GVWR) and confidential sales data. Second, which emission standards each vehicle type was assumed to have met were re-examined using confidential sales data. Also, in previous Inventories, non-plug-in hybrid electric vehicles (HEVs) were considered alternative fueled vehicles and therefore were not included in the engine technology breakouts. For this Inventory, HEVs are now classified as gasoline vehicles across the entire time series.",,,,,,,,,
+- (Not Applicable),,,,,,,,,
+a Detailed descriptions of emissions control technologies are provided in the following section of this Annex.,,,,,,,,,
+"b The proportion of LEVs as a whole has decreased since 2001, as carmakers have been able to achieve greater emission reductions with certain types of LEVs, such as ULEVs. Because ULEVs emit about half the emissions of LEVs, a carmaker can reduce the total number of LEVs they need to build to meet a specified emission average for all of their vehicles in a given model year.",,,,,,,,,
+"Sources: EPA (1998), EPA (2019d), and EPA (2020c).",,,,,,,,,

@@ -1,0 +1,79 @@
+Table A-1: Key Categories for the United States (1990 and 2019),,,,,,,,,,
+CRF Source/Sink Category,Greenhouse Gas,Approach 1,,,,Approach 2,,,,2019 Emissions 
+,,Level Without LULUCF,Trend Without LULUCF,Level With LULUCF,Trend With LULUCF,Level Without LULUCF,Trend Without LULUCF,Level With LULUCF,Trend With LULUCF,(MMT CO2 Eq.)
+Energy,,,,,,,,,,
+1.A.3.b CO2 Emissions from Mobile Combustion: Road,CO2,•,•,•,•,•,•,•,•,"1,510.50"
+1.A.1 CO2 Emissions from Stationary Combustion - Coal - Electricity Generation,CO2,•,•,•,•,•,•,•,•,973.5
+1.A.1 CO2 Emissions from Stationary Combustion - Gas - Electricity Generation,CO2,•,•,•,•,•,•,•,•,616
+1.A.2 CO2 Emissions from Stationary Combustion - Gas - Industrial,CO2,•,•,•,•,•,•,•,•,503.3
+1.A.4.b CO2 Emissions from Stationary Combustion - Gas - Residential,CO2,•,•,•,•,•,•,•,,275.3
+1.A.2 CO2 Emissions from Stationary Combustion - Oil - Industrial,CO2,•,•,•,•,•,•,•,•,269.7
+1.A.4.a CO2 Emissions from Stationary Combustion - Gas - Commercial,CO2,•,•,•,•,•,•,•,•,192.8
+1.A.3.a CO2 Emissions from Mobile Combustion: Aviation,CO2,•,•,•,•,•,,•,,178.5
+1.A.5 CO2 Emissions from Non-Energy Use of Fuels,CO2,•,•,•,•,•,•,•,•,128.8
+1.A.4.b CO2 Emissions from Stationary Combustion - Oil - Residential,CO2,•,•,•,•,,•,,,61.5
+1.A.4.a CO2 Emissions from Stationary Combustion - Oil - Commercial,CO2,•,•,•,•,,,,,55.3
+1.A.3.e CO2 Emissions from Mobile Combustion: Other,CO2,•,•,•,•,,,,,53.7
+1.A.2 CO2 Emissions from Stationary Combustion - Coal - Industrial,CO2,•,•,•,•,•,•,•,•,49.5
+1.B.2.a CO2 Emissions from Petroleum Systems,CO2,•,•,•,•,•,•,•,•,47.3
+1.B.2.b CO2 Emissions from Natural Gas Systems,CO2,•,,•,,,,,,37.2
+1.A.3.c CO2 Emissions from Mobile Combustion: Railways,CO2,•,,•,,,,,,37.1
+1.A.3.d CO2 Emissions from Mobile Combustion: Marine,CO2,•,,•,,,,,,32.1
+1.A.5 CO2 Emissions from Stationary Combustion - Oil - U.S. Territories,CO2,•,,•,,,,,,19.5
+1.A.1 CO2 Emissions from Stationary Combustion - Oil - Electricity Generation,CO2,•,•,•,•,•,•,,•,16.2
+1.A.5.b CO2 Emissions from Mobile Combustion: Military,CO2,,,,•,,,,,5.3
+1.A.5 CO2 Emissions from Stationary Combustion - Gas - U.S. Territories,CO2,,,,,,•,,,2.5
+1.A.4.a CO2 Emissions from Stationary Combustion - Coal - Commercial,CO2,,•,,•,,,,,1.6
+1.A.4.b CO2 Emissions from Stationary Combustion - Coal - Residential,CO2,,,,,,•,,•,NO
+1.B.2.b CH4 Emissions from Natural Gas Systems,CH4,•,•,•,•,•,•,•,•,157.6
+1.B.1 Fugitive Emissions from Coal Mining,CH4,•,•,•,•,•,•,•,•,47.4
+1.B.2.a CH4 Emissions from Petroleum Systems,CH4,•,•,•,•,•,•,•,•,39.1
+1.B.2 CH4 Emissions from Abandoned Oil and Gas Wells,CH4,,,,,•,,•,,6.6
+1.A.4.b CH4 Emissions from Stationary Combustion - Residential,CH4,,,,,•,,•,,4.6
+1.A.3.b CH4 Emissions from Mobile Combustion: Road,CH4,,,,,,•,,,0.9
+1.A.1 N2O Emissions from Stationary Combustion - Coal - Electricity Generation,N2O,,,,,•,,•,,16.7
+1.A.3.b N2O Emissions from Mobile Combustion: Road,N2O,•,•,•,•,•,•,,•,9.3
+Industrial Processes and Product Use,,,,,,,,,,
+2.C.1 CO2 Emissions from Iron and Steel Production & Metallurgical Coke Production,CO2,•,•,•,•,•,•,•,•,41.3
+2.A.1 CO2 Emissions from Cement Production,CO2,•,,•,,,,,,40.9
+2.B.8 CO2 Emissions from Petrochemical Production,CO2,•,•,•,•,,,,,30.8
+2.B.3 N2O Emissions from Adipic Acid Production,N2O,,•,,•,,,,,5.3
+2.F.1 Emissions from Substitutes for Ozone Depleting Substances: Refrigeration and Air conditioning,"HFCs, PFCs",•,•,•,•,•,•,•,•,133.4
+2.F.4 Emissions from Substitutes for Ozone Depleting Substances: Aerosols,"HFCs, PFCs",,•,,•,•,•,,•,16.3
+2.F.2 Emissions from Substitutes for Ozone Depleting Substances: Foam Blowing Agents,"HFCs, PFCs",,•,,•,,,,,16.1
+2.F.3 Emissions from Substitutes for Ozone Depleting Substances: Fire Protection,"HFCs, PFCs",,,,,,•,,,2.8
+2.F.5 Emissions from Substitutes for Ozone Depleting Substances: Solvents,"HFCs, PFCs",,,,,,•,,,2
+2.G.1 SF6 Emissions from Electrical Transmission and Distribution,SF6,•,•,•,•,,•,,•,4.2
+2.B.9 HFC-23 Emissions from HCFC-22 Production,HFCs,•,•,•,•,,•,,•,3.7
+2.C.3 PFC Emissions from Aluminum Production,PFCs,•,•,•,•,,,,,1.8
+Agriculture,,,,,,,,,,
+3.G CO2 Emissions from Liming,CO2,,,,,,•,,,2.4
+3.A.1 CH4 Emissions from Enteric Fermentation: Cattle,CH4,•,•,•,•,•,,•,,172.3
+3.B.1 CH4 Emissions from Manure Management: Cattle,CH4,•,•,•,•,,•,,•,35.4
+3.B.4 CH4 Emissions from Manure Management: Other Livestock,CH4,•,,•,,,,,,26.9
+3.C CH4 Emissions from Rice Cultivation,CH4,,,,,•,,•,,15.1
+3.D.1 Direct N2O Emissions from Agricultural Soil Management,N2O,•,•,•,•,•,•,•,•,290.4
+3.D.2 Indirect N2O Emissions from Applied Nitrogen,N2O,•,•,•,•,•,•,•,•,54.2
+Waste,,,,,,,,,,
+5.A CH4 Emissions from Landfills,CH4,•,•,•,•,•,•,•,•,114.5
+5.D CH4 Emissions from Wastewater Treatment,CH4,•,,•,,•,,,,18.4
+5.D N2O Emissions from Wastewater Treatment,N2O,•,,•,,•,•,•,•,26.4
+"Land Use, Land-Use Change, and Forestry",,,,,,,,,,
+4.E.2 Net CO2 Emissions from Land Converted to Settlements,CO2,,,•,•,,,•,•,79.2
+4.B.2 Net CO2 Emissions from Land Converted to Cropland,CO2,,,•,,,,•,,54.2
+4.C.1 Net CO2 Emissions from Grassland Remaining Grassland,CO2,,,,,,,•,•,14.5
+4.B.1 Net CO2 Emissions from Cropland Remaining Cropland,CO2,,,•,•,,,•,•,-14.5
+4.C.2 Net CO2 Emissions from Land Converted to Grassland,CO2,,,•,•,,,•,•,-23.2
+4.A.2 Net CO2 Emissions from Land Converted to Forest Land,CO2,,,•,,,,•,,-99.1
+4.E.1 Net CO2 Emissions from Settlements Remaining Settlements,CO2,,,•,•,,,•,•,-124.1
+4.A.1 Net CO2 Emissions from Forest Land Remaining Forest Land,CO2,,,•,•,,,•,•,-691.8
+4.A.1 CH4 Emissions from Forest Fires,CH4,,,,•,,,,,9.5
+Subtotal Without LULUCF,,,,,,,,,,"6,398.60"
+Total Emissions Without LULUCF,,,,,,,,,,"6,558.30"
+Percent of Total Without LULUCF,,,,,,,,,,98%
+Subtotal With LULUCF,,,,,,,,,,"5,598.00"
+Total Emissions With LULUCF,,,,,,,,,,"5,769.10"
+Percent of Total With LULUCF,,,,,,,,,,97%
+,,,,,,,,,,
+Note: Parentheses indicate negative values (or sequestration).,,,,,,,,,,
+NO (Not Occurring),,,,,,,,,,

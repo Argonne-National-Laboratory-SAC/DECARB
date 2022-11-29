@@ -1,0 +1,32 @@
+Table A-75:  CH4 and N2O Emission Factors by Technology Type and Fuel Type for the Electric Power Sector (g/GJ) a,,,
+,,,
+Technology,Configuration,CH4,N2O
+Liquid Fuels,,,
+Residual Fuel Oil/Shale Oil Boilers,Normal Firing,0.8,0.3
+,Tangential Firing,0.8,0.3
+Gas/Diesel Oil Boilers,Normal Firing,0.9,0.4
+,Tangential Firing,0.9,0.4
+Large Diesel Oil Engines >600 hp (447kW),,4,NA
+Solid Fuels,,,
+Pulverized Bituminous Combination Boilers,"Dry Bottom, wall fired",0.7,5.8
+,"Dry Bottom, tangentially fired",0.7,1.4
+,Wet bottom,0.9,1.4
+Bituminous Spreader Stoker Boilers,With and without re-injection,1,0.7
+Bituminous Fluidized Bed Combustor,Circulating Bed,1,61
+,Bubbling Bed,1,61
+Bituminous Cyclone Furnace,,0.2,0.6
+Lignite Atmospheric Fluidized Bed,,NA,71
+Natural Gas,,,
+Boilers,,1,0.3
+Gas-Fired Gas Turbines >3MW,,3.7,1.3
+Large Dual-Fuel Engines,,258,NA
+Combined Cycle,,3.7,1.3
+Peat,,,
+Peat Fluidized Bed Combustion,Circulating Bed,3,7
+,Bubbling Bed,3,3
+Biomass,,,
+Wood/Wood Waste Boilers,,11,7
+Wood Recovery Boilers,,1,1
+,,,
+NA (Not Applicable),,,
+a Ibid.,,,

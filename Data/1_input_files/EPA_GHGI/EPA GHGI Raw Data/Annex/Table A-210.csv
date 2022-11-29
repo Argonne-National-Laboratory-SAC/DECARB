@@ -1,0 +1,8 @@
+Table A-210:  Parameters Determining Decay of Wood and Paper in SWDS,,
+Parameter,Value,Units
+Percentage of wood and paper in dumps that is subject to decay,100,Percent
+Percentage of wood in landfills that is subject to decay,23,Percent
+Percentage of paper in landfills that is subject to decay,56,Percent
+Half-life of wood in landfills / dumps (portion subject to decay),29,Years
+Half-life of paper in landfills/ dumps (portion subject to decay),14.5,Years
+"Source: Skog, K.E. (2008) “Sequestration of C in harvested wood products for the U.S.” Forest Products Journal 58:56–72.",,

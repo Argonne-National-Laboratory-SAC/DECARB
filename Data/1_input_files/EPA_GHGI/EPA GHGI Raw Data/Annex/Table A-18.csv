@@ -1,0 +1,45 @@
+Table A-18:  2012 Energy Consumption Data and CO2 Emissions from Fossil Fuel Combustion by Fuel Type,,,,,,,,,,,,,,,
+1,2,3,4,5,6,7,8,9,10,11,12,,13,14,15
+,Adjusted Consumption (TBtu) a,,,,,,,Emissions b (MMT CO2 Eq.) from Energy Use,,,,,,,
+Fuel Type,Res.,Comm.,Ind.,Trans.,Elec. ,Terr.,Total,Res.,Comm.,Ind.,Trans.,,Elec. ,Terr.,Total
+Total Coal,NO,43.6,822.6,NO,"15,821.2",36.9,"16,724.3",NO,4.1,78.2,NO,"1,511.7",,3.4,"1,597.5"
+Residential Coal,NO,,,,,,NO,NO,,,,,,,NO
+Commercial Coal,,43.6,,,,,43.6,,4.1,,,,,,4.1
+Industrial Other Coal,,,822.6,,,,822.6,,,78.2,,,,,78.2
+Transportation Coal,,,,NO,,,NO,,,,NO,,,,NO
+Electric Power Coal,,,,,"15,821.2",,"15,821.2",,,,,"1,511.7",,,"1,511.7"
+U.S. Territory Coal (bit),,,,,,36.9,36.9,,,,,,,3.4,3.4
+Natural Gas ,"4,242.1","2,959.5","8,195.6",779.8,"9,286.8",49.2,"25,512.9",225.1,157.0,434.9,41.4,492.8,,2.6,"1,353.8"
+Total Petroleum,832.6,550.7,"3,909.3","22,513.0",214.2,373.0,"28,392.9",57.3,39.1,293.6,"1,619.0",18.3,,27.2,"2,054.5"
+Asphalt & Road Oil,,,,,,,,,,,,,,,
+Aviation Gasoline,,,,25.1,,,25.1,,,,1.7,,,,1.7
+Distillate Fuel Oil,429.3,316.1,"1,123.3","5,761.2",52.4,63.5,"7,745.9",31.8,23.4,83.3,427.1,3.9,,4.7,574.3
+Jet Fuel,,,,"1,985.2",NA,39.1,"2,024.3",,,,143.4,NA,,2.8,146.2
+Kerosene,7.7,1.2,2.0,,,0.6,11.6,0.6,0.1,0.1,,,,+,0.8
+LPG (Propane),395.6,135.5,,7.1,,,538.2,24.9,8.5,,0.4,,,,33.8
+HGL,,,280.1,,,11.1,291.2,,,17.9,,,,0.7,18.6
+Lubricants,,,,,,,,,,,,,,,
+Motor Gasoline,,66.1,432.2,"14,523.3",,131.4,"15,153.0",,4.7,30.7,"1,030.4",,,9.3,"1,075.1"
+Residual Fuel,,31.4,,211.1,76.7,127.3,446.5,,2.4,,15.8,5.8,,9.6,33.5
+Other Petroleum,,,,,,,,,,,,,,,
+AvGas Blend Components,,,(+),,,,(+),,,(+),,,,,(+)
+Crude Oil,,,,,,,,,,,,,,,
+MoGas Blend Components,,,,,,,,,,,,,,,
+Misc. Products,,,,,,,,,,,,,,,
+Naphtha (<401 deg. F),,,,,,,,,,,,,,,
+Other Oil (>401 deg. F),,,,,,,,,,,,,,,
+Pentanes Plus,,,42.5,,,,42.5,,,2.8,,,,,2.8
+Petroleum Coke,,0.4,649.0,,85.1,,734.4,,+,66.3,,8.7,,,75.0
+Still Gas,,,"1,320.2",,,,"1,320.2",,,88.1,,,,,88.1
+Special Naphtha,,,,,,,,,,,,,,,
+Unfinished Oils,,,60.1,,,,60.1,,,4.5,,,,,4.5
+Waxes,,,,,,,,,,,,,,,
+Geothermal,,,,,53.1,,53.1,,,,,0.4,,,0.4
+Total (All Fuels),"5,074.7","3,553.8","12,927.5","23,292.8","25,375.3",459.0,"70,683.2",282.4,200.3,806.7,"1,660.4","2,023.3",,33.2,"5,006.2"
+,,,,,,,,,,,,,,,
+Note: Parentheses indicate negative values.,,,,,,,,,,,,,,,
++ Does not exceed 0.05 TBtu or 0.05 MMT CO2 Eq. ,,,,,,,,,,,,,,,
+NO (Not Occurring),,,,,,,,,,,,,,,
+NA (Not Available) ,,,,,,,,,,,,,,,
+"a Expressed as gross calorific values (i.e., higher heating values). Adjustments include biofuels, conversion of fossil fuels, non-energy use (see Table A-25), and international bunker fuel consumption (see Table A-26).",,,,,,,,,,,,,,,
+b Consumption and/or emissions of select fuels are shown as negative due to differences in EIA energy balancing accounting. These are designated with parentheses.,,,,,,,,,,,,,,,

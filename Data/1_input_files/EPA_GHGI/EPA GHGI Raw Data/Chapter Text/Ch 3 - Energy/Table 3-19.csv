@@ -1,0 +1,8 @@
+Table 3-19:  Approach 2 Quantitative Uncertainty Estimates for CH4 and N2O Emissions from Mobile Sources (MMT CO2 Eq. and Percent),,,,,,,
+,Source,Gas,2019 Emission Estimate a,Uncertainty Range Relative to Emission Estimate a,,,
+,,,(MMT CO2 Eq.),(MMT CO2 Eq.),,(Percent),
+,,,,Lower ,Upper ,Lower ,Upper 
+,,,,Bound,Bound,Bound,Bound
+,Mobile Sources,CH4,2.4,2.3,3.5,-2%,46%
+,Mobile Sources,N2O,18,16.4,21.3,-9%,19%
+,a Range of emission estimates predicted by Monte Carlo Stochastic Simulation for a 95 percent confidence interval.,,,,,,

@@ -1,0 +1,25 @@
+Mapping EIA activity to fuel pool,
+,
+,
+Energy carrier,Fuel Pool
+Electricity,Electricity
+Natural Gas,Natural Gas
+Distillate Fuel Oil,Diesel
+Propane,LPG
+Wood,Biomass
+Gasoline,Gasoline
+E85,Gasoline
+Liquefied Natural Gas,Natural Gas
+Hydrogen,Hydrogen
+Residual Fuel Oil,Fuel Oil
+Compressed Natural Gas,Natural Gas
+Jet Fuel,Jet
+Aviation Gasoline,Jet
+Diesel,Diesel
+Biodiesel,Diesel
+Ethanol,Gasoline
+Liquefied Petroleum Gas,LPG
+Petroleum Coke,Coke
+Still Gas,Natural Gas
+Coal,Coal
+HRJ,Jet

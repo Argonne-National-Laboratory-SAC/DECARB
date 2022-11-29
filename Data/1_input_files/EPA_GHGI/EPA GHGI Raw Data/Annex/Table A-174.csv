@@ -1,0 +1,18 @@
+Table A-174:  Methane Conversion Factors (percent) for Dry Systems,,,,,,
+Waste Management System,,Cool Climate MCF,,Temperate Climate MCF,,Warm Climate MCF
+Aerobic Treatment,,0,,0,,0
+Anaerobic Digester,,0,,0,,0
+Cattle Deep Litter (<1 month),,3,,3,,30
+Cattle Deep Litter (>1 month),,21,,44,,76
+Composting - In Vessel,,0.5,,0.5,,0.5
+Composting - Static Pile,,0.5,,0.5,,0.5
+Composting-Extensive/ Passive,,0.5,,1,,1.5
+Composting-Intensive,,0.5,,1,,1.5
+Daily Spread,,0.1,,0.5,,1
+Dry Lot,,1,,1.5,,5
+Fuel,,10,,10,,10
+Pasture,,1,,1.5,,2
+Poultry with bedding,,1.5,,1.5,,1.5
+Poultry without bedding,,1.5,,1.5,,1.5
+Solid Storage,,2,,4,,5
+Source: IPCC (2006).,,,,,,

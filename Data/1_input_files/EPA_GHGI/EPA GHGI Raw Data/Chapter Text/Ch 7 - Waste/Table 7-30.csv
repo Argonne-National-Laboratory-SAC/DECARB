@@ -1,0 +1,23 @@
+Table 7-30:  Variables and Data Sources for Non-Consumed Protein and Nitrogen Entering Centralized Systems,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+FNON-CON,Factor for U.S. specific non-consumed protein,No units,1990-2019: Calculated
+NINF,Influent Nitrogen Concentration (40),mg/L,1990-2019: Metcalf & Eddy (2014)
+FlowUS,Wastewater Flow to Centralized Wastewater Treatmenta,MGD,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008, and 2012), respectively"
+,,,Data for intervening years obtained by linear interpolation
+,,,2013-2019: Forecasted from the rest of the time series
+3.785,Conversion factor,liters to gallons,Standard conversion
+365.25,Conversion factor,Days in a year,Standard conversion
+USPOP,U.S. populationa,Persons,1990-2019: U.S. Census Bureau (2020)
+TCENTRALIZED,Percent collecteda,%,Odd years from 1989 through 2017: U.S. Census Bureau (2017)
+,,,Data for intervening years obtained by linear interpolation
+,,,2018 and 2019: Forecasted from the rest of the time series
+ProteinSUPPLY,Annual per capita protein supplya,kg/person/year,1990-2019: Calculated
+FNPR,Fraction of nitrogen in protein (0.16),kg N/kg protein,1990-2019: IPCC (2019)
+TNDOM_CENTRAL,Total nitrogen entering centralized systems,kg N/year,1990-2019: Calculated
+Protein,Consumed protein per capitaa,kg/person/year,1990-2019: Calculated
+NHH,Factor for additional nitrogen from household products (1.17),No units,1990-2019: IPCC (2019)
+FIND-COM,Factor for Industrial and Commercial Co-Discharged Protein (1.25),No units,
+,,,
+a Value of this activity data varies over the Inventory time series.,,,

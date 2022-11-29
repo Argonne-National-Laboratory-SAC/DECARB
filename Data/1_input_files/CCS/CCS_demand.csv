@@ -1,0 +1,14 @@
+CCS process energy demand per unit CO2 captured,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+Case,Sector,Subsector,End Use Application,Energy carrier,Energy carrier type,Scope,unit_numerator,unit_denominator,Value
+Mitigation,Industrial,Cement and Lime Industry,Carbon Capture and Storage,Electricity,U.S. Average Grid Mix,"Electricity, Combustion",MMBtu,MMmt,509816.6316
+Mitigation,Industrial,Cement and Lime Industry,Carbon Capture and Storage,Natural Gas,U.S. Average Mix,"Direct, Combustion",MMBtu,MMmt,4430715.579
+Mitigation,Industrial,Iron and Steel Industry,Carbon Capture and Storage,Electricity,U.S. Average Grid Mix,"Electricity, Combustion",MMBtu,MMmt,510814.3158
+Mitigation,Industrial,Iron and Steel Industry,Carbon Capture and Storage,Natural Gas,U.S. Average Mix,"Direct, Combustion",MMBtu,MMmt,4448673.895
+Mitigation,Industrial,Bulk Chemicals Industry,Carbon Capture and Storage,Electricity,U.S. Average Grid Mix,"Electricity, Combustion",MMBtu,MMmt,551719.3684
+Mitigation,Industrial,Bulk Chemicals Industry,Carbon Capture and Storage,Natural Gas,U.S. Average Mix,"Direct, Combustion",MMBtu,MMmt,4443685.474
+Mitigation,Industrial,Refining Industry,Carbon Capture and Storage,Electricity,U.S. Average Grid Mix,"Electricity, Combustion",MMBtu,MMmt,551719.3684
+Mitigation,Industrial,Refining Industry,Carbon Capture and Storage,Natural Gas,U.S. Average Mix,"Direct, Combustion",MMBtu,MMmt,4443685.474
+Mitigation,Industrial,Food Industry,Carbon Capture and Storage,Electricity,U.S. Average Grid Mix,"Electricity, Combustion",MMBtu,MMmt,551719.3684
+Mitigation,Industrial,Food Industry,Carbon Capture and Storage,Natural Gas,U.S. Average Mix,"Direct, Combustion",MMBtu,MMmt,4443685.474

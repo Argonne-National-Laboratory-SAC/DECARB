@@ -1,0 +1,24 @@
+Table 7-32:  Variables and Data Sources for N2O Emissions from Centrally Treated Aerobic Systems (Constructed Wetlands),,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Constructed Wetlands Only (kt N2O/year),,,
+TNDOM_CENTRAL,Total nitrogen entering centralized treatment,kg N/year,1990-2019: Calculated
+% aerobicCW,"Flow to aerobic systems, constructed wetlands used as sole treatment / total flow to POTWsa",%,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008b, and 2012)"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2013-2019: Forecasted from the rest of the time series
+EFCW,Emission factor for constructed wetlands (0.0013),kg N2O-N/kg N,1990-2019: IPCC (2014)
+44/28,Conversion factor,Molecular weight ratio of N2O to N2,Standard conversion
+1/106,Conversion factor,kg to kt,Standard conversion
+Emissions from Constructed Wetlands used as Tertiary Treatment (kt N2O/year),,,
+POTW_flow_CW,Wastewater flow to POTWs that use constructed wetlands as tertiary treatment a,MGD,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004, 2008, 2012: EPA (1992, 1996, 2000, 2004a, 2008b, and 2012)"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2013-2019: Forecasted from the rest of the time series
+"NCW,INF",BOD concentration in wastewater entering the constructed wetland (25),mg/L,1990-2019: Metcalf & Eddy (2014)
+3.785,Conversion factor,liters to gallons,Standard conversion
+EFCW,Emission factor for constructed wetlands (0.0013),kg N2O-N/kg N,1990-2019: IPCC (2014)
+1/106,Conversion factor,mg to kg,Standard conversion
+365.25,Conversion factor,Days in a year,Standard conversion
+,,,
+a Value of this activity data varies over the Inventory time series.,,,

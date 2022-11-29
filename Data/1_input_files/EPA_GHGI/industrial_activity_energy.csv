@@ -1,0 +1,7 @@
+Sector,Subsector,Type,End Use Application,Energy carrier,Energy carrier type,energy_unit_numerator,energy_unit_denominator,energy_value,notes
+Industrial,Bulk Chemical Industry,Conventional Ammonia,Feedstocks,Natural Gas,U.S. Average Mix,MMBtu,MT,24.80484801,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Conventional Ammonia,Heat and Power,Natural Gas,U.S. Average Mix,MMBtu,MT,9.790476969,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Conventional Ammonia,Heat and Power,Electricity,U.S. Average Grid Mix,MMBtu,MT,0.445474048,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,Feedstocks,Natural Gas,U.S. Average Mix,MMBtu,MT,0,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,Heat and Power,Natural Gas,U.S. Average Mix,MMBtu,MT,0,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"
+Industrial,Bulk Chemical Industry,Green Ammonia,Heat and Power,Electricity,U.S. Average Grid Mix,MMBtu,MT,1.103999325,"MMBtu Electricity / Metric Tonne Ammonia, in absolute terms"

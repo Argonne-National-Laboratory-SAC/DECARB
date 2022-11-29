@@ -1,0 +1,14 @@
+"Table A-241:  Effects on U.S. Greenhouse Gas Emissions Using SAR, AR4, and AR5 GWP values (MMT CO2 Eq.)",,,,,,,,,,
+Gas,Difference in Emissions Between 1990 and 2019 (Relative to 1990),,,,Revisions to Annual Emission Estimates (Relative to AR4),,,,,
+,,,,,SAR,AR5 a,AR5 b,SAR,AR5 a,AR5 b
+,SAR,AR4,AR5a,AR5b,1990,,,2019,,
+CO2,142.4,142.4,142.4,142.4,NC,NC,NC,NC,NC,NC
+CH4,-98.4,-117.2,-131.2,-159.3,-124.3,93.2,279.7,-105.6,79.2,237.5
+N2O,4.7,4.5,4,4.5,18.2,-50.1,NC,18.4,-50.6,NC
+"HFCs, PFCs, SF6, and NF3",73.4,86,84.3,103.7,-11.9,-9,1.2,-24.5,-10.8,18.9
+Total,122,115.7,99.4,91.2,-118,34.1,280.9,-111.7,17.8,256.4
+Percent Change,1.90%,1.80%,1.50%,1.40%,-1.80%,0.50%,4.40%,-1.70%,0.30%,3.90%
+Note: Totals may not sum due to independent rounding. Excludes sinks. Parentheses indicate negative values.,,,,,,,,,,
+NC (No Change),,,,,,,,,,
+a The GWP values presented here are the ones most consistent with the methodology used in the AR4 report. ,,,,,,,,,,
+"b The GWP values presented here from the AR5 report include climate-carbon feedbacks for the non-CO2 gases in order to be consistent with the approach used in calculating the CO2 lifetime. Additionally, for methane the AR5 reported separate values for fossil versus biogenic methane in order to account for the CO2 oxidation product and that is not shown on this table. See footnotes to Table A-238.",,,,,,,,,,

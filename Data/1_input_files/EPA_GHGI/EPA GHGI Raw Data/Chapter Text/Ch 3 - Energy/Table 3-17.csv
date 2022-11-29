@@ -1,0 +1,37 @@
+Table 3-17:  Approach 2 Quantitative Uncertainty Estimates for CO2 Emissions from Energy-Related Fossil Fuel Combustion by Fuel Type and Sector (MMT CO2 Eq. and Percent),,,,,,
+,,,,,,
+,Fuel/Sector,2019 Emission Estimate,Uncertainty Range Relative to Emission Estimatea,,,
+,,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),
+,,,Lower,Upper,Lower,Upper
+,,,Bound,Bound,Bound,Bound
+,Coal b,"1,027.10",991.9,"1,125.10",-3%,10%
+,   Residential ,NO,NE,NE,NE,NE
+,   Commercial ,1.6,1.5,1.8,-5%,15%
+,   Industrial ,49.5,47.1,57.2,-5%,16%
+,   Transportation ,NE,NE,NE,NE,NE
+,   Electric Power ,973.5,935.8,"1,068.40",-4%,10%
+,   U.S. Territories ,2.5,2.2,3,-12%,19%
+,Natural Gas b,"1,644.60","1,625.80","1,720.00",-1%,5%
+,   Residential ,275.3,267.5,294.6,-3%,7%
+,   Commercial ,192.8,187.4,206.3,-3%,7%
+,   Industrial ,503.3,486.5,540.5,-3%,7%
+,   Transportation ,54.8,53.2,58.6,-3%,7%
+,   Electric Power ,616,598.2,647.4,-3%,5%
+,   U.S. Territories ,2.5,2.2,3,-12%,17%
+,Petroleum b,"2,184.60","2,054.40","2,313.20",-6%,6%
+,   Residential ,61.5,58,64.8,-6%,5%
+,   Commercial ,55.3,52.3,58.1,-5%,5%
+,   Industrial ,269.7,215.7,324.3,-20%,20%
+,   Transportation ,"1,762.50","1,649.90","1,873.90",-6%,6%
+,   Electric Power ,16.2,15.4,17.5,-5%,8%
+,   U.S. Territories ,19.5,18,21.7,-8%,11%
+,Total (excluding Geothermal) b,"4,856.30","4,757.10","5,072.40",-2%,4%
+,Geothermal,0.4,NE,NE,NE,NE
+,   Electric Power,0.4,NE,NE,NE,NE
+,"Total (including Geothermal) b,c","4,856.70","4,757.70","5,073.00",-2%,4%
+,Note: Totals may not sum due to independent rounding.,,,,,
+,NO (Not Occurring),,,,,
+,NE (Not Estimated),,,,,
+,a Range of emission estimates predicted by Monte Carlo Stochastic Simulation for a 95 percent confidence interval.,,,,,
+,"b The low and high estimates for total emissions were calculated separately through simulations and, hence, the low and high emission estimates for the sub-source categories do not sum to total emissions.",,,,,
+,"c Geothermal emissions added for reporting purposes, but an uncertainty analysis was not performed for CO2 emissions from geothermal production.",,,,,

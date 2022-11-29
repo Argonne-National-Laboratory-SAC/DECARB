@@ -1,0 +1,9 @@
+"Table A-225: Table HH-3 to Subpart HH of the EPA’s Greenhouse Gas Reporting Program, Area Types Applicable to the Calculation of Gas Collection Efficiency",
+Description,Landfill Gas Collection Efficiency
+A1: Area with no waste-in-place,"Not applicable, do not use this area in the calculation"
+"A2: Area without active gas collection, regardless of cover type",CE2: 0%
+A3: Area with daily soil cover and active gas collection,CE3: 60%
+"A4: Area with an intermediate soil cover, or a final soil cover not meeting the criteria for A5 below, and active gas collection",CE4: 75%
+A5: Area with a final soil cover of 3 feet or thicker of clay or final cover (as approved by the relevant agency) and/or geomembrane cover system and active gas collection,CE5: 95%
+Weighted average collection efficiency for landfills:,
+Area weighted average collection efficiency for landfills,CEave1 = (A2*CE2) + A3*CE3 + A4*CE4 + A5*CE5) / (A2 + A3 + A4 + A5)

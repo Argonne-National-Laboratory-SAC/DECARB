@@ -1,0 +1,26 @@
+Input parameters,,
+,,
+,,
+Parameter Name,Description,Value
+LCIA_Method,Specifying the GWP factor calculation methodology,AR4
+lcia_timeframe,Specifying the GWP calculation timeframe,100
+EIA_AEO_case_option,EIA AEO data projection case declaration,Reference case
+Ag_D2E_mtg_2050,Agriculture sector targeted diesel to electricity use ratio,1
+Ag_D2E_relative_eff,"Agriculture sector, relative efficiency of directly using diesel compared to directly using electricity in machineries",0.44
+Ag_manure_mgmt,"Agriculture sector, target of reducing GHG emissions from manure management activities",1
+Ag_soil_N2O,"Agriculture sector, target percentage of reducing N2O emissions from soil based on precision farming activities",1
+Ag_rice_cultv,"Agriculture sector, target percentage of reducing GHG emissions from rice cultivation through improved water and residue management",1
+Ind_mtg_paper,"Industrial sector, target efficiency improvement across all activities of the paper industry",0.32
+Ind_mtg_food,"Industrial sector,arget efficiency improvement across all activities of the food industry",0.37
+Ind_mtg_bulk_chemicals,"Industrial sector, target efficiency improvement across all activities of the bulk chemicals industry",0.13
+Ind_mtg_clinker_new_tech,"Induistrial sector, target technological improvement across all activities of the cement industry",0.3
+Ind_mtg_cement_lime,"Industrial sector, target efficiency improvement across all activities of the cement and lime industry",0.1
+Ind_mtg_refinery,"Industrial sector, target efficiency improvement of the lime industry",0.13
+Ind_mtg_ironandsteel,"Industrial sector, target efficiency improvement of activities of the iron and steel industry",0.13
+Ind_mtg_NG_to_H2,"Industrial sector, target switching ratio from natural gas use to conventional H2 use",0.3
+Ind_mtg_NG_to_H2_refineries,"Industrial sector, target switching of natural gas use to H2 use in the refineries industry",0.7
+Ind_mtg_NG_to_H2_ironandsteel,"Industrial sector, target switching of natural gas to H2 in the iron and steel industry",0.3
+Ind_mtg_fossilH2_to_renewableH2,"Industrial sector, target switching of fossil H2 to renewable H2",1
+ammonia_ng_frac_for_heatandpower,"Fraction of natural gas used for heat and power, in the ammonia producing industry",0.283
+global_mtg_NG_to_H2,"Across sectors, target switching ratio from natural gas use to conventional H2 use",0.3
+global_mtg_fossilH2_to_renewableH2,"Industrial sector, target switching of fossil H2 to renewable H2",1

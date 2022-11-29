@@ -1,0 +1,127 @@
+Correspondence file for aggregations of LULUCF end use applications,,
+,,
+,,
+LULUCF end use application_Decarb,Assigned Sector,LULUCF end use application_Front
+-,LULUCF,-
+"-, -",LULUCF,"Unchanged grassland, wetlands, and settlements"
+"Aboveground Live Biomass, -",LULUCF,Live Biomass
+"Belowground Live Biomass, -",LULUCF,Live Biomass
+"Biofuel use, aboveground C",LULUCF,Biofuel use
+"Biofuel use, SOC change",LULUCF,Biofuel use
+"Biomass C Flux, -",LULUCF,Biomass C Flux
+"Biomass Flux, -",LULUCF,Biomass Flux
+"Cropland Converted to Forest Land, Aboveground Biomass",LULUCF,Cropland Converted to Forest Land
+"Cropland Converted to Forest Land, Belowground Biomass",LULUCF,Cropland Converted to Forest Land
+"Cropland Converted to Forest Land, Dead Wood",LULUCF,Cropland Converted to Forest Land
+"Cropland Converted to Forest Land, Litter",LULUCF,Cropland Converted to Forest Land
+"Cropland Converted to Forest Land, Mineral Soil",LULUCF,Cropland Converted to Forest Land
+"Cropland Converted to Grassland, Mineral Soils",LULUCF,Cropland Converted to Grassland
+"Cropland Converted to Grassland, Organic Soils",LULUCF,Cropland Converted to Grassland
+"Cropland Converted to Settlements, Mineral Soils",LULUCF,Cropland Converted to Settlements
+"Cropland Converted to Settlements, Organic Soils",LULUCF,Cropland Converted to Settlements
+"Cropland Converted to Vegetated Coastal Wetlands, -",LULUCF,Cropland Converted to Vegetated Coastal Wetlands
+"Cropland Converted to Vegetated Coastal Wetlands, Biomass C Stock",LULUCF,Cropland Converted to Vegetated Coastal Wetlands
+"Cropland Converted to Vegetated Coastal Wetlands, Soil C Stock",LULUCF,Cropland Converted to Vegetated Coastal Wetlands
+"Dead Organic Matter C Flux, -",LULUCF,Dead Organic Matter C Flux
+"Dead Organic Matter Flux, -",LULUCF,Dead Organic Matter Flux
+"Dead Wood, -",LULUCF,Dead Wood
+"Direct N2O Emissions from Soils, Biosolids",LULUCF,Direct N2O Emissions from Soils
+"Direct N2O Emissions from Soils, Drained Organic Soils",LULUCF,Direct N2O Emissions from Soils
+"Direct N2O Emissions from Soils, Synthetic Fertilizers",LULUCF,Direct N2O Emissions from Soils
+"Drained Organic Forest Soils, -",LULUCF,Drained Organic Forest Soils
+"Food Scraps, -",LULUCF,Food Scraps
+"Forest Ecosystem, Aboveground Biomass",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Belowground Biomass",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Dead Wood",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Drained Organic Soil",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Litter",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Soil (Mineral) ",LULUCF,Forest Ecosystem
+"Forest Ecosystem, Soil (Organic)",LULUCF,Forest Ecosystem
+"Forest Fires, -",LULUCF,Forest Fires
+"Forest Land Converted to Cropland, Aboveground Live Biomass",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Cropland, Belowground Live Biomass",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Cropland, Dead Wood",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Cropland, Litter",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Cropland, Mineral Soils",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Cropland, Organic Soils",LULUCF,Forest Land Converted to Cropland
+"Forest Land Converted to Grassland, Aboveground Live Biomass",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Grassland, Belowground Live Biomass",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Grassland, Dead Wood",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Grassland, Litter",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Grassland, Mineral Soils",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Grassland, Organic Soils",LULUCF,Forest Land Converted to Grassland
+"Forest Land Converted to Settlements, Aboveground Live Biomass",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Settlements, Belowground Live Biomass",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Settlements, Dead Wood",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Settlements, Litter",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Settlements, Mineral Soils",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Settlements, Organic Soils",LULUCF,Forest Land Converted to Settlements
+"Forest Land Converted to Vegetated Coastal Wetlands, -",LULUCF,Forest Land Converted to Vegetated Coastal Wetlands
+"Forest Land Converted to Vegetated Coastal Wetlands, Biomass C Stock",LULUCF,Forest Land Converted to Vegetated Coastal Wetlands
+"Forest Land Converted to Vegetated Coastal Wetlands, Dead Organic Matter C Flux",LULUCF,Forest Land Converted to Vegetated Coastal Wetlands
+"Forest Land Converted to Vegetated Coastal Wetlands, Soil C Stock",LULUCF,Forest Land Converted to Vegetated Coastal Wetlands
+"Grassland Converted to Cropland, Mineral Soils",LULUCF,Grassland Converted to Cropland
+"Grassland Converted to Cropland, Organic Soils",LULUCF,Grassland Converted to Cropland
+"Grassland Converted to Forest Land, Aboveground Biomass",LULUCF,Grassland Converted to Forest Land
+"Grassland Converted to Forest Land, Belowground Biomass",LULUCF,Grassland Converted to Forest Land
+"Grassland Converted to Forest Land, Dead Wood",LULUCF,Grassland Converted to Forest Land
+"Grassland Converted to Forest Land, Litter",LULUCF,Grassland Converted to Forest Land
+"Grassland Converted to Forest Land, Mineral Soil",LULUCF,Grassland Converted to Forest Land
+"Grassland Converted to Settlements, Mineral Soils",LULUCF,Grassland Converted to Settlements
+"Grassland Converted to Settlements, Organic Soils",LULUCF,Grassland Converted to Settlements
+"Grassland Converted to Vegetated Coastal Wetlands, -",LULUCF,Grassland Converted to Vegetated Coastal Wetlands
+"Grassland Converted to Vegetated Coastal Wetlands, Biomass C Stock",LULUCF,Grassland Converted to Vegetated Coastal Wetlands
+"Grassland Converted to Vegetated Coastal Wetlands, Soil C Stock",LULUCF,Grassland Converted to Vegetated Coastal Wetlands
+"Harvested Wood, Products in Use",LULUCF,Harvested Wood
+"Harvested Wood, Solid Waste Disposal Sites",LULUCF,Harvested Wood
+"Indirect N2O Emissions from Soils, -",LULUCF,Indirect N2O Emissions from Soils
+"Litter, -",LULUCF,Litter
+"Mineral Soils, -",LULUCF,Mineral Soils
+"N2O Fluxes from Soils, Direct",LULUCF,N2O Fluxes from Soils
+"N2O Fluxes from Soils, Indirect",LULUCF,N2O Fluxes from Soils
+"Off-site, -",LULUCF,Off-site
+"On-site, -",LULUCF,On-site
+"Organic Soils, -",LULUCF,Organic Soils
+"Other Land Converted to Forest Land, Aboveground Biomass",LULUCF,Other Land Converted to Forest Land
+"Other Land Converted to Forest Land, Belowground Biomass",LULUCF,Other Land Converted to Forest Land
+"Other Land Converted to Forest Land, Dead Wood",LULUCF,Other Land Converted to Forest Land
+"Other Land Converted to Forest Land, Litter",LULUCF,Other Land Converted to Forest Land
+"Other Land Converted to Forest Land, Mineral Soil",LULUCF,Other Land Converted to Forest Land
+"Other Land Converted to Vegetated Coastal Wetlands, -",LULUCF,Other Land Converted to Vegetated Coastal Wetlands
+"Other Land Converted to Vegetated Coastal Wetlands, Biomass C Stock",LULUCF,Other Land Converted to Vegetated Coastal Wetlands
+"Other Land Converted to Vegetated Coastal Wetlands, Soil C Stock",LULUCF,Other Land Converted to Vegetated Coastal Wetlands
+"Other Lands Converted to Cropland, Mineral Soils",LULUCF,Other Lands Converted to Cropland
+"Other Lands Converted to Cropland, Organic Soils",LULUCF,Other Lands Converted to Cropland
+"Other Lands Converted to Grassland, Mineral Soils",LULUCF,Other Lands Converted to Grassland
+"Other Lands Converted to Grassland, Organic Soils",LULUCF,Other Lands Converted to Grassland
+"Other Lands Converted to Settlements, Mineral Soils",LULUCF,Other Lands Converted to Settlements
+"Other Lands Converted to Settlements, Organic Soils",LULUCF,Other Lands Converted to Settlements
+"Settlements Converted to Cropland, Mineral Soils",LULUCF,Settlements Converted to Cropland
+"Settlements Converted to Cropland, Organic Soils",LULUCF,Settlements Converted to Cropland
+"Settlements Converted to Forest Land, Aboveground Biomass",LULUCF,Settlements Converted to Forest Land
+"Settlements Converted to Forest Land, Belowground Biomass",LULUCF,Settlements Converted to Forest Land
+"Settlements Converted to Forest Land, Dead Wood",LULUCF,Settlements Converted to Forest Land
+"Settlements Converted to Forest Land, Litter",LULUCF,Settlements Converted to Forest Land
+"Settlements Converted to Forest Land, Mineral Soil",LULUCF,Settlements Converted to Forest Land
+"Settlements Converted to Grassland, Mineral Soils",LULUCF,Settlements Converted to Grassland
+"Settlements Converted to Grassland, Organic Soils",LULUCF,Settlements Converted to Grassland
+"Settlements Converted to Vegetated Coastal Wetlands, -",LULUCF,Settlements Converted to Vegetated Coastal Wetlands
+"Settlements Converted to Vegetated Coastal Wetlands, Biomass C Stock",LULUCF,Settlements Converted to Vegetated Coastal Wetlands
+"Settlements Converted to Vegetated Coastal Wetlands, Soil C Stock",LULUCF,Settlements Converted to Vegetated Coastal Wetlands
+"Soil C Flux, -",LULUCF,Soil C Flux
+"Soil Flux, -",LULUCF,Soil Flux
+Sustainable farming,LULUCF,Sustainable Farming
+"Wetlands Converted to Cropland, Mineral Soils",LULUCF,Wetlands Converted to Cropland
+"Wetlands Converted to Cropland, Organic Soils",LULUCF,Wetlands Converted to Cropland
+"Wetlands Converted to Forest Land, Aboveground Biomass",LULUCF,Wetlands Converted to Forest Land
+"Wetlands Converted to Forest Land, Belowground Biomass",LULUCF,Wetlands Converted to Forest Land
+"Wetlands Converted to Forest Land, Dead Wood",LULUCF,Wetlands Converted to Forest Land
+"Wetlands Converted to Forest Land, Litter",LULUCF,Wetlands Converted to Forest Land
+"Wetlands Converted to Forest Land, Mineral Soil",LULUCF,Wetlands Converted to Forest Land
+"Wetlands Converted to Grassland, Mineral Soils",LULUCF,Wetlands Converted to Grassland
+"Wetlands Converted to Grassland, Organic Soils",LULUCF,Wetlands Converted to Grassland
+"Wetlands Converted to Settlements, Mineral Soils",LULUCF,Wetlands Converted to Settlements
+"Wetlands Converted to Settlements, Organic Soils",LULUCF,Wetlands Converted to Settlements
+"Yard Trimmings, Branches",LULUCF,Yard Trimmings
+"Yard Trimmings, Grass",LULUCF,Yard Trimmings
+"Yard Trimmings, Leaves",LULUCF,Yard Trimmings

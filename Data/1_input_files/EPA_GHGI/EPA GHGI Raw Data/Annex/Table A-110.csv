@@ -1,0 +1,42 @@
+Table A-110: Coal Basin Definitions by Basin and by State,
+,
+Basin,States
+Northern Appalachian Basin,"Maryland, Ohio, Pennsylvania, West Virginia North"
+Central Appalachian Basin,"Kentucky East, Tennessee, Virginia, West Virginia South"
+Warrior Basin,"Alabama, Mississippi"
+Illinois Basin,"Illinois, Indiana, Kentucky West"
+South West and Rockies Basin,"Arizona, California, Colorado, New Mexico, Utah"
+North Great Plains Basin,"Montana, North Dakota, Wyoming"
+West Interior Basin,"Arkansas, Iowa, Kansas, Louisiana, Missouri, Oklahoma, Texas"
+Northwest Basin,"Alaska, Washington"
+State,Basin
+Alabama,Warrior Basin
+Alaska,Northwest Basin
+Arizona,South West and Rockies Basin
+Arkansas,West Interior Basin
+California,South West and Rockies Basin
+Colorado,South West and Rockies Basin
+Illinois,Illinois Basin
+Indiana,Illinois Basin
+Iowa,West Interior Basin
+Kansas,West Interior Basin
+Kentucky (east),Central Appalachian Basin
+Kentucky (west),Illinois Basin
+Louisiana,West Interior Basin
+Maryland,Northern Appalachian Basin
+Mississippi,Warrior Basin
+Missouri,West Interior Basin
+Montana,North Great Plains Basin
+New Mexico,South West and Rockies Basin
+North Dakota,North Great Plains Basin
+Ohio,Northern Appalachian Basin
+Oklahoma,West Interior Basin
+Pennsylvania,Northern Appalachian Basin
+Tennessee,Central Appalachian Basin
+Texas,West Interior Basin
+Utah,South West and Rockies Basin
+Virginia,Central Appalachian Basin
+Washington,Northwest Basin
+West Virginia South,Central Appalachian Basin
+West Virginia North,Northern Appalachian Basin
+Wyoming,North Great Plains Basin

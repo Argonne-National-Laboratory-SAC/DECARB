@@ -1,0 +1,19 @@
+Table A-190:  Direct Soil N2O Emissions from Mineral Soils in Cropland (MMT CO2 Eq.),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Land Use Change Category,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019
+Total Cropland Mineral Soil Emission,182.1,173.6,169.8,187.5,182.2,180,187.7,178.9,176.6,178.6,173.2,182.6,182.8,184,183.6,180.1,175.6,181.4,179.2,180.6,182.4,180.4,172.8,193.9,203.6,196.2,187.5,187.1,191.7,193
+Tier 3 Cropland,165,157.5,152.8,170.7,163.9,161.5,169,160.2,158.6,160.7,155.3,164.7,164.2,164.4,163.2,161,156.4,162.1,160,163.2,163.5,161.4,154.5,174.2,184.2,171.9,164.5,164.9,170.1,171.9
+Inorganic N Fertilizer Application,58.5,57.4,57.1,59.2,63.2,56.7,63.3,59.7,56.8,58.7,56.8,57.2,59.2,58.2,57.5,58,55.8,60.6,57.2,55.5,54.8,58.8,61.1,62.9,64.2,54.7,60.4,60.5,62.4,63.1
+Managed Manure Additions,5.3,5.2,5.1,5.3,5.2,4.8,5.3,4.9,4.6,4.6,4.5,4.5,4.7,4.5,4.5,4.5,4.5,4.6,4.5,4.7,4.5,5,5,5.3,5.2,4,5,5,5.2,5.2
+Crop Residue N ,34.2,33.9,31.2,35.4,33.1,35,35.3,32.7,30.8,36.4,33.8,36,36,37,32.8,35.1,34.7,33,33.6,35.1,35.5,36.6,34.5,35.5,37.7,34.3,35.2,35.3,36.4,36.8
+Min. SOM / Asymbiotic N-Fixation a,67.1,61,59.4,70.8,62.4,65.1,65.1,62.9,66.4,61,60.1,66.9,64.2,64.6,68.5,63.3,61.3,63.9,64.6,67.9,68.7,61,53.9,70.5,77.1,78.9,64,64.1,66.1,66.8
+Tier 1 Cropland,17.1,16.2,17,16.8,18.4,18.5,18.7,18.7,18,17.9,18,17.9,18.7,19.6,20.4,19.1,19.2,19.3,19.2,17.4,18.9,19.1,18.3,19.8,19.4,24.3,22.9,22.1,21.6,21.2
+Inorganic N Fertilizer Application,4.6,3.9,4.3,4.6,5.3,5.4,5.9,5.7,4.8,4.8,4.7,4.7,5.6,6.2,7.2,5.9,5.8,5.8,5.8,4.2,5.8,6.4,5.6,7,6.3,10.1,8.5,8,7.7,7.4
+Managed Manure Additions,7.4,7.4,7.5,7.5,7.9,8.2,8,8.2,8.3,8.3,8.5,8.7,8.7,8.9,8.4,8.6,8.8,8.8,8.8,8.6,8.5,8.4,8.4,8.2,8.4,9.4,9.5,9.3,9.1,9
+Other Organic Amendments b,0,0,0,0,0,0,0.1,0.1,0.1,0.1,0,0,0,0,0,0,0.1,0.1,0.1,0,0,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0
+Crop Residue N,5.1,4.8,5.1,4.7,5.1,4.7,4.8,4.8,4.9,4.7,4.7,4.5,4.3,4.5,4.8,4.6,4.5,4.6,4.6,4.6,4.6,4.3,4.3,4.5,4.7,4.7,4.9,4.8,4.8,4.8
+Implied Emission Factor for Croplandsc (kt N2O-N/kt N),0.012,0.011,0.011,0.011,0.012,0.011,0.012,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.01,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011,0.011
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"Note: For most activity sources data were not available after 2015 and emissions were estimated with a data splicing method. Additional activity data will be collected and the Tier 1, 2 and 3 methods will be applied in a future inventory to recalculate the part of the time series that is estimated with the data splicing methods.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+a Mineralization of soil organic matter and the asymbiotic fixation of nitrogen gas.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"b Includes dried blood, tankage, compost, other. Excludes dried manure and bio-solids (i.e., treated sewage sludge) used as commercial fertilizer to avoid double counting.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+c Annual Implied Emission Factor (kt N2O-N/kt N) is calculated by dividing total estimated emissions by total activity data for N applied.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

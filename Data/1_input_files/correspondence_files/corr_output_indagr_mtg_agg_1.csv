@@ -1,0 +1,58 @@
+Correspondence mapping of aggregating industry/agriculture mitigation cases,,
+,,
+,,
+Ind/Ag Mitigation Case_Decarb,Assigned Sector,Ind/Ag Mitigation Case_Agg
+-,Industrial,"Null, Industrial"
+"Biofuels, Diesel",Industrial,Biofuels Decarb
+"Biofuels, Gasoline",Industrial,Biofuels Decarb
+"Biofuels, SAF",Industrial,Biofuels Decarb
+"Bulk Chemical Industry, efficiency improvements",Industrial,Bulk Chemicals
+"Bulk Chemical Industry, fuel switching for low quality heat to Electricity",Industrial,Bulk Chemicals
+"Bulk Chemical Industry, fuel switching Steam Coal to Natural Gas",Industrial,Bulk Chemicals
+"Bulk Chemical Industry, Green Ammonia",Industrial,Bulk Chemicals
+"Cement and Lime Industry, cement chemistry",Industrial,Cement and Lime
+"Cement and Lime Industry, efficiency improvements",Industrial,Cement and Lime
+"Cement and Lime Industry, fuel switching Fossil H2 to renewable H2",Industrial,Cement and Lime
+"Cement and Lime Industry, fuel switching Natural Gas to Hydrogen",Industrial,Cement and Lime
+"Cement and Lime Industry, fuel switching Steam Coal to Natural Gas",Industrial,Cement and Lime
+Commercial: Energy efficiency,Industrial,Commerical Decarb
+Commercial: Energy efficiency of Fuel switching,Industrial,Commerical Decarb
+Commercial: Fuel switching,Industrial,Commerical Decarb
+"Food Industry, efficiency improvements",Industrial,Food
+"Food Industry, fuel switching Fossil H2 to renewable H2",Industrial,Food
+"Food Industry, fuel switching Natural Gas to Hydrogen",Industrial,Food
+"Food Industry, fuel switching Steam Coal to Natural Gas",Industrial,Food
+"Global, fuel switching Fossil H2 to renewable H2",Industrial,Multi-Sector Decarb
+"Global, fuel switching Natural Gas to Hydrogen",Industrial,Multi-Sector Decarb
+"Global, fuel switching Steam Coal to Natural Gas",Industrial,Multi-Sector Decarb
+"Industrial, CCS implementation",Industrial,CCS
+"Iron and Steel Industry, efficiency improvements",Industrial,Iron and Steel
+"Iron and Steel Industry, fuel switching Fossil H2 to renewable H2",Industrial,Iron and Steel
+"Iron and Steel Industry, fuel switching Natural Gas to Hydrogen",Industrial,Iron and Steel
+NREL Electric Power Decarb,Industrial,Electric Power Decarb
+On-Farm Mitigation,Industrial,On-Farm Electrification
+"Paper Industry, efficiency improvements",Industrial,Paper
+"Paper Industry, fuel switching Fossil H2 to renewable H2",Industrial,Paper
+"Paper Industry, fuel switching Natural Gas to Electricity",Industrial,Paper
+"Paper Industry, fuel switching Natural Gas to Hydrogen",Industrial,Paper
+"Paper Industry, fuel switching Steam Coal to Electricity",Industrial,Paper
+Reduction in Fugitive Methane emissions from Abandoned Wells,Industrial,Abandoned O&G Wells
+Reduction in Fugitive Methane emissions from O&G,Industrial,O&G Fugitive CH4 Red. 
+"Refinery Industry, fuel switching Natural Gas to Hydrogen",Industrial,Refining
+"Refining Industry, efficiency improvements",Industrial,Refining
+"Refining Industry, fuel switching Fossil H2 to renewable H2",Industrial,Refining
+Residential: Energy efficiency,Industrial,Residential Decarb
+Residential: Energy efficiency of Fuel switching,Industrial,Residential Decarb
+Residential: Fuel switching,Industrial,Residential Decarb
+"Transportation, VISION scenarios",Industrial,Transport Decarb
+-,Agriculture,"Null, Agriculture"
+"Manure Management, linear reduction",Agriculture,Manure Mgmt.
+"Rice Cultivation, linear reduction",Agriculture,Improved Rice Cultivation
+"Soil N2O emissions, linear reduction",Agriculture,Precision Ag. 
+"Biofuels, Diesel",Agriculture,Biofuels Decarb
+"Biofuels, Gasoline",Agriculture,Biofuels Decarb
+"Global, fuel switching Fossil H2 to renewable H2",Agriculture,Multi-Sector Decarb
+"Global, fuel switching Natural Gas to Hydrogen",Agriculture,Multi-Sector Decarb
+"Global, fuel switching Steam Coal to Natural Gas",Agriculture,Multi-Sector Decarb
+NREL Electric Power Decarb,Agriculture,Electric Power Decarb
+On-Farm Mitigation,Agriculture,On-Farm Electrification

@@ -1,0 +1,31 @@
+Table A-136: Emission Profile for the Foam End-Uses,,,,,
+Foam End-Use,Loss at Manufacturing (%),Annual Leakage Rate (%),Leakage Lifetime (years),Loss at Disposal (%),Total a
+,,,,,(%)
+"Flexible PU Foam: Slabstock Foam, Moulded Foam",100,0,1,0,100
+Vending Machine Foam,4,0.25,10,93.5,100
+Stand-alone Equipment Foam,4,0.25,10,93.5,100
+Ice Machine Foam,4,0.25,8,94,100
+Refrigerated Food Processing and Dispensing Equipment Foam,4,0.25,10,93.5,100
+Small Walk-in Cooler Foam,4,0.25,20,91,100
+Large Walk-in Cooler Foam,4,0.25,20,91,100
+CFC-11 Display Case Foam,4,0.25,18,91.5,100
+CFC-12 Display Case Foam,4,0.25,18,91.5,100
+Road Transport Foam,4,0.25,12,93,100
+Intermodal Container Foam,4,0.25,15,92.3,100
+Rigid PU: High Pressure Two-Component Spray Foam,15,1.5,50,10,100
+Rigid PU: Low Pressure Two-Component Spray Foam,15,1.5,50,10,100
+Rigid PU: Slabstock and Other,32.5,0.875,15,54.375,100
+Phenolic Foam,28,0.875,32,44,100
+Polyolefin Foam,40,3,20,0,100
+Rigid PU: One Component Foam,95,2.5,2,0,100
+XPS: Sheet Foam,50,25,2,0,100
+XPS: Boardstock Foam ,25,0.75,25,56.25,100
+Flexible PU Foam: Integral Skin Foam,95,2.5,2,0,100
+Rigid PU: Domestic Refrigerator and Freezer Insulation (HFC-134a)a,6.5,0.5,14,37.2,50.7
+Rigid PU: Domestic Refrigerator and Freezer Insulation (all others)a,3.75,0.25,14,39.9,47.15
+PU and PIR Rigid: Boardstock,10,1,25,22.5,57.5
+PU Sandwich Panels: Continuous and Discontinuous,8.5-11.25,0.5,50,63.75-66.5 ,100
+PIR (Polyisocyanurate),,,,,
+PU (Polyurethane),,,,,
+XPS (Extruded Polystyrene),,,,,
+"a In general, total emissions from foam end-uses are assumed to be 100 percent. In the Rigid PU Domestic Refrigerator and Freezer Insulation and PU and PIR Boardstock end-uses, the source of emission rates and lifetimes did not yield 100 percent emission; the remainder is anticipated to be emitted at a rate of 2.0 and 1.5 percent/year, respectively, post-disposal.",,,,,

@@ -1,0 +1,11 @@
+Table A-40:  Physical Characteristics of Hydrocarbon Gas Liquids,,,,,
+Compound,Chemical Formula,Density (Barrels Per Metric Ton),Carbon Content (Percent),Energy Content (MMBtu/Barrel),Carbon Content Coefficient (MMT C/QBtu)
+Ethane,C2H6,11.55,80.00,2.783,16.25
+Propane,C3H8,12.76,81.80,3.841,17.15
+Isobutane,C4H10,11.42,82.80,4.183,17.71
+n-butane,C4H10,10.98,82.30,4.354,17.66
+Ethylene,C2H4,11.07,85.71,2.436,17.99
+Propylene,C3H6,12.45,85.71,3.835,17.99
+Isobutylene,C4H8,10.68,85.71,4.355,18.78
+Butylene,C4H8,10.70,85.71,4.377,18.74
+Source: Densities – CRC Handbook of Chemistry and Physics (2008/09) and EPA (2009c); Carbon Contents – derived from the atomic weights of the elements EPA (2013); Energy Contents – EIA (2020a). All values are for the compound in liquid form. The density and energy content of ethane are for refrigerated ethane (-89 degrees C). Values for n-butane are for pressurized butane (-25 degrees C). ,,,,,

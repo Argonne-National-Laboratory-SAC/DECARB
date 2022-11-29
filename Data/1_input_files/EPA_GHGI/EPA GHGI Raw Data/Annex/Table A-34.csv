@@ -1,0 +1,38 @@
+Table A-34:  Variability in Carbon Content Coefficients by Rank Across States (Kilograms CO2 Per MMBtu),,,,,
+State,Number of Samples,Bituminous,Sub-bituminous,Anthracite,Lignite
+Alabama,951,92.84,-,-,99.1
+Alaska,91,98.32,98.09,-,98.65
+Arizona,15,93.94,97.34,-,-
+Arkansas,77,96.36,-,-,94.97
+Colorado,317,94.37,96.52,-,101.1
+Georgia,35,95,-,-,-
+Idaho,1,-,94.9,-,-
+Illinois,460,92.53,-,-,-
+Indiana,745,92.3,-,-,-
+Iowa,100,91.87,-,-,-
+Kansas,29,90.91,-,-,-
+Kentucky,897,92.61,-,-,-
+Louisiana,1,-,-,-,96.01
+Maryland,47,94.29,-,-,-
+Massachusetts,3,-,-,114.82,-
+Michigan,3,-,-,-,92.87
+Mississippi,8,-,-,-,98.18
+Missouri,111,91.71,-,-,-
+Montana,908,96.01,96.61,-,98.34
+Nebraska,6,103.59,-,-,-
+Nevada,2,94.41,-,-,99.86
+New Mexico,185,94.28,94.88,103.92,-
+North Dakota,202,-,93.97,-,99.47
+Ohio,674,91.84,-,-,-
+Oklahoma,63,92.33,-,-,-
+Pennsylvania,849,93.33,-,103.68,-
+Tennessee,61,92.81,-,-,-
+Texas,64,85.58,94.19,-,94.46
+Utah,169,95.75,91.29,-,-
+Virginia,465,93.51,-,98.54,-
+Washington,18,94.53,97.35,102.53,106.55
+West Virginia,612,93.84,-,-,-
+Wyoming,503,94.8,97.21,-,-
+U.S. Average,"8,672",93.46,96.01,102.15,98.95
+Note: “-” Indicates no sample data available. Average is weighted by number of samples. ,,,,,
+"Sources: Calculated from USGS (1998) and PSU (2010), Gunderson (2019), IGS (2019), and ISGS (2019).",,,,,

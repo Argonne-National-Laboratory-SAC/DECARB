@@ -1,0 +1,141 @@
+Table A-251:  Guide to Chemical Formulas,
+Symbol,Name
+Al,Aluminum
+Al2O3,Aluminum oxide
+Br,Bromine
+C,Carbon
+CH4,Methane
+C2H6,Ethane
+C3H8,Propane
+CF4,Perfluoromethane
+C2F6,"Perfluoroethane, hexafluoroethane"
+c-C3F6,Perfluorocyclopropane
+C3F8,Perfluoropropane
+C4F6,"Hexafluoro-1,3-butadiene"
+c-C4F8,Perfluorocyclobutane
+C4F10,Perfluorobutane
+c-C5F8,Perfluorocyclopentene
+C5F12,Perfluoropentane
+C6F14,Perfluorohexane
+CF3I,Trifluoroiodomethane
+CFCl3,Trichlorofluoromethane (CFC-11)
+CF2Cl2,Dichlorodifluoromethane (CFC-12)
+CF3Cl,Chlorotrifluoromethane (CFC-13)
+C2F3Cl3,Trichlorotrifluoroethane (CFC-113)*
+CCl3CF3,CFC-113a*
+C2F4Cl2,Dichlorotetrafluoroethane (CFC-114)
+C2F5Cl,Chloropentafluoroethane (CFC-115)
+CHCl2F,HCFC-21
+CHF2Cl,Chlorodifluoromethane (HCFC-22)
+C2F3HCl2,HCFC-123
+C2F4HCl,HCFC-124
+C2FH3Cl2,HCFC-141b
+C2H3F2Cl,HCFC-142b
+CF3CF2CHCl2,HCFC-225ca
+CClF2CF2CHClF,HCFC-225cb
+CCl4,Carbon tetrachloride
+CHClCCl2,Trichloroethylene
+CCl2CCl2,"Perchloroethylene, tetrachloroethene"
+CH3Cl,Methylchloride
+CH3CCl3,Methylchloroform
+CH2Cl2,Methylenechloride
+CHCl3,"Chloroform, trichloromethane"
+CHF3,HFC-23
+CH2F2,HFC-32
+CH3F,HFC-41
+C2HF5,HFC-125
+C2H2F4,HFC-134
+CH2FCF3,HFC-134a
+C2H3F3,HFC-143*
+C2H3F3,HFC-143a*
+CH2FCH2F,HFC-152*
+C2H4F2,HFC-152a*
+CH3CH2F,HFC-161
+C3HF7,HFC-227ea
+CF3CF2CH2F,HFC-236cb
+CF3CHFCHF2,HFC-236ea
+C3H2F6,HFC-236fa
+C3H3F5,HFC-245ca
+CHF2CH2CF3,HFC-245fa
+CF3CH2CF2CH3,HFC-365mfc
+C5H2F10,HFC-43-10mee
+CF3OCHF2,HFE-125
+CF2HOCF2H,HFE-134
+CH3OCF3,HFE-143a
+CF3CHFOCF3,HFE-227ea
+CF3CHClOCHF2,HCFE-235da2
+CF3CHFOCHF2,HFE-236ea2
+CF3CH2OCF3,HFE-236fa
+CF3CF2OCH3,HFE-245cb2
+CHF2CH2OCF3,HFE-245fa1
+CF3CH2OCHF2,HFE-245fa2
+CHF2CF2OCH3,HFE-254cb2
+CF3CH2OCH3,HFE-263fb2
+CF3CF2OCF2CHF2,HFE-329mcc2
+CF3CF2OCH2CF3,HFE-338mcf2
+CF3CF2CF2OCH3,HFE-347mcc3
+CF3CF2OCH2CHF2,HFE-347mcf2
+CF3CHFCF2OCH3,HFE-356mec3
+CHF2CF2CF2OCH3,HFE-356pcc3
+CHF2CF2OCH2CHF2,HFE-356pcf2
+CHF2CF2CH2OCHF2,HFE-356pcf3
+CF3CF2CH2OCH3,HFE-365mcf3
+CHF2CF2OCH2CH3,HFE-374pcf2
+C4F9OCH3,HFE-7100
+C4F9OC2H5,HFE-7200
+CH2CFCF3,HFO-1234yf
+CHFCHCF3,HFO-1234ze(E)
+CF3CHCHCF3  ,HFO-1336mzz(Z)
+C3H2ClF3,HCFO-1233zd(E)
+CHF2OCF2OC2F4OCHF2,H-Galden 1040x
+CHF2OCF2OCHF2,HG-10
+CHF2OCF2CF2OCHF2,HG-01
+CH3OCH3,Dimethyl ether
+CH2Br2,Dibromomethane
+CH2BrCl,Dibromochloromethane
+CHBr3,Tribromomethane
+CHBrF2,Bromodifluoromethane
+CH3Br,Methylbromide
+CF2BrCl,Bromodichloromethane (Halon 1211)
+CF3Br(CBrF3),Bromotrifluoromethane (Halon 1301)
+CF3I,FIC-13I1
+CO,Carbon monoxide
+CO2,Carbon dioxide
+CaCO3,"Calcium carbonate, Limestone"
+CaMg(CO3)2,Dolomite
+CaO,"Calcium oxide, Lime"
+Cl,atomic Chlorine
+F,Fluorine
+Fe,Iron
+Fe2O3,Ferric oxide
+FeSi,Ferrosilicon
+GaAs,Gallium arsenide
+"H, H2","atomic Hydrogen, molecular Hydrogen"
+H2O,Water
+H2O2,Hydrogen peroxide
+OH,Hydroxyl
+"N, N2","atomic Nitrogen, molecular Nitrogen"
+NH3,Ammonia
+NH4+,Ammonium ion
+HNO3,Nitric acid
+MgO,Magnesium oxide
+NF3,Nitrogen trifluoride
+N2O,Nitrous oxide
+NO,Nitric oxide
+NO2,Nitrogen dioxide
+NO3,Nitrate radical
+NOx,Nitrogen oxides
+Na,Sodium
+Na2CO3,"Sodium carbonate, soda ash"
+Na3AlF6,Synthetic cryolite
+"O, O2","atomic Oxygen, molecular Oxygen"
+O3,Ozone
+S,atomic Sulfur
+H2SO4,Sulfuric acid
+SF6,Sulfur hexafluoride
+SF5CF3,Trifluoromethylsulphur pentafluoride
+SO2,Sulfur dioxide
+Si,Silicon
+SiC,Silicon carbide
+SiO2,Quartz
+* Distinct isomers.,

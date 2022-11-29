@@ -1,0 +1,12 @@
+Table 7-13:  Variables and Data Sources for Organics in Centralized Domestic Wastewater,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Centrally Treated Organics (Gg BOD/year),,,
+TOWCENTRALIZED,Total organics in centralized wastewater treatment,Gg BOD/year,1990-2019: Calculated
+TOW,Total wastewater BOD Produced per Capita a,Gg BOD/year,"1990-2019: Calculated, ERG (2018a)"
+TCENTRALIZED,Percent collected a,%,1990-2017: U.S. Census Bureau (2017)
+,,,Data for intervening years obtained by linear interpolation
+,,,2018-2019: Forecasted from the rest of the time series
+ICOLLECTED,Correction factor for additional industrial BOD discharged (1.25),No units,1990-2019: IPCC (2019)
+,,,
+a Value of this activity data varies over the time series.,,,

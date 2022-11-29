@@ -1,0 +1,5 @@
+Sector,Subsector,Type,Year,activity_unit,activity_value,Data Source,Table
+Industrial,Bulk Chemical Industry,Green Ammonia,2019,kt,16410,EPA GHGI,Table 4-21
+Industrial,Cement and Lime Industry,Clinker Production,2019,kt,78891,EPA GHGI,Table 4-4
+Industrial,Cement and Lime Industry,High-Calcium Lime,2019,kt,13074,EPA GHGI,Table 4-9
+Industrial,Cement and Lime Industry,Dolomitic Lime,2019,kt,3087,EPA GHGI,Table 4-9

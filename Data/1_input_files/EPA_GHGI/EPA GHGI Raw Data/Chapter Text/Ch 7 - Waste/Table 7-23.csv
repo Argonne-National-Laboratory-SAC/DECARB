@@ -1,0 +1,13 @@
+Table 7-23: Sludge Variables for Aerobic Treatment Systems,,,,,,,
+,,,,,,,
+Variable,,,,,Industry,,
+,,,,,Pulp and Paper,Fruit/Vegetable Processing,Petroleum Refining
+Organic reduction associated with sludge removal (%),,,,,58,,
+Sludge Production (kg/m3),,,,,,,
+,Primary Sedimentation,,,,,0.15,
+,Aerobic Treatment,,,,,0.096,0.096
+Sludge Factor (kg BOD/kg dry mass sludge),,,,,,,
+,Aerobic Treatment w/Primary Sedimentation and No Anaerobic Sludge Digestion,,,,,0.8,
+,Aerobic Treatment w/out Primary Sedimentation,,,,,,1.16
+,,,,,,,
+Sources: Organic reduction (pulp) – ERG (2008a); Sludge production - Metcalf & Eddy (2003); Sludge factors – IPCC (2019).,,,,,,,

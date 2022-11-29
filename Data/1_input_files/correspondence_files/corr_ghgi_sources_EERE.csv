@@ -1,0 +1,20 @@
+﻿Correspondence between EPA GHGI Source categories and the EERE Tool,,,,
+,,,,
+,,,,
+Sector,Subsector,DECARB_Sector,DECARB_Subsector,DECARB_End Use Application
+Industrial,Coal Mining,Industrial,Nonmanufacturing Sector,Mining
+Industrial,Adipic Acid Production,Industrial,Bulk Chemical Industry,Adipic Acid Production
+Industrial,Aluminum Production,Industrial,Aluminum Industry,Aluminum Production
+Industrial,"Caprolactam, Glyoxal, and Glyoxylic Acid Production",Industrial,Bulk Chemical Industry,"Caprolactam, Glyoxal, and Glyoxylic Acid Production"
+Industrial,Carbide Production and Consumption,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption
+Industrial,Electronics Industry,Industrial,Metal Based Durables Industry,Electronics Industry
+Industrial,Ferroalloy Production,Industrial,Iron and Steel Industry,Ferroalloy Production
+Industrial,Glass Production,Industrial,Glass Industry,Glass Production
+Industrial,HCFC-22 Production,Industrial,Bulk Chemical Industry,HCFC-22 Production
+Industrial,Lead Production,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption
+Industrial,Magnesium Production and Processing,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption
+Industrial,Nitric Acid Production,Industrial,Bulk Chemical Industry,Nitric Acid Production
+Industrial,Phosphoric Acid Production,Industrial,Bulk Chemical Industry,Phosphoric Acid Production
+Industrial,Soda Ash Production,Industrial,Nonmanufacturing Sector,Mining
+Industrial,Titanium Dioxide Production,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption
+Industrial,Zinc Production,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption

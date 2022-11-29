@@ -1,0 +1,27 @@
+Table A-205:  Coefficients for Estimating Logging Residue Component of Downed Dead Wood,,,
+Region a,Forest Type Group b (softwood/hardwood),Initial C Density (T/ha),Decay Coefficient
+Alaska,hardwood,6.9,12.1
+Alaska,softwood,8.6,32.3
+NE,hardwood,13.9,12.1
+NE,softwood,12.1,17.9
+NLS,hardwood,9.1,12.1
+NLS,softwood,7.2,17.9
+NPS,hardwood,9.6,12.1
+NPS,softwood,6.4,17.9
+PSW,hardwood,9.8,12.1
+PSW,softwood,17.5,32.3
+PWE,hardwood,3.3,12.1
+PWE,softwood,9.5,32.3
+PWW,hardwood,18.1,12.1
+PWW,softwood,23.6,32.3
+RMN,hardwood,7.2,43.5
+RMN,softwood,9,18.1
+RMS,hardwood,5.1,43.5
+RMS,softwood,3.7,18.1
+SC,hardwood,4.2,8.9
+SC,softwood,5.5,17.9
+SE,hardwood,6.4,8.9
+SE,softwood,7.3,17.9
+,,,
+a Regions are defined in Smith et al. (2003) with the addition of coastal Alaska.,,,
+b Forest types are according to majority hardwood or softwood species.,,,

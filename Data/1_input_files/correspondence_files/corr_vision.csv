@@ -1,0 +1,96 @@
+Sector,EIA Subsector,VISION Category,End-Use Application,Powertrain,Energy Carrier,Energy Carrier Type,Sector: USDT,Subsector: USDT,End Use Application: USDT,Energy carrier: USDT,Energy carrier type: USDT
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,-,Electricity,Transportation,On Road,Light-Duty Vehicle,Electricity,U.S. Average Grid Mix
+Transportation,Light-Duty Vehicle,LDV,Auto,Ethanol,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,E85,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,Auto,Ethanol,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,E85,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,-,Diesel,Transportation,On Road,Light-Duty Vehicle,Diesel,Petroleum Distillate
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,-,F-T,Transportation,On Road,Light-Duty Vehicle,Diesel,FT-Diesel
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,-,Bio-D,Transportation,On Road,Light-Duty Vehicle,Diesel,Biodiesel
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,-,CNG,Transportation,On Road,Light-Duty Vehicle,Compressed Natural Gas,U.S. Average Mix
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,Diesel,Transportation,On Road,Light-Duty Vehicle,Diesel,Petroleum Distillate
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,F-T,Transportation,On Road,Light-Duty Vehicle,Diesel,FT-Diesel
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,Bio-D,Transportation,On Road,Light-Duty Vehicle,Diesel,Biodiesel
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,-,Electricity,Transportation,On Road,Light-Duty Vehicle,Electricity,U.S. Average Grid Mix
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,-,Hydrogen,Transportation,On Road,Light-Duty Vehicle,Hydrogen,Natural Gas
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,-,Electricity,Transportation,On Road,Light-Duty Vehicle,Electricity,U.S. Average Grid Mix
+Transportation,Light-Duty Vehicle,LDV,LT,Ethanol,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,E85,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,LT,Ethanol,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,E85,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,-,Diesel,Transportation,On Road,Light-Duty Vehicle,Diesel,Petroleum Distillate
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,-,F-T,Transportation,On Road,Light-Duty Vehicle,Diesel,FT-Diesel
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,-,Bio-D,Transportation,On Road,Light-Duty Vehicle,Diesel,Biodiesel
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,-,CNG,Transportation,On Road,Light-Duty Vehicle,Compressed Natural Gas,U.S. Average Mix
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,Gasoline,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,Ethanol,Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,Diesel,Transportation,On Road,Light-Duty Vehicle,Diesel,Petroleum Distillate
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,F-T,Transportation,On Road,Light-Duty Vehicle,Diesel,FT-Diesel
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,Bio-D,Transportation,On Road,Light-Duty Vehicle,Diesel,Biodiesel
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,-,Electricity,Transportation,On Road,Light-Duty Vehicle,Electricity,U.S. Average Grid Mix
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,-,Hydrogen,Transportation,On Road,Light-Duty Vehicle,Hydrogen,Natural Gas
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,-,Gasoline,Transportation,On Road,Commercial Light Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,-,Ethanol,Transportation,On Road,Commercial Light Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,-,Electricity,Transportation,On Road,Commercial Light Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Commercial Light Truck,LDV,Class 2B,Ethanol,-,Gasoline,Transportation,On Road,Commercial Light Trucks,E85,Petroleum Gasoline
+Transportation,Commercial Light Truck,LDV,Class 2B,Ethanol,-,Ethanol,Transportation,On Road,Commercial Light Trucks,E85,"Ethanol, Conventional"
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,-,Diesel,Transportation,On Road,Commercial Light Trucks,Diesel,Petroleum Distillate
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,-,F-T,Transportation,On Road,Commercial Light Trucks,Diesel,FT-Diesel
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,-,Bio-D,Transportation,On Road,Commercial Light Trucks,Diesel,Biodiesel
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,-,CNG,Transportation,On Road,Commercial Light Trucks,Compressed Natural Gas,U.S. Average Mix
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,Gasoline,Transportation,On Road,Commercial Light Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,Ethanol,Transportation,On Road,Commercial Light Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,Diesel,Transportation,On Road,Commercial Light Trucks,Diesel,Petroleum Distillate
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,F-T,Transportation,On Road,Commercial Light Trucks,Diesel,FT-Diesel
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,Bio-D,Transportation,On Road,Commercial Light Trucks,Diesel,Biodiesel
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,-,Electricity,Transportation,On Road,Commercial Light Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,-,Hydrogen,Transportation,On Road,Commercial Light Trucks,Hydrogen,Natural Gas
+Transportation,Freight Trucks,MDV,Light Medium,-,Gasoline ICE,Gasoline,Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Freight Trucks,MDV,Light Medium,-,Gasoline ICE,Ethanol,Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Freight Trucks,MDV,Light Medium,-,E-85,Gasoline,Transportation,On Road,Freight Trucks,E85,Petroleum Gasoline
+Transportation,Freight Trucks,MDV,Light Medium,-,E-85,Ethanol,Transportation,On Road,Freight Trucks,E85,"Ethanol, Conventional"
+Transportation,Freight Trucks,MDV,Light Medium,-,Natural Gas,Natural Gas,Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Freight Trucks,MDV,Light Medium,-,Diesel,Diesel,Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate
+Transportation,Freight Trucks,MDV,Light Medium,-,Bio-Diesel,Bio-Diesel,Transportation,On Road,Freight Trucks,Diesel,Biodiesel
+Transportation,Freight Trucks,MDV,Light Medium,-,FT Diesel,FT Diesel,Transportation,On Road,Freight Trucks,Diesel,FT-Diesel
+Transportation,Freight Trucks,MDV,Light Medium,-,Electricity,Electricity,Transportation,On Road,Freight Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Freight Trucks,MDV,Light Medium,-,Hydrogen,Hydrogen,Transportation,On Road,Freight Trucks,Hydrogen,Renewables
+Transportation,Freight Trucks,MDV,Medium,-,Gasoline ICE,Gasoline,Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Freight Trucks,MDV,Medium,-,Gasoline ICE,Ethanol,Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Freight Trucks,MDV,Medium,-,E-85,Gasoline,Transportation,On Road,Freight Trucks,E85,Petroleum Gasoline
+Transportation,Freight Trucks,MDV,Medium,-,E-85,Ethanol,Transportation,On Road,Freight Trucks,E85,"Ethanol, Conventional"
+Transportation,Freight Trucks,MDV,Medium,-,Natural Gas,Natural Gas,Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Freight Trucks,MDV,Medium,-,Diesel,Diesel,Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate
+Transportation,Freight Trucks,MDV,Medium,-,Bio-Diesel,Bio-Diesel,Transportation,On Road,Freight Trucks,Diesel,Biodiesel
+Transportation,Freight Trucks,MDV,Medium,-,FT Diesel,FT Diesel,Transportation,On Road,Freight Trucks,Diesel,FT-Diesel
+Transportation,Freight Trucks,MDV,Medium,-,Electricity,Electricity,Transportation,On Road,Freight Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Freight Trucks,MDV,Medium,-,Hydrogen,Hydrogen,Transportation,On Road,Freight Trucks,Hydrogen,Renewables
+Transportation,Freight Trucks,HDV,Vocational,-,-,Gasoline,Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Freight Trucks,HDV,Vocational,-,-,Diesel,Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate
+Transportation,Freight Trucks,HDV,Vocational,-,-,CNG,Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Freight Trucks,HDV,Vocational,-,-,F-T Diesel,Transportation,On Road,Freight Trucks,Diesel,FT-Diesel
+Transportation,Freight Trucks,HDV,Vocational,-,-,Biodiesel,Transportation,On Road,Freight Trucks,Diesel,Biodiesel
+Transportation,Freight Trucks,HDV,Vocational,-,-,Hydrogen,Transportation,On Road,Freight Trucks,Hydrogen,Renewables
+Transportation,Freight Trucks,HDV,Vocational,-,-,Electric ,Transportation,On Road,Freight Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Freight Trucks,HDV,Vocational,-,-,LPG,Transportation,On Road,Freight Trucks,Propane,-
+Transportation,Freight Trucks,HDV,Vocational,-,-,Ethanol,Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Gasoline,Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Diesel,Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate
+Transportation,Freight Trucks,HDV,Day Cab,-,-,CNG,Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Freight Trucks,HDV,Day Cab,-,-,F-T Diesel,Transportation,On Road,Freight Trucks,Diesel,FT-Diesel
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Biodiesel,Transportation,On Road,Freight Trucks,Diesel,Biodiesel
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Hydrogen,Transportation,On Road,Freight Trucks,Hydrogen,Renewables
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Electric ,Transportation,On Road,Freight Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Freight Trucks,HDV,Day Cab,-,-,LPG,Transportation,On Road,Freight Trucks,Propane,-
+Transportation,Freight Trucks,HDV,Day Cab,-,-,Ethanol,Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional"
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Gasoline,Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Diesel,Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate
+Transportation,Freight Trucks,HDV,Sleeper,-,-,CNG,Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix
+Transportation,Freight Trucks,HDV,Sleeper,-,-,F-T Diesel,Transportation,On Road,Freight Trucks,Diesel,FT-Diesel
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Biodiesel,Transportation,On Road,Freight Trucks,Diesel,Biodiesel
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Hydrogen,Transportation,On Road,Freight Trucks,Hydrogen,Renewables
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Electric ,Transportation,On Road,Freight Trucks,Electricity,U.S. Average Grid Mix
+Transportation,Freight Trucks,HDV,Sleeper,-,-,LPG,Transportation,On Road,Freight Trucks,Propane,-
+Transportation,Freight Trucks,HDV,Sleeper,-,-,Ethanol,Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional"

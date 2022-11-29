@@ -1,0 +1,556 @@
+Mapping of LCI and Emissions Factors from GREET to Decarbonization Tool,,,,,,,
+Mapping of life cycle inventory and emissions from GREET to Decarbonization Tool metadata conventions.,,,,,,,
+,,,,,,,
+Sector,Subsector,End Use Application,Energy carrier,Energy carrier type,Scope,GREET Tab,GREET Pathway
+Residential,-,Space Heating,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Space Cooling,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Water Heating,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Refrigeration,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Cooking,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Clothes Dryers,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Freezers,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Lighting,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Clothes Washers,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Dishwashers,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Televisions and Related Equipment,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Computers and Related Equipment,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Furnace Fans and Boiler Circulation Pumps,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Other Uses,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Space Heating,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Residential,-,Space Cooling,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Stationary Reciprocating Engine
+Residential,-,Water Heating,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Residential,-,Cooking,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Residential,-,Clothes Dryers,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Residential,-,Other Uses,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Residential,-,Space Heating,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Residential,-,Water Heating,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Residential,-,Other Uses,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Residential,-,Space Heating,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Residential,-,Water Heating,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Residential,-,Cooking,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Residential,-,Other Uses,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Residential,-,Other Uses,Wood,Not Specified,"Direct, Combustion",EF,Willow: Utility Boiler
+Transportation,On-Road,Light Duty Vehicles,Gasoline,Not Specified,"Direct, Combustion",Results,Gasoline Vehicle: Gasoline
+Transportation,On-Road,Light Duty Vehicles,E85,Not Specified,"Direct, Combustion",Results,"EtOH FFV: E85, Corn"
+Transportation,On-Road,Light Duty Vehicles,Distillate Fuel Oil,Not Specified,"Direct, Combustion",Results,CIDI Vehicle: Conventional and LS Diesel
+Transportation,On-Road,Light Duty Vehicles,Liquefied Natural Gas,Not Specified,"Direct, Combustion",Results,"LNGV: Dedicated, NA NG"
+Transportation,On-Road,Light Duty Vehicles,Propane,Not Specified,"Direct, Combustion",Results,"LPGV: Dedicated, Crude and NG Mix"
+Transportation,On-Road,Light Duty Vehicles,Electricity,Not Specified,"Electricity, Combustion",Results,Electric Vehicle: U.S. Mix
+Transportation,On-Road,Light Duty Vehicles,Hydrogen,Not Specified,"Direct, Combustion",Results,"FCV: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Gasoline,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Commercial Light Trucks,E85,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Commercial Light Trucks,Distillate Fuel Oil,Not Specified,"Direct, Combustion",HDV_WTW,CIDI Heavy-Duty Pick-Up Trucks and Vans: Conventional and LS Diesel
+Transportation,On-Road,Commercial Light Trucks,Propane,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles, CNG, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Liquefied Natural Gas,Not Specified,"Direct, Combustion",HDV_WTW,"SI Heavy Heavy-Duty Vocational Vehicles, LNG, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Electricity,Not Specified,"Electricity, Combustion",HDV_WTW,"Heavy-Duty Pick-Up Trucks and Vans, Electricity: U.S. Mix"
+Transportation,On-Road,Commercial Light Trucks,Hydrogen,Not Specified,"Direct, Combustion",HDV_WTW,"Fuel-Cell Heavy-Duty Pick-Up Trucks and Vans: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Freight Trucks,Gasoline,Not Specified,"Direct, Combustion",HDV_WTW,"SI Heavy-Duty Pick-Up Trucks and Vans: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Freight Trucks,Distillate Fuel Oil,Not Specified,"Direct, Combustion",HDV_WTW,CIDI Combination Long-Haul Trucks: Conventional and LS Diesel
+Transportation,On-Road,Freight Trucks,Liquefied Natural Gas,Not Specified,"Direct, Combustion",HDV_WTW,"SI Combination Long-Haul Trucks: LNG, NA NG"
+Transportation,On-Road,Freight Trucks,Propane,Not Specified,"Direct, Combustion",HDV_WTW,"SI Combination Long-Haul Trucks: CNG, NA NG"
+Transportation,On-Road,Freight Trucks,E85,Not Specified,"Direct, Combustion",HDV_WTW,"SI Heavy-Duty Pick-Up Trucks and Vans: E85, Corn"
+Transportation,On-Road,Freight Trucks,Electricity,Not Specified,"Electricity, Combustion",HDV_WTW,"Combination Long-Haul Trucks: Electricity, U.S. Mix"
+Transportation,On-Road,Freight Trucks,Hydrogen,Not Specified,"Direct, Combustion",HDV_WTW,"Fuel-Cell Combination Short-Haul Trucks: G.H2, Central Plants, NA NG"
+Transportation,Rail,Freight Rail,Distillate Fuel Oil,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Diesel
+Transportation,Rail,Freight Rail,Residual Fuel Oil,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Diesel
+Transportation,Rail,Freight Rail,Compressed Natural Gas,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Natural Gas
+Transportation,Rail,Freight Rail,Liquefied Natural Gas,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Natural Gas
+Transportation,Marine,Domestic Shipping,Distillate Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,MDO (0.5% sulfur)
+Transportation,Marine,Domestic Shipping,Residual Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,HFO (0.5% sulfur)
+Transportation,Marine,Domestic Shipping,Compressed Natural Gas,Not Specified,"Direct, Combustion",Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,Domestic Shipping,Liquefied Natural Gas,Not Specified,"Direct, Combustion",Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,International Shipping,Distillate Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,MDO (0.5% sulfur)
+Transportation,Marine,International Shipping,Residual Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,HFO (0.5% sulfur)
+Transportation,Marine,International Shipping,Compressed Natural Gas,Not Specified,"Direct, Combustion",Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,International Shipping,Liquefied Natural Gas,Not Specified,"Direct, Combustion",Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Aviation,Air Transport,Jet Fuel,Not Specified,"Direct, Combustion",JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Aviation,Air Transport,Aviation Gasoline,Not Specified,"Direct, Combustion",JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Military,-,Jet Fuel,Not Specified,"Direct, Combustion",JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Military,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,HFO (0.5% sulfur)
+Transportation,Military,-,Diesel,Not Specified,"Direct, Combustion",Results,CIDI Vehicle: Conventional and LS Diesel
+Transportation,On-Road,Transit Bus,Gasoline,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Transit Bus,E85,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Transit Bus,Distillate Fuel Oil,Not Specified,"Direct, Combustion",HDV_WTW,CIDI Transit Buses: Conventional and LS Diesel
+Transportation,On-Road,Transit Bus,Liquefied Natural Gas,Not Specified,"Direct, Combustion",HDV_WTW,"SI Transit Buses, LNG, NA NG"
+Transportation,On-Road,Transit Bus,Propane,Not Specified,"Direct, Combustion",HDV_WTW,"SI Transit Buses, CNG, NA NG"
+Transportation,On-Road,Transit Bus,Electricity,Not Specified,"Electricity, Combustion",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,Transit Bus,Hydrogen,Not Specified,"Direct, Combustion",HDV_WTW,"Fuel-Cell Transit Buses: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Intercity Bus,Gasoline,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Intercity Bus,E85,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Intercity Bus,Distillate Fuel Oil,Not Specified,"Direct, Combustion",HDV_WTW,CIDI Intercity Buses: Conventional and LS Diesel
+Transportation,On-Road,Intercity Bus,Liquefied Natural Gas,Not Specified,"Direct, Combustion",HDV_WTW,"SI Intercity Buses, CNG, NA NG"
+Transportation,On-Road,Intercity Bus,Propane,Not Specified,"Direct, Combustion",HDV_WTW,"SI Intercity Buses, CNG, NA NG"
+Transportation,On-Road,Intercity Bus,Electricity,Not Specified,"Electricity, Combustion",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,Intercity Bus,Hydrogen,Not Specified,"Direct, Combustion",HDV_WTW,"Fuel-Cell Transit Buses: G.H2, Central Plants, NA NG"
+Transportation,On-Road,School Bus,Gasoline,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,School Bus,E85,Not Specified,"Direct, Combustion",HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,School Bus,Distillate Fuel Oil,Not Specified,"Direct, Combustion",HDV_WTW,CIDI School Buses: Conventional and LS Diesel
+Transportation,On-Road,School Bus,Liquefied Natural Gas,Not Specified,"Direct, Combustion",HDV_WTW,"SI School Buses, CNG, NA NG"
+Transportation,On-Road,School Bus,Propane,Not Specified,"Direct, Combustion",HDV_WTW,"SI School Buses, LPG, Crude and NG Mix"
+Transportation,On-Road,School Bus,Electricity,Not Specified,"Electricity, Combustion",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,School Bus,Hydrogen,Not Specified,"Direct, Combustion",HDV_WTW,"Fuel-Cell School Buses: G.H2, Central Plants, NA NG"
+Transportation,Rail,Passenger,Electricity,Not Specified,"Electricity, Combustion",Rail_WTW,Rail: Electricity
+Transportation,Rail,Passenger,Diesel,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Diesel
+Transportation,Rail,Passenger,Compressed Natural Gas,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Natural Gas
+Transportation,Rail,Passenger,Liquefied Natural Gas,Not Specified,"Direct, Combustion",Rail_WTW,Rail: Natural Gas
+Transportation,Marine,Recreational Boats,Gasoline,Not Specified,"Direct, Combustion",Results,Gasoline Vehicle: Gasoline
+Transportation,Marine,Recreational Boats,Distillate Fuel Oil,Not Specified,"Direct, Combustion",Marine_WTH,MDO (0.5% sulfur)
+Transportation,-,Lubricants,Lubricants,Not Specified,"Direct, Combustion",N/A,Custom: Lubricants
+Transportation,-,Pipeline Fuel Natural Gas,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Transportation,-,-,Biodiesel,Not Specified,"Direct, Combustion",Results,CIDI Vehicle: Soybean-based BD100
+Transportation,-,-,Ethanol,Conventional,"Direct, Combustion",Results,"EtOH FFV: E100, Corn"
+Transportation,-,-,Ethanol,Cellulosic,"Direct, Combustion",Results,"EtOH FFV: E100, Corn Stover"
+Commercial,-,Space Heating,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Space Cooling,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Water Heating,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Ventilation,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Cooking,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Lighting,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Refrigeration,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Computing,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Office Equipment,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Other Uses,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Commercial,-,Space Heating,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Commercial,-,Space Cooling,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Stationary Reciprocating Engine
+Commercial,-,Water Heating,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Commercial,-,Cooking,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Commercial,-,Other Uses,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Small Industrial Boiler (10-100 mmBtu/hr input)
+Commercial,-,Space Heating,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Commercial,-,Water Heating,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Commercial,-,Other Uses,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Commercial Boiler
+Industrial,Refining Industry,Petroleum Refining,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Liquefied Petroleum Gas,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Still Gas,Not Specified,"Direct, Combustion",EF,Refinery Still Gas: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Refining Industry,Petroleum Refining,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Refining Industry,Petroleum Refining,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Food,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Food,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Food,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Food,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Food,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Food,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Paper,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Paper,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Paper,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Paper,-,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Paper,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Paper,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Paper,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Bulk Chemical,Heat and Power,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Bulk Chemical,Heat and Power,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Bulk Chemical,Heat and Power,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Bulk Chemical,Heat and Power,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Bulk Chemical,Heat and Power,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Bulk Chemical,Heat and Power,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Bulk Chemical,Heat and Power,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Bulk Chemical,Feedstock,Natural Gas,Not Specified,"Direct, Combustion",,
+Industrial,Glass,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Glass,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Glass,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Glass,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Glass,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Glass,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Cement and Lime,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Cement and Lime,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Cement and Lime,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Cement and Lime,-,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Cement and Lime,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Cement and Lime,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Cement and Lime,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Iron and Steel,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Iron and Steel,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Iron and Steel,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Iron and Steel,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Iron and Steel,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Iron and Steel,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Aluminum,-,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Aluminum,-,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Aluminum,-,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Aluminum,-,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Aluminum,-,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Aluminum,-,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Aluminum,-,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Agriculture,-,On Farm Energy Use,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Stationary Reciprocating Engine
+Agriculture,-,On Farm Energy Use,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Farming Tractor
+Agriculture,-,On Farm Energy Use,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Agriculture,-,On Farm Energy Use,Gasoline,Not Specified,"Direct, Combustion",EF,Gasoline: Farming Tractor
+Agriculture,-,On Farm Energy Use,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Stationary Reciprocating Engine
+Agriculture,-,On Farm Energy Use,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Agriculture,-,On Farm Energy Use,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Construction and Mining,Construction,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Construction and Mining,Construction,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Construction and Mining,Construction,Gasoline,Not Specified,"Direct, Combustion",EF,Gasoline: Stationary Reciprocating Engine
+Industrial,Construction and Mining,Construction,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Construction and Mining,Construction,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Construction and Mining,Mining,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Construction and Mining,Mining,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Construction and Mining,Mining,Gasoline,Not Specified,"Direct, Combustion",EF,Gasoline: Stationary Reciprocating Engine
+Industrial,Construction and Mining,Mining,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Construction and Mining,Mining,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Construction and Mining,Mining,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,-,Natural Gas Liquefaction for Export,Liquefied Natural Gas,Not Specified,"Direct, Combustion",,
+Industrial,Other Manufacturing,Fabricated Metal Products,Propane,Not Specified,"Direct, Combustion",EF,LPG: Industrial Boiler
+Industrial,Other Manufacturing,Fabricated Metal Products,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Fabricated Metal Products,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Fabricated Metal Products,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Fabricated Metal Products,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Fabricated Metal Products,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Fabricated Metal Products,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Machinery,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Machinery,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Machinery,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Machinery,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Machinery,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Machinery,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Machinery,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Computers,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Computers,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Computers,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Computers,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Computers,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Computers,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Computers,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Transportation Equipment,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Transportation Equipment,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Transportation Equipment,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Transportation Equipment,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Transportation Equipment,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Transportation Equipment,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Transportation Equipment,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Electrical Equipment,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Electrical Equipment,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Electrical Equipment,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Electrical Equipment,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Electrical Equipment,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Electrical Equipment,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Electrical Equipment,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Wood Products,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Wood Products,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Wood Products,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Wood Products,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Wood Products,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Wood Products,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Plastics,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Plastics,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Plastics,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Plastics,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Plastics,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Plastics,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Balance of Manufacturing,Propane,Not Specified,"Direct, Combustion",EF,LPG: Commercial Boiler
+Industrial,Other Manufacturing,Balance of Manufacturing,Distillate Fuel Oil,Not Specified,"Direct, Combustion",EF,Diesel: Industrial Boiler
+Industrial,Other Manufacturing,Balance of Manufacturing,Residual Fuel Oil,Not Specified,"Direct, Combustion",EF,Residual Oil: Industrial Boiler
+Industrial,Other Manufacturing,Balance of Manufacturing,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Other Manufacturing,Balance of Manufacturing,Natural Gas,Not Specified,"Direct, Combustion",EF,Natural Gas: Utility/ Industrial Boiler (>100 mmBtu/hr input)
+Industrial,Other Manufacturing,Balance of Manufacturing,Coal,Not Specified,"Direct, Combustion",EF,Coal: Industrial Boiler
+Industrial,Other Manufacturing,Balance of Manufacturing,Electricity,Not Specified,"Electricity, Combustion",Electric,Stationary Use: U.S. Mix
+Residential,-,Space Heating,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Space Cooling,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Water Heating,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Refrigeration,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Cooking,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Clothes Dryers,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Freezers,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Lighting,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Clothes Washers,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Dishwashers,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Televisions and Related Equipment,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Computers and Related Equipment,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Furnace Fans and Boiler Circulation Pumps,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Other Uses,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Residential,-,Space Heating,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Space Cooling,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Water Heating,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Cooking,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Clothes Dryers,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Other Uses,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Residential,-,Space Heating,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Residential,-,Water Heating,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Residential,-,Other Uses,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Residential,-,Space Heating,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Residential,-,Water Heating,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Residential,-,Cooking,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Residential,-,Other Uses,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Residential,-,Other Uses,Wood,Not Specified,Supply Chain,EtOH,Total: Willow Farming and Transportation
+Transportation,On-Road,Light Duty Vehicles,Gasoline,Not Specified,Supply Chain,Results,Gasoline Vehicle: Gasoline
+Transportation,On-Road,Light Duty Vehicles,E85,Not Specified,Supply Chain,Results,"EtOH FFV: E85, Corn"
+Transportation,On-Road,Light Duty Vehicles,Distillate Fuel Oil,Not Specified,Supply Chain,Results,CIDI Vehicle: Conventional and LS Diesel
+Transportation,On-Road,Light Duty Vehicles,Liquefied Natural Gas,Not Specified,Supply Chain,Results,"LNGV: Dedicated, NA NG"
+Transportation,On-Road,Light Duty Vehicles,Propane,Not Specified,Supply Chain,Results,"LPGV: Dedicated, Crude and NG Mix"
+Transportation,On-Road,Light Duty Vehicles,Electricity,Not Specified,"Electricity, Supply Chain",Results,Electric Vehicle: U.S. Mix
+Transportation,On-Road,Light Duty Vehicles,Hydrogen,Not Specified,Supply Chain,Results,"FCV: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Gasoline,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Commercial Light Trucks,E85,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Commercial Light Trucks,Distillate Fuel Oil,Not Specified,Supply Chain,HDV_WTW,CIDI Heavy-Duty Pick-Up Trucks and Vans: Conventional and LS Diesel
+Transportation,On-Road,Commercial Light Trucks,Propane,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles, CNG, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Liquefied Natural Gas,Not Specified,Supply Chain,HDV_WTW,"SI Heavy Heavy-Duty Vocational Vehicles, LNG, NA NG"
+Transportation,On-Road,Commercial Light Trucks,Electricity,Not Specified,"Electricity, Supply Chain",HDV_WTW,"Heavy-Duty Pick-Up Trucks and Vans, Electricity: U.S. Mix"
+Transportation,On-Road,Commercial Light Trucks,Hydrogen,Not Specified,Supply Chain,HDV_WTW,"Fuel-Cell Heavy-Duty Pick-Up Trucks and Vans: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Freight Trucks,Gasoline,Not Specified,Supply Chain,HDV_WTW,"SI Heavy-Duty Pick-Up Trucks and Vans: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Freight Trucks,Distillate Fuel Oil,Not Specified,Supply Chain,HDV_WTW,CIDI Combination Long-Haul Trucks: Conventional and LS Diesel
+Transportation,On-Road,Freight Trucks,Liquefied Natural Gas,Not Specified,Supply Chain,HDV_WTW,"SI Combination Long-Haul Trucks: LNG, NA NG"
+Transportation,On-Road,Freight Trucks,Propane,Not Specified,Supply Chain,HDV_WTW,"SI Combination Long-Haul Trucks: CNG, NA NG"
+Transportation,On-Road,Freight Trucks,E85,Not Specified,Supply Chain,HDV_WTW,"SI Heavy-Duty Pick-Up Trucks and Vans: E85, Corn"
+Transportation,On-Road,Freight Trucks,Electricity,Not Specified,"Electricity, Supply Chain",HDV_WTW,"Combination Long-Haul Trucks: Electricity, U.S. Mix"
+Transportation,On-Road,Freight Trucks,Hydrogen,Not Specified,Supply Chain,HDV_WTW,"Fuel-Cell Combination Short-Haul Trucks: G.H2, Central Plants, NA NG"
+Transportation,Rail,Freight Rail,Distillate Fuel Oil,Not Specified,Supply Chain,Rail_WTW,Rail: Diesel
+Transportation,Rail,Freight Rail,Residual Fuel Oil,Not Specified,Supply Chain,Rail_WTW,Rail: Diesel
+Transportation,Rail,Freight Rail,Compressed Natural Gas,Not Specified,Supply Chain,Rail_WTW,Rail: Natural Gas
+Transportation,Rail,Freight Rail,Liquefied Natural Gas,Not Specified,Supply Chain,Rail_WTW,Rail: Natural Gas
+Transportation,Marine,Domestic Shipping,Distillate Fuel Oil,Not Specified,Supply Chain,Marine_WTH,MDO (0.5% sulfur)
+Transportation,Marine,Domestic Shipping,Residual Fuel Oil,Not Specified,Supply Chain,Marine_WTH,HFO (0.5% sulfur)
+Transportation,Marine,Domestic Shipping,Compressed Natural Gas,Not Specified,Supply Chain,Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,Domestic Shipping,Liquefied Natural Gas,Not Specified,Supply Chain,Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,International Shipping,Distillate Fuel Oil,Not Specified,Supply Chain,Marine_WTH,MDO (0.5% sulfur)
+Transportation,Marine,International Shipping,Residual Fuel Oil,Not Specified,Supply Chain,Marine_WTH,HFO (0.5% sulfur)
+Transportation,Marine,International Shipping,Compressed Natural Gas,Not Specified,Supply Chain,Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Marine,International Shipping,Liquefied Natural Gas,Not Specified,Supply Chain,Marine_WTH,Liquefied Natural Gas (LNG)
+Transportation,Aviation,Air Transport,Jet Fuel,Not Specified,Supply Chain,JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Aviation,Air Transport,Aviation Gasoline,Not Specified,Supply Chain,JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Military,-,Jet Fuel,Not Specified,Supply Chain,JetFuel_WTP,Petroleum Conv. Jet Fuel
+Transportation,Military,-,Residual Fuel Oil,Not Specified,Supply Chain,Marine_WTH,HFO (0.5% sulfur)
+Transportation,Military,-,Diesel,Not Specified,Supply Chain,Results,CIDI Vehicle: Conventional and LS Diesel
+Transportation,On-Road,Transit Bus,Gasoline,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Transit Bus,E85,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Transit Bus,Distillate Fuel Oil,Not Specified,Supply Chain,HDV_WTW,CIDI Transit Buses: Conventional and LS Diesel
+Transportation,On-Road,Transit Bus,Liquefied Natural Gas,Not Specified,Supply Chain,HDV_WTW,"SI Transit Buses, LNG, NA NG"
+Transportation,On-Road,Transit Bus,Propane,Not Specified,Supply Chain,HDV_WTW,"SI Transit Buses, CNG, NA NG"
+Transportation,On-Road,Transit Bus,Electricity,Not Specified,"Electricity, Supply Chain",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,Transit Bus,Hydrogen,Not Specified,Supply Chain,HDV_WTW,"Fuel-Cell Transit Buses: G.H2, Central Plants, NA NG"
+Transportation,On-Road,Intercity Bus,Gasoline,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,Intercity Bus,E85,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,Intercity Bus,Distillate Fuel Oil,Not Specified,Supply Chain,HDV_WTW,CIDI Intercity Buses: Conventional and LS Diesel
+Transportation,On-Road,Intercity Bus,Liquefied Natural Gas,Not Specified,Supply Chain,HDV_WTW,"SI Intercity Buses, CNG, NA NG"
+Transportation,On-Road,Intercity Bus,Propane,Not Specified,Supply Chain,HDV_WTW,"SI Intercity Buses, CNG, NA NG"
+Transportation,On-Road,Intercity Bus,Electricity,Not Specified,"Electricity, Supply Chain",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,Intercity Bus,Hydrogen,Not Specified,Supply Chain,HDV_WTW,"Fuel-Cell Transit Buses: G.H2, Central Plants, NA NG"
+Transportation,On-Road,School Bus,Gasoline,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: Low-Level EtOH Blend with Gasoline (E10, Corn)"
+Transportation,On-Road,School Bus,E85,Not Specified,Supply Chain,HDV_WTW,"SI Medium Heavy-Duty Vocational Vehicles: E85, Corn"
+Transportation,On-Road,School Bus,Distillate Fuel Oil,Not Specified,Supply Chain,HDV_WTW,CIDI School Buses: Conventional and LS Diesel
+Transportation,On-Road,School Bus,Liquefied Natural Gas,Not Specified,Supply Chain,HDV_WTW,"SI School Buses, CNG, NA NG"
+Transportation,On-Road,School Bus,Propane,Not Specified,Supply Chain,HDV_WTW,"SI School Buses, LPG, Crude and NG Mix"
+Transportation,On-Road,School Bus,Electricity,Not Specified,"Electricity, Supply Chain",HDV_WTW,"Transit Buses, Electricity: U.S. Mix"
+Transportation,On-Road,School Bus,Hydrogen,Not Specified,Supply Chain,HDV_WTW,"Fuel-Cell School Buses: G.H2, Central Plants, NA NG"
+Transportation,Rail,Passenger,Electricity,Not Specified,"Electricity, Supply Chain",Rail_WTW,Rail: Electricity
+Transportation,Rail,Passenger,Diesel,Not Specified,Supply Chain,Rail_WTW,Rail: Diesel
+Transportation,Rail,Passenger,Compressed Natural Gas,Not Specified,Supply Chain,Rail_WTW,Rail: Natural Gas
+Transportation,Rail,Passenger,Liquefied Natural Gas,Not Specified,Supply Chain,Rail_WTW,Rail: Natural Gas
+Transportation,Marine,Recreational Boats,Gasoline,Not Specified,Supply Chain,Results,Gasoline Vehicle: Gasoline
+Transportation,Marine,Recreational Boats,Distillate Fuel Oil,Not Specified,Supply Chain,Marine_WTH,MDO (0.5% sulfur)
+Transportation,-,Lubricants,Lubricants,Not Specified,Supply Chain,Petroleum,Crude for Use in U.S. Refineries
+Transportation,-,Pipeline Fuel Natural Gas,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Transportation,-,-,Biodiesel,Not Specified,Supply Chain,Results,CIDI Vehicle: Soybean-based BD100
+Transportation,-,-,Ethanol,Conventional,Supply Chain,Results,"EtOH FFV: E100, Corn"
+Transportation,-,-,Ethanol,Cellulosic,Supply Chain,Results,"EtOH FFV: E100, Corn Stover"
+Commercial,-,Space Heating,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Space Cooling,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Water Heating,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Ventilation,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Cooking,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Lighting,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Refrigeration,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Computing,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Office Equipment,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Other Uses,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Commercial,-,Space Heating,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Commercial,-,Space Cooling,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Commercial,-,Water Heating,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Commercial,-,Cooking,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Commercial,-,Other Uses,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Commercial,-,Space Heating,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Commercial,-,Water Heating,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Commercial,-,Other Uses,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Refining Industry,Petroleum Refining,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Refining Industry,Petroleum Refining,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Refining Industry,Petroleum Refining,Liquefied Petroleum Gas,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Refining Industry,Petroleum Refining,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Refining Industry,Petroleum Refining,Still Gas,Not Specified,Supply Chain,,
+Industrial,Refining Industry,Petroleum Refining,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Refining Industry,Petroleum Refining,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Refining Industry,Petroleum Refining,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Food,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Food,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Food,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Food,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Food,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Food,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Paper,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Paper,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Paper,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Paper,-,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Paper,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Paper,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Paper,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Bulk Chemical,Heat and Power,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Bulk Chemical,Heat and Power,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Bulk Chemical,Heat and Power,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Bulk Chemical,Heat and Power,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Bulk Chemical,Heat and Power,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Bulk Chemical,Heat and Power,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Bulk Chemical,Heat and Power,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Bulk Chemical,Feedstock,Natural Gas,Not Specified,Supply Chain,,
+Industrial,Glass,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Glass,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Glass,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Glass,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Glass,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Glass,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Cement and Lime,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Cement and Lime,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Cement and Lime,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Cement and Lime,-,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Cement and Lime,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Cement and Lime,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Cement and Lime,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Iron and Steel,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Iron and Steel,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Iron and Steel,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Iron and Steel,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Iron and Steel,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Iron and Steel,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Aluminum,-,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Aluminum,-,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Aluminum,-,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Aluminum,-,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Aluminum,-,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Aluminum,-,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Aluminum,-,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Agriculture,-,On Farm Energy Use,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Agriculture,-,On Farm Energy Use,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Agriculture,-,On Farm Energy Use,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Agriculture,-,On Farm Energy Use,Gasoline,Not Specified,Supply Chain,Petroleum,Gasoline
+Agriculture,-,On Farm Energy Use,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Agriculture,-,On Farm Energy Use,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Agriculture,-,On Farm Energy Use,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Construction and Mining,Construction,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Construction and Mining,Construction,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Construction and Mining,Construction,Gasoline,Not Specified,Supply Chain,Petroleum,Gasoline
+Industrial,Construction and Mining,Construction,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Construction and Mining,Construction,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Construction and Mining,Mining,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Construction and Mining,Mining,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Construction and Mining,Mining,Gasoline,Not Specified,Supply Chain,Petroleum,Gasoline
+Industrial,Construction and Mining,Mining,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Construction and Mining,Mining,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Construction and Mining,Mining,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,-,Natural Gas Liquefaction for Export,Liquefied Natural Gas,Not Specified,Supply Chain,NG,Natural Gas to Liquefied Natural Gas (as an intermediate fuel)
+Industrial,Other Manufacturing,Fabricated Metal Products,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Fabricated Metal Products,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Fabricated Metal Products,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Fabricated Metal Products,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Fabricated Metal Products,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Fabricated Metal Products,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Fabricated Metal Products,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Machinery,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Machinery,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Machinery,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Machinery,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Machinery,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Machinery,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Machinery,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Computers,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Computers,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Computers,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Computers,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Computers,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Computers,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Computers,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Transportation Equipment,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Transportation Equipment,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Transportation Equipment,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Transportation Equipment,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Transportation Equipment,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Transportation Equipment,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Transportation Equipment,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Electrical Equipment,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Electrical Equipment,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Electrical Equipment,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Electrical Equipment,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Electrical Equipment,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Electrical Equipment,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Electrical Equipment,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Wood Products,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Wood Products,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Wood Products,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Wood Products,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Wood Products,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Wood Products,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Plastics,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Plastics,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Plastics,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Plastics,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Plastics,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Plastics,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Industrial,Other Manufacturing,Balance of Manufacturing,Propane,Not Specified,Supply Chain,NG,Liquefied Petroleum Gas: Combined
+Industrial,Other Manufacturing,Balance of Manufacturing,Distillate Fuel Oil,Not Specified,Supply Chain,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing,Balance of Manufacturing,Residual Fuel Oil,Not Specified,Supply Chain,Petroleum,Resi. Oil
+Industrial,Other Manufacturing,Balance of Manufacturing,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Other Manufacturing,Balance of Manufacturing,Natural Gas,Not Specified,Supply Chain,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing,Balance of Manufacturing,Coal,Not Specified,Supply Chain,Coal,Coal to Coking Plants
+Industrial,Other Manufacturing,Balance of Manufacturing,Electricity,Not Specified,"Electricity, Supply Chain",Electric,Stationary Use: U.S. Mix
+Electric Power,Electric Power Sector,,Electricity,Coal,"Electricity, Combustion",Electric,Coal-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Petroleum,"Electricity, Combustion",Electric,Oil-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Natural Gas,"Electricity, Combustion",Electric,NG-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Nuclear,"Electricity, Combustion",Electric,Nuclear-PWR Power Plant
+Electric Power,Electric Power Sector,,Electricity,Pumped Storage and Other,"Electricity, Combustion",Electric,Other Power Plants
+Electric Power,Electric Power Sector,,Electricity,Conventional Hydroelectric Power,"Electricity, Combustion",Electric,Hydroelectric Power Plant
+Electric Power,Electric Power Sector,,Electricity,Geothermal,"Electricity, Combustion",Electric,Geothermal-Flash Power Plant
+Electric Power,Electric Power Sector,,Electricity,Biogenic Municipal Waste,"Electricity, Combustion",Electric,Other Power Plants
+Electric Power,Electric Power Sector,,Electricity,Wood and Other Biomass,"Electricity, Combustion",Electric,Biomass-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Solar Thermal,"Electricity, Combustion",Electric,PV Power Plant
+Electric Power,Electric Power Sector,,Electricity,Solar Photovoltaic,"Electricity, Combustion",Electric,PV Power Plant
+Electric Power,Electric Power Sector,,Electricity,Wind,"Electricity, Combustion",Electric,Wind Power Plant
+Electric Power,Electric Power Sector,,Electricity,Offshore Wind,"Electricity, Combustion",Electric,Wind Power Plant
+Electric Power,Electric Power Sector,,Electricity,Distributed Generation,"Electricity, Combustion",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Coal,"Electricity, Combustion",Electric,Coal-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Petroleum,"Electricity, Combustion",Electric,Oil-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Natural Gas,"Electricity, Combustion",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Other Gaseous Fuels,"Electricity, Combustion",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Conventional Hydroelectric Power,"Electricity, Combustion",Electric,Hydroelectric Power Plant
+Electric Power,End-Use Sectors,,Electricity,Geothermal,"Electricity, Combustion",Electric,Geothermal-Flash Power Plant
+Electric Power,End-Use Sectors,,Electricity,Municipal Waste,"Electricity, Combustion",Electric,Other Power Plants
+Electric Power,End-Use Sectors,,Electricity,Wood and Other Biomass,"Electricity, Combustion",Electric,Biomass-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Solar Photovoltaic,"Electricity, Combustion",Electric,PV Power Plant
+Electric Power,End-Use Sectors,,Electricity,Wind,"Electricity, Combustion",Electric,Wind Power Plant
+Electric Power,End-Use Sectors,,Electricity,Other,"Electricity, Combustion",Electric,Other Power Plants
+Electric Power,Electric Power Sector,,Electricity,Coal,"Electricity, Supply Chain",Electric,Coal-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Petroleum,"Electricity, Supply Chain",Electric,Oil-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Natural Gas,"Electricity, Supply Chain",Electric,NG-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Nuclear,"Electricity, Supply Chain",Electric,Nuclear-PWR Power Plant
+Electric Power,Electric Power Sector,,Electricity,Pumped Storage and Other,"Electricity, Supply Chain",Electric,Other Power Plants
+Electric Power,Electric Power Sector,,Electricity,Conventional Hydroelectric Power,"Electricity, Supply Chain",Electric,Hydroelectric Power Plant
+Electric Power,Electric Power Sector,,Electricity,Geothermal,"Electricity, Supply Chain",Electric,Geothermal-Flash Power Plant
+Electric Power,Electric Power Sector,,Electricity,Biogenic Municipal Waste,"Electricity, Supply Chain",Electric,Other Power Plants
+Electric Power,Electric Power Sector,,Electricity,Wood and Other Biomass,"Electricity, Supply Chain",Electric,Biomass-Fired Power Plant
+Electric Power,Electric Power Sector,,Electricity,Solar Thermal,"Electricity, Supply Chain",Electric,PV Power Plant
+Electric Power,Electric Power Sector,,Electricity,Solar Photovoltaic,"Electricity, Supply Chain",Electric,PV Power Plant
+Electric Power,Electric Power Sector,,Electricity,Wind,"Electricity, Supply Chain",Electric,Wind Power Plant
+Electric Power,Electric Power Sector,,Electricity,Offshore Wind,"Electricity, Supply Chain",Electric,Wind Power Plant
+Electric Power,Electric Power Sector,,Electricity,Distributed Generation,"Electricity, Supply Chain",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Coal,"Electricity, Supply Chain",Electric,Coal-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Petroleum,"Electricity, Supply Chain",Electric,Oil-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Natural Gas,"Electricity, Supply Chain",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Other Gaseous Fuels,"Electricity, Supply Chain",Electric,NG-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Conventional Hydroelectric Power,"Electricity, Supply Chain",Electric,Hydroelectric Power Plant
+Electric Power,End-Use Sectors,,Electricity,Geothermal,"Electricity, Supply Chain",Electric,Geothermal-Flash Power Plant
+Electric Power,End-Use Sectors,,Electricity,Municipal Waste,"Electricity, Supply Chain",Electric,Other Power Plants
+Electric Power,End-Use Sectors,,Electricity,Wood and Other Biomass,"Electricity, Supply Chain",Electric,Biomass-Fired Power Plant
+Electric Power,End-Use Sectors,,Electricity,Solar Photovoltaic,"Electricity, Supply Chain",Electric,PV Power Plant
+Electric Power,End-Use Sectors,,Electricity,Wind,"Electricity, Supply Chain",Electric,Wind Power Plant
+Electric Power,End-Use Sectors,,Electricity,Other,"Electricity, Supply Chain",Electric,Other Power Plants
+Industrial,Bulk Chemical,Heat and Power,Hydrogen,Not Specified,"Direct, Combustion",Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Bulk Chemical,Heat and Power,Hydrogen,Not Specified,Supply Chain,Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Food,-,Hydrogen,Not Specified,"Direct, Combustion",Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Food,-,Hydrogen,Not Specified,Supply Chain,Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Food,-,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Food,-,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Iron and Steel,-,Gasoline,Not Specified,"Direct, Combustion",EF,Gasoline: Stationary Reciprocating Engine
+Industrial,Iron and Steel,-,Hydrogen,Not Specified,"Direct, Combustion",Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Iron and Steel,-,Petroleum Coke,Not Specified,"Direct, Combustion",EF,Petroleum Coke: Industrial Boiler
+Industrial,Iron and Steel,-,Diesel,Not Specified,"Direct, Combustion",Results,CIDI Vehicle: Conventional and LS Diesel
+Industrial,Iron and Steel,-,Gasoline,Not Specified,Supply Chain,Results,Gasoline Vehicle: Gasoline
+Industrial,Iron and Steel,-,Hydrogen,Not Specified,Supply Chain,Results,"FCV: G.H2, Central Plants, NA NG"
+Industrial,Iron and Steel,-,Petroleum Coke,Not Specified,Supply Chain,Petroleum,Pet Coke
+Industrial,Iron and Steel,-,Diesel,Not Specified,Supply Chain,Results,CIDI Vehicle: Conventional and LS Diesel

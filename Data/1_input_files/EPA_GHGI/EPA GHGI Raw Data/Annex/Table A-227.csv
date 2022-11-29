@@ -1,0 +1,19 @@
+Table A-227: Table HH-4 to Subpart HH of Part 98—Landfill Methane Oxidation Fractions,
+Under these conditions:,Use this landfill methane oxidation fraction:
+I. For all reporting years prior to the 2013 reporting year,
+C1: For all landfills regardless of cover type or methane flux,0.1
+II. For the 2013 reporting year and all subsequent years,
+C2: For landfills that have a geomembrane (synthetic) cover or other non-soil barrier meeting the definition of final cover with less than 12 inches of cover soil for greater than 50% of the landfill area containing waste,0.1
+C3: For landfills that do not meet the conditions in C2 above and for which you elect not to determine methane flux,0.1
+"C4: For landfills that do not meet the conditions in C2 or C3 above and that do not have final cover, or intermediate or interim cover (a) for greater than 50% of the landfill area containing waste",0.1
+"C5: For landfills that do not meet the conditions in C2 or C3 above and that have final cover, or intermediate or interim cover (a) for greater than 50% of the landfill area containing waste and for which the methane flux rate (b) is less than 10 grams per square meter per day (g/m2/d)",0.35
+C6: For landfills that do not meet the conditions in C2 or C3 above and that have final cover or intermediate or interim cover (a) for greater than 50% of the landfill area containing waste and for which the methane flux rate (b) is 10 to 70 g/m2/d,0.25
+C7: For landfills that do not meet the conditions in C2 or C3 above and that have final cover or intermediate or interim cover (a) for greater than 50% of the landfill area containing waste and for which the methane flux rate (b) is greater than 70 g/m2/d,0.1
+"a Where a landfill is in a state that does not have an intermediate or interim cover requirement, the landfill must have soil cover of 12 inches or greater in order to use an oxidation fraction of 0.25 or 0.35. ",
+b Methane flux rate (in grams per square meter per day; g/m2/d) is the mass flow rate of methane per unit area at the bottom of the surface soil prior to any oxidation and is calculated as follows:,
+,
+,
+"For Equation HH-5 of this subpart, or for Equation TT-6 of subpart TT of this part: ",MF = (K*G[CH4])/Sarea
+For Equation HH-6 of this subpart:,"MF=K*(G[CH4] - summation(n-1,N, R[a]))/SArea"
+For Equations HH-7 of this subpart:,"MF=K*((1/CE)*summation(n-1, N,(R[a]/f[Rec,n])/SArea"
+For Equations HH-8 of this subpart: ,"MF=K*((1/CE)*(summation(n-1,N,(R[a]/f[Rec,n])))-summation(n-1,N,R[n]))/SArea"

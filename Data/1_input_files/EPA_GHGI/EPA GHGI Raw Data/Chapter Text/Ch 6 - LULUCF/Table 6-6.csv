@@ -1,0 +1,24 @@
+"Table 6-6:  Data Sources Used to Determine Land Use and Land Area for the Conterminous United States, Hawaii, and Alaska",,,
+,NRI,FIA,NLCD
+Forest Land,,,
+Conterminous ,,,
+United States,,,
+Non-Federal,,•,
+Federal,,•,
+Hawaii,,,
+Non-Federal,•,,
+Federal,,,•
+Alaska,,,
+Non-Federal,,•,•
+Federal,,•,•
+"Croplands, Grasslands, Other Lands, Settlements, and Wetlands",,,
+Conterminous ,,,
+United States,,,
+Non-Federal,•,,
+Federal,,,•
+Hawaii,,,
+Non-Federal,•,,
+Federal,,,•
+Alaska,,,
+Non-Federal,,,•
+Federal,,,•

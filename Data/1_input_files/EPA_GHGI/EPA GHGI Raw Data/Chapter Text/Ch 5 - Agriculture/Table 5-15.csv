@@ -1,0 +1,9 @@
+Table 5-15:  Approach 2 Quantitative Uncertainty Estimates for CH4 Emissions from Rice Cultivation (MMT CO2 Eq. and Percent),,,,,,,,
+,,,,,,,,
+,Source,Inventory Method,Gas,2019 Emission Estimate,Uncertainty Range Relative to Emission Estimate a,,,
+,,,,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),
+,,,,,Lower Bound,Upper Bound,Lower Bound,Upper Bound
+,Rice Cultivation,Tier 3,CH4,12.5,1.4,23.7,-89%,89%
+,Rice Cultivation,Tier 1,CH4,2.5,1.3,3.7,-48%,48%
+,Rice Cultivation,Total,CH4,15.1,3.8,37.5,-75%,149%
+,a Range of emission estimates predicted by Monte Carlo Stochastic Simulation for a 95 percent confidence interval.,,,,,,,

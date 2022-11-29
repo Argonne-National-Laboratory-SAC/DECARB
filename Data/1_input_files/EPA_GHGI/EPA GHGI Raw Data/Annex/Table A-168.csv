@@ -1,0 +1,32 @@
+Table A-168:  Waste Characteristics Data,,,,,,,,
+,"Typical Animal Mass, TAM ",,"Total Nitrogen Excreted, Nexa ",,"Maximum Methane Generation Potential, B0",,"Volatile Solids Excreted, VS a ",
+Animal Group,Value,Source,Value,Source,Value,Source,Value,Source
+,(kg),,,,(m3 CH4/kg VS added),,,
+Dairy Cows,680,CEFM,Table A-170,CEFM,0.24,Morris 1976,Table A-170,CEFM
+Dairy Heifers,406-408,CEFM,Table A-170,CEFM,0.17,Bryant et al. 1976,Table A-170,CEFM
+Feedlot Steers,419-457,CEFM,Table A-170,CEFM,0.33,Hashimoto 1981,Table A-170,CEFM
+Feedlot Heifers,384-430,CEFM,Table A-170,CEFM,0.33,Hashimoto 1981,Table A-170,CEFM
+NOF Bulls,831-917,CEFM,Table A-170,CEFM,0.17,Hashimoto 1981,Table A-170,CEFM
+NOF Calves,118,ERG 2003b,Table A-169,"USDA 1996, 2008",0.17,Hashimoto 1981,Table A-169,"USDA 1996, 2008"
+NOF Heifers,296-407,CEFM,Table A-170,CEFM,0.17,Hashimoto 1981,Table A-170,CEFM
+NOF Steers,314-335,CEFM,Table A-170,CEFM,0.17,Hashimoto 1981,Table A-170,CEFM
+NOF Cows,554-611,CEFM,Table A-170,CEFM,0.17,Hashimoto 1981,Table A-170,CEFM
+American Bison,578.5,Meagher 1986,Table A-170,CEFM,0.17,Hashimoto 1981,Table A-170,CEFM
+Market Swine <50 lbs.,13,ERG 2010a,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Market Swine <60 lbs.,16,Safley 2000,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Market Swine 50-119 lbs.,39,ERG 2010a,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Market Swine 60-119 lbs.,41,Safley 2000,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Market Swine 120-179 lbs.,68,Safley 2000,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Market Swine >180 lbs.,91,Safley 2000,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Breeding Swine,198,Safley 2000,Table A-169,"USDA 1996, 2008",0.48,Hashimoto 1984,Table A-169,"USDA 1996, 2008"
+Feedlot Sheep,25,EPA 1992,Table A-169,"ASAE 1998, USDA 2008",0.36,EPA 1992,Table A-169,"ASAE 1998, USDA 2008"
+NOF Sheep,80,EPA 1992,Table A-169,"ASAE 1998, USDA 2008",0.19,EPA 1992,Table A-169,"ASAE 1998, USDA 2008"
+Goats,64,ASAE 1998,Table A-169,ASAE 1998,0.17,EPA 1992,Table A-169,ASAE 1998
+Horses,450,ASAE 1998,Table A-169,"ASAE 1998, USDA 2008",0.33,EPA 1992,Table A-169,"ASAE 1998, USDA 2008"
+Mules and Asses,130,IPCC 2006,Table A-169,IPCC 2006,0.33,EPA 1992 ,Table A-169,IPCC 2006
+Hens >/= 1 yr,1.8,ASAE 1998,Table A-169,"USDA 1996, 2008",0.39,Hill 1982,Table A-169,"USDA 1996, 2008"
+Pullets ,1.8,ASAE 1998,Table A-169,"USDA 1996, 2008",0.39,Hill 1982,Table A-169,"USDA 1996, 2008"
+Other Chickens,1.8,ASAE 1998,Table A-169,"USDA 1996, 2008",0.39,Hill 1982,Table A-169,"USDA 1996, 2008"
+Broilers,0.9,ASAE 1998,Table A-169,"USDA 1996, 2008",0.36,Hill 1984,Table A-169,"USDA 1996, 2008"
+Turkeys,6.8,ASAE 1998,Table A-169,"USDA 1996, 2008",0.36,Hill 1984,Table A-169,"USDA 1996, 2008"
+a Nex and VS values vary by year; Table A-170 shows state-level values for 2018 only. ,,,,,,,,

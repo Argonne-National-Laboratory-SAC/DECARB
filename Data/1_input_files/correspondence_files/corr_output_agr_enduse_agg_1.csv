@@ -1,0 +1,42 @@
+Correspondence file for agriculture end use applications,,
+,,
+,,
+Agr End Use Application_Decarb,Assigned Sector,Agr End Use Application_Front
+"-, -",Agriculture,Null
+"American Bison, -",Agriculture,Livestock
+"Barley, -",Agriculture,Crops
+"Beef Cattle, -",Agriculture,Livestock
+"Chickpeas, -",Agriculture,Crops
+"Cotton, -",Agriculture,Crops
+"Dairy Cattle, -",Agriculture,Livestock
+"Direct, Cropland",Agriculture,Cropland only emissions
+"Direct, Grassland",Agriculture,Grassland emissions
+"Dolomite, -",Agriculture,Minerals
+"Dry Beans, -",Agriculture,Crops
+"Goats, -",Agriculture,Livestock
+"Grass Hay, -",Agriculture,Crops
+"Horses, -",Agriculture,Livestock
+"Indirect, Cropland",Agriculture,Cropland only emissions
+"Indirect, Grassland",Agriculture,Grassland emissions
+"Legume Hay, -",Agriculture,Crops
+"Lentils, -",Agriculture,Crops
+"Limestone, -",Agriculture,Minerals
+"Maize, -",Agriculture,Crops
+"Mules and Asses, -",Agriculture,Livestock
+"Oats, -",Agriculture,Crops
+On farm energy use,Agriculture,On farm energy use
+"Other Small Grains, -",Agriculture,Crops
+"Peanuts, -",Agriculture,Crops
+"Peas, -",Agriculture,Crops
+"Potatoes, -",Agriculture,Crops
+"Poultry, -",Agriculture,Livestock
+"Rice, -",Agriculture,Crops
+"Sheep, -",Agriculture,Livestock
+"Sorghum, -",Agriculture,Crops
+"Soybeans, -",Agriculture,Crops
+"Sugarbeets, -",Agriculture,Crops
+"Sunflower, -",Agriculture,Crops
+"Swine, -",Agriculture,Livestock
+"Tobacco, -",Agriculture,Crops
+"Vegetables, -",Agriculture,Crops
+"Wheat, -",Agriculture,Crops

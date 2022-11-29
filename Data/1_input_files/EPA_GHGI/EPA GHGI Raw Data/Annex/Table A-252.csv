@@ -1,0 +1,96 @@
+Table A-252:  Summary Results of Source and Sink Category Uncertainty Analyses,,,,
+,Base Year Emissions a,2019 Emissions b,2019 Uncertainty b,
+Source or Sink Category,,,,
+,MMT CO2 Eq.,MMT CO2 Eq.,Lower Bound,Upper Bound
+CO2,"5,113.50","5,255.80",-2%,4%
+Fossil Fuel Combustion,"4,731.50","4,856.70",-2%,4%
+Non-Energy Use of Fuels,112.8,128.8,-37%,45%
+Iron and Steel Production & Metallurgical Coke Production,104.7,41.3,-19%,19%
+Cement Production,33.5,40.9,-6%,6%
+Petroleum Systems,9.7,47.3,-27%,41%
+Natural Gas Systems,32,37.2,-16%,19%
+Petrochemical Production,21.6,30.8,-6%,6%
+Ammonia Production,13,12.3,-11%,11%
+Lime Production,11.7,12.1,-2%,2%
+Incineration of Waste,8.1,11.5,-25%,27%
+Other Process Uses of Carbonates,6.3,7.5,-12%,15%
+Urea Fertilization,2.4,5.3,-43%,3%
+Carbon Dioxide Consumption,1.5,4.9,-5%,5%
+Urea Consumption for Non-Agricultural Purposes,3.8,6.2,-13%,14%
+Liming,4.7,2.4,-111%,88%
+Ferroalloy Production,2.2,1.6,-12%,12%
+Soda Ash Production,1.4,1.8,-9%,8%
+Titanium Dioxide Production,1.2,1.5,-12%,13%
+Aluminum Production,6.8,1.9,-2%,2%
+Glass Production,1.5,1.3,-4%,4%
+Zinc Production,0.6,1,-19%,21%
+Phosphoric Acid Production,1.5,0.9,-19%,21%
+Lead Production,0.5,0.5,-14%,16%
+Carbide Production and Consumption,0.4,0.2,-9%,9%
+Abandoned Oil and Gas Wells,+, + ,-83%,219%
+Magnesium Production and Processing, + , + ,-4%,4%
+"Wood Biomass, Ethanol, and Biodiesel Consumption c",219.4,316.2,NE,NE
+International Bunker Fuels d,103.5,116.1,NE,NE
+CH4,776.9,659.7,-8%,11%
+Enteric Fermentation,164.7,178.6,-11%,18%
+Natural Gas Systems,186.9,157.6,-15%,14%
+Landfills,176.6,114.5,-22%,22%
+Manure Management,37.1,62.4,-18%,20%
+Coal Mining,96.5,47.4,-9%,20%
+Petroleum Systems,48.9,39.1,-24%,29%
+Wastewater Treatment,20.2,18.4,-28%,38%
+Rice Cultivation,16,15.1,-75%,149%
+Stationary Combustion,8.6,8.7,-36%,133%
+Abandoned Oil and Gas Wells,6.8,6.6,-83%,219%
+Abandoned Underground Coal Mines,7.2,5.9,-22%,19%
+Mobile Combustion,6.4,2.4,-2%,46%
+Composting,0.4,2.3,-50%,50%
+Field Burning of Agricultural Residues,0.4,0.4,-18%,18%
+Petrochemical Production,0.2,0.3,-57%,47%
+Ferroalloy Production,+ ,+ ,-12%,12%
+Carbide Production and Consumption,+ ,+ ,-9%,9%
+Iron and Steel Production & Metallurgical Coke Production,+ ,+ ,-19%,19%
+Incineration of Waste,+ ,+ ,NE,NE
+Anaerobic Digestion at Biogas Facilities,+,0.2,-50%,50%
+International Bunker Fuels d,0.2,0.1,NE,NE
+N2O,452.7,457.1,-20%,31%
+Agricultural Soil Management,315.9,344.6,-27%,26%
+Stationary Combustion,25.1,24.9,-25%,51%
+Manure Management,14,19.6,-16%,24%
+Mobile Combustion,44.7,18,-9%,19%
+Adipic Acid Production,15.2,5.3,-5%,5%
+Nitric Acid Production,12.1,10,-5%,5%
+Wastewater Treatment,18.7,26.4,-37%,209%
+N2O from Product Uses,4.2,4.2,-24%,24%
+Composting,0.3,2,-50%,50%
+"Caprolactam, Glyoxal, and Glyoxylic Acid Production",1.7,1.4,-31%,32%
+Incineration of Waste,0.5,0.3,-50%,325%
+Electronics Industry,+ ,0.2,-9%,9%
+Field Burning of Agricultural Residues,0.2,0.2,-17%,17%
+Petroleum Systems,+ ,+ ,-27%,41%
+Natural Gas Systems,+ ,+ ,-16%,19%
+International Bunker Fuels d,0.9,1,NE,NE
+"HFCs, PFCs, SF6 and NF3",99.7,185.6,-3%,12%
+Substitution of Ozone Depleting Substances,0.2,170.6,-4%,13%
+Electronics Industry e,3.6,4.3,-6%,6%
+Electrical Transmission and Distribution,23.2,4.2,-16%,18%
+HCFC-22 Production,46.1,3.7,-7%,10%
+Aluminum Production,21.5,1.8,-7%,7%
+Magnesium Production and Processing,5.2,1,-8%,8%
+Total Emissions f,"6,442.70","6,558.30",-2%,4%
+LULUCF Emissions g,7.9,23.5,-14%,19%
+LULUCF Carbon Stock Change Flux h,-908.7,-812.7,34%,-18%
+LULUCF Sector Net Total i,-900.8,-789.2,35%,-19%
+Net Emissions (Sources and Sinks) f ,"5,541.90","5,769.00",-5%,5%
+Notes: Totals may not sum due to independent rounding. Parentheses indicate net sequestration. Total emissions (excluding emissions for which uncertainty was not quantified) are presented without LULUCF. Net emissions are presented with LULUCF.,,,,
++ Does not exceed 0.05 MMT CO2 Eq. or 0.5 percent.,,,,
+NE (Not Estimated),,,,
+a Base Year is 1990 for all sources.,,,,
+"b The uncertainty estimates correspond to a 95 percent confidence interval, with the lower bound corresponding to 2.5th percentile and the upper bound corresponding to 97.5th percentile.",,,,
+c Emissions from Wood Biomass and Biofuel Consumption are not included in the energy sector totals.,,,,
+d Emissions from International Bunker Fuels are not included in the totals.,,,,
+"e This source category’s estimate for 2019 excludes 0.029 MMT CO2 Eq. of HTF emissions included in electronics totals from photovoltaic manufacturing, as uncertainties associated with those sources were not assessed. Hence, for this source category, the emissions reported in this table do not match the emission estimates presented in the Industrial Processes and Product Use chapter of the Inventory.",,,,
+f Totals exclude emissions for which uncertainty was not quantified.,,,,
+"g LULUCF emissions include the CH4 and N2O emissions reported for Peatlands Remaining Peatlands, Forest Fires, Drained Organic Soils, Grassland Fires, and Coastal Wetlands Remaining Coastal Wetlands; CH4 emissions from Land Converted to Coastal Wetlands; and N2O emissions from Forest Soils and Settlement Soils.",,,,
+"h LULUCF Carbon Stock Change is the net C stock change from the following categories: Forest Land Remaining Forest Land, Land Converted to Forest Land, Cropland Remaining Cropland, Land Converted to Cropland, Grassland Remaining Grassland, Land Converted to Grassland, Wetlands Remaining Wetlands, Land Converted to Wetlands, Settlements Remaining Settlements, and Land Converted to Settlements. Since the resulting flux is negative the signs of the resulting lower and upper bounds are reversed.",,,,
+i The LULUCF Sector Net Total is the net sum of all CH4 and N2O emissions to the atmosphere plus net carbon stock changes.,,,,

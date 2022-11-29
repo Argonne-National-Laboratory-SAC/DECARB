@@ -1,0 +1,30 @@
+Mapping of Electricity Generation Types,,,
+Add,,,
+,,,
+Sector,Energy carrier,Energy carrier type,Generation Type
+Electric Power,Electricity,Coal,Coal
+Electric Power,Electricity,Petroleum,Petroleum
+Electric Power,Electricity,Natural Gas,Natural Gas
+Electric Power,Electricity,Nuclear,Nuclear
+Electric Power,Electricity,Pumped Storage and Other,Other
+Electric Power,Electricity,Conventional Hydroelectric Power,Hydroelectric
+Electric Power,Electricity,Geothermal,Geothermal
+Electric Power,Electricity,Biogenic Municipal Waste,Biomass
+Electric Power,Electricity,Wood and Other Biomass,Biomass
+Electric Power,Electricity,Solar Thermal,Solar
+Electric Power,Electricity,Solar Photovoltaic,Solar
+Electric Power,Electricity,Wind,Wind
+Electric Power,Electricity,Offshore Wind,Wind
+Electric Power,Electricity,Distributed Generation,Other
+Electric Power,Electricity,Other Gaseous Fuels,Other
+Electric Power,Electricity,Municipal Waste,Other
+Electric Power,Electricity,Other,Other
+Electric Power,Electricity,Battery Storage,Battery Storage
+Electric Power,Electricity,"Biopower, CCS",Biomass
+Electric Power,Electricity,"Electricity, Imports","Electricity, Imports"
+Electric Power,Electricity,Electrolyzer,Other
+Electric Power,Electricity,"Hydrogen, Combustion Turbine",Hydrogen
+Electric Power,Electricity,Landfill Gas,Biomass
+Electric Power,Electricity,"Natural Gas, Combined Cycle",Natural Gas
+Electric Power,Electricity,"Natural Gas, Combustion Turbine",Natural Gas
+Electric Power,Electricity,"Nuclear, SMR",Nuclear

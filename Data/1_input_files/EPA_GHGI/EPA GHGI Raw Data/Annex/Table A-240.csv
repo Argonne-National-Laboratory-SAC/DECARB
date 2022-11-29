@@ -1,0 +1,41 @@
+"Table A-240:  Comparison of GWP values and Lifetimes Used in the SAR, AR4, and AR5",,,,,,,,,,,,,
+,Lifetime (years),,,GWP (100 year),,,,Difference in GWP (Relative to AR4),,,,,
+Gas,SAR,AR4,AR5,SAR,AR4,AR5a,AR5 with feedbacksb,SAR,SAR (%),AR5 a,AR5 (%),AR5 with feedbacks b,AR5 with feedbacks b (%)
+Carbon dioxide (CO2),c,d,d,1,1,1,1,NC,NC,NC,NC,NC,NC
+Methane (CH4)e,12±3,8.7/12f,12.4,21,25,28,34,-4,-16%,3,12%,9,36%
+Nitrous oxide (N2O),120, 120/114f ,121,310,298,265,298,12,4%,-33,-11%,0,0%
+Hydrofluorocarbons,,,,,,,,,,,,,
+HFC-23,264,270,222,"11,700","14,800","12,400","13,856","-3,100",-21%,"-2,400",-16%,-944,-6%
+HFC-32,5.6,4.9,5.2,650,675,677,817,-25,-4%,2, +% ,142,21%
+HFC-41,3.7,NA,2.8,150,NA,116,141,NA,NA,NA,NA,NA,NA
+HFC-125,32.6,29,28.2,"2,800","3,500","3,170","3,691",-700,-20%,-330,-9%,191,5%
+HFC-134a,14.6,14,13.4,"1,300","1,430","1,300","1,549",-130,-9%,-130,-9%,119,8%
+HFC-143a,48.3,52,47.1,"3,800","4,470","4,800","5,508",-670,-15%,330,7%,"1,038",23%
+HFC-152a,1.5,1.4,1.5,140,124,138,167,16,13%,14,11%,43,35%
+HFC-227ea,36.5,34.2,38.9,"2,900","3,220","3,350","3,860",-320,-10%,130,4%,640,20%
+HFC-236fa,209,240,242,"6,300","9,810","8,060","8,998","-3,510",-36%,"-1,750",-18%,-812,-8%
+HFC-245fa,NA,7.6,7.7,950,"1,030",858,"1,032",-80,-8%,-172,-17%,2,+%
+HFC-365mfc,NA,8.6,8.7,860,794,804,966,66,8%,10,1%,172,22%
+HFC-43-10mee,17.1,15.9,16.1,"1,300","1,640","1,650","1,952",-340,-21%,10,1%,312,19%
+Fully Fluorinated Species,,,,,,,,,,,,,
+SF6,"3,200","3,200","3,200","23,900","22,800","23,500","26,087","1,100",5%,700,3%,"3,287",14%
+CF4,"50,000","50,000","50,000","6,500","7,390","6,630","7,349",-890,-12%,-760,-10%,-41,-1%
+C2F6,"10,000","10,000","10,000","9,200","12,200","11,100","12,340","-3,000",-25%,"-1,100",-9%,140,1%
+C3F8,"2,600","2,600","2,600","7,000","8,830","8,900","9,878","-1,830",-21%,70,1%,"1,048",12%
+C4F10,"2,600","2,600","2,600","7,000","8,860","9,200","10,213","-1,860",-21%,340,4%,"1,353",15%
+c-C4F8,"3,200","3,200","3,200","8,700","10,300","9,540","10,592","-1,600",-16%,-760,-7%,292,3%
+c-C5F8 ,NA,NA,31,NA,NA,2,NA,NA,NA,NA,NA,NA,NA
+C5F12,"4,100","4,100","4,100","7,500","9,160","8,550","9,484","-1,660",-18%,-610,-7%,324,4%
+C6F14,"3,200","3,200","3,100","7,400","9,300","7,910","8,780","-1,900",-20%,"-1,390",-15%,-520,-6%
+NF3,NA,740,500,NA,"17,200","16,100","17,885",NA,NA,"-1,100",-6%,685,4%
+Note: Parentheses indicate negative values.,,,,,,,,,,,,,
++ Does not exceed 0.5 percent.,,,,,,,,,,,,,
+NC (No Change),,,,,,,,,,,,,
+NA (Not Applicable),,,,,,,,,,,,,
+a The GWP values presented here are the ones most consistent with the methodology used in the AR4 report. See footnote e for more information on GWPs for methane of fossil origin.,,,,,,,,,,,,,
+b The GWP values presented here from the AR5 report include climate-carbon feedbacks for the non-CO2 gases in order to be consistent with the approach used in calculating the CO2 lifetime.,,,,,,,,,,,,,
+"c For a given amount of CO2 emitted, some fraction of the atmospheric increase in concentration is quickly absorbed by the oceans and terrestrial vegetation, some fraction of the atmospheric increase will only slowly decrease over a number of years, and a small portion of the increase will remain for many centuries or more. See footnote e for more information on GWPs for methane of fossil origin.",,,,,,,,,,,,,
+d No single lifetime can be determined for CO2 (see IPCC 2007).,,,,,,,,,,,,,
+"e The methane GWP includes the direct effects and those indirect effects due to the production of tropospheric ozone and stratospheric water vapor. Additionally, the AR5 reported separate values for fossil versus biospheric methane in order to account for the CO2 oxidation product. The GWP associated with methane of fossil origin is not shown in this table. Per AR5, the GWP for methane of fossil origin is 30 versus 28 using methodology most consistent with AR4. If using methodology to include climate carbon feedbacks, per the AR5 report, the value is higher by 2 for GWP for methane of fossil origin, so would be 36 versus 34.",,,,,,,,,,,,,
+"f Methane and N2O have chemical feedback systems that can alter the length of the atmospheric response, in these cases, global mean residence time is given first, followed by perturbation time. ",,,,,,,,,,,,,
+"Source: IPCC (2013), IPCC (2007), IPCC (1996).",,,,,,,,,,,,,

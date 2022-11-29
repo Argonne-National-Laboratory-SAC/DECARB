@@ -1,0 +1,35 @@
+"Table 6-99:  Approach 2 Quantitative Uncertainty Estimates for Soil, Dead Organic Matter and Biomass C Stock Changes occurring within Land Converted to Settlements (MMT CO2 Eq. and Percent)",,,,,
+,,,,,
+Source,2019 Flux Estimate,Uncertainty Range Relative to Flux Estimate a,,,
+,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),
+,,Lower,Upper,Lower,Upper
+,,Bound,Bound,Bound,Bound
+Cropland Converted to Settlements,5.9,2.3,9.5,-61%,61%
+Mineral Soil C Stocks,5.1,1.6,8.7,-69%,69%
+Organic Soil C Stocks,0.8,0.1,1.4,-82%,82%
+Forest Land Converted to Settlements,62.9,38.5,87.4,-39%,39%
+Aboveground Biomass C Stocks,36.9,14,59.9,-62%,62%
+Belowground Biomass C Stocks,7.2,2.7,11.7,-62%,62%
+Dead Wood,6.7,3.5,10.9,-47%,62%
+Litter,9.9,3.7,16,-62%,62%
+Mineral Soil C Stocks,1.9,1.4,2.4,-27%,28%
+Organic Soil C Stocks,0.3,0.1,0.5,-68%,69%
+Grassland Converted to Settlements,11.3,6.6,15.9,-41%,41%
+Mineral Soil C Stocks,10.4,5.8,15,-44%,44%
+Organic Soil C Stocks,0.9,0.1,1.6,-85%,85%
+Other Lands Converted to Settlements,-1.2,-1.9,-0.4,-62%,62%
+Mineral Soil C Stocks,-1.3,-2,-0.6,-55%,55%
+Organic Soil C Stocks,0.1,-0.1,0.3,-160%,160%
+Wetlands Converted to Settlements,0.4,0.1,0.9,-142%,142%
+Mineral Soil C Stocks,0.1,+ ,0.1,-96%,96%
+Organic Soil C Stocks,0.3,-0.2,0.8,-172%,172%
+Total: Land Converted to Settlements,79.2,52.8,105.9,-33%,34%
+Aboveground Biomass C Stocks,36.9,14,59.9,-62%,62%
+Belowground Biomass C Stocks,7.2,2.7,11.7,-62%,62%
+Dead Wood,6.7,3.5,10.9,-47%,62%
+Litter,9.9,3.7,16,-62%,62%
+Mineral Soil C Stocks,16.2,10.3,22,-36%,36%
+Organic Soil C Stocks,2.4,-6.1,10.8,-356%,356%
+Note: Totals may not sum due to independent rounding.,,,,,
++ Does not exceed 0.05 MMT CO2 Eq.,,,,,
+a Range of C stock change estimates predicted by Monte Carlo Stochastic Simulation for a 95 percent confidence interval.,,,,,

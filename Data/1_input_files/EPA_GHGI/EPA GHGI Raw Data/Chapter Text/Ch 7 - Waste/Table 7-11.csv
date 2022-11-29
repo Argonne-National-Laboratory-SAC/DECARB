@@ -1,0 +1,13 @@
+Table 7-11:  Variables and Data Sources for Organics in Domestic Wastewater,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+BODgen rate,Total wastewater BOD produced per capita,kg/capita/day,1990-2019: Calculated
+BODwithout scrap,Wastewater BOD produced per capita without kitchen scraps a,kg/capita/day,1990-2003: Metcalf & Eddy (2003)
+,,,2004-2013: Linear interpolation
+BODwith scraps,Wastewater BOD produced per capita with kitchen scraps a,kg/capita/day,2014-2019: Metcalf & Eddy (2014)
+% disposal,Percent of housing units with kitchen disposal a,%,1990-2013: U.S. Census Bureau (2013)
+,,,2014-2019: Forecasted from the rest of the time series
+TOW,Total wastewater BOD Produced per Capita a,Gg BOD/year,"1990-2019: Calculated, ERG (2018a)"
+USPOP,U.S. population a,Persons,1990-2019: U.S. Census Bureau (2020)
+365.25,Conversion factor,Days in a year,Standard conversion
+a Value of activity data varies over the Inventory time series,,,

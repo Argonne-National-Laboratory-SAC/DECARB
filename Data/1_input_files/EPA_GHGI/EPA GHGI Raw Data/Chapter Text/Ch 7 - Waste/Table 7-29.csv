@@ -1,0 +1,18 @@
+Table 7-29:  Variables and Data Sources for N2O Emissions from Septic System,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Septic Systems,,,
+TNDOM_SEPTIC,Total nitrogen entering septic systems,kg N/year,1990-2019: Calculated
+USPOP,U.S. populationa,Persons,1990-2019: U.S. Census Bureau (2020)
+TSEPTIC,Percent treated in septic systemsa,%,Odd years from 1989 through 2017: U.S. Census Bureau (2017)
+,,,Data for intervening years obtained by linear interpolation
+,,,2018 and 2019: Forecasted from the rest of the time series
+FNPR,Fraction of nitrogen in protein (0.016),kg N/kg protein,1990-2019: IPCC (2019)
+NHH,Additional nitrogen from household products (1.17),No units,
+FIND-COM_septic,"Factor for Industrial and Commercial Co-Discharged Protein, septic systems (1)",No units,
+FNON-CON_septic,Factor for Non-Consumed Protein Added to Wastewater (1.13),No units,
+EFSEPTIC,"Emission factor, septic systems (0.0045)",kg N2O-N/kg N,
+44/28,Conversion factor,Molecular weight ratio of N2O to N2,Standard conversion
+1/106,Conversion factor,kg to kt,Standard conversion
+,,,
+a Value of this activity data varies over the Inventory time series.,,,

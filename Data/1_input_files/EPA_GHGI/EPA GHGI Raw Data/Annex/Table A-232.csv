@@ -1,0 +1,33 @@
+Table A-232:  2019 Potential CO2 Emissions,,,,
+,,Apparent Consumption (QBtu),Carbon Coefficients,Potential Emissions 
+Fuel Category,Fuel Type,,(MMT Carbon/QBtu),(MMT CO2 Eq.)
+Solid Fuels ,Anthracite Coal,0.06,28.28,6.1
+,Bituminous Coal,8.1,25.41,754.5
+,Sub-bituminous Coal,5.33,26.49,517.7
+,Lignite,0.66,26.75,65.2
+,Coke,-0.03,31,-3.5
+,Unspecified,-3.42,25.34,-317.6
+Gas Fuels,Natural Gas,31.99,14.43,"1,692.20"
+Liquid Fuels,Crude Oil,34.44,20.31,"2,564.40"
+,HGL,4.81,18.58,328
+,Other Liquids,2.03,20.31,151.2
+,Motor Gasoline,-1.35,19.46,-96.5
+,Aviation Gasoline,   + ,18.86,0.1
+,Kerosene,-0.01,19.96,-0.5
+,Jet Fuel,-1.23,19.7,-88.6
+,Distillate Fuel,-2.34,20.22,-173.3
+,Residual Oil,-0.54,20.48,-40.9
+,Naphtha for petrochemical feedstocks,0.03,18.55,1.9
+,Petroleum Coke,-1.25,27.85,-127.7
+,Other Oil for petrochemical feedstocks, (+),20.17,-0.1
+,Special Naphthas,0.04,19.74,2.5
+,Lubricants,-0.12,20.2,-8.8
+,Waxes,   + ,19.8,0.1
+,Asphalt/Road Oil,0.07,20.55,5.3
+,Still Gas (a),0,18.2,0
+,Misc. Products,0.01,0,0
+Total,,,,"5,231.80"
+Note: Totals may not sum due to independent rounding. Parentheses indicate negative values.,,,,
++ Does not exceed 0.005 QBtu or 0.05 MMT CO2 Eq.,,,,
+"Sources: C content coefficients by coal rank from USGS (1998), PSU (2010), Gunderson (2019), IGS (2019), ISGS (2019), and EIA (2020a); natural gas C content coefficients from EPA (2010) and EIA (2020b); unspecified solid fuel and liquid fuel C content coefficients from EPA (2010) and ICF (2020).",,,,
+"a Still gas is reported as petroleum product (liquid fuel) in this report. However, still gas physically exists as a gas, consisting primary of methane and ethane, and some hydrogen and other trace gases (EIA 2020d). ",,,,

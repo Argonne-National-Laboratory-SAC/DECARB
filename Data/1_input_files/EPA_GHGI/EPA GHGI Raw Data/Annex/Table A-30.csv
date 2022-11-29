@@ -1,0 +1,14 @@
+Table A-30: Electric Power Generation by Fuel Type (Percent),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Fuel Type,1990.0,1991.0,1992.0,1993.0,1994.0,1995.0,1996.0,1997.0,1998.0,1999.0,2000.0,2001.0,2002.0,2003.0,2004.0,2005.0,2006.0,2007.0,2008.0,2009.0,2010.0,2011.0,2012.0,2013.0,2014.0,2015.0,2016.0,2017.0,2018.0,2019.0
+Coal,54.1%,53.4%,54.4%,54.6%,53.9%,52.7%,53.9%,54.6%,53.4%,52.6%,53.3%,52.6%,51.7%,52.5%,51.4%,51.1%,50.4%,49.9%,49.5%,45.7%,46.0%,43.5%,38.6%,40.2%,39.9%,34.2%,31.4%,30.9%,28.4%,24.2%
+Natural Gas,10.7%,10.8%,11.4%,11.2%,12.5%,13.1%,11.5%,12.0%,13.0%,13.4%,14.2%,15.5%,16.4%,15.2%,16.5%,17.5%,18.8%,20.3%,20.2%,22.1%,22.7%,23.5%,29.1%,26.4%,26.3%,31.6%,32.7%,30.9%,34.0%,37.3%
+Nuclear,19.9%,20.8%,21.1%,20.0%,20.7%,21.1%,20.5%,18.9%,19.5%,20.6%,20.7%,21.5%,21.1%,20.5%,20.7%,20.0%,20.1%,20.1%,20.3%,21.0%,20.3%,20.0%,19.8%,20.2%,20.3%,20.4%,20.6%,20.8%,20.1%,20.4%
+Renewables,11.3%,11.1%,10.0%,10.6%,9.7%,10.9%,11.7%,11.9%,10.5%,10.3%,8.8%,7.1%,8.3%,8.6%,8.3%,8.3%,9.0%,8.0%,8.8%,10.2%,10.0%,12.2%,11.9%,12.5%,12.8%,13.0%,14.7%,16.8%,16.8%,17.6%
+Petroleum,4.1%,3.8%,3.1%,3.5%,3.2%,2.1%,2.3%,2.6%,3.5%,3.2%,2.9%,3.3%,2.4%,3.1%,3.0%,3.0%,1.5%,1.5%,1.1%,0.9%,0.9%,0.7%,0.5%,0.6%,0.7%,0.7%,0.6%,0.5%,0.6%,0.4%
+Other Gases a,+%,+%,+%,+%,+%,+%,+%,+%,+%,+%,0.1%,0.0%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%,0.1%
+Net Electricity Generation (Billion kWh) b,2905,2940,2938,3048,3092,3197,3287,3333,3462,3536,3643,3582,3698,3721,3809,3902,3908,4005,3974,3808,3971,3947,3888,3901,3936,3917,3917,3877,4017,3962
+"Note: Does not include electricity generation from purchased steam as the fuel used to generate the steam cannot be determined. Does not include non-renewable waste (i.e., municipal solid waste from non-biogenic sources, and tire-derived fuels).",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Source: EIA (2020b).,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
++ Does not exceed 0.05 percent.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"a Other gases include blast furnace gas, propane gas, and other manufactured and waste gases derived from fossil fuels.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"b Represents net electricity generation from the electric power sector. Excludes net electricity generation from commercial and industrial combined-heat-and-power and electricity-only plants. Net electricity generation differs from the total presented in Table A-29 (i.e., end-use consumption of electricity) due to electricity transmitted across U.S. borders, as well as transmission and distribution losses.",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

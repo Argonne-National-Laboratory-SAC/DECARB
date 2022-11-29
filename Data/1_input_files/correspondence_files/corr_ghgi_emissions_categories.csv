@@ -1,0 +1,20 @@
+Correspondence between EPA GHGI emissions type and emissions categories,,
+,,
+,,
+Formula,"Emissions Category, Detailed","Emissions Category, Aggregate"
+CO2,CO2,CO2
+CH4,CH4,CH4
+N2O,N2O,N2O
+SF6,SF6,Fluorinated Gases
+NF3,NF3,Fluorinated Gases
+CF4,PFCs,Fluorinated Gases
+C2F6,PFCs,Fluorinated Gases
+C3F8,PFCs,Fluorinated Gases
+c-C4F8,PFCs,Fluorinated Gases
+HFC-23,HFCs,Fluorinated Gases
+HFC-32,HFCs,Fluorinated Gases
+HFC-125,HFCs,Fluorinated Gases
+HFC-134a,HFCs,Fluorinated Gases
+HFC-143a,HFCs,Fluorinated Gases
+HFC-236fa,HFCs,Fluorinated Gases
+FK 5-1-12,Other,Fluorinated Gases

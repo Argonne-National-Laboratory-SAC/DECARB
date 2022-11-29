@@ -1,0 +1,58 @@
+Correspondence  mappingof aggregrating various mitigation cases by industry and mitigation case types,
+,
+,
+Mitigation Case_Decarb,Mitigation Case Type Gran_Front
+-,Reference Case
+"Bulk Chemical Industry, efficiency improvements",Efficiency improvements
+"Cement and Lime Industry, efficiency improvements",Efficiency improvements
+"Food Industry, efficiency improvements",Efficiency improvements
+"Iron and Steel Industry, efficiency improvements",Efficiency improvements
+"Paper Industry, efficiency improvements",Efficiency improvements
+"Refinery Industry, efficiency improvements",Efficiency improvements
+"Refining Industry, efficiency improvements",Efficiency improvements
+"Bulk Chemical Industry, fuel switching for low quality heat to Electricity","Fuel switching, heat to electricity"
+"Bulk Chemical Industry, fuel switching Steam Coal to Natural Gas","Fuel switching, coal to NG"
+"Cement and Lime Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Cement and Lime Industry, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Cement and Lime Industry, fuel switching Steam Coal to Natural Gas","Fuel switching, coal to NG"
+"Food Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Food Industry, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Food Industry, fuel switching Steam Coal to Natural Gas","Fuel switching, coal to NG"
+"Iron and Steel Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Iron and Steel Industry, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Paper Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Paper Industry, fuel switching Natural Gas to Electricity","Fuel switching, NG to electricity"
+"Paper Industry, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Paper Industry, fuel switching Steam Coal to Electricity","Fuel switching, coal to electricity"
+"Refinery Industry, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Refinery Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Refining Industry, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Bulk Chemical Industry, Green Ammonia",Other
+"Bulk Chenical Industry, Green Ammonia",Other
+"Cement and Lime Industry, cement chemistry",Other
+Reduction in Fugitive Methane emissions from Abandoned Wells,Other
+Reduction in Fugitive Methane emissions from O&G,Biofuels
+"Biofuels, Changes in Above C Stock",Biofuels
+"Biofuels, Diesel",Biofuels
+"Biofuels, Gasoline",Biofuels
+"Biofuels, Reduction in Fugitive Methane Emissions from Landfills",Biofuels
+"Biofuels, SAF",Biofuels
+"Biofuels, SOC Change",Biofuels
+"Biofuels, Changes in Above C stock",Biofuels
+"Global, fuel switching Fossil H2 to renewable H2","Fuel switching, fossil H2 to renewable H2"
+"Global, fuel switching Natural Gas to Hydrogen","Fuel switching, NG to H2"
+"Global, fuel switching Steam Coal to Natural Gas","Fuel switching, coal to NG"
+"Rice Cultivation, linear reduction",Other
+"Soil N2O emissions, linear reduction",Other
+"Manure Management, linear reduction",Other
+On-Farm Mitigation,Other
+Commercial: Energy efficiency,Efficiency improvements
+Commercial: Energy efficiency of Fuel switching,Efficiency improvements
+Commercial: Fuel switching,"Fuel switching, non-industrial"
+"Industrial, CCS implementation",CCS
+Residential: Energy efficiency,Efficiency improvements
+Residential: Energy efficiency of Fuel switching,Efficiency improvements
+Residential: Fuel switching,"Fuel switching, non-industrial"
+NREL Electric Power Decarb,Electric Power Decarb
+LULUCF: Sustainable Farming,LULUCF
+"Transportation, VISION scenarios",Transportation

@@ -1,0 +1,30 @@
+SCOUT data to EERE transformation					
+					
+					
+Sector	SCOUT: End Use Application	SCOUT: Energy carier	Energy carrier	Energy carrier type	End Use Application
+Residential	Heating	Electric			
+Residential	Heating	Natural Gas			
+Residential	Heating	Propane			
+Residential	Heating	Distillate/Other			
+Residential	Heating	Biomass			
+Residential	Cooling	Electric			
+Residential	Cooling	Natural Gas			
+Residential	Water Heating	Electric			
+Residential	Water Heating	Natural Gas			
+Residential	Water Heating	Propane			
+Residential	Water Heating	Distillate/Other			
+Residential	Computers and Electronics	Electric			
+Residential	Washing/Drying	Electric			
+Residential	Refrigeration	Electric			
+Residential	Lighting	Electric			
+Commercial	Heating	Electric			
+Commercial	Heating	Natural Gas			
+Commercial	Heating	Distillate/Other			
+Commercial	Cooling	Electric			
+Commercial	Cooling	Natural Gas			
+Commercial	Water Heating	Electric			
+Commercial	Water Heating	Natural Gas			
+Commercial	Water Heating	Distillate/Other			
+Commercial	Computers and Electronics	Electric			
+Commercial	Refrigeration	Electric			
+Commercial	Lighting	Electric			

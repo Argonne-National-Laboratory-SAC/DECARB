@@ -1,0 +1,32 @@
+Table ES-1:  Global Warming Potentials (100-Year Time Horizon) Used in this Report,,
+,,
+,Gas,GWP
+,CO2,1
+,CH4 a,25
+,N2O,298
+,HFC-23,"14,800"
+,HFC-32,675
+,HFC-41,150
+,HFC-125,"3,500"
+,HFC-134a,"1,430"
+,HFC-143a,"4,470"
+,HFC-152a,124
+,HFC-227ea,"3,220"
+,HFC-236fa,"9,810"
+,HFC-43-10mee,"1,640"
+,HFC-245fa,"1,030"
+,HFC-365mfc,794
+,CF4,"7,390"
+,C2F6,"12,200"
+,C3F8,"8,830"
+,c-C5F8,1.97
+,C4F10,"8,860"
+,c-C4F8,"10,300"
+,C5F12,"9,160"
+,C6F14,"9,300"
+,SF6,"22,800"
+,NF3,"17,200"
+,Other Fluorinated Gases,See Annex 6
+,,
+,a The GWP of CH4 includes the direct effects and those indirect effects due to the production of tropospheric ozone and stratospheric water vapor. The indirect effect due to production of CO2 is not included. See Annex 6 for additional information.,
+,Source: IPCC (2007).,

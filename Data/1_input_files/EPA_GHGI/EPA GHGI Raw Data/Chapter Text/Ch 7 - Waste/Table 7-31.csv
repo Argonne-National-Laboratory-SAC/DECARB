@@ -1,0 +1,14 @@
+Table 7-31:  Variables and Data Sources for N2O Emissions from Centrally Treated Aerobic Systems (Other than Constructed Wetlands),,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+Emissions from Centrally Treated Aerobic Systems (Other than Constructed Wetlands) (kt N2O/year),,,
+TNDOM_CENTRAL,Total nitrogen entering centralized systems,kg N/year,1990-2019: Calculated
+% aerobicOTCW,"Flow to aerobic systems, other than constructed wetlands only / total flow to POTWsa",%,"1990, 1991: Set equal to 1992"
+,,,"1992, 1996, 2000, 2004: EPA (1992, 1996, 2000, 2004a), respectively"
+,,,Data for intervening years obtained by linear interpolation.
+,,,2005-2019: Forecasted from the rest of the time series
+EFaerobic,Emission factor – aerobic systems (0.016),kg N2O-N/kg N,1990-2019: IPCC (2019)
+44/28,Conversion factor,Molecular weight ratio of N2O to N2,Standard conversion
+1/106,Conversion factor,kg to kt,Standard conversion
+,,,
+a Value of this activity data varies over the Inventory time series.,,,

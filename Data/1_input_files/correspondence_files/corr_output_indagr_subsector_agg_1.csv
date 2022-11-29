@@ -1,0 +1,41 @@
+Correspondence mapping of aggregrating various subsectors by industry/agr ,,
+,,
+,,
+Ind/Agr Subsector_Decarb,Assigned Sector,Ind/Agr Subsector_Front
+-,Industrial,"Null, Industrial"
+-,Agriculture,"Null, Agricultural"
+Abandoned Oil and Gas Wells,Industrial,Abandoned Oil and Gas Wells
+Abandoned Underground Coal Mines,Industrial,Supply Chain
+Aluminum Industry,Industrial,Aluminum Industry
+Aviation,Industrial,Supply Chain
+Bulk Chemical Industry,Industrial,Bulk Chemical Industry
+Carbon Dioxide Consumption,Industrial,Supply Chain
+Cement and Lime Industry,Industrial,Cement and Lime Industry
+Enteric Fermentation,Agriculture,Enteric Fermentation
+Field Burning of Agricultural Residues,Agriculture,Field Burning of Agricultural Residues
+Food Industry,Industrial,Food Industry
+Glass Industry,Industrial,Glass Industry
+Iron and Steel Industry,Industrial,Iron and Steel Industry
+Iron and Steel Production,Industrial,Supply Chain
+Liming,Agriculture,Liming
+Manure Management,Agriculture,Manure Mgmt.
+Marine,Industrial,Supply Chain
+Metal Based Durables Industry,Industrial,Metal Based Durables Industry
+Military,Industrial,Supply Chain
+N2O from Agricultural Soil Management,Agriculture,Precision Ag.
+N2O from Product Uses,Industrial,Supply Chain
+Natural Gas Systems,Industrial,Natural Gas Systems
+Nonmanufacturing Sector,Industrial,Nonmanufacturing Sector
+On Road,Industrial,Supply Chain
+Other,Industrial,Supply Chain
+Other Manufacturing Industry,Industrial,Other Manufacturing Industry
+Other Process Uses of Carbonates,Industrial,Supply Chain
+Paper Industry,Industrial,Paper Industry
+Petrochemical Production,Industrial,Supply Chain
+Petroleum Systems,Industrial,Petroleum Systems
+Rail,Industrial,Supply Chain
+Refining Industry,Industrial,Refining Industry
+Rice Cultivation,Agriculture,Improved Rice Cultivation
+Substitution of Ozone Depleting Substances,Industrial,Supply Chain
+Urea Consumption for Non-Agricultural Purposes,Industrial,Supply Chain
+Urea Fertilization,Agriculture,Urea Fertilization

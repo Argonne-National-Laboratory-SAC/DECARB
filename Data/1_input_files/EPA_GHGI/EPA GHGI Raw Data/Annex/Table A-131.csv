@@ -1,0 +1,25 @@
+Table A-131: Refrigeration and Air-Conditioning Lifetime Assumptions,,,,
+End-Use,Lifetime,HFC Emission Rates,HFC Emission Rates,HFC Emission Rates
+,,(First-fill) a,(Servicing and Leaks),(Disposal) b
+,(Years),(%),(%),(%)
+Centrifugal Chillers,20 – 27,0.2 – 0.5,2.0 – 10.9,10
+Cold Storage,20 – 25,1,15,10
+Commercial Unitary A/C,15,0.5 – 1,7.9 – 8.6,18 – 40
+Condensing Units (Medium Retail Food),10 – 20,0.5 – 3,8 – 15,10 – 20
+Dehumidifiers,11,0.5 – 1,0.5,50
+Ice Makers,8,0.5 – 2,3,49
+Industrial Process Refrigeration,25,1,3.6 – 12.3,10
+Large Retail Food,18,2,17 – 33,10
+Mobile Air Conditioners,5 –16,0.2 – 0.5,2.3 – 18.0,43 – 50
+Positive Displacement Chillers,20,0.2 – 0.5,0.5 – 1.5,10
+PTAC/PTHP,12,1,3.9,40
+Refrigerated Appliances,14,0.6,0.6,42
+Refrigerated Food Processing and Dispensing Equipment,10,1,1,68
+Residential Unitary A/C,15,0.2 – 1,5.3 – 10.6,20 – 40
+Small Retail Food,10,1,1,19 – 65
+Transport Refrigeration,9 – 40,0.2 – 1,19.4 – 36.4,10 – 65
+Vending Machines,10,0.5,1,68– 79
+Water & Ground Source Heat Pumps,20,1,3.9,43
+Window Units,12,0.5 – 1,0.6,50
+"a For some equipment, first-fill emissions are adjusted to account for equipment that are produced in the United States, including those which are produced for export, and excluding those that are imported pre-charged estimate. ",,,,
+"b Disposal emissions rates are developed based on consideration of the original charge size, the percentage of refrigerant likely to remain in equipment at the time of disposal, and recovery practices assumed to vary by gas type. Because equipment lifetime emissions are annualized, equipment is assumed to reach the end of its lifetime with a full charge. Therefore, recovery rate is equal to 100 percent - Disposal Loss Rate (%).",,,,

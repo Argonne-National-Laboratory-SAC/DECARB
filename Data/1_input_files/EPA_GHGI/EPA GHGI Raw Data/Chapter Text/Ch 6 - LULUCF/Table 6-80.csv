@@ -1,0 +1,13 @@
+Table 6-80:  Approach 1 Quantitative Uncertainty Estimates for C Stock Changes occurring within Land Converted to Vegetated Coastal Wetlands (MMT CO2 Eq. and Percent),,,,,
+,,,,,
+Source,2019 Estimate,Uncertainty Range Relative to Estimate a,,,
+,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),
+,,Lower,Upper,Lower,Upper
+,,Bound,Bound,Bound,Bound
+Biomass C Stock Flux,0.1,0.1,0.15,-20.00%,20.00%
+Dead Organic Matter Flux,0.02,0.02,0.03,-25.80%,25.80%
+Soil C Stock Flux,-0.2,-0.2,-0.1,-17.80%,17.80%
+Methane Emissions,0.2,0.12,0.23,-29.90%,29.90%
+Total Uncertainty,0.16,0.09,0.22,-42.20%,42.20%
+Note: Totals may not sum due to independent rounding.,,,,,
+a Range of flux estimates based on error propagation at 95 percent confidence interval.,,,,,

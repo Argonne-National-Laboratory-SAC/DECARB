@@ -1,0 +1,71 @@
+Mapping of End Use Sectors from EIA to Decarbonization Tool,,,,,
+Mapping of end use sector from EIA metadata to Decarbonization Tool metadata conventions.,,,,,
+,,,,,
+EIA: Sector,EIA: Subsector,EIA: End Use Application,Sector,Subsector,End Use Application
+Commercial,-,Computing,Commercial,-,Computing
+Commercial,-,Cooking,Commercial,-,Cooking
+Commercial,-,Lighting,Commercial,-,Lighting
+Commercial,-,Marketed Renewables,Commercial,-,Marketed Renewables
+Commercial,-,Office Equipment,Commercial,-,Office Equipment
+Commercial,-,Other Fuels,Commercial,-,Other Fuels
+Commercial,-,Other Uses,Commercial,-,Other Uses
+Commercial,-,Refrigeration,Commercial,-,Refrigeration
+Commercial,-,Space Cooling,Commercial,-,Space Cooling
+Commercial,-,Space Heating,Commercial,-,Space Heating
+Commercial,-,Ventilation,Commercial,-,Ventilation
+Commercial,-,Water Heating,Commercial,-,Water Heating
+Industrial,Aluminum Industry,-,Industrial,Aluminum Industry,-
+Industrial,Bulk Chemical Industry,Feedstock,Industrial,Bulk Chemical Industry,Feedstocks
+Industrial,Bulk Chemical Industry,Heat and Power,Industrial,Bulk Chemical Industry,Heat and Power
+Industrial,Cement and Lime Industry,-,Industrial,Cement and Lime Industry,-
+Industrial,Food Industry,-,Industrial,Food Industry,-
+Industrial,Glass Industry,-,Industrial,Glass Industry,-
+Industrial,Iron and Steel Industry,-,Industrial,Iron and Steel Industry,-
+Industrial,Metal Based Durables Industry,Computers Consumption,Industrial,Metal Based Durables Industry,Computers Consumption
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Industrial,Metal Based Durables Industry,Electrical Equipment Consumption
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption
+Industrial,Metal Based Durables Industry,Machinery Consumption,Industrial,Metal Based Durables Industry,Machinery Consumption
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Industrial,Metal Based Durables Industry,Transportation Equipment Consumption
+Industrial,Nonmanufacturing Sector,Agriculture,Agriculture,-,On farm energy use
+Industrial,Nonmanufacturing Sector,Construction,Industrial,Nonmanufacturing Sector,Construction
+Industrial,Nonmanufacturing Sector,Mining,Industrial,Nonmanufacturing Sector,Mining
+Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export,Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption
+Industrial,Other Manufacturing Industry,Plastics Consumption,Industrial,Other Manufacturing Industry,Plastics Consumption
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Industrial,Other Manufacturing Industry,Wood Products Consumption
+Industrial,Paper Industry,-,Industrial,Paper Industry,-
+Industrial,Refining Industry,-,Industrial,Refining Industry,-
+Industrial,Refining Industry,Feedstocks,Industrial,Refining Industry,Feedstocks
+Industrial,Refining Industry,Gas-to-Liquids Heat,Industrial,Refining Industry,Gas-to-Liquids Heat
+Industrial,Refining Industry,Heat and Power,Industrial,Refining Industry,Heat and Power
+Residential,-,Clothes Dryers,Residential,-,Clothes Dryers
+Residential,-,Clothes Washers,Residential,-,Clothes Washers
+Residential,-,Computers and Related Equipment,Residential,-,Computers and Related Equipment
+Residential,-,Cooking,Residential,-,Cooking
+Residential,-,Dishwashers,Residential,-,Dishwashers
+Residential,-,Freezers,Residential,-,Freezers
+Residential,-,Furnace Fans and Boiler Circulation Pumps,Residential,-,Furnace Fans and Boiler Circulation Pumps
+Residential,-,Lighting,Residential,-,Lighting
+Residential,-,Other Uses,Residential,-,Other Uses
+Residential,-,Refrigeration,Residential,-,Refrigeration
+Residential,-,Space Cooling,Residential,-,Space Cooling
+Residential,-,Space Heating,Residential,-,Space Heating
+Residential,-,Televisions and Related Equipment,Residential,-,Televisions and Related Equipment
+Residential,-,Water Heating,Residential,-,Water Heating
+Transportation,Aviation,Air Transportation,Transportation,Aviation,Air Transportation
+Transportation,Marine,Domestic Shipping,Transportation,Marine,Domestic Shipping
+Transportation,Marine,International Shipping,Transportation,Marine,International Shipping
+Transportation,Marine,Recreational Boats,Transportation,Marine,Recreational Boats
+Transportation,Military,Military Use,Transportation,Military,Military Use
+Transportation,On Road,Commercial Light Trucks,Transportation,On Road,Commercial Light Trucks
+Transportation,On Road,Freight Trucks,Transportation,On Road,Freight Trucks
+Transportation,On Road,Intercity Bus,Transportation,On Road,Intercity Bus
+Transportation,On Road,Light-Duty Vehicle,Transportation,On Road,Light-Duty Vehicle
+Transportation,On Road,School Bus,Transportation,On Road,School Bus
+Transportation,On Road,Transit Bus,Transportation,On Road,Transit Bus
+Transportation,Other,Lubricants,Transportation,Other,Lubricants
+Transportation,Other,Pipeline Fuel Natural Gas,Transportation,Other,Pipeline Fuel Natural Gas
+Transportation,Rail,Commuter Rail,Transportation,Rail,Commuter Rail
+Transportation,Rail,Freight Rail,Transportation,Rail,Freight Rail
+Transportation,Rail,Intercity Rail,Transportation,Rail,Intercity Rail
+Transportation,Rail,Transit Rail,Transportation,Rail,Transit Rail

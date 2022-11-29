@@ -1,0 +1,111 @@
+GREET_Fuel,GREET_Fuel type,LHV,HHV,Unit,LHV_by_HHV
+Crude oil,liquid fuel,129670.00,138350.00,Btu/gal,0.937
+Synthetic crude oil (SCO),liquid fuel,135084.91,144475.84,Btu/gal,0.935
+Bitumen,liquid fuel,152370.90,162963.53,Btu/gal,0.935
+Dilbit (After Recovery),liquid fuel,152370.90,162963.53,Btu/gal,0.935
+Dilbit (Before Recovery),liquid fuel,145194.19,155287.90,Btu/gal,0.935
+Diluent,liquid fuel,128448.53,137378.10,Btu/gal,0.935
+Shale Oil (Bakken),liquid fuel,125600.91,134008.53,Btu/gal,0.937
+Shale Oil (Eagle Ford),liquid fuel,122492.61,130692.16,Btu/gal,0.937
+Gasoline blendstock,liquid fuel,116090.00,124340.00,Btu/gal,0.934
+Gasoline,liquid fuel,112193.52,120438.62,Btu/gal,0.932
+CA gasoline,liquid fuel,112193.52,120438.62,Btu/gal,0.932
+High Octane Fuel (E25),liquid fuel,106150.00,114387.50,Btu/gal,0.928
+High Octane Fuel (E40),liquid fuel,100186.00,108416.00,Btu/gal,0.924
+U.S. conventional diesel,liquid fuel,128450.00,137380.00,Btu/gal,0.935
+CA diesel,liquid fuel,129487.85,138490.00,Btu/gal,0.935
+Diesel for non-road engines,liquid fuel,128450.00,137380.00,Btu/gal,0.935
+Low-sulfur diesel,liquid fuel,129487.85,138490.00,Btu/gal,0.935
+Petroleum naphtha,liquid fuel,116920.00,125080.00,Btu/gal,0.935
+Low Octane Gasoline-Like Fuel (LOF),liquid fuel,118237.43,126586.16,Btu/gal,0.934
+Conventional Jet Fuel,liquid fuel,124307.03,132948.69,Btu/gal,0.935
+ULS Jet Fuel,liquid fuel,123041.23,131594.89,Btu/gal,0.935
+NG-based FT naphtha,liquid fuel,111520.00,119740.00,Btu/gal,0.931
+Residual oil,liquid fuel,140352.52,150110.00,Btu/gal,0.935
+Bunker fuel for ocean tanker,liquid fuel,140352.52,150110.00,Btu/gal,0.935
+Methanol,liquid fuel,57250.00,65200.00,Btu/gal,0.878
+Ethanol,liquid fuel,76330.00,84530.00,Btu/gal,0.903
+Butanol,liquid fuel,99837.00,108458.00,Btu/gal,0.921
+Acetone,liquid fuel,83127.00,89511.00,Btu/gal,0.929
+E-Diesel Additives,liquid fuel,116090.00,124340.00,Btu/gal,0.934
+Liquefied petroleum gas (LPG),liquid fuel,84950.00,91410.00,Btu/gal,0.929
+Liquefied natural gas (LNG),liquid fuel,74720.00,84820.00,Btu/gal,0.881
+Dimethyl ether (DME),liquid fuel,68930.00,75610.00,Btu/gal,0.912
+Dimethoxy methane (DMM),liquid fuel,72200.00,79196.90,Btu/gal,0.912
+"Methyl ester (biodiesel, BD)",liquid fuel,119550.00,127960.00,Btu/gal,0.934
+Fischer-Tropsch diesel (FTD),liquid fuel,123670.00,130030.00,Btu/gal,0.951
+Renewable Diesel I (SuperCetane),liquid fuel,117059.00,125293.77,Btu/gal,0.934
+Renewable Diesel II (UOP-HDO),liquid fuel,122887.00,130817.00,Btu/gal,0.939
+Renewable Diesel III (PNNL-HTL),liquid fuel,123542.43,133070.14,Btu/gal,0.928
+Renewable Diesel IV (Sludge HTL),liquid fuel,124410.00,124410.00,Btu/gal,1.000
+Renewable Gasoline,liquid fuel,115983.00,124230.00,Btu/gal,0.934
+Renewable Gasoline (IDL),liquid fuel,113309.00,121365.86,Btu/gal,0.934
+Renewable Gasoline (Ex Situ CFP),liquid fuel,112060.70,120028.80,Btu/gal,0.934
+SPK (FT Jet Fuel/HRJ) ,liquid fuel,119776.62,128103.33,Btu/gal,0.935
+Liquid hydrogen,liquid fuel,30500.00,36020.00,Btu/gal,0.847
+Methyl tertiary butyl ether (MTBE),liquid fuel,93540.00,101130.00,Btu/gal,0.925
+Ethyl tertiary butyl ether (ETBE),liquid fuel,96720.00,104530.00,Btu/gal,0.925
+Tertiary amyl methyl ether (TAME),liquid fuel,100480.00,108570.00,Btu/gal,0.925
+Butane,liquid fuel,94970.00,103220.00,Btu/gal,0.920
+Isobutane,liquid fuel,90060.00,98560.00,Btu/gal,0.914
+Isobutylene,liquid fuel,95720.00,103010.00,Btu/gal,0.929
+Propane,liquid fuel,84250.00,91420.00,Btu/gal,0.922
+Natural gas liquids,liquid fuel,83686.11,90050.00,Btu/gal,0.929
+n-Hexane,liquid fuel,105124.80,112166.30,Btu/gal,0.937
+E_fuel Gasoline BOB,liquid fuel,110742.77,117211.36,Btu/gal,0.945
+E_fuel Jet,liquid fuel,116971.36,124276.88,Btu/gal,0.941
+E_fuel Diesel,liquid fuel,120821.09,128217.82,Btu/gal,0.942
+E_fuel FT mixed fuel,liquid fuel,116291.00,123392.79,Btu/gal,0.942
+Isobutanol,liquid fuel,95294.14,105700.00,Btu/gal,0.902
+ARHC,liquid fuel,115983.00,124230.00,Btu/gal,0.934
+Natural gas,Gaseous Fuels (at 32F and 1atm),983.00,1089.00,Btu/ft3,0.903
+Pure Methane,Gaseous Fuels (at 32F and 1atm),962.19,1068.03,Btu/ft4,0.901
+Gaseous hydrogen,Gaseous Fuels (at 32F and 1atm),290.00,343.00,Btu/ft5,0.845
+Carbon Dioxide,Gaseous Fuels (at 32F and 1atm),,,Btu/ft6,
+Still gas (in refineries),Gaseous Fuels (at 32F and 1atm),1159.27,1279.74,Btu/ft7,0.906
+Coal Mix for Electricity Generation,Solid Fuels,19474169.22,20673610.12,Btu/ton,0.942
+Bituminous coal,Solid Fuels,22639319.98,23633492.96,Btu/ton,0.958
+Subbituminous coal,Solid Fuels,16085444.01,17449319.67,Btu/ton,0.922
+Lignite coal,Solid Fuels,10805182.82,12992301.97,Btu/ton,0.832
+Synthetic coal,Solid Fuels,22639319.98,23633492.96,Btu/ton,0.958
+Waste coal,Solid Fuels,9945646.34,11958783.36,Btu/ton,0.832
+Pet Coke,Solid Fuels,26949428.73,28595925.17,Btu/ton,0.942
+Tire Derived Fuel,Solid Fuels,26664354.30,28293433.89,Btu/ton,0.942
+Liquefied natural gas (LNG),Solid Fuels,24599421.97,25679670.00,Btu/ton,0.958
+Catalyst Coke,Solid Fuels,28385750.37,30120000.00,Btu/ton,0.942
+Willow,Solid Fuels,15396000.00,16524000.00,Btu/ton,0.932
+Poplar,Solid Fuels,15929000.00,17062000.00,Btu/ton,0.934
+Switchgrass,Solid Fuels,14447000.00,15583000.00,Btu/ton,0.927
+Miscanthus,Solid Fuels,15342000.00,16377000.00,Btu/ton,0.937
+Corn stover,Solid Fuels,14716000.00,15774000.00,Btu/ton,0.933
+Forest residue,Solid Fuels,17289000.00,17906000.00,Btu/ton,0.966
+Clean Pine,Solid Fuels,15929000.00,17062000.00,Btu/ton,0.934
+Yard trimming waste,Solid Fuels,15000000.00,,Btu/ton,
+Sugarcane straw,Solid Fuels,13454048.89,15774000.00,Btu/ton,0.853
+Sugarcane bagasse,Solid Fuels,12381771.31,14062678.00,Btu/ton,0.880
+Bio-char,Solid Fuels,18916910.57,18916910.57,Btu/ton,1.000
+Grain sorghum bagasse,Solid Fuels,12781599.34,14131556.35,Btu/ton,0.904
+Sweet sorghum bagasse,Solid Fuels,14409931.25,15305245.09,Btu/ton,0.942
+Forage sorghum bagasse,Solid Fuels,14409931.25,15305245.09,Btu/ton,0.942
+Municipal solid waste (defined by EISA),Solid Fuels,11209638.73,13583444.58,Btu/ton,0.825
+Convertible municipal solid waste,Solid Fuels,14155275.21,16144032.89,Btu/ton,0.877
+Coking coal,Solid Fuels,24599421.97,25679670.00,Btu/ton,0.958
+Ethyne,"Other substances, liquids",45937.85,,Btu/kg,
+Propyne,"Other substances, liquids",43399.60,,Btu/kg,
+Butadiene,"Other substances, liquids",42284.97,,Btu/kg,
+Benzene,"Other substances, liquids",38470.00,,Btu/kg,
+Toluene,"Other substances, liquids",38957.18,,Btu/kg,
+Styrene,"Other substances, liquids",37912.68,,Btu/kg,
+Xylene,"Other substances, liquids",39151.48,,Btu/kg,
+o-Xylene,"Other substances, liquids",39151.48,,Btu/kg,
+m-Xylene,"Other substances, liquids",39151.48,,Btu/kg,
+p-Xylene,"Other substances, liquids",39151.48,,Btu/kg,
+Ethylbenzene,"Other substances, liquids",39151.48,,Btu/kg,
+Ethane,"Other substances, gases",45010.89,,Btu/kg,
+Ethylene,"Other substances, gases",44695.26,,Btu/kg,
+Propylene (ie. Propene),"Other substances, gases",43399.60,,Btu/kg,
+Butatriene,"Other substances, gases",42628.55,,Btu/kg,
+Butene,"Other substances, gases",42972.13,,Btu/kg,
+Bituminous coal,Solid Fuels,22639319.98,23633492.96,Btu/ton,0.958
+Lubricants,"Other substances, solids",,,Btu/kg,
+Asphalt,Solids,152370.9013,162963.53,Btu/kg,0.935

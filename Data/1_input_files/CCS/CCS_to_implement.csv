@@ -1,0 +1,10 @@
+"Sectors, Subsectors, and Scopes to implement CCS to. Set Marker=1 if CCS to be implemented.",,,
+,,,
+,,,
+Sector,Subsector,Scope,Marker
+Industrial,Cement and Lime Industry,"Direct, Non-Combustion",1
+Industrial,Iron and Steel Industry,"Direct, Non-Combustion",1
+Industrial,Bulk Chemical Industry,"Direct, Non-Combustion",1
+Industrial,Refining Industry,"Direct, Non-Combustion",1
+Industrial,Refining Industry,"Direct, Combustion",1
+Industrial,Food Industry,"Direct, Non-Combustion",1

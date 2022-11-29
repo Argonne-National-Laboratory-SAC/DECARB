@@ -1,0 +1,37 @@
+Table A-257: Summary of EPA GHGRP Data Use in U.S. Inventory ,,,,,,,,
+Inventory Category,GHGRP Industry Subpart  ,Initial Calendar Year of Reporting under GHGRP ,Reporting Threshold [1],Type of GHGRP Data Use ,,,,National Inventory Report (NIR) Section with details on data use
+,,,,Emissions or Quantity Supplied,Emission Factor (EF),Activity Data (AD),QA/QC [2],
+Energy Sector,,,,,,,,
+Fossil Fuel Combustion: Industrial Sector,C - General Stationary Fuel Combustion Sources,2010,Y,•,,,,Section 3.1 and Box 3-4
+Coal Mining: Underground Mines,FF – Underground Coal Mines,2011,Y,•,,,•,3.4
+Petroleum Systems,"W – Petroleum and Natural Gas Systems; 
+
+Y – Petroleum Refineries","2010, 2011","Y, N",•,•,•,•,3.6
+Natural Gas Systems,W – Petroleum and Natural Gas Systems,2011,Y,,•,•,•,3.7
+Waste Incineration,C - General Stationary Fuel Combustion Sources,2010,Y,,,•,,3.3
+Industrial Processes and Product Use Sector,,,,,,,,
+Adipic Acid Production,E – Adipic Acid Production,2010,N,•,,,,4.8
+Aluminum Production,F – Aluminum Production,2010,N,•,,,,4.19
+Urea Consumption from Non-Agricultural Use,G – Ammonia Manufacturing,2010,N,,,•,,4.6
+Carbon Dioxide Consumption,PP – Suppliers of Carbon Dioxide,2010,Y,•,,,,4.15
+Cement Production,H – Cement Production,2010,N,,,•,•,4.1
+Electrical Transmission and Distribution,DD – Use of Electric Transmission and Distribution Equipment; SS - Manufacture of Electric Transmission and Distribution Equipment,2011,Y,•,•,•,,4.25
+HCFC-22 Production,O – HCFC-22 Production and HFC-23 Destruction,2010,Y ,•,,,,4.14
+Lead Production ,R – Lead Production,2010,Y,,,,•,4.21
+Lime Production,S – Lime Production ,2010,N,•,,,,4.2
+Magnesium Production and Processing,T – Magnesium Production,2011,Y,•,,,,4.2
+Nitric Acid Production,V – Nitric Acid Production,2010,N,•,•,•,,4.7
+Petrochemical Production,X – Petrochemical Production,2010,N,•,•,•,,4.13
+Electronics Industry,I – Electronics Manufacturing,2011,Y,•,,,,4.23
+Substitution of ODS,"OO – Suppliers of Industrial Gases;  
+
+QQ - Imports and Exports of Equipment Pre–charged with Fluorinated GHGs or Containing Fluorinated GHGs in Closed–cell Foams","2010, 2011","N (producers), 
+
+Y (all others)",,,,•,4.24
+Waste Sector,,,,,,,,
+MSW Landfills,HH - Municipal Solid Waste Landfills,2010,Y,•,•,,•,7.1
+Industrial Landfills,TT - Industrial Waste Landfills ,2011,Y,,,,•,7.1
+Industrial Wastewater,II - Industrial Wastewater Treatment,2011,Y,,,,•,7.2
+,,,,,,,,
+"[1] Y=25, 000 MTCO2 Eq., or industry-specific threshold other than 25, 000 MTCO2 Eq.; N = all facilities in industry category must report regardless of annual emissions.  Information on industry-specific threshold and implications of the reporting threshold or lack of threshold in estimating national greenhouse gas emissions is discussed in the respective source category methodology sections.",,,,,,,,
+"[2]  Consistent with IPCC good practices, QA/QC using GHGRP may not be appropriate if this is the primary data source for estimating emissions. Depending on use, other data sets may be more appropriate for QA/QC of Inventory estimates.",,,,,,,,

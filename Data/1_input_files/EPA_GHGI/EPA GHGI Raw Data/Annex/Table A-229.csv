@@ -1,0 +1,31 @@
+Table A-229:  2019 U.S. Energy Statistics (Physical Units),,,,,,,,
+Fuel Category (Units),Fuel Type,Production,Imports,Exports,Stock Change,Adjustment,Bunkers,U.S. Territories
+Solid Fuels (Thousand Short Tons),Anthracite Coal,"2,611",[1],[1],[1],,,
+,Bituminous Coal,"338,955",[1],[1],[1],,,
+,Sub-bituminous Coal,"311,552",[1],[1],[1],367,,
+,Lignite,"53,192",[1],[1],[1],"1,539",,
+,Coke,,116,967,440,,,
+,Unspecified Coal,,"6,697","93,765","35,542","20,280",,"1,217"
+Gas Fuels (Million Cubic Feet),Natural Gas ,"33,551,098","2,741,717","4,656,324","557,803","399,049",,"46,433"
+Liquid Fuels (Thousand Barrels),Crude Oil,"4,470,528","2,482,332","1,088,345","-23,901",,,
+,HGL,"1,760,945","75,438","667,957","27,835",,,"1,658"
+,Other Liquids,0,"506,447","148,647","9,113",,,
+,Motor Gasoline,"-24,781","34,148","297,306",360,"238,678",,"20,779"
+,Aviation Gasoline,,347,0,196,,,
+,Kerosene,,703,"1,735",205,,,80
+,Jet Fuel,,"59,900","80,401","-1,118",,"198,850","5,425"
+,Distillate Fuel,,"73,886","476,657",-79,55,"16,710","13,793"
+,Residual Fuel,,"54,299","83,539","2,206","9,000","53,480","7,341"
+,Naphtha for petrochemical feedstocks,,"5,117",0,-195,,,
+,Petroleum Coke,,"2,312","198,555","1,160","10,182",,
+,Other Oil for petrochemical feedstocks,,"1,011",0,-55,"1,240",,
+,Special Naphthas,,"6,453",0,-234,,,
+,Lubricants,,"16,336","37,321","-1,269",,,172
+,Waxes,,"1,822","1,486",50,,,
+,Asphalt/Road Oil,,"16,000","9,459","-3,963",,,
+,Still Gas (a),,0,0,0,,,
+,Misc. Products,,12,660,9,,,"1,658"
+Note: Parentheses indicate negative values.,,,,,,,,
+[1] Included in Unspecified Coal,,,,,,,,
+Sources: Solid and Gas Fuels: EIA (2020a and 2020b); Liquid Fuels: EIA (2020c).,,,,,,,,
+"a Still gas is reported as petroleum product (liquid fuel) in this report. However, still gas physically exists as a gas, consisting primary of methane and ethane, and some hydrogen and other trace gases (EIA 2020d). ",,,,,,,,

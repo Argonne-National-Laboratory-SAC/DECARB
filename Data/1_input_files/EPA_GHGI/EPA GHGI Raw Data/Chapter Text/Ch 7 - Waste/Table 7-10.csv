@@ -1,0 +1,11 @@
+Table 7-10:  Variables and Data Sources for CH4 Emissions from Septic Systems,,,
+,,,
+Variable,Variable Description,Units,Inventory Years: Source of Value
+USPOP,U.S. population a,Persons,1990-2019: U.S. Census Bureau (2020)
+TSEPTIC,Percent treated in septic systems a,%,"Odd years from 1989 through 2017: U.S. Census Bureau (2017)
+Data for intervening years obtained by linear interpolation
+2018 and 2019: Forecasted from the rest of the time series"
+EFSEPTIC,Methane emission factor – septic systems (10.7),g CH4/capita/day,1990-2019: Leverenz et al. (2010)
+1/10^9,Conversion factor,g to kt,Standard conversion
+365.25,Conversion factor,Days in a year,Standard conversion
+a Value of activity data varies over the Inventory time series.,,,

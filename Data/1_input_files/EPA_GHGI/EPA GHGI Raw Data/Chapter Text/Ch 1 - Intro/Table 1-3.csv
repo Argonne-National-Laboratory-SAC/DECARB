@@ -1,0 +1,29 @@
+Table 1-3:  Comparison of 100-Year GWP values,,,,,,,,
+,,,,,,,,
+,100-Year GWP Values,,,,,Comparison to AR4,,
+,Gas,SAR,AR4,AR5 a,AR5 with feedbacks b,SAR,AR5,AR5 with feedbacks b
+,CO2,1,1,1,1,NC,NC,NC
+,CH4 c,21,25,28,34,-4,3,9
+,N2O,310,298,265,298,12,-33,NC
+,HFC-23,"11,700","14,800","12,400","13,856","-3,100","-2,400",-944
+,HFC-32,650,675,677,817,-25,2,142
+,HFC-125,"2,800","3,500","3,170","3,691",-700,-330,191
+,HFC-134a,"1,300","1,430","1,300","1,549",-130,-130,119
+,HFC-143a,"3,800","4,470","4,800","5,508",-670,330,"1,038"
+,HFC-152a,140,124,138,167,16,14,43
+,HFC-227ea,"2,900","3,220","3,350","3,860",-320,130,640
+,HFC-236fa,"6,300","9,810","8,060","8,998","-3,510","-1,750",-812
+,CF4,"6,500","7,390","6,630","7,349",-890,-760,-41
+,C2F6,"9,200","12,200","11,100","12,340","-3,000","-1,100",140
+,C3F8,"7,000","8,830","8,900","9,878","-1,830",70,"-1,048"
+,c-C4F8,"8,700","10,300","9,540","10,592","-1,600",-760,292
+,SF6,"23,900","22,800","23,500","26,087","1,100",700,"3,287"
+,NF3,NA,"17,200","16,100","17,885",NA,"-1,100",685
+,,,,,,,,
+,"Source: IPCC 2013, IPCC 2007, IPCC 2001, IPCC 1996.",,,,,,,
+,Note: Parentheses indicate negative values.,,,,,,,
+,NA (Not Applicable),,,,,,,
+,NC (No Change),,,,,,,
+,a The GWPs presented here are the ones most consistent with the methodology used in the AR4 report. ,,,,,,,
+,b The GWP values presented here from the AR5 report include climate-carbon feedbacks for the non-CO2 gases in order to be consistent with the approach used in calculating the CO2 lifetime. ,,,,,,,
+,c The GWP of CH4 includes the direct effects and those indirect effects due to the production of tropospheric ozone and stratospheric water vapor. Including the indirect effect due to the production of CO2 resulting from methane oxidation would lead to an increase in AR5 methane GWP values by 2 for fossil methane and is not shown in this table.,,,,,,,

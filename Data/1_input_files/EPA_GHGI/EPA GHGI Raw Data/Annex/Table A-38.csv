@@ -1,0 +1,31 @@
+Table A-38:  Carbon Content Coefficients and Underlying Data for Petroleum Products,,,,
+Fuel,Carbon Content (MMT C/QBtu),Gross Heat of Combustion (MMBtu/Barrel),Density (API Gravity),Percent Carbon
+Motor Gasoline,19.27,(See a),(See a),(See a)
+LPG (Propane),17.15,3.841,155.3,81.80
+HGL (Energy Use) b,17.47,(See b),(See b),(See b)
+HGL (Non-Energy Use) b,16.85,(See b),(See b),(See b)
+Jet Fuel,19.70,5.670,42.0,86.30
+Distillate Fuel No. 1,19.98,5.822,35.3,86.40
+Distillate Fuel No. 2,20.22,(See c),(See c),(See c)
+Distillate Fuel No. 4,20.47,6.135,23.2,86.47
+Residual Fuel No. 5,19.89,5.879,33.0,85.67
+Residual Fuel No. 6,20.48,6.287,15.5,84.67
+Asphalt and Road Oil,20.55,6.636,5.6,83.47
+Lubricants,20.20,6.065,25.7,85.80
+Naphtha (< 400 deg. F) c,18.55,5.248,62.4,84.11
+Other Oil (>400 deg. F) c,20.17,5.825,35.8,87.30
+Aviation Gasoline,18.86,5.048,69.0,85.00
+Kerosene,19.96,5.670,35.3,86.40
+Petroleum Coke,27.85,6.024,-,92.28
+Special Naphtha,19.74,5.248,52.0,84.75
+Petroleum Waxes,19.80,5.537,43.3,85.30
+Still Gas,18.20,6.000,-,77.70
+Crude Oil,20.31,5.800,31.2,85.49
+Unfinished Oils,20.31,5.825,31.2,85.49
+Miscellaneous Products,0.00,5.796,31.2,0.00
+Pentanes Plus,18.24,4.638,81.3,83.70
+"Note: “-“ Indicates no sample data available. For carbon content coefficients that are annually variable, 2019 values are shown.",,,,
+"a Calculation of the carbon content coefficient for motor gasoline in 2008 uses separate higher heating values for conventional and reformulated gasoline of 5.253 and 5.150, respectively (EIA 2008a). Densities and carbon shares (percent carbon) are annually variable and separated by both fuel formulation and grade, see Motor Gasoline and Blending Components, below, for details. ",,,,
+"b HGL is a blend of multiple paraffinic hydrocarbons: ethane, propane, isobutane, and normal butane, and their associated olefins: ethylene, propylene, isobutylene, and butylene, each with their own heat content, density, and C content, see Table A-40.",,,,
+c Petrochemical feedstocks have been split into naphthas and other oils for this Inventory report. Parameters presented are for naphthas with a boiling temperature less than 400 degrees Fahrenheit. Other oils are petrochemical feedstocks with higher boiling points. They are assumed to have the same characteristics as distillate fuel oil no. 2.,,,,
+Sources: EIA (1994); EIA (2009a); EPA (2020b); and EPA (2010). ,,,,

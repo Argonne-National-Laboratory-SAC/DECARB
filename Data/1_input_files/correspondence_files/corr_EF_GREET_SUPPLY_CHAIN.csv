@@ -1,0 +1,298 @@
+﻿Mapping of LCI and Emissions Factors from GREET to Decarbonization Tool,,,,,,,,
+Mapping of life cycle inventory and emissions from GREET to Decarbonization Tool metadata conventions.,,,,,,,,
+,,,,,,,,
+Sector,Subsector,End Use Application,Energy carrier,Energy carrier type,Scope,GREET Version,GREET Tab,GREET Pathway
+Residential,-,Heating,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Residential,-,Heating,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Residential,-,Heating,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Residential,-,Heating,Biomass,Woody Biomass,Supply Chain,GREET1_2021,EtOH,Total: Willow Farming and Transportation
+Residential,-,Cooling,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Residential,-,Water Heating,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Residential,-,Water Heating,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Residential,-,Water Heating,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Commercial,-,Heating,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Commercial,-,Heating,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Commercial,-,Cooling,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Commercial,-,Water Heating,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Commercial,-,Water Heating,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Commercial Light Trucks,Compressed Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Transportation,On Road,Commercial Light Trucks,Diesel,Biodiesel,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Commercial Light Trucks,Diesel,FT-Diesel,Supply Chain,GREET1_2021,MeOH_FTD,Biomass to Fischer-Tropsch Diesel
+Transportation,On Road,Commercial Light Trucks,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Commercial Light Trucks,E85,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Commercial Light Trucks,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Commercial Light Trucks,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,On Road,Commercial Light Trucks,Motor Gasoline,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Commercial Light Trucks,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Freight Trucks,Diesel,Biodiesel,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Freight Trucks,Diesel,FT-Diesel,Supply Chain,GREET1_2021,MeOH_FTD,Biomass to Fischer-Tropsch Diesel
+Transportation,On Road,Freight Trucks,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Freight Trucks,E85,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Freight Trucks,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Freight Trucks,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Freight Trucks,Liquefied Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas to Liquefied Natural Gas (as an intermediate fuel)
+Transportation,On Road,Freight Trucks,Motor Gasoline,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Freight Trucks,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Freight Trucks,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Transportation,On Road,Light-Duty Vehicle,Compressed Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Transportation,On Road,Light-Duty Vehicle,Diesel,Biodiesel,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Light-Duty Vehicle,Diesel,FT-Diesel,Supply Chain,GREET1_2021,MeOH_FTD,Biomass to Fischer-Tropsch Diesel
+Transportation,On Road,Light-Duty Vehicle,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Light-Duty Vehicle,E85,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Light-Duty Vehicle,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Light-Duty Vehicle,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,"Ethanol, Conventional",Supply Chain,GREET1_2021,EtOH,Corn Ethanol: Combined Dry and Wet Milling Ethanol
+Transportation,On Road,Light-Duty Vehicle,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Agriculture,-,On farm energy use,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Paper Industry,-,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Paper Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Paper Industry,-,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Industrial,Paper Industry,-,Petroleum Coke,Petroleum Coke,Supply Chain,GREET1_2021,Petroleum,Pet Coke
+Industrial,Paper Industry,-,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Paper Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Paper Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Paper Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Paper Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Food Industry,-,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Food Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Food Industry,-,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Industrial,Food Industry,-,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Food Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Food Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Food Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Food Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Bulk Chemical Industry,Feedstocks,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Bulk Chemical Industry,Heat and Power,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Bulk Chemical Industry,Heat and Power,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Bulk Chemical Industry,Heat and Power,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Bulk Chemical Industry,Heat and Power,Petroleum Coke,Petroleum Coke,Supply Chain,GREET1_2021,Petroleum,Pet Coke
+Industrial,Bulk Chemical Industry,Heat and Power,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Industrial,Bulk Chemical Industry,Heat and Power,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Bulk Chemical Industry,Heat and Power,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Cement and Lime Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Cement and Lime Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Cement and Lime Industry,-,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Cement and Lime Industry,-,Petroleum Coke,Petroleum Coke,Supply Chain,GREET1_2021,Petroleum,Pet Coke
+Industrial,Cement and Lime Industry,-,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Industrial,Cement and Lime Industry,-,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Cement and Lime Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Cement and Lime Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Cement and Lime Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Refining Industry,-,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Refining Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Refining Industry,-,Liquefied Petroleum Gas,Petroleum,Supply Chain,GREET1_2021,Petroleum,LPG
+Industrial,Refining Industry,-,Petroleum Coke,Petroleum Coke,Supply Chain,GREET1_2021,Petroleum,Pet Coke
+Industrial,Refining Industry,-,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Refining Industry,Heat and Power,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Refining Industry,Feedstocks,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Refining Industry,Gas-to-Liquids Heat,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Refining Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Refining Industry,-,Biofuels Heat and Coproducts,-,Supply Chain,GREET1_2021,EtOH,Total: Willow Farming and Transportation
+Industrial,Refining Industry,Feedstocks,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Refining Industry,Gas-to-Liquids Heat,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Refining Industry,Heat and Power,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Refining Industry,Feedstocks,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Refining Industry,Gas-to-Liquids Heat,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Refining Industry,Heat and Power,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Iron and Steel Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Iron and Steel Industry,-,Residual Fuel Oil,Petroleum Fuel Oil,Supply Chain,GREET1_2021,Petroleum,Resi. Oil
+Industrial,Iron and Steel Industry,-,Propane,-,Supply Chain,GREET1_2021,Petroleum,Propane
+Industrial,Iron and Steel Industry,-,Other Petroleum,-,Supply Chain,GREET1_2021,Petroleum,Crude for Use in U.S. Refineries
+Industrial,Iron and Steel Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Iron and Steel Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Iron and Steel Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Iron and Steel Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Refining Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Agriculture,-,On farm energy use,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Aluminum Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Glass Industry,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Metal Based Durables Industry,Computers Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Metal Based Durables Industry,Machinery Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Nonmanufacturing Sector,Mining,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing Industry,Plastics Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Agriculture,-,On farm energy use,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Aluminum Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Glass Industry,-,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Metal Based Durables Industry,Computers Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Metal Based Durables Industry,Machinery Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Nonmanufacturing Sector,Mining,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Other Manufacturing Industry,Plastics Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Steam Coal,Fossil Coal,Supply Chain,GREET1_2021,Coal,Coal to Power Plants
+Agriculture,-,On farm energy use,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Commercial,-,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Commercial,-,Cooling,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Commercial,-,Heating,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Commercial,-,Water Heating,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Aluminum Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Glass Industry,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Computers Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Machinery Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Construction,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Mining,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Plastics Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Residential,-,-,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Residential,-,Cooling,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Residential,-,Heating,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Residential,-,Washing/Drying,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Residential,-,Water Heating,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,Other,Pipeline Fuel Natural Gas,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Commercial,-,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Nonmanufacturing Sector,Construction,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Residential,-,-,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Residential,-,Washing/Drying,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Transportation,Other,Pipeline Fuel Natural Gas,Natural Gas,U.S. Average Mix,Supply Chain,GREET1_2021,NG,Natural Gas as Stationary Fuels
+Agriculture,-,On farm energy use,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Commercial,-,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Commercial,-,Cooling,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Commercial,-,Heating,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Commercial,-,Water Heating,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Aluminum Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Glass Industry,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Computers Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Machinery Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Construction,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Mining,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Nonmanufacturing Sector,Natural Gas Liquefaction for Export,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Plastics Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Residential,-,-,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Residential,-,Cooling,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Residential,-,Heating,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Residential,-,Washing/Drying,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Residential,-,Water Heating,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Commercial Light Trucks,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Intercity Bus,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Light-Duty Vehicle,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,School Bus,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Transit Bus,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,Other,Pipeline Fuel Natural Gas,Hydrogen,Renewables,Supply Chain,GREET1_2021,Hydrogen,Central Plants: Electrolysis (HTGR) to Gaseous Hydrogen
+Transportation,On Road,Freight Trucks,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,On Road,Intercity Bus,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,On Road,School Bus,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,On Road,Transit Bus,Hydrogen,Natural Gas,Supply Chain,GREET1_2021,Hydrogen,Central Plants: NG or FG to Gaseous Hydrogen
+Transportation,Aviation,Air Transportation,Jet Fuel,Petroleum,Supply Chain,GREET1_2021,JetFuel_WTP,Pertoleum Conv. Jet Fuel
+Transportation,Military,Military Use,Jet Fuel,Petroleum,Supply Chain,GREET1_2021,JetFuel_WTP,Pertoleum Conv. Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, MSW",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, MSW",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Poplar",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Poplar",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Willow",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Willow",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Logging residues",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Logging residues",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Wood and wood wastes",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Wood and wood wastes",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Whole tree biomass",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Whole tree biomass",Supply Chain,GREET1_2021,JetFuel_WTP,Biomass to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"FT-Synthesis, Landfill gas",Supply Chain,GREET1_2021,JetFuel_WTP,Landfill Gas to Fischer-Tropsch Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"FT-Synthesis, Landfill gas",Supply Chain,GREET1_2021,JetFuel_WTP,Landfill Gas to Fischer-Tropsch Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HEFA, Corn oil",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HEFA, Corn oil",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HEFA, FOGs",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HEFA, FOGs",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HEFA, UCO",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HEFA, UCO",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HTL, Wastewater sludge",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HTL, Wastewater sludge",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HTL, Algae",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HTL, Algae",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"HTL, Manure",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"HTL, Manure",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"CAP, Algae",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"CAP, Algae",Supply Chain,GREET1_2021,JetFuel_WTP,Soy Oil-based Renewable Jet Fuel
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"ETJ, Corn ethanol",Supply Chain,GREET1_2021,JetFuel_WTP,Ethanol-To-Jet: Corn (Standalone)
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"ETJ, Corn ethanol",Supply Chain,GREET1_2021,JetFuel_WTP,Ethanol-To-Jet: Corn (Standalone)
+Transportation,Aviation,Air Transportation,Sustainable Aviation Fuel,"ETJ, Cellulosic ethanol",Supply Chain,GREET1_2021,JetFuel_WTP,Ethanol-To-Jet: Corn Stover (Standalone)
+Transportation,Military,Military Use,Sustainable Aviation Fuel,"ETJ, Cellulosic ethanol",Supply Chain,GREET1_2021,JetFuel_WTP,Ethanol-To-Jet: Corn Stover (Standalone)
+Commercial,-,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Aluminum Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Glass Industry,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Metal Based Durables Industry,Computers Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Metal Based Durables Industry,Machinery Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Nonmanufacturing Sector,Construction,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Nonmanufacturing Sector,Mining,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing Industry,Plastics Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Residential,-,-,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Marine,Domestic Shipping,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Marine,International Shipping,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Marine,Recreational Boats,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Military,Military Use,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Intercity Bus,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,School Bus,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,On Road,Transit Bus,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Rail,Commuter Rail,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Rail,Freight Rail,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Transportation,Rail,Intercity Rail,Diesel,Petroleum Distillate,Supply Chain,GREET1_2021,Petroleum,Conv. Diesel
+Agriculture,-,On farm energy use,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Commercial,-,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Commercial,-,Heating,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Commercial,-,Water Heating,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Aluminum Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Bulk Chemical Industry,Heat and Power,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Cement and Lime Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Food Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Glass Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Iron and Steel Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Metal Based Durables Industry,Computers Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Metal Based Durables Industry,Electrical Equipment Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Metal Based Durables Industry,Fabricated Metal Products Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Metal Based Durables Industry,Machinery Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Metal Based Durables Industry,Transportation Equipment Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Nonmanufacturing Sector,Construction,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Nonmanufacturing Sector,Mining,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Other Manufacturing Industry,Balance of Manufacturing Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Other Manufacturing Industry,Plastics Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Other Manufacturing Industry,Wood Products Consumption,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Paper Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Industrial,Refining Industry,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Residential,-,-,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Residential,-,Heating,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Residential,-,Water Heating,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Marine,Domestic Shipping,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Marine,International Shipping,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Marine,Recreational Boats,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Military,Military Use,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Commercial Light Trucks,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Freight Trucks,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Intercity Bus,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Light-Duty Vehicle,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,School Bus,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,On Road,Transit Bus,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Rail,Commuter Rail,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Rail,Freight Rail,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Transportation,Rail,Intercity Rail,Biodiesel,Soybean,Supply Chain,GREET1_2021,BioOil,Soy Oil-based Biodiesel
+Agriculture,-,On farm energy use,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Industrial,Nonmanufacturing Sector,Construction,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Industrial,Nonmanufacturing Sector,Mining,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,Marine,Recreational Boats,Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Intercity Bus,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Intercity Bus,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,School Bus,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,School Bus,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Transit Bus,E85,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock
+Transportation,On Road,Transit Bus,Motor Gasoline,Petroleum Gasoline,Supply Chain,GREET1_2021,Petroleum,Gasoline Blendstock

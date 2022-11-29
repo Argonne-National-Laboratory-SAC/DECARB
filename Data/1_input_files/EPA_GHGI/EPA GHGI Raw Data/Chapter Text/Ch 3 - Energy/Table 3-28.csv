@@ -1,0 +1,9 @@
+Table 3-28:  Approach 2 Quantitative Uncertainty Estimates for CO2 and N2O from the Incineration of Waste (MMT CO2 Eq. and Percent),,,,,,,,
+,,,,,,,,
+,,,2019 Emission Estimate,,Uncertainty Range Relative to Emission Estimate a,,,
+,Source,Gas,(MMT CO2 Eq.),,(MMT CO2 Eq.),,(%),
+,,,,,Lower,Upper,Lower,Upper
+,,,,,Bound,Bound,Bound,Bound
+,Incineration of Waste,CO2,11.5,,8.6,14.5,-25%,27%
+,Incineration of Waste,N2O,0.3,,0.2,1.3,-50%,325%
+,a Range of emission estimates predicted by Monte Carlo Simulation for a 95 percent confidence interval.,,,,,,,

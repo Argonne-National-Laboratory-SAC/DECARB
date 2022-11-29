@@ -1,0 +1,12 @@
+"Table A-187:  U.S. Soil Groupings Based on the IPCC Categories and Dominant Taxonomic Soil, and Reference Carbon Stocks (Metric Tons C/ha)",,,,,,,
+IPCC Inventory Soil Categories,USDA Taxonomic Soil Orders,Reference Carbon Stock in Climate Regions,,,,,
+,,"Cold Temperate, Dry","Cold Temperate, Moist","Warm Temperate, Dry","Warm Temperate, Moist","Sub-Tropical, Dry","Sub-Tropical, Moist"
+High Clay Activity Mineral Soils,"Vertisols, Mollisols, Inceptisols, Aridisols, and high base status Alfisols",42 (n = 133),65 (n = 526),37 (n = 203),51 (n = 424),42 (n = 26),57 (n = 12)
+Low Clay Activity Mineral Soils,"Ultisols, Oxisols, acidic Alfisols, and many Entisols",45 (n = 37),52 (n = 113),25 (n = 86),40 (n = 300),39 (n = 13),47 (n = 7)
+Sandy Soils,Any soils with greater than 70 percent sand and less than 8 percent clay (often Entisols),24 (n = 5),40 (n = 43),16 (n = 19),30 (n = 102),33 (n = 186),50 (n = 18)
+Volcanic Soils,Andisols,124 (n = 12),114 (n = 2),124 (n = 12),124 (n = 12),124 (n = 12),128 (n = 9)
+Spodic Soils,Spodosols,86 (n=20),74 (n = 13),86 (n=20),107 (n = 7),86 (n=20),86 (n=20)
+Aquic Soils,Soils with Aquic suborder,86 (n = 4),89 (n = 161),48 (n = 26),51 (n = 300),63 (n = 503),48 (n = 12)
+Organic Soils a,Histosols,NA,NA,NA,NA,NA,NA
+a C stocks are not needed for organic soils.,,,,,,,
+"Notes: C stocks are for the top 30 cm of the soil profile, and are estimated from pedon data available in the National Soil Survey Characterization database (NRCS 1997); sample size provided in parentheses (i.e., ‘n’ values refer to sample size).",,,,,,,

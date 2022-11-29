@@ -1,0 +1,23 @@
+Table A-253: Quantitative Uncertainty Assessment of Overall National Inventory Emissions for 1990 (MMT CO2 Eq. and Percent) ,,,,,,,
+,1990 Emission Estimate,Uncertainty Range Relative to Emission Estimate a,,,,Mean b,Standard Deviation b
+Gas,(MMT CO2 Eq.),(MMT CO2 Eq.),,(%),,(MMT CO2 Eq.),
+,,Lower Bound c,Upper Bound c,Lower Bound,Upper  Bound,,
+  CO2,"5,113.50","5,008.60","5,349.70",-2%,5%,"5,177.30",88.5
+  CH4 d,776.9,710.7,863,-9%,11%,785.8,38.7
+  N2O d,452.7,368.3,581.4,-19%,28%,461,54.8
+"  PFCs, HFCs, SF6, and NF3 d",99.7,90.2,112.2,-9%,13%,100.3,5.6
+Total Emissions,"6,442.70","6,311.70","6,748.80",-2%,5%,"6,524.40",111
+  LULUCF Emissions e,7.9,6,10,-24%,26%,8,1
+  LULUCF Carbon Stock Change Flux f,-908.7,"-1,221.60",-741.6,34%,-18%,-982.4,122.3
+  LULUCF Sector Net Total g,-900.8,"-1,213.80",-733.6,35%,-19%,-974.4,122.3
+Net Emissions (Sources and Sinks),"5,541.90","5,232.40","5,877.30",-6%,6%,"5,550.00",164.7
+,,,,,,,
+Notes: Totals may not sum due to independent rounding. Parentheses indicate net sequestration. Total emissions (excluding emissions for which uncertainty was not quantified) are presented without LULUCF. Net emissions are presented with LULUCF.,,,,,,,
++ Does not exceed 0.5 percent.,,,,,,,
+"a The lower and upper bounds for emission estimates correspond to a 95 percent confidence interval, with the lower bound corresponding to 2.5th percentile and the upper bound corresponding to 97.5th percentile.",,,,,,,
+b Mean value indicates the arithmetic average of the simulated emission estimates; standard deviation indicates the extent of deviation of the simulated values from the mean.,,,,,,,
+c The lower and upper bound emission estimates for the sub-source categories do not sum to total emissions because the low and high estimates for total emissions were calculated separately through simulations.,,,,,,,
+"d The overall uncertainty estimates did not take into account the uncertainty in the GWP values for CH4, N2O, and high GWP gases used in the inventory emission calculations for 1990.",,,,,,,
+"e LULUCF emissions include the CH4 and N2O emissions reported for Peatlands Remaining Peatlands, Forest Fires, Drained Organic Soils, Grassland Fires, and Coastal Wetlands Remaining Coastal Wetlands; CH4 emissions from Land Converted to Coastal Wetlands; and N2O emissions from Forest Soils and Settlement Soils.",,,,,,,
+"f LULUCF Carbon Stock Change is the net C stock change from the following categories: Forest Land Remaining Forest Land, Land Converted to Forest Land, Cropland Remaining Cropland, Land Converted to Cropland, Grassland Remaining Grassland, Land Converted to Grassland, Wetlands Remaining Wetlands, Land Converted to Wetlands, Settlements Remaining Settlements, and Land Converted to Settlements. Since the resulting flux is negative the signs of the resulting lower and upper bounds are reversed.",,,,,,,
+g The LULUCF Sector Net Total is the net sum of all CH4 and N2O emissions to the atmosphere plus net carbon stock changes.,,,,,,,

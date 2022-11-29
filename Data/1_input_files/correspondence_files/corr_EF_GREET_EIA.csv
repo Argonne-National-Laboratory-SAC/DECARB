@@ -1,0 +1,35 @@
+Energy carrier,Energy carrier type,GREET_Fuel,GREET_Fuel type
+Asphalt and Road Oil,-,Asphalt,Solids
+Aviation Gasoline,Petroleum,Conventional Jet Fuel,liquid fuel
+Biofuels Heat and Coproducts,-,Forest residue,Solid Fuels
+Biomass,Woody Biomass,Forest residue,Solid Fuels
+Compressed Natural Gas,U.S. Average Mix,Liquefied natural gas (LNG),liquid fuel
+Diesel,Biodiesel,"Methyl ester (biodiesel, BD)",liquid fuel
+Diesel,FT-Diesel,Fischer-Tropsch diesel (FTD),liquid fuel
+Diesel,Petroleum Distillate,U.S. conventional diesel,liquid fuel
+E85,"Ethanol, Cellulosic",Ethanol,liquid fuel
+E85,"Ethanol, Conventional",Ethanol,liquid fuel
+E85,Petroleum Gasoline,Gasoline blendstock,liquid fuel
+Electricity,U.S. Average Grid Mix,,
+Gasoline,Petroleum Gasoline,Gasoline blendstock,liquid fuel
+Hydrocarbon Gas Liquid Feedstocks,-,,
+Hydrogen,Natural Gas,Liquid hydrogen,liquid fuel
+Hydrogen,Renewables,Liquid hydrogen,liquid fuel
+Jet Fuel,Petroleum,Conventional Jet Fuel,liquid fuel
+Lease and Plant Fuel,-,Natural gas,Gaseous Fuels (at 32F and 1atm)
+Liquefied Natural Gas,U.S. Average Mix,Liquefied natural gas (LNG),liquid fuel
+Liquefied Petroleum Gas,Petroleum,Liquefied petroleum gas (LPG),liquid fuel
+Lubricants,Petroleum,Lubricants,"Other substances, solids"
+Metallurgical Coal,Fossil Coal,Coking coal,Solid Fuels
+Motor Gasoline,"Ethanol, Cellulosic",Ethanol,liquid fuel
+Motor Gasoline,"Ethanol, Conventional",Ethanol,liquid fuel
+Motor Gasoline,Petroleum Gasoline,Gasoline blendstock,liquid fuel
+Natural Gas,U.S. Average Mix,Natural gas,Gaseous Fuels (at 32F and 1atm)
+Other Petroleum,-,Petroleum naphtha,liquid fuel
+Petrochemical Feedstocks,-,,
+Petroleum Coke,Petroleum Coke,Pet Coke,Solid Fuels
+Propane,-,Propane,liquid fuel
+Renewables,-,,
+Residual Fuel Oil,Petroleum Fuel Oil,Residual oil,liquid fuel
+Steam Coal,Fossil Coal,Coal Mix for Electricity Generation,Solid Fuels
+Still Gas,-,Still gas (in refineries),Gaseous Fuels (at 32F and 1atm)

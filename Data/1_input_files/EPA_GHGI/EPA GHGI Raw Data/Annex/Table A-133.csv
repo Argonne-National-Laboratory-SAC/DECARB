@@ -1,0 +1,33 @@
+Table A-133: Solvent Market Transition Assumptions,,,,,,,,,
+Initial Market Segment,Primary Substitute,,,,Secondary Substitute,,,,Growth Rate 3
+,Name of  Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,Name of Substitute,Start Date,Date of Full Penetration in New Equipment 1,Maximum Market Penetration,
+Adhesives,,,,,,,,,
+CH3CCl3,Non-ODP/GWP,1994,1995,100%,None,,,,2.00%
+Electronics,,,,,,,,,
+CFC-113,Semi-Aqueous ,1994,1995,52%,None,,,,2.00%
+,HCFC-225ca/cb,1994,1995,0.20%,Unknown,,,,
+,HFC-43-10mee,1995,1996,0.70%,None,,,,
+,HFE-7100,1994,1995,0.70%,None,,,,
+,nPB ,1992,1996,5%,None,,,,
+,Methyl Siloxanes,1992,1996,0.80%,None,,,,
+,No-Clean ,1992,20132,40%,None,,,,
+CH3CCl3,Non-ODP/GWP ,1996,1997,99.80%,None,,,,2.00%
+,PFC/PFPE,1996,1997,0.20%,Non-ODP/GWP,2000,2003,90%,
+,,,,,Non-ODP/GWP ,2005,2009,10%,
+Metals,,,,,,,,,
+CH3CCl3,Non-ODP/GWP ,1992,1996,100%,None,,,,2.00%
+CFC-113,Non-ODP/GWP ,1992,20132,100%,None,,,,2.00%
+CCl4,Non-ODP/GWP ,1992,1996,100%,None,,,,2.00%
+Precision,,,,,,,,,
+CH3CCl3,Non-ODP/GWP ,1995,1996,99.30%,None,,,,2.00%
+,HFC-43-10mee,1995,1996,0.60%,None,,,,
+,PFC/PFPE,1995,1996,0.10%,Non-ODP/GWP ,2000,2003,90%,
+,,,,,Non-ODP/GWP ,2005,2009,10%,
+CFC-113,Non-ODP/GWP ,1995,20132,90%,None,,,,2.00%
+,Methyl Siloxanes,1995,1996,6%,,,,,
+,HCFC-225ca/cb,1995,1996,1%,Unknown,,,,
+,HFE-7100,1995,1996,3%,None,,,,
+"Note: Non-ODP/GWP includes chemicals with zero ODP and low GWP, such as hydrocarbons and ammonia, as well as not-in-kind alternatives such as “no clean” technologies.",,,,,,,,,
+1 Transitions between the start year and date of full penetration in new equipment or chemical supply are assumed to be linear so that in total 100 percent of the market is assigned to the original ODS or the various ODS substitutes.,,,,,,,,,
+2 Transition assumed to be completed in 2013 to mimic CFC-113 stockpile use.,,,,,,,,,
+3 Growth Rate is the average annual growth rate for individual market sectors from the base year to 2030.,,,,,,,,,
