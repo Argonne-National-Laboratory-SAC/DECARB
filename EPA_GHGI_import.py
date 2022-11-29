@@ -238,7 +238,8 @@ if __name__ == "__main__":
     
     # Please change the path to data folder per your computer
       
-    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     input_path_EPA = input_path_prefix + '\\EPA_GHGI'
     input_path_GREET = input_path_prefix + '\\GREET' 
     input_path_units = input_path_prefix + '\\Units'
@@ -248,7 +249,6 @@ if __name__ == "__main__":
     verbose = False
     
     # Import the unit conversion module
-    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
     os.chdir (code_path_prefix)
 
     from  unit_conversions import model_units    

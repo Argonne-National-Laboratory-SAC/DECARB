@@ -179,7 +179,8 @@ if __name__ == '__main__':
     
     # Please change the path to data folder per your computer
     
-    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     
     input_path_elec = input_path_prefix + '\\Electricity'   
     input_path_units = input_path_prefix + '\\Units'  

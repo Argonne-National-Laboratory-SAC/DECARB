@@ -31,10 +31,10 @@ print("Status: Writing data files to Dashboard ..")
 
 code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
 
-interim_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\2_intermediate_files'
-output_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\3_output_files'
+interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
+output_path_prefix = code_path_prefix + '\\Data\\3_output_files'
 
-dashboard_path = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Dashboard'
+dashboard_path = code_path_prefix + '\\Data\\4_dashboard'
 
 f_activity = 'activity_ref_mtg_cases.csv'
 f_env = 'env_ref_mtg_cases.csv' 

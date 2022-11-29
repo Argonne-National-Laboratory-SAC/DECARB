@@ -98,8 +98,9 @@ class VISION:
         self.vision.drop(columns=['LHV_by_HHV'], inplace=True)
 
 if __name__ == "__main__":
-        
-    input_path_prefix = 'C:\\Users\\skar\\Box\\EERE SA Decarbonization\\1. Tool\\EERE Tool\\Data\\Script_data_model\\1_input_files'
+    
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     input_path_GREET = input_path_prefix + '\\GREET' 
     input_path_units = input_path_prefix + '\\Units'
     input_path_corr = input_path_prefix + '\\correspondence_files'
