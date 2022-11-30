@@ -1,2 +1,3 @@
-# EERE_decarb
-EERE Decarbonization Project code base
+# Decarbonization Scenario Analysis Model (Decarb Model)
+
+
