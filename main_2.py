@@ -14,8 +14,7 @@ Created on Mon Jan 10 20:08:36 2022
 
 # Update the _prefix paths based on your local Box folder location
 
-code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
-
+code_path_prefix = 'C:\\Users\\spatange\\Documents\\Repos\\DECARB' # psth to the Github local repository
 input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
 interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
 output_path_prefix = code_path_prefix + '\\Data\\3_output_files'
@@ -114,7 +113,7 @@ model_col_list = ['Data Source', 'AEO Case', 'Case', 'Mitigation Case', 'Sector'
                   'Unit', 'Value', 'CI', 'Total Emissions']
 
 # Decarbonization years of analysis
-decarb_year_min = 2020
+decarb_year_min = 2022
 decarb_year_max = 2050
 
 # Model data pull and intermediate file saving options
@@ -598,6 +597,8 @@ elec_gen_em_mtg_agg.rename(columns={
     'EF_Unit (Numerator)' : 'Emissions Unit',
     'Mitigation Case_x' : 'Mitigation Case'}, inplace=True)
 elec_gen_em_mtg_agg.drop(columns=['Mitigation Case_y'], inplace=True)
+elec_gen_em_mtg_agg.drop(elec_gen_em_mtg_agg[(elec_gen_em_mtg_agg['Year'] == 2021)].index, inplace=True)
+elec_gen_em_mtg_agg.drop(elec_gen_em_mtg_agg[(elec_gen_em_mtg_agg['Year'] == 2020)].index, inplace=True)
 
 elec_gen_em_mtg_agg['CI'] = elec_gen_em_mtg_agg['Total Emissions'] / elec_gen_em_mtg_agg['Electricity Production']
 
@@ -775,6 +776,8 @@ temp_activity.rename(columns={'Energy carrier_y' : 'Energy carrier',
 activity_mtg_scout = pd.merge(activity_mtg_scout, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 
 # Concatenating to environmental matrix
+#activity_BAU.drop(['Series Id'], axis=1, inplace = True)
+
 activity_BAU = pd.concat([activity_BAU, 
                           temp_activity[activity_BAU.columns], 
                           activity_mtg_scout[activity_BAU.columns]], axis=0).reset_index(drop=True)
@@ -2439,7 +2442,7 @@ if save_interim_files == True:
 '''
 Use the following code if changes are made to which biofuel pools are considered in the calculation of 'Above Ground Biomass'
 
-baseline_case_biofuels = temp_df[(temp_df['Case'] == 'Reference case') & (temp_df['Year'] == 2020)]
+baseline_case_biofuels = temp_df[(temp_df['Case'] == 'Reference case') & (temp_df['Year'] == 2022)]
 baseline_case_biofuels =  baseline_case_biofuels.groupby(['Year'], as_index = False)['LULUCF'].sum()
 
 ref_case_biofuels = temp_df[(temp_df['Case'] == 'Reference case')]
@@ -2573,8 +2576,8 @@ print("Status: Reducing emissions from natural gas systems")
 
 temp_list = []
 
-years = list(range(2020, 2051))
-start_yr = 2020 
+years = list(range(2022, 2051))
+start_yr = 2022
 end_yr = 2050
 min_val = 0 
 target_methane_leak_reduction_NGsystems = 0.30
@@ -2615,8 +2618,8 @@ print("Status: Reduce methane emissions from abandoned wells")
 
 temp_list = []
 
-years = list(range(2020, 2051))
-start_yr = 2020 
+years = list(range(2022, 2051))
+start_yr = 2022 
 end_yr = 2050
 min_val = 0 
 target_methane_leak_reduction_abandoned_wells = 1

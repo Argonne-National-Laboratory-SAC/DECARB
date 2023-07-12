@@ -29,7 +29,7 @@ init_time = datetime.now()
 
 print("Status: Writing data files to Dashboard ..")
 
-code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
+code_path_prefix = 'C:\\Users\\spatange\\Documents\\Repos\\DECARB' # psth to the Github local repository
 
 interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
 output_path_prefix = code_path_prefix + '\\Data\\3_output_files'

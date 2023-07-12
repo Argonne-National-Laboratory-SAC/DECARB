@@ -28,6 +28,9 @@ import getpass
 from datetime import datetime
 import os
 
+#SP changes
+import re
+
 #%%
 # Set the EIA API Key (used to pull EIA data). EIA API Keys can be obtained via https://www.eia.gov/opendata/
 # Create a Dictionary which maps EIA AEO cases to their API ID. AEO Cases represent different projections of the 
@@ -37,6 +40,15 @@ import os
 
 class EIA_AEO:
     
+    #creates a TandD attibute
+    #
+    #SP Changes
+    #
+    TandD = pd.DataFrame()
+    Eth_frac_E85 = pd.DataFrame()
+    Eth_frac_Egas = pd.DataFrame()
+    counter = 0
+
     # class initialization function
     def __init__(self, input_path_EIA, input_path_corr):
         
@@ -68,14 +80,19 @@ class EIA_AEO:
         # Initialize a dictionary to save EIA AEO data sets
         self.EIA_data = {'energy_demand' : '',
                          'energy_supply' : '',
-                         #'energy_price' : '',
-                         #'emissions_end_use' : '',
-                         #'emissions_energy_type' : '',
+                         'energy_price' : '',
+                         'emissions_end_use' : '',
+                         'emissions_energy_type' : '',
                          'supplemental' : '',
                          'chemical_industry_supp' : ''
                          }
         
         # Create a dictionary of AEO cases, and their corresponding API Ids
+        
+        #Change to 2020 SP Changes
+        
+        
+        
         self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.'
                          #'High economic growth':'AEO.2021.HIGHMACRO.',
                          #'Low economic growth':'AEO.2021.LOWMACRO.',
@@ -134,30 +151,115 @@ class EIA_AEO:
         # Based on the user-selected sector, loop through each data series, pulling EIA data based on the series ID / API Key
         # For each series store relevant metadata and results across the 2020 to 2050 timeframe. Append the results to the
         # temporary list. After looping through all series, concatenate results into one large dataframe. This dataframe
-        # contains sector-wide energy consumption        
+        # contains sector-wide energy consumption
+        def series_id_correction (text):
+            return re.sub(r"_na(?![a-zA-Z])", "_NA", text[:-2].lower())
+        def get_number_after_table(string):
+            pattern = r"Table (\d+)"     
+            match = re.search(pattern, string)     
+            if match:         
+                number = match.group(1)         
+                return int(number)
+
+            
+        
+
+                   
         for idx, row in df_aeo_key.iterrows():
             
-            series_id = self.aeo_case_dict[aeo_case] + row['Series Id']
-            url = 'https://api.eia.gov/series/?api_key=' + self.api_key +'&series_id=' + series_id
+            #series_id = self.aeo_case_dict[aeo_case] + row['Series Id']
+                        
+            # New changes : changes series id by making it lowercase except for the "_NA_" and "_NA." and removing the ".A" suffix at the end
+            series_id = series_id_correction(row['Series Id'])
+            self.counter+=1
+
+            # New changes : uses new url format of v2 by specifying facets and year of data 
+            yearOfData = "2023"
+            url = "https://api.eia.gov/v2/aeo/"+ yearOfData +"/data/?frequency=annual&data[0]=value&facets[scenario][]=ref"+ yearOfData +"&facets[seriesId][]=" + series_id + "&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000&api_key=" + self.api_key
             r = requests.get(url)
             json_data = r.json()
             
-            print('Currently fetching: ' + url)
+            #print(self.counter)
             
-            try:
-                df_temp = pd.DataFrame(json_data.get('series')[0].get('data'),
-                                   columns = ['Year', 'Value'])
-            except (Exception) as e:              
+            
+            ### New Changes : this while loop ensures that the OVER_RATE_LIMIT error is addressed by 
+            #                 trying to fetch the url until the url works
+            cnt = 0
+            while 'error' in json_data:                 
+                r_processor = requests.get(url)
+                json_data_processor = r_processor.json()
+                json_data = json_data_processor
+                cnt+=1
+                if cnt > 1000:
+                    break
+                
+            if json_data['response']['total'] == 0 :
+                yearOfData = "2022"
+                url = "https://api.eia.gov/v2/aeo/"+ yearOfData +"/data/?frequency=annual&data[0]=value&facets[scenario][]=ref"+ yearOfData +"&facets[seriesId][]=" + series_id + "&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000&api_key=" + self.api_key
+                r = requests.get(url)
+                json_data = r.json()
+                cnt = 0
+                while 'error' in json_data:                 
+                    r_processor = requests.get(url)
+                    json_data_processor = r_processor.json()
+                    json_data = json_data_processor
+                    cnt+=1
+                    if cnt > 1000:
+                        break
+                if json_data['response']['total'] == 0 :
+                    yearOfData = "2021"
+                    url = "https://api.eia.gov/v2/aeo/"+ yearOfData +"/data/?frequency=annual&data[0]=value&facets[scenario][]=ref"+ yearOfData +"&facets[seriesId][]=" + series_id + "&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000&api_key=" + self.api_key
+                    r = requests.get(url)
+                    json_data = r.json()
+                    cnt = 0
+                    while 'error' in json_data:                 
+                        r_processor = requests.get(url)
+                        json_data_processor = r_processor.json()
+                        json_data = json_data_processor
+                        cnt+=1
+                        if cnt > 1000:
+                            break
+                
+            
+            print(str(self.counter)+' Currently fetching: url ' + url)
+            try:      
+                
+                df_temp = pd.DataFrame(json_data.get('response').get('data'),columns = ['period', 'value','tableName'])
+                df_temp['tableName'] = df_temp['tableName'].apply(get_number_after_table)
+                df_temp.drop(df_temp[(df_temp['tableName'] != get_number_after_table(row['Table']))].index, inplace=True)
+                df_temp.drop(columns ='tableName', inplace = True)
+                
+                ### New Changes:The new data has columns "period" and "value", 
+                #                while the old version had column names "Year" and "Value"
+                df_temp.rename(columns = {'value':'Value'}, inplace = True)
+                df_temp.rename(columns = {'period':'Year'}, inplace = True)
+
+            # Note there is no need for try and catch because the program runs well without it but kept for potential future changes 
+            except (Exception) as e:
                 if verbose:
                     print("Warning: Could not fetch data from: " + url)
                 template = "An exception of type {0} occurred. Arguments:\n{1!r}"
                 message2 = template.format(type(e).__name__, e.args)
                 if verbose:
                     print (message2)                    
-                self.url_errors.append(url)                
+                self.url_errors.append(url)  
                 continue
                       
-            if tab in ['energy_demand', 'energy_supply']:                
+            if tab == 'energy_demand':                
+                df_temp['Sector'] = row['Sector']
+                df_temp['Subsector'] = row['Subsector']
+                df_temp['End Use'] = row['End Use']
+                df_temp['Energy carrier'] = row['Energy carrier']
+                df_temp['Energy carrier type'] = row['Energy carrier type']
+                df_temp['Classification'] = row['Classification']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+            
+            elif tab == 'energy_supply':
                 df_temp['Sector'] = row['Sector']
                 df_temp['Subsector'] = row['Subsector']
                 df_temp['End Use'] = row['End Use']
@@ -203,7 +305,19 @@ class EIA_AEO:
                 df_temp['Series Id'] = series_id
                 df_temp['Table'] = row['Table']
             
-            elif tab in ['supplemental', 'chemical_industry_supp'] :
+            elif tab == 'supplemental':
+                df_temp['Sector'] = row['Sector']
+                df_temp['Subsector'] = row['Subsector']
+                df_temp['Parameter'] = row['Parameter']
+                df_temp['Parameter Levels'] = row['Parameter Levels']
+                df_temp['Unit'] = row['Unit']
+                df_temp['Basis'] = row['Basis']
+                df_temp['Data Source'] = row['Data Source']
+                df_temp['AEO Case'] = aeo_case
+                df_temp['Series Id'] = series_id
+                df_temp['Table'] = row['Table']
+                
+            elif tab == 'chemical_industry_supp' :
                 df_temp['Sector'] = row['Sector']
                 df_temp['Subsector'] = row['Subsector']
                 df_temp['Parameter'] = row['Parameter']
@@ -221,7 +335,8 @@ class EIA_AEO:
             self.EIA_data[tab] = pd.concat ((self.EIA_data[tab], pd.concat(temp_list, axis=0).reset_index(drop=True).copy()), axis=0 )
         else:
             self.EIA_data[tab] = pd.concat(temp_list, axis=0).reset_index(drop=True).copy()       
-       
+        
+        
     # Function to store results across multiple combinations of AEO-cases and sectors    
     def eia_multi_sector_import_web (self, aeo_cases, verbose):                     
         #Loop through every combination of AEO Case and Sector 
@@ -279,6 +394,8 @@ class EIA_AEO:
         self.EIA_data['chemical_industry_supp'].drop(columns=['Value_y'], inplace=True)
         self.EIA_data['chemical_industry_supp'].rename(columns={'Value_x' : 'Value'}, inplace=True)
        
+    ##### 
+    #### Try to change Units SP
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
         # ['energy_demand', 'energy_supply', 'energy_price', 'emissions_end_use', 'emissions_energy_type', 'supplemental']
@@ -326,7 +443,8 @@ class EIA_AEO:
         
         self.TandD['loss_frac'] = \
             1 - ( (self.TandD['net_sales'] - self.TandD['net_import']) / self.TandD['net_generated'] ) 
-           
+
+    
     # Function to calculate ethanol fraction by source
     def calc_ethanol_by_source (self):
         
@@ -508,6 +626,7 @@ class EIA_AEO:
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [['Data Source', 'AEO Case', 'Sector', 'Subsector', 
                                                                           'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
                                                                           'Year', 'Unit', 'Value']]
+        #added series Id #####, 'EIA Series ID'
         
         # merge EERE 'energy carrier' conventions to EIA tool
         
@@ -524,6 +643,7 @@ class EIA_AEO:
         self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'] [['Data Source', 'AEO Case', 'Sector', 'Subsector', 
                                                                           'End Use Application', 'Energy carrier', 'Energy carrier type', 'Basis', 
                                                                           'Year', 'Unit', 'Value']]
+        ######, 'EIA Series ID'
         
         # Map EERE study case with EIA AEO case
         self.EIA_data['energy_demand']['Case'] =  self.EIA_data['energy_demand']['AEO Case'].map(self.EIA_EERE_case).copy()
@@ -536,7 +656,9 @@ class EIA_AEO:
         # Merge fuel pool
         self.EIA_data['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], self.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)
         self.EIA_data['energy_supply'] = pd.merge(self.EIA_data['energy_supply'], self.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)
-    
+        
+        #rename column
+        #######self.EIA_data['energy_demand'].rename(columns = {'EIA Series ID' : 'Series Id'}, inplace = True)
     # Save data to file, one data table per data set
     def save_EIA_data_to_file (self, raw_file_save=False):
         
@@ -566,24 +688,28 @@ class EIA_AEO:
         else:
             self.eia_multi_sector_import_disk(self.aeo_case_dict.keys())   
         
-        self.transform_EERE_tool(ob_units)
+        try:
+            self.transform_EERE_tool(ob_units)
         
-        self.standardize_units(ob_units)        
+            self.standardize_units(ob_units)        
         
-        self.calc_TandD_loss(self.aeo_case_dict.keys(), verbose) 
+            self.calc_TandD_loss(self.aeo_case_dict.keys(), verbose) 
         
-        self.classify_E85(ob_units, self.aeo_case_dict.keys(), verbose)
+            self.classify_E85(ob_units, self.aeo_case_dict.keys(), verbose)
         
-        self.classify_Egasoline(ob_units, self.aeo_case_dict.keys(), verbose)
+            self.classify_Egasoline(ob_units, self.aeo_case_dict.keys(), verbose)
         
-        self.classify_BioDieselDistlBlend(ob_units, self.aeo_case_dict.keys(), verbose)     
+            self.classify_BioDieselDistlBlend(ob_units, self.aeo_case_dict.keys(), verbose)     
         
-        self.calc_EIA_fuel_demand_by_source()
+            self.calc_EIA_fuel_demand_by_source()
         
-        self.map_corr_tables()
+            self.map_corr_tables()
         
-        self.conv_HHV_to_LHV (self.aeo_case_dict.keys(), ob_units, verbose)
+            self.conv_HHV_to_LHV (self.aeo_case_dict.keys(), ob_units, verbose)
         
+        except:             
+            print("An exception occurred")                
+         
         if save_to_file:
             self.save_EIA_data_to_file(raw_file_save=False)
             self.save_TandD_data_to_file()
@@ -596,7 +722,8 @@ if __name__ == "__main__":
     
     # Please change the path to data folder per your computer
     
-    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    # SP changed the path to data folder for his computer 
+    code_path_prefix = 'C:\\Users\\spatange\\Documents\\Repos\\DECARB'
     
     input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     
@@ -622,26 +749,27 @@ if __name__ == "__main__":
         eia_multi_sector_df = ob.eia_multi_sector_import_web(ob.aeo_case_dict.keys(), verbose )
         ob.save_EIA_data_to_file(raw_file_save=True)
     else:
-        ob.eia_multi_sector_import_disk(ob.aeo_case_dict.keys())   
-    
+        ob.eia_multi_sector_import_disk(ob.aeo_case_dict.keys())  
+        
     ob.transform_EERE_tool(ob_units)
-    
+        
     ob.standardize_units(ob_units)
-    
+        
     ob.calc_TandD_loss(ob.aeo_case_dict.keys(), verbose)
-    
-    ob.classify_E85(ob.aeo_case_dict.keys(), verbose)
-    
+        
+    ob.classify_E85(ob_units, ob.aeo_case_dict.keys(), verbose)
+        
     ob.classify_Egasoline(ob_units, ob.aeo_case_dict.keys(), verbose)
-    
-    ob.classify_BioDieselDistlBlend(ob.aeo_case_dict.keys(), verbose)
-    
+        
+    ob.classify_BioDieselDistlBlend(ob_units,ob.aeo_case_dict.keys(), verbose)
+        
     ob.calc_EIA_fuel_demand_by_source()
-    
+        
     ob.map_corr_tables()
-    
+        
     ob.conv_HHV_to_LHV (ob.aeo_case_dict.keys(), ob_units, verbose)
-    
+        
+        
     if save_to_file:
         ob.save_EIA_data_to_file(raw_file_save=False)
         ob.save_TandD_data_to_file()
