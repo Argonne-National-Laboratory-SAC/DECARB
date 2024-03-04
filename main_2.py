@@ -14,7 +14,7 @@ Created on Mon Jan 10 20:08:36 2022
 
 # Update the _prefix paths based on your local Box folder location
 
-code_path_prefix = 'C:\\Users\\spatange\\Documents\\Repos\\DECARB' # psth to the Github local repository
+code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb_anl' # psth to the Github local repository
 input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
 interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
 output_path_prefix = code_path_prefix + '\\Data\\3_output_files'

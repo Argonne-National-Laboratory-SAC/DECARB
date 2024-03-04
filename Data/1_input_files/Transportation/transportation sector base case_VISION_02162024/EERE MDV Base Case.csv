@@ -1,0 +1,621 @@
+Sector,EIA Subsector,VISION Category,End-Use Application,Energy Carrier,Energy Carrier Type,Year,Value (quad),Value (mmBTU),Value (Trillion BTU)
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2020,0.262123168,262123167.6,262.1231676
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2020,0.012362713,12362712.77,12.36271277
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2020,0.041022908,41022908.45,41.02290845
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2020,0.00227437,2274369.96,2.27436996
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2020,0.001314047,1314046.815,1.314046815
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2020,0.421127891,421127890.9,421.1278909
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2020,0.110984545,110984545.2,110.9845452
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2020,0.033894009,33894008.92,33.89400892
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2020,4.54123E-05,45412.34928,0.045412349
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2020,4.45753E-05,44575.30405,0.044575304
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2020,0.194784355,194784355,194.784355
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2020,0.009186762,9186761.529,9.186761529
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2020,0.028221276,28221276.29,28.22127629
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2020,0.001564629,1564628.776,1.564628776
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2020,0.000997747,997747.3622,0.997747362
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2020,0.296454106,296454105.8,296.4541058
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2020,0.078127868,78127867.6,78.1278676
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2020,0.023859778,23859778.28,23.85977828
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2020,3.11943E-05,31194.30415,0.031194304
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2020,3.06651E-05,30665.10929,0.030665109
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2021,0.26226891,262268909.6,262.2689096
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2021,0.013128102,13128102,13.128102
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2021,0.043558403,43558402.83,43.55840283
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2021,0.002545002,2545002.191,2.545002191
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2021,0.001469868,1469867.987,1.469867987
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2021,0.398085571,398085570.5,398.0855705
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2021,0.129647493,129647493,129.647493
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2021,0.05179769,51797690.3,51.7976903
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2021,8.77273E-05,87727.27938,0.087727279
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2021,9.1187E-05,91186.98238,0.091186982
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2021,0.193655208,193655207.7,193.6552077
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2021,0.009693583,9693582.522,9.693582522
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2021,0.029960532,29960531.93,29.96053193
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2021,0.001750515,1750514.584,1.750514584
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2021,0.001114026,1114026.046,1.114026046
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2021,0.279647759,279647758.7,279.6477587
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2021,0.091074969,91074968.58,91.07496858
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2021,0.03638692,36386920.48,36.38692048
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2021,6.02582E-05,60258.20897,0.060258209
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2021,6.26758E-05,62675.78975,0.06267579
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2022,0.263071573,263071573,263.071573
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2022,0.013018497,13018496.69,13.01849669
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2022,0.046181515,46181514.76,46.18151476
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2022,0.002641226,2641225.637,2.641225637
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2022,0.001645204,1645204.312,1.645204312
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2022,0.394574411,394574411.4,394.5744114
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2022,0.124060448,124060447.9,124.0604479
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2022,0.075011634,75011634.23,75.01163423
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2022,0.000133513,133513.3465,0.133513346
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2022,0.000145418,145417.6373,0.145417637
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2022,0.194050345,194050345.3,194.0503453
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2022,0.009602876,9602876.32,9.60287632
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2022,0.032115704,32115704.48,32.11570448
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2022,0.00183677,1836770.024,1.836770024
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2022,0.001247803,1247803.283,1.247803283
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2022,0.279662695,279662695.5,279.6626955
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2022,0.087930383,87930383.34,87.93038334
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2022,0.053166032,53166032.1,53.1660321
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2022,9.54134E-05,95413.36552,0.095413366
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2022,0.000104264,104263.9057,0.104263906
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2023,0.257575887,257575887,257.575887
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2023,0.012771903,12771903.31,12.77190331
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2023,0.047382193,47382193.18,47.38219318
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2023,0.002725094,2725094.052,2.725094052
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2023,0.00177633,1776330.228,1.776330228
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2023,0.382589554,382589553.9,382.5895539
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2023,0.125227564,125227564.5,125.2275645
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2023,0.084904658,84904657.54,84.90465754
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2023,0.000176176,176175.5206,0.176175521
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2023,0.000198277,198276.6633,0.198276663
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2023,0.190410241,190410240.8,190.4102408
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2023,0.009441494,9441493.973,9.441493973
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2023,0.033429368,33429368.09,33.42936809
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2023,0.001922625,1922624.641,1.922624641
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2023,0.001350203,1350202.974,1.350202974
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2023,0.274686434,274686433.7,274.6864337
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2023,0.08990918,89909180.02,89.90918002
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2023,0.060958689,60958688.87,60.95868887
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2023,0.000130027,130027.1269,0.130027127
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2023,0.000147004,147003.9188,0.147003919
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2024,0.253254587,253254587.1,253.2545871
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2024,0.012582632,12582632.33,12.58263233
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2024,0.048715409,48715409.49,48.71540949
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2024,0.002802287,2802286.625,2.802286625
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2024,0.001898342,1898342.009,1.898342009
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2024,0.381177727,381177727.4,381.1777274
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2024,0.123943554,123943554.1,123.9435541
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2024,0.088030548,88030548.25,88.03054825
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2024,0.00021858,218579.5248,0.218579525
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2024,0.000251242,251242.4623,0.251242462
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2024,0.187462282,187462282.4,187.4622824
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2024,0.009313825,9313825.274,9.313825274
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2024,0.034771805,34771804.6,34.7718046
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2024,0.0020002,2000200.018,2.000200018
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2024,0.001445408,1445408.353,1.445408353
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2024,0.276446554,276446554.1,276.4465541
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2024,0.08988922,89889219.61,89.88921961
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2024,0.063843556,63843556.35,63.84355635
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2024,0.000163875,163875.1169,0.163875117
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2024,0.000189157,189156.6014,0.189156601
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2025,0.250159966,250159966,250.159966
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2025,0.012529425,12529424.57,12.52942457
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2025,0.050093033,50093033.38,50.09303338
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2025,0.002895213,2895212.899,2.895212899
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2025,0.002015347,2015347.067,2.015347067
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2025,0.383628087,383628086.7,383.6280867
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2025,0.122766475,122766474.5,122.7664745
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2025,0.089145849,89145848.92,89.14584892
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2025,0.000261163,261162.6431,0.261162643
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2025,0.000305142,305142.3772,0.305142377
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2025,0.185388212,185388211.8,185.3882118
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2025,0.009285289,9285289.141,9.285289141
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2025,0.036085264,36085263.97,36.08526397
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2025,0.00208561,2085609.808,2.085609808
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2025,0.001535447,1535447.039,1.535447039
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2025,0.280370057,280370057.2,280.3700572
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2025,0.089722428,89722428.26,89.72242826
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2025,0.065151191,65151191.02,65.15119102
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2025,0.000197318,197317.9284,0.197317928
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2025,0.000231379,231378.8871,0.231378887
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2026,0.246237942,246237941.9,246.2379419
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2026,0.012430704,12430704.33,12.43070433
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2026,0.051333132,51333131.96,51.33313196
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2026,0.002981244,2981243.727,2.981243727
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2026,0.002110588,2110588.294,2.110588294
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2026,0.381217964,381217963.9,381.2179639
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2026,0.121565269,121565269,121.565269
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2026,0.091084779,91084779.1,91.0847791
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2026,0.000300676,300676.178,0.300676178
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2026,0.000356767,356766.9134,0.356766913
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2026,0.18270603,182706029.6,182.7060296
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2026,0.009223455,9223455.23,9.22345523
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2026,0.037303619,37303618.56,37.30361856
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2026,0.00216646,2166460.035,2.166460035
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2026,0.001607906,1607906.002,1.607906002
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2026,0.280622741,280622740.6,280.6227406
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2026,0.089486809,89486808.58,89.48680858
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2026,0.067049465,67049464.51,67.04946451
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2026,0.000228651,228651.4291,0.228651429
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2026,0.000272181,272180.5025,0.272180503
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2027,0.243050435,243050435.4,243.0504354
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2027,0.012365557,12365556.62,12.36555662
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2027,0.052663542,52663541.83,52.66354183
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2027,0.003071737,3071736.657,3.071736657
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2027,0.002197636,2197635.502,2.197635502
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2027,0.378698585,378698584.7,378.6985847
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2027,0.120618104,120618103.6,120.6181036
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2027,0.093090826,93090826.33,93.09082633
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2027,0.000338531,338530.9679,0.338530968
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2027,0.000407374,407374.1438,0.407374144
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2027,0.180374173,180374172.5,180.3741725
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2027,0.009176807,9176807.437,9.176807437
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2027,0.038527776,38527776.16,38.52777616
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2027,0.002247232,2247231.732,2.247231732
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2027,0.001671565,1671565.042,1.671565042
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2027,0.280213022,280213022,280.213022
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2027,0.089249775,89249774.57,89.24977457
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2027,0.068881329,68881328.91,68.88132891
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2027,0.00025824,258240.4072,0.258240407
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2027,0.000311624,311624.2721,0.311624272
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2028,0.240986463,240986463.3,240.9864633
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2028,0.012354658,12354657.92,12.35465792
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2028,0.054350436,54350436.3,54.3504363
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2028,0.003179839,3179839.418,3.179839418
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2028,0.002286372,2286371.802,2.286371802
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2028,0.37805862,378058619.5,378.0586195
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2028,0.119763102,119763101.7,119.7631017
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2028,0.095365005,95365005.05,95.36500505
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2028,0.000376836,376836.444,0.376836444
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2028,0.0004584,458399.6168,0.458399617
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2028,0.178550507,178550506.5,178.5505065
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2028,0.009153752,9153752.451,9.153752451
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2028,0.039917379,39917379.42,39.91737942
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2028,0.002335416,2335415.596,2.335415596
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2028,0.001730212,1730211.664,1.730211664
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2028,0.280440517,280440516.5,280.4405165
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2028,0.088839202,88839202.08,88.83920208
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2028,0.070740911,70740911.31,70.74091131
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2028,0.000287238,287238.4049,0.287238405
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2028,0.000350198,350197.8245,0.350197825
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2029,0.240213573,240213573.4,240.2135734
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2029,0.012409614,12409614.14,12.40961414
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2029,0.056298812,56298811.56,56.29881156
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2029,0.003305367,3305366.564,3.305366564
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2029,0.002363052,2363051.898,2.363051898
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2029,0.378214153,378214153.1,378.2141531
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2029,0.119112246,119112246,119.112246
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2029,0.098022547,98022547.35,98.02254735
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2029,0.000415658,415658.2532,0.415658253
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2029,0.000510459,510458.5638,0.510458564
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2029,0.177494754,177494753.7,177.4947537
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2029,0.009169513,9169512.673,9.169512673
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2029,0.041419732,41419731.86,41.41973186
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2029,0.002431799,2431799.056,2.431799056
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2029,0.001769464,1769463.554,1.769463554
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2029,0.280604052,280604051.8,280.6040518
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2029,0.088371571,88371570.91,88.37157091
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2029,0.072724735,72724734.72,72.72473472
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2029,0.000315816,315815.9722,0.315815972
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2029,0.000388516,388516.1125,0.388516112
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2030,0.240494846,240494845.9,240.4948459
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2030,0.012518599,12518599.05,12.51859905
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2030,0.058263703,58263703.04,58.26370304
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2030,0.003430897,3430896.872,3.430896872
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2030,0.002439443,2439442.818,2.439442818
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2030,0.380522669,380522669.1,380.5226691
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2030,0.119061735,119061734.5,119.0617345
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2030,0.099908455,99908454.58,99.90845458
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2030,0.00045545,455449.8785,0.455449879
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2030,0.000564445,564445.014,0.564445014
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2030,0.177096163,177096163.1,177.0961631
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2030,0.009218476,9218475.558,9.218475558
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2030,0.042919606,42919605.8,42.9196058
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2030,0.00252735,2527349.509,2.527349509
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2030,0.001806875,1806874.791,1.806874791
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2030,0.282174816,282174816.5,282.1748165
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2030,0.088289676,88289675.79,88.28967579
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2030,0.07408665,74086650.08,74.08665008
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2030,0.000344912,344912.0875,0.344912088
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2030,0.000427998,427997.5788,0.427997579
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2031,0.240916818,240916818.3,240.9168183
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2031,0.012633477,12633477.08,12.63347708
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2031,0.060363825,60363824.87,60.36382487
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2031,0.003568174,3568173.824,3.568173824
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2031,0.002517553,2517552.785,2.517552785
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2031,0.386558837,386558836.9,386.5588369
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2031,0.118241426,118241426.4,118.2414264
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2031,0.099017037,99017036.63,99.01703663
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2031,0.000495459,495459.1499,0.49545915
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2031,0.000620007,620007.0707,0.620007071
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2031,0.176994119,176994119.1,176.9941191
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2031,0.009281424,9281424.037,9.281424037
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2031,0.04454939,44549390.01,44.54939001
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2031,0.002633365,2633364.729,2.633364729
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2031,0.00184983,1849829.679,1.849829679
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2031,0.286722595,286722595.4,286.7225954
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2031,0.087703308,87703307.82,87.70330782
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2031,0.073443986,73443985.81,73.44398581
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2031,0.000374634,374634.0173,0.374634017
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2031,0.000469267,469267.2706,0.469267271
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2032,0.241860439,241860439.5,241.8604395
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2032,0.012778429,12778429.38,12.77842938
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2032,0.062572136,62572136.14,62.57213614
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2032,0.003711788,3711788.061,3.711788061
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2032,0.002592558,2592558.067,2.592558067
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2032,0.391305613,391305613.2,391.3056132
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2032,0.117457293,117457293.3,117.4572933
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2032,0.097411502,97411502.16,97.41150216
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2032,0.000534747,534747.3864,0.534747386
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2032,0.000675736,675736.0366,0.675736037
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2032,0.177806362,177806362.1,177.8063621
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2032,0.009394203,9394202.898,9.394202898
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2032,0.046302507,46302507.08,46.30250708
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2032,0.002746671,2746671.339,2.746671339
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2032,0.001894251,1894250.526,1.894250526
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2032,0.29029109,290291090.1,290.2910901
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2032,0.087136,87135999.5,87.1359995
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2032,0.072264977,72264977.02,72.26497702
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2032,0.000404469,404468.8604,0.40446886
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2032,0.000511543,511542.5806,0.511542581
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2033,0.242051775,242051775,242.051775
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2033,0.012883346,12883346.05,12.88334605
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2033,0.065148497,65148497.03,65.14849703
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2033,0.003879659,3879659.36,3.87965936
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2033,0.002681396,2681396.372,2.681396372
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2033,0.396748322,396748321.5,396.7483215
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2033,0.116654821,116654820.7,116.6548207
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2033,0.095271316,95271316.37,95.27131637
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2033,0.000574889,574889.3611,0.574889361
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2033,0.000732698,732698.0509,0.732698051
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2033,0.177613229,177613229.5,177.6132295
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2033,0.009453567,9453567.109,9.453567109
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2033,0.04834463,48344630.01,48.34463001
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2033,0.002878972,2878971.962,2.878971962
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2033,0.001958554,1958554.262,1.958554262
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2033,0.294511049,294511048.9,294.5110489
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2033,0.086594276,86594275.86,86.59427586
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2033,0.070721044,70721043.52,70.72104352
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2033,0.000435157,435156.8334,0.435156833
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2033,0.000555027,555027.2964,0.555027296
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2034,0.243181476,243181475.5,243.1814755
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2034,0.013038633,13038633.02,13.03863302
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2034,0.067901371,67901370.7,67.9013707
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2034,0.004059119,4059118.595,4.059118595
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2034,0.002774627,2774627.051,2.774627051
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2034,0.403760203,403760202.9,403.7602029
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2034,0.116048267,116048266.5,116.0482665
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2034,0.092565831,92565831.2,92.5658312
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2034,0.000616349,616349.0709,0.616349071
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2034,0.000791861,791860.8533,0.791860853
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2034,0.179131076,179131076.1,179.1310761
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2034,0.00960445,9604450.171,9.604450171
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2034,0.050558887,50558886.85,50.55888685
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2034,0.003022391,3022391.384,3.022391384
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2034,0.002034092,2034091.832,2.034091832
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2034,0.300721086,300721086.3,300.7210863
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2034,0.086432889,86432888.92,86.43288892
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2034,0.068943143,68943142.75,68.94314275
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2034,0.000467295,467295.294,0.467295294
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2034,0.0006008,600800.0336,0.600800034
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2035,0.244349498,244349498.2,244.3494982
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2035,0.013196747,13196746.98,13.19674698
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2035,0.070746632,70746632.03,70.74663203
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2035,0.00424743,4247429.998,4.247429998
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2035,0.002862323,2862323.154,2.862323154
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2035,0.410800712,410800712.4,410.8007124
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2035,0.115554823,115554823,115.554823
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2035,0.0897215,89721500.27,89.72150027
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2035,0.00065876,658760.1814,0.658760181
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2035,0.000852917,852917.1963,0.852917196
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2035,0.180778692,180778692.3,180.7786923
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2035,0.009763436,9763435.9,9.7634359
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2035,0.052889683,52889682.98,52.88968298
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2035,0.003175349,3175348.701,3.175348701
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2035,0.00210688,2106880.197,2.106880197
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2035,0.30720456,307204559.7,307.2045597
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2035,0.086414087,86414087.01,86.41408701
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2035,0.067095439,67095438.63,67.09543863
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2035,0.000500774,500774.435,0.500774435
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2035,0.000648866,648866.0516,0.648866052
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2036,0.245823315,245823315.4,245.8233154
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2036,0.013352464,13352464.19,13.35246419
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2036,0.07343801,73438010.27,73.43801027
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2036,0.004422918,4422917.744,4.422917744
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2036,0.002944571,2944571.331,2.944571331
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2036,0.416065325,416065324.7,416.0653247
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2036,0.114334886,114334886,114.334886
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2036,0.088018178,88018178.36,88.01817836
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2036,0.000701072,701071.5276,0.701071528
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2036,0.000914383,914383.3689,0.914383369
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2036,0.182665009,182665009,182.665009
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2036,0.009921874,9921874.127,9.921874127
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2036,0.0551431,55143099.65,55.14309965
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2036,0.003321078,3321078.458,3.321078458
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2036,0.002176824,2176824.12,2.17682412
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2036,0.312543357,312543356.9,312.5433569
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2036,0.085887016,85887015.69,85.88701569
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2036,0.066118216,66118215.82,66.11821582
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2036,0.000534647,534646.5396,0.53464654
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2036,0.000697901,697901.3711,0.697901371
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2037,0.24784272,247842720,247.84272
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2037,0.013538777,13538777.13,13.53877713
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2037,0.076506387,76506387.04,76.50638704
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2037,0.004621321,4621321.026,4.621321026
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2037,0.003032883,3032883.022,3.032883022
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2037,0.421835777,421835776.8,421.8357768
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2037,0.111883178,111883177.8,111.8831778
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2037,0.087720687,87720687.07,87.72068707
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2037,0.000745273,745272.6895,0.745272689
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2037,0.000978359,978359.4096,0.97835941
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2037,0.185011568,185011568.2,185.0115682
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2037,0.010106532,10106532.03,10.10653203
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2037,0.05770541,57705409.73,57.70540973
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2037,0.00348566,3485659.611,3.485659611
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2037,0.002252305,2252305.256,2.252305256
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2037,0.318327657,318327657,318.327657
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2037,0.084429799,84429798.98,84.42979898
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2037,0.066196189,66196188.94,66.19618894
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2037,0.000570284,570283.8966,0.570283897
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2037,0.000749313,749313.383,0.749313383
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2038,0.250429848,250429848.4,250.4298484
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2038,0.013757667,13757667.05,13.75766705
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2038,0.07989652,79896520.48,79.89652048
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2038,0.00483951,4839510.348,4.839510348
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2038,0.003140166,3140166.071,3.140166071
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2038,0.428929387,428929386.6,428.9293866
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2038,0.110303995,110303995.2,110.3039952
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2038,0.086505356,86505355.98,86.50535598
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2038,0.000792571,792571.0378,0.792571038
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2038,0.001047156,1047156.427,1.047156427
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2038,0.188001326,188001326,188.001326
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2038,0.010328081,10328080.56,10.32808056
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2038,0.060606423,60606423.47,60.60642347
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2038,0.003671066,3671066.172,3.671066172
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2038,0.002344254,2344253.81,2.34425381
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2038,0.3255392,325539199.7,325.5391997
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2038,0.083716051,83716050.81,83.71605081
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2038,0.065653894,65653893.71,65.65389371
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2038,0.000609399,609399.4718,0.609399472
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2038,0.000805984,805984.0976,0.805984098
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2039,0.252670754,252670753.5,252.6707535
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2039,0.013958711,13958710.55,13.95871055
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2039,0.083318136,83318135.74,83.31813574
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2039,0.005063672,5063672.047,5.063672047
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2039,0.00325226,3252259.944,3.252259944
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2039,0.436160197,436160197,436.160197
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2039,0.109922624,109922623.8,109.9226238
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2039,0.083753044,83753043.7,83.7530437
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2039,0.00083884,838839.9344,0.838839934
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2039,0.001116774,1116773.53,1.11677353
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2039,0.191187899,191187898.8,191.1878988
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2039,0.010562111,10562110.98,10.56211098
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2039,0.063726737,63726736.77,63.72673677
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2039,0.003873002,3873001.871,3.873001871
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2039,0.002446314,2446313.884,2.446313884
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2039,0.333706338,333706338.2,333.7063382
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2039,0.084101843,84101842.72,84.10184272
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2039,0.064079487,64079486.67,64.07948667
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2039,0.000650126,650126.4025,0.650126403
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2039,0.000866672,866672.1406,0.866672141
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2040,0.254353794,254353794.3,254.3537943
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2040,0.014129791,14129790.65,14.12979065
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2040,0.086728292,86728291.98,86.72829198
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2040,0.005286676,5286675.533,5.286675533
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2040,0.003364516,3364516.038,3.364516038
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2040,0.442542582,442542581.8,442.5425818
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2040,0.109486064,109486064.4,109.4860644
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2040,0.080820541,80820540.98,80.82054098
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2040,0.000885273,885272.8284,0.885272828
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2040,0.00118782,1187820.488,1.187820488
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2040,0.194332773,194332773.4,194.3327734
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2040,0.01079552,10795519.73,10.79551973
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2040,0.067009232,67009231.97,67.00923197
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2040,0.004084666,4084665.558,4.084665558
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2040,0.002555259,2555259.129,2.555259129
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2040,0.3419169,341916899.7,341.9168997
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2040,0.084591037,84591036.51,84.59103651
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2040,0.062443502,62443502.48,62.44350248
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2040,0.000692997,692997.2148,0.692997215
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2040,0.000931391,931390.7118,0.931390712
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2041,0.256688786,256688785.9,256.6887859
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2041,0.014327898,14327897.83,14.32789783
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2041,0.090768546,90768545.59,90.76854559
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2041,0.005544885,5544884.705,5.544884705
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2041,0.003490981,3490981.489,3.490981489
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2041,0.44639359,446393590.1,446.3935901
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2041,0.109195438,109195438,109.195438
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2041,0.082033825,82033825.36,82.03382536
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2041,0.000935645,935645.0497,0.93564505
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2041,0.00126464,1264639.744,1.264639744
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2041,0.19811035,198110349.5,198.1103495
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2041,0.011058157,11058156.81,11.05815681
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2041,0.070858978,70858978.08,70.85897808
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2041,0.004328646,4328645.581,4.328645581
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2041,0.002679164,2679164.423,2.679164423
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2041,0.348337109,348337109.4,348.3371094
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2041,0.085209161,85209160.86,85.20916086
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2041,0.064013969,64013969.36,64.01396936
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2041,0.000739801,739800.7606,0.739800761
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2041,0.001001948,1001947.624,1.001947624
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2042,0.259407269,259407269.2,259.4072692
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2042,0.014548635,14548635.16,14.54863516
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2042,0.095039119,95039119.49,95.03911949
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2042,0.005819549,5819549.426,5.819549426
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2042,0.003629546,3629546.328,3.629546328
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2042,0.454177107,454177106.8,454.1771068
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2042,0.108788627,108788627.2,108.7886272
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2042,0.080058183,80058182.93,80.05818293
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2042,0.000989262,989262.4124,0.989262412
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2042,0.001347011,1347011.27,1.34701127
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2042,0.202317623,202317622.8,202.3176228
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2042,0.011346811,11346811.1,11.3468111
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2042,0.075010295,75010295.34,75.01029534
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2042,0.00459312,4593120.427,4.593120427
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2042,0.002817886,2817886.406,2.817886406
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2042,0.358222837,358222837.3,358.2228373
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2042,0.085804789,85804788.75,85.80478875
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2042,0.063144243,63144242.65,63.14424265
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2042,0.000790459,790458.935,0.790458935
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2042,0.001078846,1078846.167,1.078846167
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2043,0.261995326,261995326.2,261.9953262
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2043,0.014763503,14763502.55,14.76350255
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2043,0.099212395,99212395.1,99.2123951
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2043,0.006090443,6090442.927,6.090442927
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2043,0.003733258,3733258.458,3.733258458
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2043,0.463254274,463254273.8,463.2542738
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2043,0.107923928,107923927.9,107.9239279
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2043,0.076692885,76692885.22,76.69288522
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2043,0.001043249,1043249.24,1.04324924
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2043,0.001431828,1431828.481,1.431828481
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2043,0.20681588,206815879.8,206.8158798
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2043,0.011654127,11654126.86,11.65412686
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2043,0.079302971,79302971.41,79.30297141
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2043,0.004868245,4868244.747,4.868244747
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2043,0.002945058,2945058.276,2.945058276
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2043,0.369992848,369992847.8,369.9928478
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2043,0.086196898,86196898.08,86.19689808
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2043,0.061253227,61253226.6,61.2532266
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2043,0.000844011,844010.925,0.844010925
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2043,0.001161628,1161627.783,1.161627783
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2044,0.264673236,264673236.2,264.6732362
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2044,0.014984811,14984811.13,14.98481113
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2044,0.103185088,103185088.2,103.1850882
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2044,0.006351722,6351721.552,6.351721552
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2044,0.003835731,3835730.533,3.835730533
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2044,0.468538149,468538149.3,468.5381493
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2044,0.107574177,107574176.7,107.5741767
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2044,0.076086008,76086008.04,76.08600804
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2044,0.001096595,1096595.15,1.09659515
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2044,0.001516709,1516709.168,1.516709168
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2044,0.211568536,211568536.2,211.5685362
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2044,0.011978221,11978221.15,11.97822115
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2044,0.083599365,83599365.33,83.59936533
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2044,0.005146091,5146091.359,5.146091359
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2044,0.003080841,3080840.647,3.080840647
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2044,0.379193083,379193083.1,379.1930831
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2044,0.087060966,87060965.62,87.06096562
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2044,0.061577244,61577244.05,61.57724405
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2044,0.000898734,898733.8721,0.898733872
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2044,0.00124706,1247060.02,1.24706002
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2045,0.268150384,268150384,268.150384
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2045,0.015250607,15250607.21,15.25060721
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2045,0.107023812,107023812.2,107.0238122
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2045,0.006607152,6607152.289,6.607152289
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2045,0.003966514,3966513.794,3.966513794
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2045,0.474018481,474018481.1,474.0184811
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2045,0.107472088,107472088.4,107.4720884
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2045,0.076462974,76462973.71,76.46297371
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2045,0.001152901,1152900.55,1.15290055
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2045,0.001605098,1605098.268,1.605098268
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2045,0.216793989,216793989.2,216.7939892
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2045,0.012329798,12329797.65,12.32979765
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2045,0.087837083,87837083.25,87.83708325
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2045,0.005422653,5422652.901,5.422652901
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2045,0.003240591,3240590.602,3.240590602
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2045,0.388143527,388143526.8,388.1435268
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2045,0.088002044,88002044.42,88.00204442
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2045,0.062610656,62610656.48,62.61065648
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2045,0.000955511,955510.7767,0.955510777
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2045,0.001334811,1334811.051,1.334811051
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2046,0.271958512,271958511.8,271.9585118
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2046,0.015541479,15541478.96,15.54147896
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2046,0.111494942,111494942,111.494942
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2046,0.006901132,6901131.713,6.901131713
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2046,0.004131197,4131197.288,4.131197288
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2046,0.480709151,480709150.7,480.7091507
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2046,0.107682352,107682352.3,107.6823523
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2046,0.076584082,76584082.14,76.58408214
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2046,0.001213037,1213037.232,1.213037232
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2046,0.001698266,1698265.898,1.698265898
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2046,0.222088764,222088764.3,222.0887643
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2046,0.012691597,12691597.1,12.6915971
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2046,0.092494741,92494740.65,92.49474065
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2046,0.005725088,5725088.302,5.725088302
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2046,0.003418007,3418006.674,3.418006674
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2046,0.397552321,397552320.6,397.5523206
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2046,0.089054616,89054616.47,89.05461647
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2046,0.063335968,63335968.4,63.3359684
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2046,0.001014625,1014625.032,1.014625032
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2046,0.00142527,1425269.902,1.425269902
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2047,0.275831346,275831345.7,275.8313457
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2047,0.015831037,15831037.43,15.83103743
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2047,0.116672703,116672702.7,116.6727027
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2047,0.007238502,7238501.955,7.238501955
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2047,0.004310686,4310686.294,4.310686294
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2047,0.487555547,487555546.8,487.5555468
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2047,0.107885111,107885110.8,107.8851108
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2047,0.077596375,77596375.08,77.59637508
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2047,0.001276638,1276638.07,1.27663807
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2047,0.001795588,1795587.815,1.795587815
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2047,0.22733116,227331159.6,227.3311596
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2047,0.013047422,13047422.47,13.04742247
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2047,0.097647836,97647835.87,97.64783587
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2047,0.006058178,6058178.431,6.058178431
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2047,0.003610687,3610687.284,3.610687284
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2047,0.406706801,406706801.2,406.7068012
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2047,0.089995096,89995096.12,89.99509612
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2047,0.064728981,64728980.53,64.72898053
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2047,0.001076115,1076114.609,1.076114609
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2047,0.001518478,1518477.983,1.518477983
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2048,0.280301417,280301417.2,280.3014172
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2048,0.016161356,16161355.65,16.16135565
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2048,0.121981927,121981926.7,121.9819267
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2048,0.00758806,7588059.866,7.588059866
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2048,0.004508519,4508519.498,4.508519498
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2048,0.495927131,495927131.2,495.9271312
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2048,0.108125097,108125097.3,108.1250973
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2048,0.078206969,78206969.34,78.20696934
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2048,0.001344356,1344355.813,1.344355813
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2048,0.001899379,1899378.786,1.899378786
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2048,0.233082585,233082584.7,233.0825847
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2048,0.013438857,13438856.58,13.43885658
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2048,0.102998187,102998187.2,102.9981872
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2048,0.006407149,6407149.256,6.407149256
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2048,0.003817521,3817520.948,3.817520948
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2048,0.417208576,417208576.2,417.2085762
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2048,0.090962392,90962391.56,90.96239156
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2048,0.065793171,65793170.56,65.79317056
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2048,0.001141892,1141891.803,1.141891803
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2048,0.001618368,1618368.455,1.618368455
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2049,0.285105441,285105441.2,285.1054412
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2049,0.016513265,16513264.62,16.51326462
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2049,0.127347248,127347248.1,127.3472481
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2049,0.007944939,7944938.851,7.944938851
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2049,0.004718003,4718003.386,4.718003386
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2049,0.502439724,502439723.7,502.4397237
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2049,0.111030353,111030353.4,111.0303534
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2049,0.078487132,78487132.1,78.4871321
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2049,0.001415267,1415266.889,1.415266889
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2049,0.002009449,2009448.669,2.009448669
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2049,0.239374752,239374752.1,239.3747521
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2049,0.01386455,13864549.92,13.86454992
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2049,0.108603524,108603524.3,108.6035243
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2049,0.006775556,6775555.597,6.775555597
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2049,0.004040997,4040997.489,4.040997489
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2049,0.426679232,426679231.8,426.6792318
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2049,0.094288615,94288615.48,94.28861548
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2049,0.066652431,66652431.43,66.65243143
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2049,0.00121269,1212690.216,1.212690216
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2049,0.001727127,1727126.63,1.72712663
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Gasoline,2050,0.289931922,289931922.3,289.9319223
+Transportation,Freight Trucks,MDV,Light Medium,Gasoline ICE,Ethanol,2050,0.016868521,16868521.19,16.86852119
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Gasoline,2050,0.132989287,132989287.1,132.9892871
+Transportation,Freight Trucks,MDV,Light Medium,E-85,Ethanol,2050,0.008320934,8320934.155,8.320934155
+Transportation,Freight Trucks,MDV,Light Medium,Natural Gas,Natural Gas,2050,0.004944088,4944087.882,4.944087882
+Transportation,Freight Trucks,MDV,Light Medium,Diesel,Diesel,2050,0.509423587,509423587.4,509.4235874
+Transportation,Freight Trucks,MDV,Light Medium,Bio-Diesel,Bio-Diesel,2050,0.113118859,113118858.9,113.1188589
+Transportation,Freight Trucks,MDV,Light Medium,FT Diesel,FT Diesel,2050,0.079589941,79589941.13,79.58994113
+Transportation,Freight Trucks,MDV,Light Medium,Electricity,Electricity,2050,0.001489834,1489834.176,1.489834176
+Transportation,Freight Trucks,MDV,Light Medium,Hydrogen,Hydrogen,2050,0.00212583,2125830.116,2.125830116
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Gasoline,2050,0.245809389,245809389.2,245.8093892
+Transportation,Freight Trucks,MDV,Medium,Gasoline ICE,Ethanol,2050,0.014301429,14301429.31,14.30142931
+Transportation,Freight Trucks,MDV,Medium,E-85,Gasoline,2050,0.114529017,114529017,114.529017
+Transportation,Freight Trucks,MDV,Medium,E-85,Ethanol,2050,0.007165904,7165903.589,7.165903589
+Transportation,Freight Trucks,MDV,Medium,Natural Gas,Natural Gas,2050,0.004283061,4283061.047,4.283061047
+Transportation,Freight Trucks,MDV,Medium,Diesel,Diesel,2050,0.43678496,436784959.7,436.7849597
+Transportation,Freight Trucks,MDV,Medium,Bio-Diesel,Bio-Diesel,2050,0.096989259,96989258.96,96.98925896
+Transportation,Freight Trucks,MDV,Medium,FT Diesel,FT Diesel,2050,0.068241224,68241224.18,68.24122418
+Transportation,Freight Trucks,MDV,Medium,Electricity,Electricity,2050,0.00128808,1288080.475,1.288080475
+Transportation,Freight Trucks,MDV,Medium,Hydrogen,Hydrogen,2050,0.001843582,1843582.19,1.84358219
