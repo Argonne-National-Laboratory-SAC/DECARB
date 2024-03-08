@@ -27,8 +27,6 @@ import requests
 import getpass
 from datetime import datetime
 import os
-
-#SP changes
 import re
 
 #%%
@@ -40,10 +38,7 @@ import re
 
 class EIA_AEO:
     
-    #creates a TandD attibute
-    #
-    #SP Changes
-    #
+    #creates a TandD attibute    
     TandD = pd.DataFrame()
     Eth_frac_E85 = pd.DataFrame()
     Eth_frac_Egas = pd.DataFrame()
@@ -88,11 +83,6 @@ class EIA_AEO:
                          }
         
         # Create a dictionary of AEO cases, and their corresponding API Ids
-        
-        #Change to 2020 SP Changes
-        
-        
-        
         self.aeo_case_dict = {'Reference case':'AEO.2021.REF2021.'
                          #'High economic growth':'AEO.2021.HIGHMACRO.',
                          #'Low economic growth':'AEO.2021.LOWMACRO.',
@@ -178,7 +168,8 @@ class EIA_AEO:
             url = "https://api.eia.gov/v2/aeo/"+ yearOfData +"/data/?frequency=annual&data[0]=value&facets[scenario][]=ref"+ yearOfData +"&facets[seriesId][]=" + series_id + "&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000&api_key=" + self.api_key
             r = requests.get(url)
             json_data = r.json()
-            
+            self.temp_r = r # tracking
+            self.temp_json_data = json_data  #tracking
             #print(self.counter)
             
             
@@ -233,6 +224,7 @@ class EIA_AEO:
                 #                while the old version had column names "Year" and "Value"
                 df_temp.rename(columns = {'value':'Value'}, inplace = True)
                 df_temp.rename(columns = {'period':'Year'}, inplace = True)
+                self.temp_df_temp = df_temp # testing
 
             # Note there is no need for try and catch because the program runs well without it but kept for potential future changes 
             except (Exception) as e:
@@ -337,7 +329,7 @@ class EIA_AEO:
             self.EIA_data[tab] = pd.concat(temp_list, axis=0).reset_index(drop=True).copy()       
         
         
-    # Function to store results across multiple combinations of AEO-cases and sectors    
+    # Function to store results across multiple combinations of AEO-cases and sectors  
     def eia_multi_sector_import_web (self, aeo_cases, verbose):                     
         #Loop through every combination of AEO Case and Sector 
         for tab in self.EIA_data.keys():
@@ -359,8 +351,8 @@ class EIA_AEO:
     def transform_EERE_tool (self, ob_units, base_year = 2020):
         
         # Filter out 'Net Coke Import' when in 'Energy carrier'
-        self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][
-            self.EIA_data['energy_demand']['End Use'] != 'Net Coke Imports']
+        if 'energy_demand' in self.EIA_data.keys():
+            self.EIA_data['energy_demand'] = self.EIA_data['energy_demand'][self.EIA_data['energy_demand']['End Use'] != 'Net Coke Imports']
         
         """               
         # replacing industrial flows that use natural gas for hydrogen production to hydrogen as energy carrier
@@ -380,29 +372,34 @@ class EIA_AEO:
             (self.EIA_data['energy_demand']['End Use'].isin(['Feedstock', 'Feedstocks']) ) & 
             (self.EIA_data['energy_demand']['Energy carrier'] == 'Natural Gas'), 'Energy carrier' ] = 'Hydrogen'
         """
-        # Calculate ratio for the chemical industry supp data set        
-        self.EIA_data['chemical_industry_supp']['Year'] = self.EIA_data['chemical_industry_supp']['Year'].astype('int')
-        self.EIA_data['chemical_industry_supp']['Value'] = self.EIA_data['chemical_industry_supp']['Value'].astype('float32')
-        self.test_data = self.EIA_data['chemical_industry_supp']
-        self.EIA_data['chemical_industry_supp'] = \
-        pd.merge( self.EIA_data['chemical_industry_supp'],
-                  self.EIA_data['chemical_industry_supp'].loc[self.EIA_data['chemical_industry_supp']['Year'] == base_year, ['Sector', 'Subsector', 'Parameter', 'Parameter Levels', 'Value']],
-                  how='left',
-                  on=['Sector', 'Subsector', 'Parameter', 'Parameter Levels']).reset_index(drop=True)        
-       
-        self.EIA_data['chemical_industry_supp']['frac_increase'] = self.EIA_data['chemical_industry_supp']['Value_x'] / self.EIA_data['chemical_industry_supp']['Value_y']
-        self.EIA_data['chemical_industry_supp'].drop(columns=['Value_y'], inplace=True)
-        self.EIA_data['chemical_industry_supp'].rename(columns={'Value_x' : 'Value'}, inplace=True)
-       
-    ##### 
-    #### Try to change Units SP
+        # Calculate ratio for the chemical industry supp data set   
+        if 'chemical_industry_supp' in self.EIA_data.keys():            
+            if len(self.EIA_data['chemical_industry_supp']) > 0:            
+                self.EIA_data['chemical_industry_supp']['Year'] = self.EIA_data['chemical_industry_supp']['Year'].astype('int')
+                self.EIA_data['chemical_industry_supp']['Value'] = self.EIA_data['chemical_industry_supp']['Value'].astype('float32')
+                self.test_data = self.EIA_data['chemical_industry_supp']
+                self.EIA_data['chemical_industry_supp'] = \
+                pd.merge( self.EIA_data['chemical_industry_supp'],
+                          self.EIA_data['chemical_industry_supp'].loc[self.EIA_data['chemical_industry_supp']['Year'] == base_year, ['Sector', 'Subsector', 'Parameter', 'Parameter Levels', 'Value']],
+                          how='left',
+                          on=['Sector', 'Subsector', 'Parameter', 'Parameter Levels']).reset_index(drop=True)        
+               
+                self.EIA_data['chemical_industry_supp']['frac_increase'] = self.EIA_data['chemical_industry_supp']['Value_x'] / self.EIA_data['chemical_industry_supp']['Value_y']
+                self.EIA_data['chemical_industry_supp'].drop(columns=['Value_y'], inplace=True)
+                self.EIA_data['chemical_industry_supp'].rename(columns={'Value_x' : 'Value'}, inplace=True)
+    
     def standardize_units (self, ob_units):
         #Loop through data tables and unit convert 
         # ['energy_demand', 'energy_supply', 'energy_price', 'emissions_end_use', 'emissions_energy_type', 'supplemental']
-        for key in ['energy_demand', 'energy_supply']:
-            self.EIA_data[key][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data[key][['Unit', 'Value']].copy())
-            
-   
+        
+        if 'energy_demand' in self.EIA_data.keys():
+            self.EIA_data['energy_demand']['Value'] = pd.to_numeric(self.EIA_data['energy_demand']['Value'])
+            self.EIA_data['energy_demand'][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data['energy_demand'][['Unit', 'Value']].copy())
+        
+        elif 'energy_supply' in self.EIA_data.keys():      
+            self.EIA_data['energy_supply']['Value'] = pd.to_numeric(self.EIA_data['energy_supply']['Value'])
+            self.EIA_data['energy_supply'][['Unit', 'Value']] = ob_units.unit_convert_df (self.EIA_data['energy_supply'][['Unit', 'Value']].copy())
+          
     def conv_HHV_to_LHV (self, aeo_cases, ob_units, verbose):
              
         self.EIA_data ['energy_demand'] = pd.merge(self.EIA_data['energy_demand'], ob_units.hv_EIA[['Energy carrier', 'Energy carrier type', 'LHV_by_HHV']], 
@@ -441,6 +438,10 @@ class EIA_AEO:
             'Value' : 'net_sales',
             'Unit' : 'Unit_net_sales'}, inplace=True)
         
+        self.TandD['net_sales'] = pd.to_numeric(self.TandD['net_sales'])
+        self.TandD['net_import'] = pd.to_numeric(self.TandD['net_import'])
+        self.TandD['net_generated'] = pd.to_numeric(self.TandD['net_generated'])
+        
         self.TandD['loss_frac'] = \
             1 - ( (self.TandD['net_sales'] - self.TandD['net_import']) / self.TandD['net_generated'] ) 
 
@@ -452,11 +453,14 @@ class EIA_AEO:
           loc[(self.EIA_data['supplemental']['Parameter'] == 'Sources of Ethanol') & 
               (self.EIA_data['supplemental']['Parameter Levels'].isin(['From Corn and Other Starch', 'From Cellulose']) ) ] \
               [['Year', 'Parameter Levels', 'Value', 'Unit']].drop_duplicates()
+        self.E_sources['Value'] = pd.to_numeric(self.E_sources['Value'])
         E_sources_agg = self.E_sources.groupby(['Year']).agg({'Value' : 'sum'}) 
         self.E_sources = pd.merge(self.E_sources, E_sources_agg, how='left', on='Year').copy()
         self.E_sources.rename(columns = {
             'Value_x' : 'E_by_source',
             'Value_y' : 'E_total'}, inplace = True)
+        #self.E_sources['E_by_source'] = pd.to_numeric(self.E_sources['E_by_source'])
+        #self.E_sources['E_total'] = pd.to_numeric(self.E_sources['E_total'])
         self.E_sources['E_frac_by_source'] = self.E_sources['E_by_source'] / self.E_sources['E_total']
         
     # Function to calculate the fraction of Ethanol in E85 fuel blend over the years
@@ -464,10 +468,12 @@ class EIA_AEO:
             
         # sum over End Use==E85, for each year
         E85_use = self.EIA_data['energy_demand'].loc[(self.EIA_data['energy_demand']['Energy carrier'] == 'E85')]
+        E85_use.loc[:, 'Value'] = pd.to_numeric(E85_use['Value'])
         E85_use = E85_use.groupby(['Year', 'Unit']).agg({'Value' : 'sum'}).copy()
         Eth_use_E85 = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in E85')][['Year', 'Value', 'Unit']].drop_duplicates()
+        Eth_use_E85['Value'] = pd.to_numeric(Eth_use_E85['Value'])
         
-        # Unit conversion        
+        # Unit conversion           
         Eth_use_E85[['Unit', 'Value']] = ob_units.unit_convert_df(Eth_use_E85[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
         
         self.Eth_frac_E85 = pd.merge(E85_use, Eth_use_E85, how='left', on = 'Year')
@@ -491,6 +497,7 @@ class EIA_AEO:
         Eth_use_Egas = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Ethanol used in Gasoline Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
         
         # Unit conversion        
+        Eth_use_Egas['Value'] = pd.to_numeric(Eth_use_Egas['Value'])
         Eth_use_Egas[['Unit', 'Value']] = ob_units.unit_convert_df(Eth_use_Egas[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
         
         self.Eth_frac_Egas = pd.merge(Egas_use, Eth_use_Egas, how='left', on = 'Year')
@@ -502,6 +509,7 @@ class EIA_AEO:
         self.Eth_frac_Egas['Eth_frac_in_Egas'] =  self.Eth_frac_Egas['Eth_in_Egas'] /  self.Eth_frac_Egas['Egas_use']
         
         self.calc_ethanol_by_source()        
+        
         self.Eth_frac_Egas = pd.merge(self.Eth_frac_Egas, self.E_sources[['Year', 'Parameter Levels', 'E_frac_by_source']], how='left', on='Year')
         
     # Function to calculate the fraction of Biodiesel in Distillate Blending fuel blend over the years
@@ -517,6 +525,7 @@ class EIA_AEO:
         BD_use_DB = self.EIA_data['supplemental'].loc[(self.EIA_data['supplemental']['Parameter Levels'] == 'Biodiesel used in Distillate Blending')][['Year', 'Value', 'Unit']].drop_duplicates()
         
         # Unit conversion        
+        BD_use_DB['Value'] = pd.to_numeric(BD_use_DB['Value'])
         BD_use_DB[['Unit', 'Value']] = ob_units.unit_convert_df(BD_use_DB[['Unit', 'Value']], Unit = 'Unit', Value = 'Value')
         
         self.BD_frac_DB = pd.merge(DB_use, BD_use_DB, how='left', on = 'Year')
@@ -723,7 +732,7 @@ if __name__ == "__main__":
     # Please change the path to data folder per your computer
     
     # SP changed the path to data folder for his computer 
-    code_path_prefix = 'C:\\Users\\spatange\\Documents\\Repos\\DECARB'
+    code_path_prefix = 'C:\\Users\\skar\\Repos\\EERE_decarb_anl'
     
     input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     
@@ -750,7 +759,9 @@ if __name__ == "__main__":
         ob.save_EIA_data_to_file(raw_file_save=True)
     else:
         ob.eia_multi_sector_import_disk(ob.aeo_case_dict.keys())  
-        
+
+    print( 'Fetching data complete, elapsed time: ' + str(datetime.now() - init_time))
+    
     ob.transform_EERE_tool(ob_units)
         
     ob.standardize_units(ob_units)
@@ -777,4 +788,4 @@ if __name__ == "__main__":
         ob.save_Egas_data_to_file()
         ob.save_BDDB_data_to_file()
     
-    print( 'Elapsed time: ' + str(datetime.now() - init_time))
+    print( 'Run complete, elapsed time: ' + str(datetime.now() - init_time))

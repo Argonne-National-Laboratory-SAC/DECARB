@@ -263,8 +263,8 @@ if __name__ == "__main__":
     
     ob1.remove_combustion_other_em()
     
-    ob1.process_EERE(decarb_year_min=2020, decarb_year_max=2050)
+    ob1.process_EERE(decarb_year_min=2024, decarb_year_max=2050)
     
-    if ob1.save_to_file == True:
+    if ob1.save_to_file:
         ob1.df_ghgi.to_csv(input_path_EPA + ob1.file_out, index = False)    
 

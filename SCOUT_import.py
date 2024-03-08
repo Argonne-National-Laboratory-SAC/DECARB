@@ -40,7 +40,7 @@ class SCOUT:
         
         self.df_corr_EIA = pd.read_excel(self.input_path_corr + '\\' + self.f_corr_EIA_SCOUT, sheet_name = self.sheet_corr_EIA_SCOUT, header = 3, index_col=None)
         
-        self.df_scout = self.df_scout.stack()
+        self.df_scout = self.df_scout.stack(future_stack=True)
         
         self.df_scout.reset_index(inplace=True)
         

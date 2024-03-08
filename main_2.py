@@ -113,7 +113,7 @@ model_col_list = ['Data Source', 'AEO Case', 'Case', 'Mitigation Case', 'Sector'
                   'Unit', 'Value', 'CI', 'Total Emissions']
 
 # Decarbonization years of analysis
-decarb_year_min = 2022
+decarb_year_min = 2024
 decarb_year_max = 2050
 
 # Model data pull and intermediate file saving options
@@ -776,7 +776,6 @@ temp_activity.rename(columns={'Energy carrier_y' : 'Energy carrier',
 activity_mtg_scout = pd.merge(activity_mtg_scout, corr_ghgs, how='left', on='Formula').reset_index(drop=True)
 
 # Concatenating to environmental matrix
-#activity_BAU.drop(['Series Id'], axis=1, inplace = True)
 
 activity_BAU = pd.concat([activity_BAU, 
                           temp_activity[activity_BAU.columns], 
@@ -787,7 +786,7 @@ if save_interim_files == True:
     activity_BAU.to_csv(interim_path_prefix + '\\' + f_interim_env)
     activity_BAU[cols_env_out].to_csv(output_path_prefix + '\\' + f_out_env)
 
-# GGZ: Maping Energy Demand Matrix so that the flows use the SCOUT conventions.
+# Maping Energy Demand Matrix so that the flows use the SCOUT conventions.
 
 activity_ref_mtg = pd.merge(activity_ref_mtg, 
          corr_EIA_SCOUT[['Sector', 'Subsector', 'EIA: End Use Application', 'SCOUT: End Use Application', 
@@ -1082,7 +1081,7 @@ Generating mitigation scenarios for LULUCF
 
 print("Status: Constructing LULUCF sector Mitigation scenario ..")
 
-n_years = 30
+n_years = decarb_year_max - decarb_year_min
 
 cropland_2050 = 137.234 # million Ha of cropland available in 2050 year
 
@@ -1092,7 +1091,7 @@ net_seq = c_seq_rate * cropland_2050 # CO2 MT in 2050
 
 net_seq_yearly = net_seq / n_years # CO2 MT per year
 
-activity_mtg_lulucf = pd.DataFrame({'Year' : [x for x in range(2020, 2051)],
+activity_mtg_lulucf = pd.DataFrame({'Year' : [x for x in range(decarb_year_min, (decarb_year_max+1))],
                                     'Total Emissions' : [(-1 * net_seq_yearly * x)  for x in range(0, n_years+1)] })
 
 activity_mtg_lulucf['Case' ] = 'Mitigation'
@@ -1166,7 +1165,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_paper_ef.copy(), sa
 mtg_id_paper_fsng = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Paper Industry') &
                                          (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_paper_fsng = mtg_id_paper_fsng.fillna(value='-')
+mtg_id_paper_fsng.loc[: ,'Value'] = mtg_id_paper_fsng['Value'].fillna(value=0)
+mtg_id_paper_fsng.loc[: ,'Generation Type'] = mtg_id_paper_fsng['Generation Type'].fillna(value='-')
 mtg_id_paper_fsng = mtg_id_paper_fsng.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1185,7 +1185,9 @@ mtg_id_paper_fsng.loc[mtg_id_paper_fsng['Energy carrier'] != 'Electricity', 'Sco
 mtg_id_paper_fssc = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Paper Industry') &
                                          (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
-mtg_id_paper_fssc = mtg_id_paper_fssc.fillna(value='-')
+mtg_id_paper_fssc.loc[:,'Value'] = mtg_id_paper_fssc['Value'].fillna(value=0)
+mtg_id_paper_fssc.loc[:,'Generation Type'] = mtg_id_paper_fssc['Generation Type'].fillna(value='-')
+mtg_id_paper_fssc.loc[:,'Fuel Pool'] = mtg_id_paper_fssc['Fuel Pool'].fillna(value='-')
 mtg_id_paper_fssc = mtg_id_paper_fssc.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1208,7 +1210,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_paper_fssc, save_in
 mtg_id_paper_fsngh2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                            (activity_ref_mtg['Subsector'] == 'Paper Industry') &
                                            (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_paper_fsngh2 = mtg_id_paper_fsngh2.fillna(value='-')
+mtg_id_paper_fsngh2.loc[:,'Value'] = mtg_id_paper_fsngh2['Value'].fillna(value=0)
+mtg_id_paper_fsngh2.loc[:,'Generation Type'] = mtg_id_paper_fsngh2['Generation Type'].fillna(value='-')
 mtg_id_paper_fsngh2 = mtg_id_paper_fsngh2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                    'Scope','Generation Type', 'Fuel Pool']).\
@@ -1231,7 +1234,7 @@ mtg_id_paper_h2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industria
                                        (activity_ref_mtg['Subsector'] == 'Paper Industry') &
                                        (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                        (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-mtg_id_paper_h2 = mtg_id_paper_h2.fillna(value='-')
+
 mtg_id_paper_h2 = mtg_id_paper_h2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                            'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                            'Scope','Generation Type', 'Fuel Pool']).\
@@ -1270,7 +1273,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg,  mtg_id_food_ef.copy(), sa
 mtg_id_food_fssc = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Food Industry') &
                                          (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
-mtg_id_food_fssc = mtg_id_food_fssc.fillna(value='-')
+mtg_id_food_fssc.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_food_fssc[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_food_fssc.loc[:,'Value'] = mtg_id_food_fssc['Value'].fillna(value=0)
 mtg_id_food_fssc = mtg_id_food_fssc.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1292,7 +1296,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_food_fssc, save_int
 mtg_id_food_fsngh2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                            (activity_ref_mtg['Subsector'] == 'Food Industry') &
                                            (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_food_fsngh2 = mtg_id_food_fsngh2.fillna(value='-')
+mtg_id_food_fsngh2.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_food_fsngh2[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_food_fsngh2.loc[:,'Value'] = mtg_id_food_fsngh2['Value'].fillna(value=0)
 mtg_id_food_fsngh2 = mtg_id_food_fsngh2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                    'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1315,7 +1320,6 @@ mtg_id_food_h2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial
                                        (activity_ref_mtg['Subsector'] == 'Food Industry') &
                                        (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                        (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-mtg_id_food_h2 = mtg_id_food_h2.fillna(value='-')
 mtg_id_food_h2 = mtg_id_food_h2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                            'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                            'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1428,7 +1432,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, bulk_chem_ef, save_interim
 bulk_chem_fs = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Bulk Chemical Industry'), : ]
 bulk_chem_fs = bulk_chem_fs.loc[bulk_chem_fs['Mitigation Case'] != 'Bulk Chemical Industry, Green Ammonia', : ]
-bulk_chem_fs = bulk_chem_fs.fillna(value='-')
+bulk_chem_fs.loc[:, ['Generation Type', 'Fuel Pool']] = bulk_chem_fs[['Generation Type', 'Fuel Pool']].fillna(value='-')
+bulk_chem_fs.loc[:,'Value'] = mtg_id_food_fssc['Value'].fillna(value=0)
 bulk_chem_fs = bulk_chem_fs.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                      'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1481,7 +1486,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, bulk_chem_fs_mtg, save_int
 # Fuel Switching, remaining Steam Coal to NG
 bulk_chem_fs_mtg = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                         (activity_ref_mtg['Subsector'] == 'Bulk Chemical Industry'), : ]
-bulk_chem_fs_mtg = bulk_chem_fs_mtg.fillna(value='-')
+bulk_chem_fs_mtg.loc[:, ['Generation Type', 'Fuel Pool']] = bulk_chem_fs_mtg[['Generation Type', 'Fuel Pool']].fillna(value='-')
+bulk_chem_fs_mtg.loc[:,'Value'] = bulk_chem_fs_mtg['Value'].fillna(value=0)
 bulk_chem_fs_mtg = bulk_chem_fs_mtg.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                              'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                              'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1593,7 +1599,8 @@ id_cement_lime_mtg['Scope'] = 'Direct, Non-Combustion'
 # Implement efficiency improvement across all energy carriers
 id_cement_lime_ef = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Cement and Lime Industry'), : ]
-id_cement_lime_ef = id_cement_lime_ef.fillna(value='-')
+id_cement_lime_ef.loc[:, ['Generation Type', 'Fuel Pool']] = id_cement_lime_ef[['Generation Type', 'Fuel Pool']].fillna(value='-')
+id_cement_lime_ef.loc[:,'Value'] = id_cement_lime_ef['Value'].fillna(value=0)
 id_cement_lime_ef = id_cement_lime_ef.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                      'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1611,7 +1618,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, id_cement_lime_ef, save_in
 id_cement_lime_fssc = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                          (activity_ref_mtg['Subsector'] == 'Cement and Lime Industry') &
                                          (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
-id_cement_lime_fssc = id_cement_lime_fssc.fillna(value='-')
+id_cement_lime_fssc.loc[:, ['Generation Type', 'Fuel Pool']] = id_cement_lime_fssc[['Generation Type', 'Fuel Pool']].fillna(value='-')
+id_cement_lime_fssc.loc[:,'Value'] = id_cement_lime_fssc['Value'].fillna(value=0)
 id_cement_lime_fssc = id_cement_lime_fssc.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                    'Generation Type', 'Fuel Pool']).\
@@ -1633,7 +1641,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, id_cement_lime_fssc, save_
 id_cement_lime_fsngh2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                            (activity_ref_mtg['Subsector'] == 'Cement and Lime Industry') &
                                            (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-id_cement_lime_fsngh2 = id_cement_lime_fsngh2.fillna(value='-')
+id_cement_lime_fsngh2.loc[:, ['Generation Type', 'Fuel Pool']] = id_cement_lime_fsngh2[['Generation Type', 'Fuel Pool']].fillna(value='-')
+id_cement_lime_fsngh2.loc[:,'Value'] = id_cement_lime_fsngh2['Value'].fillna(value=0)
 id_cement_lime_fsngh2 = id_cement_lime_fsngh2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                                    'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1656,7 +1665,6 @@ id_cement_lime_h2 = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industr
                                        (activity_ref_mtg['Subsector'] == 'Cement and Lime Industry') &
                                        (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                        (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-id_cement_lime_h2 = id_cement_lime_h2.fillna(value='-')
 id_cement_lime_h2 = id_cement_lime_h2.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                            'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                            'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1703,7 +1711,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_refi, save_interim_
 mtg_id_refi = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                    (activity_ref_mtg['Subsector'] == 'Refining Industry') &
                                    (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_refi = mtg_id_refi.fillna(value='-')
+mtg_id_refi.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_refi[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_refi.loc[:,'Value'] = mtg_id_refi['Value'].fillna(value=0)
 mtg_id_refi = mtg_id_refi.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                    'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1726,7 +1735,6 @@ mtg_id_refi = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') 
                                        (activity_ref_mtg['Subsector'] == 'Refining Industry') &
                                        (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                        (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-mtg_id_refi = mtg_id_refi.fillna(value='-')
 mtg_id_refi = mtg_id_refi.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                            'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                            'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1752,7 +1760,8 @@ print("      : Iron & Steel Industry")
 
 mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                    (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry'), : ]
-mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_iron[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_iron.loc[:,'Value'] = mtg_id_iron['Value'].fillna(value=0)
 mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                      'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1773,7 +1782,8 @@ activity_ref_mtg = save_activity_mx(activity_ref_mtg, mtg_id_iron, save_interim_
 mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') & 
                                    (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry') &
                                    (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_iron[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_iron.loc[:,'Value'] = mtg_id_iron['Value'].fillna(value=0)
 mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                    'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                    'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1796,7 +1806,8 @@ mtg_id_iron = activity_ref_mtg.loc[(activity_ref_mtg['Sector'] == 'Industrial') 
                                        (activity_ref_mtg['Subsector'] == 'Iron and Steel Industry') &
                                        (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                        (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-mtg_id_iron = mtg_id_iron.fillna(value='-')
+mtg_id_iron.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_id_iron[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_id_iron.loc[:,'Value'] = mtg_id_iron['Value'].fillna(value=0)
 mtg_id_iron = mtg_id_iron.groupby(['Data Source', 'AEO Case', 'Sector', 'Subsector', 'End Use Application',
                                            'Energy carrier', 'Energy carrier type', 'Basis', 'Year', 'Unit',
                                            'Scope', 'Generation Type', 'Fuel Pool']).\
@@ -1982,7 +1993,8 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper I
                                                                         'Bulk Chemical Industry',
                                                                         'Iron and Steel Industry'])) & 
                                   (activity_ref_mtg['Energy carrier'] == 'Steam Coal'), : ]
-mtg_global = mtg_global.fillna(value='-')
+mtg_global.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_global[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_global.loc[:,'Value'] = mtg_global['Value'].fillna(value=0)
 mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
                                      'Energy carrier', 'Energy carrier type', 'Year']).\
                             agg({'Value' : 'sum'}).reset_index()
@@ -2011,8 +2023,8 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Paper I
                                                                         'Bulk Chemical Industry',
                                                                         'Iron and Steel Industry'])) & 
                                   (activity_ref_mtg['Energy carrier'] == 'Natural Gas'), : ]
-mtg_global = mtg_global.fillna(value='-')
-mtg_global = mtg_global.loc[~(mtg_global['Value'] == '-'), : ]
+mtg_global.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_global[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_global.loc[:,'Value'] = mtg_global['Value'].fillna(value=0)
 mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
                                  'Energy carrier', 'Energy carrier type', 'Year']).\
                           agg({'Value' : 'sum'}).reset_index()
@@ -2042,8 +2054,8 @@ mtg_global = activity_ref_mtg.loc[~(activity_ref_mtg['Subsector'].isin(['Refinin
                                                                          'Cement and Lime Industry', 'Iron and Steel Industry'])) &
                                   (activity_ref_mtg['Energy carrier'] == 'Hydrogen') &
                                   (activity_ref_mtg['Energy carrier type'] == 'Natural Gas'), : ]
-
-mtg_global = mtg_global.fillna(value='-')
+mtg_global.loc[:, ['Generation Type', 'Fuel Pool']] = mtg_global[['Generation Type', 'Fuel Pool']].fillna(value='-')
+mtg_global.loc[:,'Value'] = mtg_global['Value'].fillna(value=0)
 mtg_global = mtg_global.groupby(['Sector', 'Subsector', 'End Use Application',
                                  'Energy carrier', 'Energy carrier type', 'Year']).\
                                     agg({'Value' : 'sum'}).reset_index()
@@ -2212,9 +2224,25 @@ biofuel_sub_frac = biofuel_sub_frac[['Year','Biofuel','Biofuel type','Biofuel Ra
 
 # Subset Energy Demand Matrix into associated fossil fuel pools
 conv_fuel = activity_ref_mtg.loc[activity_ref_mtg['Energy carrier type'].isin(['Petroleum Distillate'])]
+conv_fuel.loc[:, ['Generation Type', 'Fuel Pool']] = conv_fuel[['Generation Type', 'Fuel Pool']].fillna(value='-')
+conv_fuel.loc[:,'Value'] = conv_fuel['Value'].fillna(value=0)
 conv_fuel = conv_fuel.groupby(['Sector', 'Subsector', 'End Use Application',
                          'Energy carrier', 'Energy carrier type', 'Year',
                          'Scope'], as_index = False)['Value'].sum()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Calculate the fraction of Biofuel to Petroleum fuel in the Fuel Pool
 conv_fuel_agg = conv_fuel.groupby(['Year'], as_index = False)['Value'].sum()

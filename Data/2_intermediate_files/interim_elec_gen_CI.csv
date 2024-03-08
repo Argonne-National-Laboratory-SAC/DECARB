@@ -1,233 +1,115 @@
 ,Case,Mitigation Case,Sector,Energy carrier,Formula,Year,Emissions Unit,Energy Unit,CI,Emissions Type,LCIA Method,GWP,timeframe_years,LCIA_estimate
-0,Reference case,-,Electric Power,Electricity,CH4,2022,g,mmbtu,12.3757900806878,CH4,AR4,25,100,309.394752017195
-1,Reference case,-,Electric Power,Electricity,CH4,2023,g,mmbtu,11.829848189547205,CH4,AR4,25,100,295.7462047386801
-2,Reference case,-,Electric Power,Electricity,CH4,2024,g,mmbtu,12.066370198388343,CH4,AR4,25,100,301.65925495970856
-3,Reference case,-,Electric Power,Electricity,CH4,2025,g,mmbtu,11.064143859387967,CH4,AR4,25,100,276.60359648469915
-4,Reference case,-,Electric Power,Electricity,CH4,2026,g,mmbtu,9.627836322242404,CH4,AR4,25,100,240.6959080560601
-5,Reference case,-,Electric Power,Electricity,CH4,2027,g,mmbtu,8.321140224782686,CH4,AR4,25,100,208.02850561956717
-6,Reference case,-,Electric Power,Electricity,CH4,2028,g,mmbtu,7.075020640591538,CH4,AR4,25,100,176.87551601478845
-7,Reference case,-,Electric Power,Electricity,CH4,2029,g,mmbtu,6.170793337784848,CH4,AR4,25,100,154.26983344462118
-8,Reference case,-,Electric Power,Electricity,CH4,2030,g,mmbtu,5.638651888782825,CH4,AR4,25,100,140.96629721957063
-9,Reference case,-,Electric Power,Electricity,CH4,2031,g,mmbtu,5.462943127644162,CH4,AR4,25,100,136.57357819110405
-10,Reference case,-,Electric Power,Electricity,CH4,2032,g,mmbtu,5.346536928519512,CH4,AR4,25,100,133.66342321298782
-11,Reference case,-,Electric Power,Electricity,CH4,2033,g,mmbtu,5.387346695173737,CH4,AR4,25,100,134.68366737934343
-12,Reference case,-,Electric Power,Electricity,CH4,2034,g,mmbtu,5.295812247769375,CH4,AR4,25,100,132.3953061942344
-13,Reference case,-,Electric Power,Electricity,CH4,2035,g,mmbtu,5.240787546413044,CH4,AR4,25,100,131.0196886603261
-14,Reference case,-,Electric Power,Electricity,CH4,2036,g,mmbtu,5.154965357168293,CH4,AR4,25,100,128.87413392920732
-15,Reference case,-,Electric Power,Electricity,CH4,2037,g,mmbtu,5.018862652328166,CH4,AR4,25,100,125.47156630820415
-16,Reference case,-,Electric Power,Electricity,CH4,2038,g,mmbtu,4.853472767091121,CH4,AR4,25,100,121.33681917727803
-17,Reference case,-,Electric Power,Electricity,CH4,2039,g,mmbtu,4.730309147808404,CH4,AR4,25,100,118.25772869521009
-18,Reference case,-,Electric Power,Electricity,CH4,2040,g,mmbtu,4.609338244376497,CH4,AR4,25,100,115.23345610941243
-19,Reference case,-,Electric Power,Electricity,CH4,2041,g,mmbtu,4.582412436077845,CH4,AR4,25,100,114.56031090194611
-20,Reference case,-,Electric Power,Electricity,CH4,2042,g,mmbtu,4.542935627886555,CH4,AR4,25,100,113.57339069716387
-21,Reference case,-,Electric Power,Electricity,CH4,2043,g,mmbtu,4.467579433982915,CH4,AR4,25,100,111.68948584957288
-22,Reference case,-,Electric Power,Electricity,CH4,2044,g,mmbtu,4.299821808178298,CH4,AR4,25,100,107.49554520445746
-23,Reference case,-,Electric Power,Electricity,CH4,2045,g,mmbtu,4.174996067285427,CH4,AR4,25,100,104.37490168213569
-24,Reference case,-,Electric Power,Electricity,CH4,2046,g,mmbtu,4.031439638787459,CH4,AR4,25,100,100.78599096968648
-25,Reference case,-,Electric Power,Electricity,CH4,2047,g,mmbtu,3.942152657848738,CH4,AR4,25,100,98.55381644621845
-26,Reference case,-,Electric Power,Electricity,CH4,2048,g,mmbtu,3.8072381512415183,CH4,AR4,25,100,95.18095378103796
-27,Reference case,-,Electric Power,Electricity,CH4,2049,g,mmbtu,3.7521793090532083,CH4,AR4,25,100,93.8044827263302
-28,Reference case,-,Electric Power,Electricity,CH4,2050,g,mmbtu,3.6194630056672175,CH4,AR4,25,100,90.48657514168043
-29,Reference case,-,Electric Power,Electricity,CO2,2022,g,mmbtu,121590.28803631975,CO2,AR4,1,100,121590.28803631975
-30,Reference case,-,Electric Power,Electricity,CO2,2023,g,mmbtu,115915.99387409045,CO2,AR4,1,100,115915.99387409045
-31,Reference case,-,Electric Power,Electricity,CO2,2024,g,mmbtu,114457.02021304716,CO2,AR4,1,100,114457.02021304716
-32,Reference case,-,Electric Power,Electricity,CO2,2025,g,mmbtu,106152.45206964905,CO2,AR4,1,100,106152.45206964905
-33,Reference case,-,Electric Power,Electricity,CO2,2026,g,mmbtu,95347.20541767929,CO2,AR4,1,100,95347.20541767929
-34,Reference case,-,Electric Power,Electricity,CO2,2027,g,mmbtu,84642.164909534,CO2,AR4,1,100,84642.164909534
-35,Reference case,-,Electric Power,Electricity,CO2,2028,g,mmbtu,75506.62699700246,CO2,AR4,1,100,75506.62699700246
-36,Reference case,-,Electric Power,Electricity,CO2,2029,g,mmbtu,68654.79559820189,CO2,AR4,1,100,68654.79559820189
-37,Reference case,-,Electric Power,Electricity,CO2,2030,g,mmbtu,63937.636241774686,CO2,AR4,1,100,63937.636241774686
-38,Reference case,-,Electric Power,Electricity,CO2,2031,g,mmbtu,61442.31808808616,CO2,AR4,1,100,61442.31808808616
-39,Reference case,-,Electric Power,Electricity,CO2,2032,g,mmbtu,59684.72097088162,CO2,AR4,1,100,59684.72097088162
-40,Reference case,-,Electric Power,Electricity,CO2,2033,g,mmbtu,59165.20653153858,CO2,AR4,1,100,59165.20653153858
-41,Reference case,-,Electric Power,Electricity,CO2,2034,g,mmbtu,57842.420588505505,CO2,AR4,1,100,57842.420588505505
-42,Reference case,-,Electric Power,Electricity,CO2,2035,g,mmbtu,57089.01535755362,CO2,AR4,1,100,57089.01535755362
-43,Reference case,-,Electric Power,Electricity,CO2,2036,g,mmbtu,56439.30431869875,CO2,AR4,1,100,56439.30431869875
-44,Reference case,-,Electric Power,Electricity,CO2,2037,g,mmbtu,55729.581052267094,CO2,AR4,1,100,55729.581052267094
-45,Reference case,-,Electric Power,Electricity,CO2,2038,g,mmbtu,55140.00598929155,CO2,AR4,1,100,55140.00598929155
-46,Reference case,-,Electric Power,Electricity,CO2,2039,g,mmbtu,54580.511197942295,CO2,AR4,1,100,54580.511197942295
-47,Reference case,-,Electric Power,Electricity,CO2,2040,g,mmbtu,54292.819464297354,CO2,AR4,1,100,54292.819464297354
-48,Reference case,-,Electric Power,Electricity,CO2,2041,g,mmbtu,54210.33036214738,CO2,AR4,1,100,54210.33036214738
-49,Reference case,-,Electric Power,Electricity,CO2,2042,g,mmbtu,54124.4148604594,CO2,AR4,1,100,54124.4148604594
-50,Reference case,-,Electric Power,Electricity,CO2,2043,g,mmbtu,53693.65811834857,CO2,AR4,1,100,53693.65811834857
-51,Reference case,-,Electric Power,Electricity,CO2,2044,g,mmbtu,52557.21446950886,CO2,AR4,1,100,52557.21446950886
-52,Reference case,-,Electric Power,Electricity,CO2,2045,g,mmbtu,51803.38404300203,CO2,AR4,1,100,51803.38404300203
-53,Reference case,-,Electric Power,Electricity,CO2,2046,g,mmbtu,50640.04938732373,CO2,AR4,1,100,50640.04938732373
-54,Reference case,-,Electric Power,Electricity,CO2,2047,g,mmbtu,49963.8949156957,CO2,AR4,1,100,49963.8949156957
-55,Reference case,-,Electric Power,Electricity,CO2,2048,g,mmbtu,49204.923319563335,CO2,AR4,1,100,49204.923319563335
-56,Reference case,-,Electric Power,Electricity,CO2,2049,g,mmbtu,48768.028814604666,CO2,AR4,1,100,48768.028814604666
-57,Reference case,-,Electric Power,Electricity,CO2,2050,g,mmbtu,48000.38554353142,CO2,AR4,1,100,48000.38554353142
-58,Reference case,-,Electric Power,Electricity,N2O,2022,g,mmbtu,2.0259120416538257,N2O,AR4,298,100,603.72178841284
-59,Reference case,-,Electric Power,Electricity,N2O,2023,g,mmbtu,1.9526333539585297,N2O,AR4,298,100,581.8847394796419
-60,Reference case,-,Electric Power,Electricity,N2O,2024,g,mmbtu,1.980448345903995,N2O,AR4,298,100,590.1736070793905
-61,Reference case,-,Electric Power,Electricity,N2O,2025,g,mmbtu,1.8348241831694707,N2O,AR4,298,100,546.7776065845022
-62,Reference case,-,Electric Power,Electricity,N2O,2026,g,mmbtu,1.6267376970401848,N2O,AR4,298,100,484.76783371797507
-63,Reference case,-,Electric Power,Electricity,N2O,2027,g,mmbtu,1.438677987017237,N2O,AR4,298,100,428.72604013113664
-64,Reference case,-,Electric Power,Electricity,N2O,2028,g,mmbtu,1.2535608382137782,N2O,AR4,298,100,373.5611297877059
-65,Reference case,-,Electric Power,Electricity,N2O,2029,g,mmbtu,1.1213400095699975,N2O,AR4,298,100,334.15932285185926
-66,Reference case,-,Electric Power,Electricity,N2O,2030,g,mmbtu,1.0446519617724461,N2O,AR4,298,100,311.30628460818895
-67,Reference case,-,Electric Power,Electricity,N2O,2031,g,mmbtu,1.019221941325209,N2O,AR4,298,100,303.7281385149123
-68,Reference case,-,Electric Power,Electricity,N2O,2032,g,mmbtu,1.0008207303876884,N2O,AR4,298,100,298.24457765553115
-69,Reference case,-,Electric Power,Electricity,N2O,2033,g,mmbtu,1.0059228983487627,N2O,AR4,298,100,299.7650237079313
-70,Reference case,-,Electric Power,Electricity,N2O,2034,g,mmbtu,0.9901100316630759,N2O,AR4,298,100,295.0527894355966
-71,Reference case,-,Electric Power,Electricity,N2O,2035,g,mmbtu,0.9799283249551026,N2O,AR4,298,100,292.0186408366206
-72,Reference case,-,Electric Power,Electricity,N2O,2036,g,mmbtu,0.9649283530169168,N2O,AR4,298,100,287.5486491990412
-73,Reference case,-,Electric Power,Electricity,N2O,2037,g,mmbtu,0.9409397445479487,N2O,AR4,298,100,280.4000438752887
-74,Reference case,-,Electric Power,Electricity,N2O,2038,g,mmbtu,0.9126072143170251,N2O,AR4,298,100,271.95694986647345
-75,Reference case,-,Electric Power,Electricity,N2O,2039,g,mmbtu,0.8898712536234918,N2O,AR4,298,100,265.1816335798006
-76,Reference case,-,Electric Power,Electricity,N2O,2040,g,mmbtu,0.8666030857976956,N2O,AR4,298,100,258.2477195677133
-77,Reference case,-,Electric Power,Electricity,N2O,2041,g,mmbtu,0.8579835852042667,N2O,AR4,298,100,255.67910839087145
-78,Reference case,-,Electric Power,Electricity,N2O,2042,g,mmbtu,0.8488986844504022,N2O,AR4,298,100,252.97180796621984
-79,Reference case,-,Electric Power,Electricity,N2O,2043,g,mmbtu,0.835100205473855,N2O,AR4,298,100,248.85986123120878
-80,Reference case,-,Electric Power,Electricity,N2O,2044,g,mmbtu,0.8059995554904675,N2O,AR4,298,100,240.18786753615933
-81,Reference case,-,Electric Power,Electricity,N2O,2045,g,mmbtu,0.7841115747239922,N2O,AR4,298,100,233.66524926774966
-82,Reference case,-,Electric Power,Electricity,N2O,2046,g,mmbtu,0.761472360071536,N2O,AR4,298,100,226.9187633013177
-83,Reference case,-,Electric Power,Electricity,N2O,2047,g,mmbtu,0.7459336347140301,N2O,AR4,298,100,222.28822314478097
-84,Reference case,-,Electric Power,Electricity,N2O,2048,g,mmbtu,0.723153821049142,N2O,AR4,298,100,215.49983867264433
-85,Reference case,-,Electric Power,Electricity,N2O,2049,g,mmbtu,0.7126228859543904,N2O,AR4,298,100,212.36162001440835
-86,Reference case,-,Electric Power,Electricity,N2O,2050,g,mmbtu,0.6898399327400809,N2O,AR4,298,100,205.57229995654413
-87,Reference case,-,Electric Power,Electricity,SF6,2022,g,mmbtu,0.014550274755742812,SF6,AR4,22800,100,331.7462644309361
-88,Reference case,-,Electric Power,Electricity,SF6,2023,g,mmbtu,0.014713537295191747,SF6,AR4,22800,100,335.4686503303718
-89,Reference case,-,Electric Power,Electricity,SF6,2024,g,mmbtu,0.014524822153702325,SF6,AR4,22800,100,331.165945104413
-90,Reference case,-,Electric Power,Electricity,SF6,2025,g,mmbtu,0.014400868919265414,SF6,AR4,22800,100,328.3398113592514
-91,Reference case,-,Electric Power,Electricity,SF6,2026,g,mmbtu,0.01426795895949123,SF6,AR4,22800,100,325.30946427640004
-92,Reference case,-,Electric Power,Electricity,SF6,2027,g,mmbtu,0.014153499631070637,SF6,AR4,22800,100,322.6997915884105
-93,Reference case,-,Electric Power,Electricity,SF6,2028,g,mmbtu,0.014021359455125648,SF6,AR4,22800,100,319.6869955768648
-94,Reference case,-,Electric Power,Electricity,SF6,2029,g,mmbtu,0.013886888183608993,SF6,AR4,22800,100,316.62105058628504
-95,Reference case,-,Electric Power,Electricity,SF6,2030,g,mmbtu,0.013788521356548534,SF6,AR4,22800,100,314.37828692930657
-96,Reference case,-,Electric Power,Electricity,SF6,2031,g,mmbtu,0.013678958404431766,SF6,AR4,22800,100,311.88025162104424
-97,Reference case,-,Electric Power,Electricity,SF6,2032,g,mmbtu,0.013566710512211904,SF6,AR4,22800,100,309.3209996784314
-98,Reference case,-,Electric Power,Electricity,SF6,2033,g,mmbtu,0.013467095541074052,SF6,AR4,22800,100,307.0497783364884
-99,Reference case,-,Electric Power,Electricity,SF6,2034,g,mmbtu,0.013362565872944664,SF6,AR4,22800,100,304.66650190313834
-100,Reference case,-,Electric Power,Electricity,SF6,2035,g,mmbtu,0.013239541148619622,SF6,AR4,22800,100,301.8615381885274
-101,Reference case,-,Electric Power,Electricity,SF6,2036,g,mmbtu,0.013124589490393582,SF6,AR4,22800,100,299.2406403809737
-102,Reference case,-,Electric Power,Electricity,SF6,2037,g,mmbtu,0.013007801594402721,SF6,AR4,22800,100,296.577876352382
-103,Reference case,-,Electric Power,Electricity,SF6,2038,g,mmbtu,0.012900190300002983,SF6,AR4,22800,100,294.124338840068
-104,Reference case,-,Electric Power,Electricity,SF6,2039,g,mmbtu,0.012798997372106588,SF6,AR4,22800,100,291.8171400840302
-105,Reference case,-,Electric Power,Electricity,SF6,2040,g,mmbtu,0.01269267687229866,SF6,AR4,22800,100,289.39303268840945
-106,Reference case,-,Electric Power,Electricity,SF6,2041,g,mmbtu,0.01257531681929309,SF6,AR4,22800,100,286.7172234798824
-107,Reference case,-,Electric Power,Electricity,SF6,2042,g,mmbtu,0.012460599550400343,SF6,AR4,22800,100,284.10166974912784
-108,Reference case,-,Electric Power,Electricity,SF6,2043,g,mmbtu,0.012346008419749735,SF6,AR4,22800,100,281.48899197029397
-109,Reference case,-,Electric Power,Electricity,SF6,2044,g,mmbtu,0.01223431537361302,SF6,AR4,22800,100,278.94239051837684
-110,Reference case,-,Electric Power,Electricity,SF6,2045,g,mmbtu,0.012124321628052282,SF6,AR4,22800,100,276.43453311959206
-111,Reference case,-,Electric Power,Electricity,SF6,2046,g,mmbtu,0.011992200927827136,SF6,AR4,22800,100,273.4221811544587
-112,Reference case,-,Electric Power,Electricity,SF6,2047,g,mmbtu,0.011866266767203194,SF6,AR4,22800,100,270.5508822922328
-113,Reference case,-,Electric Power,Electricity,SF6,2048,g,mmbtu,0.011747614740967057,SF6,AR4,22800,100,267.8456160940489
-114,Reference case,-,Electric Power,Electricity,SF6,2049,g,mmbtu,0.011625844869039803,SF6,AR4,22800,100,265.0692630141075
-115,Reference case,-,Electric Power,Electricity,SF6,2050,g,mmbtu,0.011487850911971896,SF6,AR4,22800,100,261.9230007929592
-116,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2022,g,mmbtu,9.4566876565174,CH4,AR4,25,100,236.41719141293498
-117,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2022,g,mmbtu,116073.72890604589,CO2,AR4,1,100,116073.72890604589
-118,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2022,g,mmbtu,1.9291233120223723,N2O,AR4,298,100,574.8787469826669
-119,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2022,g,mmbtu,0.015284831866835172,SF6,AR4,22800,100,348.49416656384193
-120,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2023,g,mmbtu,7.7033041643557825,CH4,AR4,25,100,192.58260410889457
-121,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2023,g,mmbtu,104254.38113169986,CO2,AR4,1,100,104254.38113169986
-122,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2023,g,mmbtu,1.6694430009980528,N2O,AR4,298,100,497.4940142974197
-123,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2023,g,mmbtu,0.01510060925670438,SF6,AR4,22800,100,344.29389105285986
-124,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2024,g,mmbtu,5.4651315022882745,CH4,AR4,25,100,136.62828755720687
-125,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2024,g,mmbtu,95359.98782021523,CO2,AR4,1,100,95359.98782021523
-126,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2024,g,mmbtu,1.3763360481735685,N2O,AR4,298,100,410.1481423557234
-127,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2024,g,mmbtu,0.014935469342897535,SF6,AR4,22800,100,340.52870101806377
-128,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2025,g,mmbtu,4.350219627501764,CH4,AR4,25,100,108.75549068754411
-129,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2025,g,mmbtu,83118.67771892787,CO2,AR4,1,100,83118.67771892787
-130,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2025,g,mmbtu,1.1614994530830982,N2O,AR4,298,100,346.12683701876324
-131,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2025,g,mmbtu,0.014750449449795375,SF6,AR4,22800,100,336.31024745533455
-132,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2026,g,mmbtu,3.59119249988581,CH4,AR4,25,100,89.77981249714524
-133,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2026,g,mmbtu,68451.6263801541,CO2,AR4,1,100,68451.6263801541
-134,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2026,g,mmbtu,0.946738691879993,N2O,AR4,298,100,282.1281301802379
-135,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2026,g,mmbtu,0.014538599048924529,SF6,AR4,22800,100,331.48005831547925
-136,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2027,g,mmbtu,2.8634395965993957,CH4,AR4,25,100,71.58598991498489
-137,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2027,g,mmbtu,53079.5582589475,CO2,AR4,1,100,53079.5582589475
-138,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2027,g,mmbtu,0.7585647193295201,N2O,AR4,298,100,226.05228636019697
-139,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2027,g,mmbtu,0.014220861300217427,SF6,AR4,22800,100,324.2356376449573
-140,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2028,g,mmbtu,2.0687675157788195,CH4,AR4,25,100,51.71918789447049
-141,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2028,g,mmbtu,37872.260979160594,CO2,AR4,1,100,37872.260979160594
-142,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2028,g,mmbtu,0.5456108626921012,N2O,AR4,298,100,162.59203708224618
-143,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2028,g,mmbtu,0.01391946911515485,SF6,AR4,22800,100,317.36389582553056
-144,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2029,g,mmbtu,1.284542413658042,CH4,AR4,25,100,32.11356034145105
-145,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2029,g,mmbtu,22887.608109708977,CO2,AR4,1,100,22887.608109708977
-146,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2029,g,mmbtu,0.3426704997555812,N2O,AR4,298,100,102.1158089271632
-147,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2029,g,mmbtu,0.01360523395037145,SF6,AR4,22800,100,310.19933406846906
-148,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2030,g,mmbtu,0.570080029033854,CH4,AR4,25,100,14.25200072584635
-149,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2030,g,mmbtu,12259.860989403327,CO2,AR4,1,100,12259.860989403327
-150,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2030,g,mmbtu,0.17757262540154778,N2O,AR4,298,100,52.91664236966124
-151,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2030,g,mmbtu,0.013327421011317255,SF6,AR4,22800,100,303.8651990580334
-152,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2031,g,mmbtu,0.5460650298620414,CH4,AR4,25,100,13.651625746551035
-153,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2031,g,mmbtu,11864.0363380735,CO2,AR4,1,100,11864.0363380735
-154,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2031,g,mmbtu,0.17288211577935012,N2O,AR4,298,100,51.51887050224634
-155,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2031,g,mmbtu,0.013052125997773554,SF6,AR4,22800,100,297.58847274923704
-156,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2032,g,mmbtu,0.5265835413230506,CH4,AR4,25,100,13.164588533076266
-157,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2032,g,mmbtu,11565.284388185617,CO2,AR4,1,100,11565.284388185617
-158,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2032,g,mmbtu,0.16793977756053188,N2O,AR4,298,100,50.0460537130385
-159,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2032,g,mmbtu,0.012801514269689111,SF6,AR4,22800,100,291.87452534891173
-160,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2033,g,mmbtu,0.4929193790659916,CH4,AR4,25,100,12.32298447664979
-161,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2033,g,mmbtu,11141.677887955637,CO2,AR4,1,100,11141.677887955637
-162,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2033,g,mmbtu,0.15864169848190932,N2O,AR4,298,100,47.275226147608976
-163,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2033,g,mmbtu,0.012498725994076768,SF6,AR4,22800,100,284.9709526649503
-164,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2034,g,mmbtu,0.4830446343652304,CH4,AR4,25,100,12.07611585913076
-165,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2034,g,mmbtu,10625.849912668118,CO2,AR4,1,100,10625.849912668118
-166,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2034,g,mmbtu,0.15803530368999089,N2O,AR4,298,100,47.09452049961728
-167,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2034,g,mmbtu,0.012228658779273203,SF6,AR4,22800,100,278.81342016742906
-168,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2035,g,mmbtu,0.37667079143017784,CH4,AR4,25,100,9.416769785754447
-169,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2035,g,mmbtu,9268.626310229925,CO2,AR4,1,100,9268.626310229925
-170,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2035,g,mmbtu,0.14529945995330762,N2O,AR4,298,100,43.29923906608567
-171,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2035,g,mmbtu,0.011931088795582192,SF6,AR4,22800,100,272.02882453927396
-172,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2036,g,mmbtu,0.37489415820483163,CH4,AR4,25,100,9.37235395512079
-173,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2036,g,mmbtu,9119.743428664475,CO2,AR4,1,100,9119.743428664475
-174,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2036,g,mmbtu,0.14395401895144838,N2O,AR4,298,100,42.89829764753162
-175,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2036,g,mmbtu,0.011636929550599745,SF6,AR4,22800,100,265.3219937536742
-176,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2037,g,mmbtu,0.3677578778875246,CH4,AR4,25,100,9.193946947188115
-177,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2037,g,mmbtu,9005.78447720613,CO2,AR4,1,100,9005.78447720613
-178,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2037,g,mmbtu,0.1397439136073446,N2O,AR4,298,100,41.64368625498869
-179,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2037,g,mmbtu,0.011343483868914404,SF6,AR4,22800,100,258.6314322112484
-180,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2038,g,mmbtu,0.3641846331032243,CH4,AR4,25,100,9.104615827580608
-181,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2038,g,mmbtu,8806.670639745931,CO2,AR4,1,100,8806.670639745931
-182,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2038,g,mmbtu,0.13847082112385045,N2O,AR4,298,100,41.26430469490744
-183,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2038,g,mmbtu,0.011070841529601687,SF6,AR4,22800,100,252.41518687491845
-184,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2039,g,mmbtu,0.36150493931335687,CH4,AR4,25,100,9.037623482833922
-185,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2039,g,mmbtu,8713.301757746034,CO2,AR4,1,100,8713.301757746034
-186,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2039,g,mmbtu,0.13666294016346298,N2O,AR4,298,100,40.72555616871197
-187,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2039,g,mmbtu,0.01082671852554613,SF6,AR4,22800,100,246.84918238245177
-188,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2040,g,mmbtu,0.35923357520617794,CH4,AR4,25,100,8.980839380154448
-189,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2040,g,mmbtu,8635.886772616484,CO2,AR4,1,100,8635.886772616484
-190,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2040,g,mmbtu,0.13483554770348274,N2O,AR4,298,100,40.180993215637855
-191,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2040,g,mmbtu,0.0105953132160278,SF6,AR4,22800,100,241.57314132543385
-192,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2041,g,mmbtu,0.35823073000815653,CH4,AR4,25,100,8.955768250203914
-193,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2041,g,mmbtu,8478.489373416123,CO2,AR4,1,100,8478.489373416123
-194,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2041,g,mmbtu,0.13471215345187934,N2O,AR4,298,100,40.14422172866004
-195,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2041,g,mmbtu,0.010374410146896737,SF6,AR4,22800,100,236.5365513492456
-196,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2042,g,mmbtu,0.35889930570010625,CH4,AR4,25,100,8.972482642502657
-197,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2042,g,mmbtu,8408.680266708936,CO2,AR4,1,100,8408.680266708936
-198,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2042,g,mmbtu,0.13443946613152127,N2O,AR4,298,100,40.06296090719334
-199,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2042,g,mmbtu,0.010164493084580652,SF6,AR4,22800,100,231.75044232843885
-200,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2043,g,mmbtu,0.35817509894097976,CH4,AR4,25,100,8.954377473524493
-201,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2043,g,mmbtu,8319.988662558795,CO2,AR4,1,100,8319.988662558795
-202,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2043,g,mmbtu,0.1339355699003147,N2O,AR4,298,100,39.91279983029378
-203,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2043,g,mmbtu,0.009969297108442266,SF6,AR4,22800,100,227.29997407248365
-204,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2044,g,mmbtu,0.35679338802110994,CH4,AR4,25,100,8.919834700527748
-205,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2044,g,mmbtu,8181.86264076706,CO2,AR4,1,100,8181.86264076706
-206,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2044,g,mmbtu,0.13353409739114114,N2O,AR4,298,100,39.79316102256006
-207,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2044,g,mmbtu,0.009782646778170426,SF6,AR4,22800,100,223.04434654228572
-208,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2045,g,mmbtu,0.34779009134012745,CH4,AR4,25,100,8.694752283503187
-209,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2045,g,mmbtu,8088.617590901132,CO2,AR4,1,100,8088.617590901132
-210,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2045,g,mmbtu,0.12988536046347288,N2O,AR4,298,100,38.70583741811492
-211,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2045,g,mmbtu,0.009613455577252015,SF6,AR4,22800,100,219.18678716134593
-212,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2046,g,mmbtu,0.35082769682963316,CH4,AR4,25,100,8.77069242074083
-213,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2046,g,mmbtu,7986.289941831306,CO2,AR4,1,100,7986.289941831306
-214,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2046,g,mmbtu,0.13206535493048407,N2O,AR4,298,100,39.355475769284254
-215,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2046,g,mmbtu,0.009434217936996628,SF6,AR4,22800,100,215.10016896352312
-216,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2047,g,mmbtu,0.34656995695189,CH4,AR4,25,100,8.66424892379725
-217,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2047,g,mmbtu,7856.812221707607,CO2,AR4,1,100,7856.812221707607
-218,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2047,g,mmbtu,0.130665583205812,N2O,AR4,298,100,38.93834379533198
-219,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2047,g,mmbtu,0.009265840241009213,SF6,AR4,22800,100,211.26115749501005
-220,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2048,g,mmbtu,0.3398107589443499,CH4,AR4,25,100,8.495268973608749
-221,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2048,g,mmbtu,7744.822647155073,CO2,AR4,1,100,7744.822647155073
-222,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2048,g,mmbtu,0.1295578122438837,N2O,AR4,298,100,38.60822804867735
-223,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2048,g,mmbtu,0.009107525218165815,SF6,AR4,22800,100,207.6515749741806
-224,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2049,g,mmbtu,0.33364926319476274,CH4,AR4,25,100,8.341231579869069
-225,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2049,g,mmbtu,7628.729188806526,CO2,AR4,1,100,7628.729188806526
-226,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2049,g,mmbtu,0.1267493916408954,N2O,AR4,298,100,37.77131870898683
-227,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2049,g,mmbtu,0.0089491696998289,SF6,AR4,22800,100,204.0410691560989
-228,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CH4,2050,g,mmbtu,0.3316280720451969,CH4,AR4,25,100,8.290701801129922
-229,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,CO2,2050,g,mmbtu,7534.020650322419,CO2,AR4,1,100,7534.020650322419
-230,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,N2O,2050,g,mmbtu,0.12558954502179953,N2O,AR4,298,100,37.42568441649626
-231,Mitigation,NREL Electric Power Decarb,Electric Power,Electricity,SF6,2050,g,mmbtu,0.008800369547214497,SF6,AR4,22800,100,200.64842567649052
+0,Reference case,-,Electric Power,Electricity,CH4,2022,g,BkWh,12.375790080687802,CH4,AR4,25,100,309.39475201719506
+1,Reference case,-,Electric Power,Electricity,CH4,2023,g,BkWh,11.829848189547208,CH4,AR4,25,100,295.7462047386802
+2,Reference case,-,Electric Power,Electricity,CH4,2024,g,BkWh,12.066370198388338,CH4,AR4,25,100,301.65925495970845
+3,Reference case,-,Electric Power,Electricity,CH4,2025,g,BkWh,11.064143859387968,CH4,AR4,25,100,276.6035964846992
+4,Reference case,-,Electric Power,Electricity,CH4,2026,g,BkWh,9.627836322242407,CH4,AR4,25,100,240.69590805606018
+5,Reference case,-,Electric Power,Electricity,CH4,2027,g,BkWh,8.321140224782688,CH4,AR4,25,100,208.0285056195672
+6,Reference case,-,Electric Power,Electricity,CH4,2028,g,BkWh,7.075020640591537,CH4,AR4,25,100,176.87551601478842
+7,Reference case,-,Electric Power,Electricity,CH4,2029,g,BkWh,6.170793337784849,CH4,AR4,25,100,154.2698334446212
+8,Reference case,-,Electric Power,Electricity,CH4,2030,g,BkWh,5.638651888782825,CH4,AR4,25,100,140.96629721957063
+9,Reference case,-,Electric Power,Electricity,CH4,2031,g,BkWh,5.462943127644163,CH4,AR4,25,100,136.57357819110408
+10,Reference case,-,Electric Power,Electricity,CH4,2032,g,BkWh,5.346536928519515,CH4,AR4,25,100,133.66342321298788
+11,Reference case,-,Electric Power,Electricity,CH4,2033,g,BkWh,5.387346695173738,CH4,AR4,25,100,134.68366737934346
+12,Reference case,-,Electric Power,Electricity,CH4,2034,g,BkWh,5.295812247769376,CH4,AR4,25,100,132.39530619423442
+13,Reference case,-,Electric Power,Electricity,CH4,2035,g,BkWh,5.240787546413042,CH4,AR4,25,100,131.01968866032604
+14,Reference case,-,Electric Power,Electricity,CH4,2036,g,BkWh,5.154965357168291,CH4,AR4,25,100,128.8741339292073
+15,Reference case,-,Electric Power,Electricity,CH4,2037,g,BkWh,5.018862652328164,CH4,AR4,25,100,125.4715663082041
+16,Reference case,-,Electric Power,Electricity,CH4,2038,g,BkWh,4.8534727670911195,CH4,AR4,25,100,121.33681917727799
+17,Reference case,-,Electric Power,Electricity,CH4,2039,g,BkWh,4.730309147808402,CH4,AR4,25,100,118.25772869521005
+18,Reference case,-,Electric Power,Electricity,CH4,2040,g,BkWh,4.609338244376497,CH4,AR4,25,100,115.23345610941243
+19,Reference case,-,Electric Power,Electricity,CH4,2041,g,BkWh,4.5824124360778455,CH4,AR4,25,100,114.56031090194614
+20,Reference case,-,Electric Power,Electricity,CH4,2042,g,BkWh,4.542935627886553,CH4,AR4,25,100,113.57339069716383
+21,Reference case,-,Electric Power,Electricity,CH4,2043,g,BkWh,4.467579433982917,CH4,AR4,25,100,111.68948584957292
+22,Reference case,-,Electric Power,Electricity,CH4,2044,g,BkWh,4.299821808178298,CH4,AR4,25,100,107.49554520445746
+23,Reference case,-,Electric Power,Electricity,CH4,2045,g,BkWh,4.174996067285428,CH4,AR4,25,100,104.3749016821357
+24,Reference case,-,Electric Power,Electricity,CH4,2046,g,BkWh,4.03143963878746,CH4,AR4,25,100,100.7859909696865
+25,Reference case,-,Electric Power,Electricity,CH4,2047,g,BkWh,3.9421526578487365,CH4,AR4,25,100,98.5538164462184
+26,Reference case,-,Electric Power,Electricity,CH4,2048,g,BkWh,3.8072381512415183,CH4,AR4,25,100,95.18095378103796
+27,Reference case,-,Electric Power,Electricity,CH4,2049,g,BkWh,3.7521793090532074,CH4,AR4,25,100,93.80448272633018
+28,Reference case,-,Electric Power,Electricity,CH4,2050,g,BkWh,3.6194630056672166,CH4,AR4,25,100,90.48657514168042
+29,Reference case,-,Electric Power,Electricity,CO2,2022,g,BkWh,120493.9975848483,CO2,AR4,1,100,120493.9975848483
+30,Reference case,-,Electric Power,Electricity,CO2,2023,g,BkWh,114807.40240658424,CO2,AR4,1,100,114807.40240658424
+31,Reference case,-,Electric Power,Electricity,CO2,2024,g,BkWh,3734266313.111445,CO2,AR4,1,100,3734266313.111445
+32,Reference case,-,Electric Power,Electricity,CO2,2025,g,BkWh,3702391167.383865,CO2,AR4,1,100,3702391167.383865
+33,Reference case,-,Electric Power,Electricity,CO2,2026,g,BkWh,3668210857.840923,CO2,AR4,1,100,3668210857.840923
+34,Reference case,-,Electric Power,Electricity,CO2,2027,g,BkWh,3638774077.276332,CO2,AR4,1,100,3638774077.276332
+35,Reference case,-,Electric Power,Electricity,CO2,2028,g,BkWh,3604793339.329268,CO2,AR4,1,100,3604793339.329268
+36,Reference case,-,Electric Power,Electricity,CO2,2029,g,BkWh,3570215589.2926297,CO2,AR4,1,100,3570215589.2926297
+37,Reference case,-,Electric Power,Electricity,CO2,2030,g,BkWh,3544921979.3703427,CO2,AR4,1,100,3544921979.3703427
+38,Reference case,-,Electric Power,Electricity,CO2,2031,g,BkWh,3516752206.224186,CO2,AR4,1,100,3516752206.224186
+39,Reference case,-,Electric Power,Electricity,CO2,2032,g,BkWh,3487892905.9570346,CO2,AR4,1,100,3487892905.9570346
+40,Reference case,-,Electric Power,Electricity,CO2,2033,g,BkWh,3462282611.2981825,CO2,AR4,1,100,3462282611.2981825
+41,Reference case,-,Electric Power,Electricity,CO2,2034,g,BkWh,3435408005.649877,CO2,AR4,1,100,3435408005.649877
+42,Reference case,-,Electric Power,Electricity,CO2,2035,g,BkWh,3403779119.533474,CO2,AR4,1,100,3403779119.533474
+43,Reference case,-,Electric Power,Electricity,CO2,2036,g,BkWh,3374225822.403884,CO2,AR4,1,100,3374225822.403884
+44,Reference case,-,Electric Power,Electricity,CO2,2037,g,BkWh,3344200391.2782903,CO2,AR4,1,100,3344200391.2782903
+45,Reference case,-,Electric Power,Electricity,CO2,2038,g,BkWh,3316534270.899001,CO2,AR4,1,100,3316534270.899001
+46,Reference case,-,Electric Power,Electricity,CO2,2039,g,BkWh,3290518263.123398,CO2,AR4,1,100,3290518263.123398
+47,Reference case,-,Electric Power,Electricity,CO2,2040,g,BkWh,3263184291.927862,CO2,AR4,1,100,3263184291.927862
+48,Reference case,-,Electric Power,Electricity,CO2,2041,g,BkWh,3233012393.555285,CO2,AR4,1,100,3233012393.555285
+49,Reference case,-,Electric Power,Electricity,CO2,2042,g,BkWh,3203519918.81543,CO2,AR4,1,100,3203519918.81543
+50,Reference case,-,Electric Power,Electricity,CO2,2043,g,BkWh,3174059527.8139095,CO2,AR4,1,100,3174059527.8139095
+51,Reference case,-,Electric Power,Electricity,CO2,2044,g,BkWh,3145343492.7552996,CO2,AR4,1,100,3145343492.7552996
+52,Reference case,-,Electric Power,Electricity,CO2,2045,g,BkWh,3117064709.438683,CO2,AR4,1,100,3117064709.438683
+53,Reference case,-,Electric Power,Electricity,CO2,2046,g,BkWh,3083096950.6612024,CO2,AR4,1,100,3083096950.6612024
+54,Reference case,-,Electric Power,Electricity,CO2,2047,g,BkWh,3050720161.7624288,CO2,AR4,1,100,3050720161.7624288
+55,Reference case,-,Electric Power,Electricity,CO2,2048,g,BkWh,3020215436.59351,CO2,AR4,1,100,3020215436.59351
+56,Reference case,-,Electric Power,Electricity,CO2,2049,g,BkWh,2988909473.9953923,CO2,AR4,1,100,2988909473.9953923
+57,Reference case,-,Electric Power,Electricity,CO2,2050,g,BkWh,2953432169.3273177,CO2,AR4,1,100,2953432169.3273177
+58,Reference case,-,Electric Power,Electricity,N2O,2022,g,BkWh,1.9531606678751117,N2O,AR4,298,100,582.0418790267832
+59,Reference case,-,Electric Power,Electricity,N2O,2023,g,BkWh,1.8790656674825714,N2O,AR4,298,100,559.9615689098063
+60,Reference case,-,Electric Power,Electricity,N2O,2024,g,BkWh,247805.54114190434,N2O,AR4,298,100,73846051.2602875
+61,Reference case,-,Electric Power,Electricity,N2O,2025,g,BkWh,245690.66719074998,N2O,AR4,298,100,73215818.82284349
+62,Reference case,-,Electric Power,Electricity,N2O,2026,g,BkWh,243422.92281809423,N2O,AR4,298,100,72540030.99979208
+63,Reference case,-,Electric Power,Electricity,N2O,2027,g,BkWh,241469.97906629564,N2O,AR4,298,100,71958053.76175609
+64,Reference case,-,Electric Power,Electricity,N2O,2028,g,BkWh,239215.39071010298,N2O,AR4,298,100,71286186.43161069
+65,Reference case,-,Electric Power,Electricity,N2O,2029,g,BkWh,236921.0851396666,N2O,AR4,298,100,70602483.37162064
+66,Reference case,-,Electric Power,Electricity,N2O,2030,g,BkWh,235242.80201702256,N2O,AR4,298,100,70102355.00107272
+67,Reference case,-,Electric Power,Electricity,N2O,2031,g,BkWh,233373.5564776383,N2O,AR4,298,100,69545319.83033621
+68,Reference case,-,Electric Power,Electricity,N2O,2032,g,BkWh,231458.51102287145,N2O,AR4,298,100,68974636.28481568
+69,Reference case,-,Electric Power,Electricity,N2O,2033,g,BkWh,229759.0154850226,N2O,AR4,298,100,68468186.61453673
+70,Reference case,-,Electric Power,Electricity,N2O,2034,g,BkWh,227975.6508857493,N2O,AR4,298,100,67936743.96395329
+71,Reference case,-,Electric Power,Electricity,N2O,2035,g,BkWh,225876.75340487395,N2O,AR4,298,100,67311272.51465243
+72,Reference case,-,Electric Power,Electricity,N2O,2036,g,BkWh,223915.5832241633,N2O,AR4,298,100,66726843.800800666
+73,Reference case,-,Electric Power,Electricity,N2O,2037,g,BkWh,221923.076562363,N2O,AR4,298,100,66133076.815584175
+74,Reference case,-,Electric Power,Electricity,N2O,2038,g,BkWh,220087.12475752368,N2O,AR4,298,100,65585963.17774206
+75,Reference case,-,Electric Power,Electricity,N2O,2039,g,BkWh,218360.68034256558,N2O,AR4,298,100,65071482.74208454
+76,Reference case,-,Electric Power,Electricity,N2O,2040,g,BkWh,216546.7554549272,N2O,AR4,298,100,64530933.1255683
+77,Reference case,-,Electric Power,Electricity,N2O,2041,g,BkWh,214544.5027659147,N2O,AR4,298,100,63934261.82424258
+78,Reference case,-,Electric Power,Electricity,N2O,2042,g,BkWh,212587.33734520178,N2O,AR4,298,100,63351026.52887013
+79,Reference case,-,Electric Power,Electricity,N2O,2043,g,BkWh,210632.31921698767,N2O,AR4,298,100,62768431.12666233
+80,Reference case,-,Electric Power,Electricity,N2O,2044,g,BkWh,208726.72912257825,N2O,AR4,298,100,62200565.27852832
+81,Reference case,-,Electric Power,Electricity,N2O,2045,g,BkWh,206850.1374896781,N2O,AR4,298,100,61641340.971924074
+82,Reference case,-,Electric Power,Electricity,N2O,2046,g,BkWh,204596.04388073587,N2O,AR4,298,100,60969621.07645929
+83,Reference case,-,Electric Power,Electricity,N2O,2047,g,BkWh,202447.50403752437,N2O,AR4,298,100,60329356.203182265
+84,Reference case,-,Electric Power,Electricity,N2O,2048,g,BkWh,200423.19522696396,N2O,AR4,298,100,59726112.17763526
+85,Reference case,-,Electric Power,Electricity,N2O,2049,g,BkWh,198345.70605088898,N2O,AR4,298,100,59107020.403164916
+86,Reference case,-,Electric Power,Electricity,N2O,2050,g,BkWh,195991.41045455707,N2O,AR4,298,100,58405440.31545801
+87,Reference case,-,Electric Power,Electricity,SF6,2024,g,BkWh,49560.72666353384,SF6,AR4,22800,100,1129984567.9285715
+88,Reference case,-,Electric Power,Electricity,SF6,2025,g,BkWh,49137.78087418228,SF6,AR4,22800,100,1120341403.931356
+89,Reference case,-,Electric Power,Electricity,SF6,2026,g,BkWh,48684.2734840384,SF6,AR4,22800,100,1110001435.4360754
+90,Reference case,-,Electric Power,Electricity,SF6,2027,g,BkWh,48293.72223116135,SF6,AR4,22800,100,1101096866.8704789
+91,Reference case,-,Electric Power,Electricity,SF6,2028,g,BkWh,47842.84145121241,SF6,AR4,22800,100,1090816785.087643
+92,Reference case,-,Electric Power,Electricity,SF6,2029,g,BkWh,47384.00664681959,SF6,AR4,22800,100,1080355351.5474865
+93,Reference case,-,Electric Power,Electricity,SF6,2030,g,BkWh,47048.365261533516,SF6,AR4,22800,100,1072702727.9629642
+94,Reference case,-,Electric Power,Electricity,SF6,2031,g,BkWh,46674.521130097804,SF6,AR4,22800,100,1064179081.76623
+95,Reference case,-,Electric Power,Electricity,SF6,2032,g,BkWh,46291.515607138725,SF6,AR4,22800,100,1055446555.842763
+96,Reference case,-,Electric Power,Electricity,SF6,2033,g,BkWh,45951.61537952039,SF6,AR4,22800,100,1047696830.653065
+97,Reference case,-,Electric Power,Electricity,SF6,2034,g,BkWh,45594.9455177094,SF6,AR4,22800,100,1039564757.8037742
+98,Reference case,-,Electric Power,Electricity,SF6,2035,g,BkWh,45175.16793485095,SF6,AR4,22800,100,1029993828.9146017
+99,Reference case,-,Electric Power,Electricity,SF6,2036,g,BkWh,44782.936783751546,SF6,AR4,22800,100,1021050958.6695353
+100,Reference case,-,Electric Power,Electricity,SF6,2037,g,BkWh,44384.44013232529,SF6,AR4,22800,100,1011965235.0170166
+101,Reference case,-,Electric Power,Electricity,SF6,2038,g,BkWh,44017.25533025217,SF6,AR4,22800,100,1003593421.5297495
+102,Reference case,-,Electric Power,Electricity,SF6,2039,g,BkWh,43671.970893259764,SF6,AR4,22800,100,995720936.3663226
+103,Reference case,-,Electric Power,Electricity,SF6,2040,g,BkWh,43309.19046304515,SF6,AR4,22800,100,987449542.5574296
+104,Reference case,-,Electric Power,Electricity,SF6,2041,g,BkWh,42908.74153178271,SF6,AR4,22800,100,978319306.9246458
+105,Reference case,-,Electric Power,Electricity,SF6,2042,g,BkWh,42517.310149903016,SF6,AR4,22800,100,969394671.4177887
+106,Reference case,-,Electric Power,Electricity,SF6,2043,g,BkWh,42126.30916936486,SF6,AR4,22800,100,960479849.0615188
+107,Reference case,-,Electric Power,Electricity,SF6,2044,g,BkWh,41745.196858919924,SF6,AR4,22800,100,951790488.3833742
+108,Reference case,-,Electric Power,Electricity,SF6,2045,g,BkWh,41369.88279994231,SF6,AR4,22800,100,943233327.8386847
+109,Reference case,-,Electric Power,Electricity,SF6,2046,g,BkWh,40919.06847387608,SF6,AR4,22800,100,932954761.2043747
+110,Reference case,-,Electric Power,Electricity,SF6,2047,g,BkWh,40489.3634870447,SF6,AR4,22800,100,923157487.5046191
+111,Reference case,-,Electric Power,Electricity,SF6,2048,g,BkWh,40084.50616224333,SF6,AR4,22800,100,913926740.4991479
+112,Reference case,-,Electric Power,Electricity,SF6,2049,g,BkWh,39669.010311445476,SF6,AR4,22800,100,904453435.1009568
+113,Reference case,-,Electric Power,Electricity,SF6,2050,g,BkWh,39198.15561077578,SF6,AR4,22800,100,893717947.9256878
