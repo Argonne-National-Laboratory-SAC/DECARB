@@ -1,0 +1,1492 @@
+Dataset from VISION base case - LDV,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+Sector,EIA Subsector,VISION Category,End-Use Application,Powertrain,Energy Carrier Type,Year,Value (quad),Value (mmBTU),Value (Trillion BTU)
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2020,5.635829915,5635829915,5635.829915
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2020,0.405567934,405567934.3,405.5679343
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2020,0.041045591,41045590.6,41.0455906
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2020,0.285466785,285466785.1,285.4667851
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2020,0.024981623,24981622.89,24.98162289
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2020,0.034417108,34417108.39,34.41710839
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2020,0.000688378,688377.8156,0.688377816
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2020,0.002008553,2008552.521,2.008552521
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2020,0.005790905,5790905.005,5.790905005
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2020,0.202921713,202921712.9,202.9217129
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2020,0.014602737,14602736.63,14.60273663
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2020,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2020,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2020,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2020,0.008693897,8693897.447,8.693897447
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2020,0.000699057,699057.2478,0.699057248
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2020,6.449584892,6449584892,6449.584892
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2020,0.464127708,464127708.1,464.1277081
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2020,0.001673206,1673206.184,1.673206184
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2020,1.194851018,1194851018,1194.851018
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2020,0.10456319,104563189.5,104.5631895
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2020,0.207346545,207346545.1,207.3465451
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2020,0.004147146,4147145.662,4.147145662
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2020,0.012100564,12100564.09,12.10056409
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2020,0.007856129,7856128.885,7.856128885
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2020,0.023618552,23618552.33,23.61855233
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2020,0.001699648,1699648.078,1.699648078
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2020,6.63E-05,66282.21766,0.066282218
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2020,1.33E-06,1325.713005,0.001325713
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2020,3.87E-06,3868.172592,0.003868173
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2020,0.001613928,1613927.603,1.613927603
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2020,0.000732902,732901.6655,0.732901666
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2020,0.751411403,751411403,751.411403
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2020,0.05407338,54073379.63,54.07337963
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2020,0.002656044,2656043.797,2.656043797
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2020,0.09203885,92038849.75,92.03884975
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2020,0.008054457,8054456.616,8.054456616
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2020,0.01503167,15031669.91,15.03166991
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2020,0.000300649,300648.9673,0.300648967
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2020,0.000877235,877235.1861,0.877235186
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2020,0.000848505,848505.1647,0.848505165
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2020,0.014085155,14085154.81,14.08515481
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2020,0.001013602,1013601.764,1.013601764
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2020,4.12E-06,4121.100927,0.004121101
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2020,8.24E-08,82.426287,8.24E-05
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2020,2.41E-07,240.5038669,0.000240504
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2020,0.00064089,640889.6514,0.640889651
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2020,8.90E-05,89032.1328,0.089032133
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2021,5.522665658,5522665658,5522.665658
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2021,0.401250414,401250413.9,401.2504139
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2021,0.057148663,57148663.15,57.14866315
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2021,0.275223457,275223456.9,275.2234569
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2021,0.025186135,25186135.31,25.18613531
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2021,0.033772692,33772692.39,33.77269239
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2021,0.000679431,679430.7528,0.679430753
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2021,0.001949616,1949616.227,1.949616227
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2021,0.005648927,5648926.651,5.648926651
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2021,0.213457038,213457038.1,213.4570381
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2021,0.015508765,15508765.19,15.50876519
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2021,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2021,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2021,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2021,0.010560249,10560248.88,10.56024888
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2021,0.001250038,1250037.774,1.250037774
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2021,6.342845678,6342845678,6342.845678
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2021,0.460840763,460840762.7,460.8407627
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2021,0.003519683,3519683.28,3.51968328
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2021,1.167412354,1167412354,1167.412354
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2021,0.106831757,106831757.2,106.8317572
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2021,0.219897845,219897845.2,219.8978452
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2021,0.004423851,4423850.985,4.423850985
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2021,0.012694173,12694173.22,12.69417322
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2021,0.008305225,8305224.557,8.305224557
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2021,0.026814732,26814731.59,26.81473159
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2021,0.00194823,1948229.862,1.948229862
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2021,0.000106353,106352.9921,0.106352992
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2021,2.14E-06,2139.583443,0.002139583
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2021,6.14E-06,6139.502198,0.006139502
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2021,0.002482499,2482498.869,2.482498869
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2021,0.001384613,1384612.964,1.384612964
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2021,0.724730941,724730941.4,724.7309414
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2021,0.052655476,52655476.22,52.65547622
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2021,0.003705549,3705548.507,3.705548507
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2021,0.088114433,88114433.48,88.11443348
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2021,0.008063492,8063491.642,8.063491642
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2021,0.015493887,15493886.63,15.49388663
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2021,0.000311702,311702.216,0.311702216
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2021,0.000894425,894424.7752,0.894424775
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2021,0.000852303,852302.5139,0.852302514
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2021,0.014675506,14675506.26,14.67550626
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2021,0.001066252,1066251.938,1.066251938
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2021,6.50E-06,6495.910869,0.006495911
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2021,1.31E-07,130.6831437,0.000130683
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2021,3.75E-07,374.9932962,0.000374993
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2021,0.000796635,796635.1039,0.796635104
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2021,0.000160921,160921.2495,0.160921249
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2022,5.397426592,5397426592,5397.426592
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2022,0.393206324,393206324.3,393.2063243
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2022,0.073369621,73369621.39,73.36962139
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2022,0.263672667,263672666.9,263.6726669
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2022,0.025767802,25767801.91,25.76780191
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2022,0.0334237,33423700.03,33.42370003
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2022,0.000717047,717046.8256,0.717046826
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2022,0.001905078,1905078.226,1.905078226
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2022,0.005476576,5476575.669,5.476575669
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2022,0.222441995,222441994.7,222.4419947
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2022,0.016205056,16205055.8,16.2050558
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2022,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2022,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2022,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2022,0.012204068,12204068.26,12.20406826
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2022,0.002034171,2034171.489,2.034171489
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2022,6.195088866,6195088866,6195.088866
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2022,0.451316582,451316582.1,451.3165821
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2022,0.006117782,6117781.875,6.117781875
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2022,1.130129878,1130129878,1130.129878
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2022,0.110443616,110443616.2,110.4436162
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2022,0.230847523,230847523,230.847523
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2022,0.004952428,4952428.469,4.952428469
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2022,0.013157807,13157806.86,13.15780686
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2022,0.00861676,8616760.243,8.616760243
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2022,0.029689055,29689054.74,29.68905474
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2022,0.002162869,2162868.524,2.162868524
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2022,0.000144488,144487.6674,0.144487667
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2022,3.10E-06,3099.729329,0.003099729
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2022,8.24E-06,8235.482872,0.008235483
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2022,0.003441251,3441251.149,3.441251149
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2022,0.002298506,2298506.215,2.298506215
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2022,0.719648691,719648691.4,719.6486914
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2022,0.052426913,52426913.43,52.42691343
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2022,0.004934477,4934477.417,4.934477417
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2022,0.086525498,86525498.38,86.52549838
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2022,0.008455832,8455832.484,8.455832484
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2022,0.016405623,16405623.14,16.40562314
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2022,0.000351954,351953.8525,0.351953853
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2022,0.000935085,935084.8467,0.935084847
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2022,0.000874896,874896.4608,0.874896461
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2022,0.015651977,15651976.52,15.65197652
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2022,0.001140258,1140257.501,1.140257501
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2022,8.97E-06,8969.61157,0.008969612
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2022,1.92E-07,192.4272746,0.000192427
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2022,5.11E-07,511.2483561,0.000511248
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2022,0.000971242,971241.6325,0.971241633
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2022,0.000268967,268967.1496,0.26896715
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2023,5.257891526,5257891526,5257.891526
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2023,0.379764007,379764007.5,379.7640075
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2023,0.089744325,89744325.15,89.74432515
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2023,0.249599081,249599081.3,249.5990813
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2023,0.027510705,27510704.88,27.51070488
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2023,0.033373333,33373333.46,33.37333346
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2023,0.000728059,728059.4014,0.728059401
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2023,0.001900447,1900447.074,1.900447074
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2023,0.005281208,5281207.904,5.281207904
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2023,0.230122255,230122254.8,230.1222548
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2023,0.01662114,16621139.72,16.62113972
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2023,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2023,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2023,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2023,0.013658838,13658838.14,13.65883814
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2023,0.002823223,2823222.69,2.82322269
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2023,6.044724422,6044724422,6044.724422
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2023,0.436594928,436594927.7,436.5949277
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2023,0.008649957,8649956.735,8.649956735
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2023,1.083541802,1083541802,1083.541802
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2023,0.119427518,119427517.9,119.4275179
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2023,0.242570557,242570557.1,242.5705571
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2023,0.005291823,5291823.031,5.291823031
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2023,0.013813199,13813199.27,13.81319927
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2023,0.008867119,8867119.499,8.867119499
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2023,0.032815827,32815827.39,32.81582739
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2023,0.002370203,2370202.971,2.370202971
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2023,0.000181335,181334.5119,0.181334512
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2023,3.96E-06,3955.921765,0.003955922
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2023,1.03E-05,10326.10791,0.010326108
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2023,0.00440609,4406089.738,4.406089738
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2023,0.003212381,3212380.76,3.21238076
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2023,0.703173564,703173563.9,703.1735639
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2023,0.050788421,50788421.41,50.78842141
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2023,0.006121438,6121437.566,6.121437566
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2023,0.082939156,82939155.9,82.9391559
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2023,0.009141519,9141518.585,9.141518585
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2023,0.017167393,17167392.92,17.16739292
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2023,0.000374517,374517.0324,0.374517032
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2023,0.000977599,977598.527,0.977598527
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2023,0.000880215,880214.797,0.880214797
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2023,0.016358258,16358258.05,16.35825805
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2023,0.001181515,1181514.986,1.181514986
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2023,1.13E-05,11281.42685,0.011281427
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2023,2.46E-07,246.111132,0.000246111
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2023,6.42E-07,642.4217307,0.000642422
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2023,0.00112388,1123879.62,1.12387962
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2023,0.000375495,375495.0896,0.37549509
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2024,5.116636432,5116636432,5116.636432
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2024,0.366143241,366143241,366.143241
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2024,0.106490073,106490072.5,106.4900725
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2024,0.235427122,235427122.2,235.4271222
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2024,0.029335828,29335827.87,29.33582787
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2024,0.033697258,33697258.12,33.69725812
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2024,0.000749285,749285.4572,0.749285457
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2024,0.001922267,1922266.894,1.922266894
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2024,0.005048165,5048164.747,5.048164747
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2024,0.237514557,237514557.5,237.5145575
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2024,0.01699639,16996390.31,16.99639031
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2024,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2024,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2024,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2024,0.014964305,14964305.12,14.96430512
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2024,0.003685814,3685814.163,3.685814163
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2024,5.881157092,5881157092,5881.157092
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2024,0.420851852,420851852.1,420.8518521
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2024,0.011307857,11307857.09,11.30785709
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2024,1.032458041,1032458041,1032.458041
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2024,0.128651326,128651325.6,128.6513256
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2024,0.251283461,251283461.1,251.2834611
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2024,0.005587489,5587488.524,5.587488524
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2024,0.014334516,14334515.78,14.33451578
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2024,0.00905029,9050290.166,9.050290166
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2024,0.035807322,35807321.83,35.80732183
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2024,0.002562349,2562349.122,2.562349122
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2024,0.000216034,216034.0204,0.21603402
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2024,4.80E-06,4803.689046,0.004803689
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2024,1.23E-05,12323.70432,0.012323704
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2024,0.005380977,5380977.164,5.380977164
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2024,0.004192037,4192037.427,4.192037427
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2024,0.689395992,689395991.5,689.3959915
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2024,0.049332738,49332737.64,49.33273764
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2024,0.007384156,7384155.768,7.384155768
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2024,0.079477301,79477301.24,79.47730124
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2024,0.009903415,9903414.728,9.903414728
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2024,0.017863998,17863998.37,17.86399837
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2024,0.00039722,397220.2763,0.397220276
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2024,0.001019055,1019055.394,1.019055394
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2024,0.000883761,883760.7546,0.883760755
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2024,0.017133165,17133164.72,17.13316472
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2024,0.001226038,1226038.344,1.226038344
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2024,1.35E-05,13542.07891,0.013542079
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2024,3.01E-07,301.1189441,0.000301119
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2024,7.73E-07,772.5106257,0.000772511
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2024,0.001275343,1275342.733,1.275342733
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2024,0.000493823,493822.6287,0.493822629
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2025,4.974256033,4974256033,4974.256033
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2025,0.352443013,352443013.1,352.4430131
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2025,0.122950286,122950286.4,122.9502864
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2025,0.220784106,220784105.5,220.7841055
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2025,0.031702523,31702522.73,31.70252273
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2025,0.034520503,34520503.12,34.52050312
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2025,0.000776957,776957.183,0.776957183
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2025,0.00196826,1968260.123,1.968260123
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2025,0.004743845,4743845.033,4.743845033
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2025,0.243301219,243301218.9,243.3012189
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2025,0.017238722,17238721.55,17.23872155
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2025,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2025,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2025,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2025,0.01616638,16166380.05,16.16638005
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2025,0.004586192,4586191.779,4.586191779
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2025,5.708592453,5708592453,5708.592453
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2025,0.404473254,404473254.1,404.4732541
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2025,0.01405081,14050809.68,14.05080968
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2025,0.977720303,977720303.2,977.7203032
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2025,0.140391447,140391447.4,140.3914474
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2025,0.258814603,258814602.5,258.8146025
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2025,0.005825172,5825171.893,5.825171893
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2025,0.014756867,14756866.66,14.75686666
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2025,0.009184863,9184862.737,9.184862737
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2025,0.038386146,38386146.11,38.38614611
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2025,0.002719789,2719789.433,2.719789433
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2025,0.000248237,248236.8074,0.248236807
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2025,5.59E-06,5587.096165,0.005587096
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2025,1.42E-05,14153.7511,0.014153751
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2025,0.006383063,6383062.559,6.383062559
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2025,0.005247908,5247908.175,5.247908175
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2025,0.679614727,679614727,679.614727
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2025,0.048153022,48153022.39,48.15302239
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2025,0.008715649,8715649.448,8.715649448
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2025,0.076245699,76245698.67,76.24569867
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2025,0.010948166,10948165.81,10.94816581
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2025,0.018661208,18661208.01,18.66120801
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2025,0.00042001,420010.0896,0.42001009
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2025,0.001064009,1064008.582,1.064008582
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2025,0.000886108,886107.7588,0.886107759
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2025,0.017920209,17920209.38,17.92020938
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2025,0.001269708,1269707.982,1.269707982
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2025,1.58E-05,15792.17288,0.015792173
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2025,3.55E-07,355.4363652,0.000355436
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2025,9.00E-07,900.4244239,0.000900424
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2025,0.001434536,1434536.238,1.434536238
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2025,0.00062562,625619.5774,0.625619577
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2026,4.861583831,4861583831,4861.583831
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2026,0.342743915,342743915.1,342.7439151
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2026,0.138846622,138846622.2,138.8466222
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2026,0.210135863,210135863.1,210.1358631
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2026,0.031337722,31337722.23,31.33772223
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2026,0.036258937,36258936.88,36.25893688
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2026,0.000828765,828764.6009,0.828764601
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2026,0.00207105,2071050.487,2.071050487
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2026,0.004424262,4424262.326,4.424262326
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2026,0.250058638,250058638,250.058638
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2026,0.01762925,17629249.97,17.62924997
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2026,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2026,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2026,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2026,0.017280676,17280676.04,17.28067604
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2026,0.005457133,5457133.309,5.457133309
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2026,5.568489171,5568489171,5568.489171
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2026,0.39258107,392581069.5,392.5810695
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2026,0.016757869,16757869.44,16.75786944
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2026,0.940220922,940220921.6,940.2209216
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2026,0.140215866,140215866.3,140.2158663
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2026,0.266855707,266855707.1,266.8557071
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2026,0.006099477,6099477.332,6.099477332
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2026,0.015242356,15242356.49,15.24235649
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2026,0.009358322,9358321.853,9.358321853
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2026,0.041135928,41135927.9,41.1359279
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2026,0.002900102,2900101.998,2.900101998
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2026,0.000281664,281663.726,0.281663726
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2026,6.44E-06,6437.941802,0.006437942
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2026,1.61E-05,16088.16604,0.016088166
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2026,0.007303553,7303552.634,7.303552634
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2026,0.006288454,6288454.215,6.288454215
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2026,0.671086795,671086795.4,671.0867954
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2026,0.04731193,47311930.36,47.31193036
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2026,0.01001183,10011830.18,10.01183018
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2026,0.074015709,74015709,74.015709
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2026,0.011038019,11038019.38,11.03801938
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2026,0.019502858,19502858.23,19.50285823
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2026,0.000445774,445773.6466,0.445773647
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2026,0.001113971,1113970.996,1.113970996
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2026,0.000886792,886792.4747,0.886792475
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2026,0.018735902,18735902.23,18.73590223
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2026,0.00132089,1320889.798,1.320889798
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2026,1.81E-05,18122.67347,0.018122673
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2026,4.14E-07,414.2269888,0.000414227
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2026,1.04E-06,1035.137126,0.001035137
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2026,0.001581787,1581786.747,1.581786747
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2026,0.000755729,755729.0049,0.755729005
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2027,4.763936328,4763936328,4763.936328
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2027,0.334040751,334040751.2,334.0407512
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2027,0.154464392,154464391.5,154.4643915
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2027,0.199186827,199186827.2,199.1868272
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2027,0.032076603,32076603.4,32.0766034
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2027,0.038729652,38729652.43,38.72965243
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2027,0.000886502,886501.6991,0.886501699
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2027,0.002235642,2235641.571,2.235641571
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2027,0.004233154,4233153.671,4.233153671
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2027,0.257355743,257355743.3,257.3557433
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2027,0.018045436,18045435.52,18.04543552
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2027,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2027,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2027,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2027,0.018389346,18389346.18,18.38934618
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2027,0.006303619,6303618.92,6.30361892
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2027,5.436885884,5436885884,5436.885884
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2027,0.381227061,381227060.9,381.2270609
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2027,0.019380238,19380238.17,19.38023817
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2027,0.90142801,901428009.5,901.4280095
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2027,0.145163961,145163960.7,145.1639607
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2027,0.2743536,274353599.7,274.3535997
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2027,0.006279812,6279811.901,6.279811901
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2027,0.015836866,15836865.91,15.83686591
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2027,0.009526685,9526685.36,9.52668536
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2027,0.043896796,43896795.69,43.89679569
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2027,0.003077984,3077983.751,3.077983751
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2027,0.000315056,315055.7762,0.315055776
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2027,7.21E-06,7211.463655,0.007211464
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2027,1.82E-05,18186.37003,0.01818637
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2027,0.008176733,8176733.268,8.176733268
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2027,0.007311868,7311868.439,7.311868439
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2027,0.662582798,662582798.1,662.5827981
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2027,0.046459407,46459406.75,46.45940675
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2027,0.01129188,11291880.08,11.29188008
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2027,0.071489184,71489184.21,71.48918421
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2027,0.011512459,11512459.14,11.51245914
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2027,0.020335966,20335966.35,20.33596635
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2027,0.00046548,465479.7446,0.465479745
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2027,0.001173879,1173879.157,1.173879157
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2027,0.000893755,893754.6854,0.893754685
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2027,0.019567516,19567515.84,19.56751584
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2027,0.001372048,1372047.66,1.37204766
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2027,2.05E-05,20464.0894,0.020464089
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2027,4.68E-07,468.412415,0.000468412
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2027,1.18E-06,1181.274969,0.001181275
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2027,0.001725569,1725569.458,1.725569458
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2027,0.000884378,884378.4868,0.884378487
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2028,4.677317914,4677317914,4677.317914
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2028,0.325400287,325400287.2,325.4002872
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2028,0.169435808,169435808,169.435808
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2028,0.190215025,190215024.5,190.2150245
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2028,0.031722809,31722808.9,31.7228089
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2028,0.042242897,42242896.63,42.24289663
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2028,0.000985941,985940.9385,0.985940938
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2028,0.002454727,2454726.62,2.45472662
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2028,0.004183044,4183044.03,4.18304403
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2028,0.264922792,264922791.7,264.9227917
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2028,0.018430638,18430637.83,18.43063783
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2028,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2028,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2028,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2028,0.019470243,19470242.79,19.47024279
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2028,0.007028683,7028682.528,7.028682528
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2028,5.314367554,5314367554,5314.367554
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2028,0.369719733,369719732.6,369.7197326
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2028,0.021697251,21697251.43,21.69725143
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2028,0.871651386,871651386.4,871.6513864
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2028,0.145368277,145368276.9,145.3682769
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2028,0.280740396,280740396,280.740396
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2028,0.006552426,6552425.89,6.55242589
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2028,0.016313771,16313770.56,16.31377056
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2028,0.009644442,9644442.222,9.644442222
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2028,0.046641213,46641213.2,46.6412132
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2028,0.003244822,3244822.022,3.244822022
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2028,0.000348979,348978.515,0.348978515
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2028,8.15E-06,8145.090231,0.00814509
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2028,2.03E-05,20279.07457,0.020279075
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2028,0.008983319,8983319.284,8.983319284
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2028,0.008211344,8211344.215,8.211344215
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2028,0.654492402,654492402.3,654.4924023
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2028,0.045532936,45532935.67,45.53293567
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2028,0.012519923,12519923.25,12.51992325
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2028,0.069556183,69556182.54,69.55618254
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2028,0.011600122,11600121.98,11.60012198
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2028,0.021156602,21156601.84,21.15660184
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2028,0.000493791,493790.9456,0.493790946
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2028,0.001229406,1229406.074,1.229406074
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2028,0.000905752,905751.5596,0.90575156
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2028,0.020408596,20408596.2,20.4085962
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2028,0.001419823,1419822.895,1.419822895
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2028,2.29E-05,22859.38518,0.022859385
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2028,5.34E-07,533.5335755,0.000533534
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2028,1.33E-06,1328.354488,0.001328354
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2028,0.001863814,1863813.693,1.863813693
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2028,0.000998278,998278.1931,0.998278193
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2029,4.592119887,4592119887,4592.119887
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2029,0.317585444,317585443.8,317.5854438
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2029,0.184277113,184277112.6,184.2771126
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2029,0.18226643,182266430.2,182.2664302
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2029,0.03118222,31182220.48,31.18222048
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2029,0.04629635,46296350.01,46.29635001
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2029,0.001088142,1088141.595,1.088141595
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2029,0.002718629,2718628.917,2.718628917
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2029,0.004203902,4203901.513,4.203901513
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2029,0.272498594,272498593.9,272.4985939
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2029,0.018845672,18845672.37,18.84567237
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2029,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2029,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2029,0,0,0
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2029,0.020617781,20617780.94,20.61778094
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2029,0.007733703,7733702.885,7.733702885
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2029,5.186105052,5186105052,5186.105052
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2029,0.358664738,358664737.6,358.6647376
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2029,0.023932264,23932263.81,23.93226381
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2029,0.844913271,844913270.9,844.9132709
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2029,0.144548131,144548131.4,144.5481314
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2029,0.28602371,286023710,286.02371
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2029,0.006722653,6722652.996,6.722652996
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2029,0.016795975,16795974.82,16.79597482
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2029,0.009713155,9713155.199,9.713155199
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2029,0.049351366,49351366.21,49.35136621
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2029,0.003413081,3413080.652,3.413080652
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2029,0.000383152,383152.2118,0.383152212
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2029,9.01E-06,9005.544906,0.009005545
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2029,2.25E-05,22499.58544,0.022499585
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2029,0.00973757,9737569.64,9.73756964
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2029,0.009103713,9103713.407,9.103713407
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2029,0.645785125,645785125.4,645.7851254
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2029,0.044661716,44661716.3,44.6617163
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2029,0.013750811,13750810.51,13.75081051
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2029,0.06783822,67838219.74,67.83821974
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2029,0.011605792,11605792.26,11.60579226
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2029,0.021947475,21947475.43,21.94747543
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2029,0.00051585,515849.7576,0.515849758
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2029,0.001288807,1288806.598,1.288806598
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2029,0.000919127,919126.7608,0.919126761
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2029,0.021255997,21255996.68,21.25599668
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2029,0.001470039,1470038.959,1.470038959
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2029,2.53E-05,25304.59268,0.025304593
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2029,5.95E-07,594.7548745,0.000594755
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2029,1.49E-06,1485.9443,0.001485944
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2029,0.002004764,2004764.055,2.004764055
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2029,0.001111997,1111996.611,1.111996611
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2030,4.516878594,4516878594,4516.878594
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2030,0.308595738,308595737.8,308.5957378
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2030,0.198885289,198885289.2,198.8852892
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2030,0.175979446,175979445.9,175.9794459
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2030,0.030801242,30801241.62,30.80124162
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2030,0.050913763,50913763.04,50.91376304
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2030,0.00119437,1194369.953,1.194369953
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2030,0.0030316,3031600.415,3.031600415
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2030,0.004255626,4255626.284,4.255626284
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2030,0.280208437,280208437.3,280.2084373
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2030,0.019144001,19144001.25,19.14400125
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2030,3.27E-05,32729.5931,0.032729593
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2030,7.68E-07,767.7932298,0.000767793
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2030,1.95E-06,1948.845304,0.001948845
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2030,0.021748956,21748956.08,21.74895608
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2030,0.008340955,8340955.12,8.34095512
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2030,5.062113142,5062113142,5062.113142
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2030,0.345846475,345846475,345.846475
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2030,0.02594592,25945919.63,25.94591963
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2030,0.823782378,823782378.4,823.7823784
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2030,0.144184566,144184566.2,144.1845662
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2030,0.290632728,290632727.9,290.6327279
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2030,0.006817862,6817861.749,6.817861749
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2030,0.017305386,17305385.54,17.30538554
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2030,0.009775893,9775893.397,9.775893397
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2030,0.051814138,51814137.7,51.8141377
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2030,0.003539972,3539971.624,3.539971624
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2030,0.000415722,415721.6975,0.415721697
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2030,9.75E-06,9752.284541,0.009752285
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2030,2.48E-05,24753.66179,0.024753662
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2030,0.010434216,10434215.71,10.43421571
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2030,0.009893014,9893014.444,9.893014444
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2030,0.638332349,638332349.5,638.3323495
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2030,0.043611232,43611232.45,43.61123245
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2030,0.014982478,14982478.08,14.98247808
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2030,0.066622911,66622911.03,66.62291103
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2030,0.011660841,11660841.24,11.66084124
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2030,0.022760242,22760242.41,22.76024241
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2030,0.000533925,533925.3678,0.533925368
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2030,0.001355232,1355231.989,1.355231989
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2030,0.000935043,935043.3919,0.935043392
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2030,0.02212558,22125580.25,22.12558025
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2030,0.001511632,1511632.34,1.51163234
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2030,2.99E-05,29884.24813,0.029884248
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2030,7.01E-07,701.0451773,0.000701045
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2030,1.78E-06,1779.422569,0.001779423
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2030,0.002144647,2144647.394,2.144647394
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2030,0.00121509,1215089.537,1.215089537
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2031,4.447412858,4447412858,4447.412858
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2031,0.301673023,301673022.8,301.6730228
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2031,0.213965991,213965990.8,213.9659908
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2031,0.171806301,171806300.7,171.8063007
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2031,0.028881832,28881832.39,28.88183239
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2031,0.0554487,55448700.33,55.44870033
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2031,0.001297587,1297586.816,1.297586816
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2031,0.003340603,3340602.754,3.340602754
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2031,0.004305589,4305589.156,4.305589156
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2031,0.28783184,287831840.3,287.8318403
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2031,0.019523958,19523957.88,19.52395788
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2031,0.000177763,177763.0697,0.17776307
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2031,4.16E-06,4159.935475,0.004159935
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2031,1.07E-05,10709.64327,0.010709643
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2031,0.022859759,22859759.04,22.85975904
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2031,0.008865813,8865812.828,8.865812828
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2031,4.940302981,4940302981,4940.302981
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2031,0.335106315,335106314.9,335.1063149
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2031,0.027750728,27750727.52,27.75072752
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2031,0.811384461,811384460.6,811.3844606
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2031,0.136399363,136399363.1,136.3993631
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2031,0.295465622,295465621.7,295.4656217
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2031,0.00691436,6914360.354,6.914360354
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2031,0.017800837,17800836.88,17.80083688
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2031,0.009822969,9822969.366,9.822969366
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2031,0.054143568,54143568.02,54.14356802
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2031,0.003672619,3672619.194,3.672619194
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2031,0.000441702,441701.9899,0.44170199
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2031,1.03E-05,10336.52142,0.010336521
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2031,2.66E-05,26611.09954,0.0266111
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2031,0.011061693,11061693.18,11.06169318
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2031,0.01059084,10590839.76,10.59083976
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2031,0.63240735,632407350.4,632.4073504
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2031,0.042896903,42896902.78,42.89690278
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2031,0.016283346,16283346.45,16.28334645
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2031,0.066233051,66233051.25,66.23305125
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2031,0.011134236,11134235.92,11.13423592
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2031,0.023639488,23639488.08,23.63948808
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2031,0.000553201,553201.209,0.553201209
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2031,0.001424202,1424201.803,1.424201803
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2031,0.000951776,951776.1736,0.951776174
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2031,0.023037314,23037314.46,23.03731446
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2031,0.001562647,1562646.984,1.562646984
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2031,4.17E-05,41730.5193,0.041730519
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2031,9.77E-07,976.5597991,0.00097656
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2031,2.51E-06,2514.127236,0.002514127
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2031,0.002285133,2285132.623,2.285132623
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2031,0.001310705,1310705.428,1.310705428
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2032,4.386866146,4386866146,4386.866146
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2032,0.295361628,295361627.6,295.3616276
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2032,0.229176721,229176721.5,229.1767215
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2032,0.166604511,166604511.2,166.6045112
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2032,0.027870874,27870873.56,27.87087356
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2032,0.059890093,59890092.83,59.89009283
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2032,0.001376241,1376240.569,1.376240569
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2032,0.003653883,3653882.951,3.653882951
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2032,0.004351304,4351303.92,4.35130392
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2032,0.295034086,295034086.1,295.0340861
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2032,0.019864237,19864236.79,19.86423679
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2032,0.000415323,415322.7113,0.415322711
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2032,9.54E-06,9543.881759,0.009543882
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2032,2.53E-05,25338.75809,0.025338758
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2032,0.023947425,23947424.61,23.94742461
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2032,0.00924881,9248809.692,9.248809692
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2032,4.823689439,4823689439,4823.689439
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2032,0.324772335,324772335.5,324.7723355
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2032,0.029062422,29062421.9,29.0624219
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2032,0.796566766,796566765.7,796.5667657
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2032,0.133255765,133255765.1,133.2557651
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2032,0.299223236,299223235.7,299.2232357
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2032,0.006875981,6875981.262,6.875981262
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2032,0.018255552,18255551.59,18.25555159
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2032,0.009857819,9857819.216,9.857819216
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2032,0.05655311,56553110.35,56.55311035
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2032,0.003807643,3807642.669,3.807642669
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2032,0.000461743,461743.3099,0.46174331
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2032,1.06E-05,10610.60094,0.010610601
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2032,2.82E-05,28170.86981,0.02817087
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2032,0.011643811,11643810.88,11.64381088
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2032,0.01111191,11111909.64,11.11190964
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2032,0.627160577,627160577.2,627.1605772
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2032,0.042225854,42225853.88,42.22585388
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2032,0.017583892,17583891.52,17.58389152
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2032,0.06558378,65583780.31,65.58378031
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2032,0.010971355,10971355.07,10.97135507
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2032,0.024452566,24452566.44,24.45256644
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2032,0.000561906,561906.1911,0.561906191
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2032,0.001491846,1491846.337,1.491846337
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2032,0.000967521,967520.5567,0.967520557
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2032,0.023940101,23940100.79,23.94010079
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2032,0.001611854,1611853.861,1.611853861
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2032,5.97E-05,59720.74399,0.059720744
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2032,1.37E-06,1372.349028,0.001372349
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2032,3.64E-06,3643.551011,0.003643551
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2032,0.002423461,2423460.733,2.423460733
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2032,0.001386392,1386391.99,1.38639199
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2033,4.332785751,4332785751,4332.785751
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2033,0.290379517,290379517.5,290.3795175
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2033,0.244630249,244630248.6,244.6302486
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2033,0.161288161,161288160.7,161.2881607
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2033,0.027871429,27871429.33,27.87142933
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2033,0.063729066,63729065.68,63.72906568
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2033,0.001470231,1470231.207,1.470231207
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2033,0.003921979,3921978.72,3.92197872
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2033,0.004390319,4390318.771,4.390318771
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2033,0.301911511,301911510.8,301.9115108
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2033,0.020233846,20233845.81,20.23384581
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2033,0.000698629,698629.4015,0.698629402
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2033,1.61E-05,16117.39851,0.016117399
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2033,4.30E-05,42994.66212,0.042994662
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2033,0.024996511,24996510.88,24.99651088
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2033,0.009556647,9556647.188,9.556647188
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2033,4.713402393,4713402393,4713.402393
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2033,0.315888112,315888112.4,315.8881124
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2033,0.030109747,30109747.2,30.1097472
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2033,0.778973052,778973052.4,778.9730524
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2033,0.134610577,134610577,134.610577
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2033,0.301824441,301824440.7,301.8244407
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2033,0.006963098,6963097.714,6.963097714
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2033,0.018574712,18574711.88,18.57471188
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2033,0.00987886,9878859.652,9.878859652
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2033,0.058884348,58884347.84,58.88434784
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2033,0.003946378,3946377.571,3.946377571
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2033,0.000477568,477567.8049,0.477567805
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2033,1.10E-05,11017.50171,0.011017502
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2033,2.94E-05,29390.21227,0.029390212
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2033,0.012150071,12150071.38,12.15007138
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2033,0.011527779,11527779.48,11.52777948
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2033,0.622313585,622313584.9,622.3135849
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2033,0.041706913,41706913.03,41.70691303
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2033,0.018900163,18900163.14,18.90016314
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2033,0.064683303,64683302.74,64.68330274
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2033,0.01117761,11177609.65,11.17760965
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2033,0.025147489,25147488.58,25.14748858
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2033,0.000580153,580153.2171,0.580153217
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2033,0.001547613,1547612.757,1.547612757
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2033,0.000981618,981618.2725,0.981618273
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2033,0.024820196,24820196.16,24.82019616
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2033,0.001663428,1663427.872,1.663427872
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2033,8.09E-05,80914.02572,0.080914026
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2033,1.87E-06,1866.688683,0.001866689
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2033,4.98E-06,4979.565974,0.004979566
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2033,0.002555421,2555421.4,2.5554214
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2033,0.001450459,1450459.015,1.450459015
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2034,4.283629225,4283629225,4283.629225
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2034,0.287149617,287149617.4,287.1496174
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2034,0.260398002,260398002.4,260.3980024
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2034,0.157638011,157638011.2,157.6380112
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2034,0.028148235,28148235.48,28.14823548
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2034,0.067368812,67368812.4,67.3688124
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2034,0.001576425,1576425.33,1.57642533
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2034,0.004167546,4167546.465,4.167546465
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2034,0.004442453,4442452.917,4.442452917
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2034,0.308256255,308256255.4,308.2562554
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2034,0.020663709,20663708.55,20.66370855
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2034,0.000998371,998371.3812,0.998371381
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2034,2.34E-05,23361.818,0.023361818
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2034,6.18E-05,61760.90943,0.061760909
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2034,0.026013831,26013830.76,26.01383076
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2034,0.009817336,9817336.159,9.817336159
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2034,4.604160945,4604160945,4604.160945
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2034,0.308636202,308636201.8,308.6362018
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2034,0.030974114,30974113.56,30.97411356
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2034,0.76478725,764787249.9,764.7872499
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2034,0.136562314,136562314.1,136.5623141
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2034,0.304450214,304450214.4,304.4502144
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2034,0.007124113,7124112.962,7.124112962
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2034,0.018833795,18833795.19,18.83379519
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2034,0.009891831,9891831.256,9.891831256
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2034,0.061121024,61121023.94,61.12102394
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2034,0.004097198,4097198.362,4.097198362
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2034,0.000491706,491706.0458,0.491706046
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2034,1.15E-05,11505.88585,0.011505886
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2034,3.04E-05,30417.75148,0.030417751
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2034,0.012578328,12578327.88,12.57832788
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2034,0.0118793,11879300.07,11.87930007
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2034,0.61854625,618546249.7,618.5462497
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2034,0.041463747,41463747.13,41.46374713
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2034,0.020278059,20278058.57,20.27805857
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2034,0.064196237,64196237.19,64.19623719
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2034,0.01146304,11463039.83,11.46303983
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2034,0.025876766,25876765.79,25.87676579
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2034,0.000605514,605514.4449,0.605514445
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2034,0.00160078,1600779.648,1.600779648
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2034,0.000997595,997595.3018,0.997595302
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2034,0.025706832,25706832.24,25.70683224
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2034,0.001723237,1723236.689,1.723236689
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2034,0.000103702,103702.0212,0.103702021
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2034,2.43E-06,2426.619783,0.00242662
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2034,6.42E-06,6415.179017,0.006415179
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2034,0.002685823,2685823.421,2.685823421
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2034,0.001509979,1509978.602,1.509978602
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2035,4.245100942,4245100942,4245.100942
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2035,0.285056191,285056191.2,285.0561912
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2035,0.276836832,276836831.8,276.8368318
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2035,0.150541365,150541365.1,150.5413651
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2035,0.027723711,27723710.94,27.72371094
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2035,0.069371691,69371691.49,69.37169149
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2035,0.001636316,1636316.332,1.636316332
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2035,0.004298806,4298805.818,4.298805818
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2035,0.004494127,4494127.097,4.494127097
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2035,0.314785015,314785014.5,314.7850145
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2035,0.02113764,21137640.43,21.13764043
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2035,0.001297986,1297986.366,1.297986366
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2035,3.06E-05,30616.46968,0.03061647
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2035,8.04E-05,80433.26062,0.080433261
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2035,0.027045876,27045876.28,27.04587628
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2035,0.0100508,10050800.49,10.05080049
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2035,4.49790928,4497909280,4497.90928
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2035,0.302032132,302032131.9,302.0321319
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2035,0.031723109,31723108.79,31.72310879
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2035,0.753875099,753875098.9,753.8750989
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2035,0.138833704,138833704,138.833704
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2035,0.306223172,306223172.4,306.2231724
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2035,0.00722309,7223090.104,7.223090104
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2035,0.018975953,18975952.97,18.97595297
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2035,0.009897862,9897861.506,9.897861506
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2035,0.06336523,63365229.98,63.36522998
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2035,0.00425494,4254940.309,4.254940309
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2035,0.000505668,505667.639,0.505667639
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2035,1.19E-05,11927.51969,0.01192752
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2035,3.13E-05,31335.07259,0.031335073
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2035,0.012963313,12963313.12,12.96331312
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2035,0.012182496,12182496.42,12.18249642
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2035,0.61551391,615513909.5,615.5139095
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2035,0.04133142,41331420.16,41.33142016
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2035,0.021722831,21722831.21,21.72283121
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2035,0.063671539,63671538.69,63.67153869
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2035,0.011725756,11725756.12,11.72575612
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2035,0.026442136,26442135.74,26.44213574
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2035,0.000623708,623708.2827,0.623708283
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2035,0.001638559,1638558.964,1.638558964
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2035,0.001013206,1013205.858,1.013205858
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2035,0.026622036,26622036.29,26.62203629
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2035,0.001787655,1787655.08,1.78765508
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2035,0.000126978,126978.4776,0.126978478
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2035,3.00E-06,2995.125999,0.002995126
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2035,7.87E-06,7868.567231,0.007868567
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2035,0.002816674,2816674.345,2.816674345
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2035,0.001565239,1565239.335,1.565239335
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2036,4.217271964,4217271964,4217.271964
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2036,0.284516465,284516465.2,284.5164652
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2036,0.294122109,294122109,294.122109
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2036,0.147836401,147836401.5,147.8364015
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2036,0.02744286,27442859.5,27.4428595
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2036,0.071791856,71791855.79,71.79185579
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2036,0.001696453,1696453.104,1.696453104
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2036,0.004455972,4455972.12,4.45597212
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2036,0.004548925,4548925.384,4.548925384
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2036,0.321647565,321647564.6,321.6475646
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2036,0.021699817,21699816.59,21.69981659
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2036,0.001588788,1588787.59,1.58878759
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2036,3.75E-05,37543.30638,0.037543306
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2036,9.86E-05,98612.76221,0.098612762
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2036,0.028110587,28110587.3,28.1105873
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2036,0.010282352,10282352.05,10.28235205
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2036,4.406630627,4406630627,4406.630627
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2036,0.297291467,297291467.2,297.2914672
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2036,0.032503851,32503850.57,32.50385057
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2036,0.74680059,746800589.9,746.8005899
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2036,0.138628534,138628534.4,138.6285344
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2036,0.307793832,307793831.8,307.7938318
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2036,0.007273218,7273217.769,7.273217769
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2036,0.019104127,19104127.03,19.10412703
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2036,0.00991856,9918559.891,9.918559891
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2036,0.065830037,65830037.1,65.8300371
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2036,0.004441196,4441195.546,4.441195546
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2036,0.000521536,521535.8164,0.521535816
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2036,1.23E-05,12323.97526,0.012323975
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2036,3.24E-05,32370.65029,0.03237065
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2036,0.013347944,13347943.92,13.34794392
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2036,0.012482589,12482588.83,12.48258883
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2036,0.613517904,613517904.1,613.5179041
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2036,0.041390725,41390725.31,41.39072531
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2036,0.023236681,23236681.08,23.23668108
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2036,0.063645873,63645873.33,63.64587333
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2036,0.011814578,11814578.43,11.81457843
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2036,0.027004319,27004318.87,27.00431887
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2036,0.000638116,638116.3999,0.6381164
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2036,0.001676102,1676102.264,1.676102264
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2036,0.00102924,1029239.506,1.029239506
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2036,0.027565762,27565761.97,27.56576197
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2036,0.001859712,1859712.446,1.859712446
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2036,0.000150132,150131.7042,0.150131704
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2036,3.55E-06,3547.636327,0.003547636
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2036,9.32E-06,9318.364611,0.009318365
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2036,0.002949425,2949424.685,2.949424685
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2036,0.001619533,1619533.462,1.619533462
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2037,4.196146455,4196146455,4196.146455
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2037,0.283961192,283961192.4,283.9611924
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2037,0.311864178,311864178.1,311.8641781
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2037,0.14923229,149232290,149.23229
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2037,0.027739611,27739610.73,27.73961073
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2037,0.074848963,74848963.46,74.84896346
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2037,0.001772018,1772017.712,1.772017712
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2037,0.004636121,4636121.476,4.636121476
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2037,0.004600852,4600851.851,4.600851851
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2037,0.327668337,327668336.9,327.6683369
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2037,0.022173938,22173938.07,22.17393807
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2037,0.001871145,1871144.653,1.871144653
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2037,4.43E-05,44298.56225,0.044298562
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2037,0.000115898,115898.1168,0.115898117
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2037,0.029175247,29175247.19,29.17524719
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2037,0.010459689,10459688.67,10.45968867
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2037,4.323384437,4323384437,4323.384437
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2037,0.292571628,292571628,292.571628
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2037,0.033136287,33136287.28,33.13628728
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2037,0.743403554,743403554.4,743.4035544
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2037,0.13818541,138185410.2,138.1854102
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2037,0.309048132,309048132.3,309.0481323
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2037,0.007316584,7316584.481,7.316584481
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2037,0.019142345,19142345.03,19.14234503
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2037,0.009973419,9973419.081,9.973419081
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2037,0.068442514,68442513.65,68.44251365
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2037,0.004631635,4631634.761,4.631634761
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2037,0.000539073,539072.6316,0.539072632
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2037,1.28E-05,12762.3177,0.012762318
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2037,3.34E-05,33389.99084,0.033389991
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2037,0.013726284,13726284.14,13.72628414
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2037,0.012701669,12701668.9,12.7016689
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2037,0.612704281,612704281.4,612.7042814
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2037,0.041462861,41462861.26,41.46286126
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2037,0.024811608,24811608.16,24.81160816
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2037,0.064196235,64196234.57,64.19623457
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2037,0.011932931,11932930.58,11.93293058
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2037,0.027608961,27608960.77,27.60896077
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2037,0.000653631,653630.528,0.653630528
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2037,0.00171009,1710090.428,1.710090428
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2037,0.001048147,1048146.701,1.048146701
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2037,0.028487345,28487344.8,28.4873448
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2037,0.001927793,1927792.674,1.927792674
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2037,0.000173337,173337.0614,0.173337061
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2037,4.10E-06,4103.681986,0.004103682
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2037,1.07E-05,10736.44358,0.010736444
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2037,0.003085376,3085375.505,3.085375505
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2037,0.001665709,1665709.43,1.66570943
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2038,4.184003327,4184003327,4184.003327
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2038,0.284060956,284060956,284.060956
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2038,0.330263089,330263089,330.263089
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2038,0.150988211,150988211.5,150.9882115
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2038,0.027761843,27761842.66,27.76184266
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2038,0.077492809,77492809.16,77.49280916
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2038,0.001830213,1830213.107,1.830213107
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2038,0.004800222,4800222.242,4.800222242
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2038,0.004661605,4661604.754,4.661604754
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2038,0.334285927,334285926.7,334.2859267
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2038,0.022695388,22695388.24,22.69538824
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2038,0.002139715,2139715.31,2.13971531
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2038,5.05E-05,50535.46321,0.050535463
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2038,0.000132543,132542.737,0.132542737
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2038,0.030249048,30249048.44,30.24904844
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2038,0.010637666,10637665.88,10.63766588
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2038,4.244482712,4244482712,4244.482712
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2038,0.288167031,288167031.1,288.1670311
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2038,0.033736918,33736917.8,33.7369178
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2038,0.744523211,744523211.3,744.5232113
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2038,0.136893709,136893708.8,136.8937088
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2038,0.309878061,309878061.4,309.8780614
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2038,0.007318652,7318651.829,7.318651829
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2038,0.019195117,19195117.31,19.19511731
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2038,0.010040624,10040623.74,10.04062374
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2038,0.071044055,71044054.83,71.04405483
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2038,0.004823333,4823333.195,4.823333195
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2038,0.000557937,557937.1478,0.557937148
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2038,1.32E-05,13177.27273,0.013177273
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2038,3.46E-05,34560.91392,0.034560914
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2038,0.014050158,14050157.52,14.05015752
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2038,0.012902165,12902165.34,12.90216534
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2038,0.613297838,613297837.7,613.2978377
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2038,0.041638105,41638105.06,41.63810506
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2038,0.02648642,26486419.51,26.48641951
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2038,0.065161788,65161787.85,65.16178785
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2038,0.011981143,11981142.66,11.98114266
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2038,0.028186998,28186997.78,28.18699778
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2038,0.000665716,665716.127,0.665716127
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2038,0.001746018,1746018.181,1.746018181
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2038,0.001069806,1069806.001,1.069806001
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2038,0.02949379,29493790.47,29.49379047
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2038,0.002002397,2002396.667,2.002396667
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2038,0.000196294,196294.3774,0.196294377
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2038,4.64E-06,4636.050057,0.00463605
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2038,1.22E-05,12159.27834,0.012159278
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2038,0.003223427,3223426.734,3.223426734
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2038,0.001712873,1712873.169,1.712873169
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2039,4.179514976,4179514976,4179.514976
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2039,0.285413154,285413153.5,285.4131535
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2039,0.349350393,349350393.2,349.3503932
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2039,0.151239897,151239897.2,151.2398972
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2039,0.027201249,27201248.89,27.20124889
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2039,0.079604534,79604533.73,79.60453373
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2039,0.001892327,1892326.738,1.892326738
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2039,0.004911023,4911023.42,4.91102342
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2039,0.004736188,4736187.648,4.736187648
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2039,0.341505986,341505986.3,341.5059863
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2039,0.02332096,23320959.75,23.32095975
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2039,0.002397571,2397571.022,2.397571022
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2039,5.70E-05,56994.08739,0.056994087
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2039,0.000147913,147912.7744,0.147912774
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2039,0.031380119,31380118.94,31.38011894
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2039,0.010823349,10823348.59,10.82334859
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2039,4.170047461,4170047461,4170.047461
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2039,0.28476663,284766630.4,284.7666304
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2039,0.034351669,34351669.2,34.3516692
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2039,0.748683163,748683163,748.683163
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2039,0.134654396,134654396.3,134.6543963
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2039,0.310500798,310500798.3,310.5007983
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2039,0.007381099,7381099.232,7.381099232
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2039,0.019155651,19155651.33,19.15565133
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2039,0.010126266,10126265.95,10.12626595
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2039,0.073707098,73707097.72,73.70709772
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2039,0.005033353,5033353.229,5.033353229
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2039,0.000578404,578403.7499,0.57840375
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2039,1.37E-05,13749.5797,0.01374958
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2039,3.57E-05,35683.32391,0.035683324
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2039,0.014361593,14361593.03,14.36159303
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2039,0.013084551,13084551.35,13.08455135
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2039,0.614190505,614190505,614.190505
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2039,0.041942199,41942199.01,41.94219901
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2039,0.028224972,28224971.7,28.2249717
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2039,0.066197984,66197983.78,66.19798378
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2039,0.011906037,11906037.14,11.90603714
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2039,0.028695994,28695993.67,28.69599367
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2039,0.00068215,682149.5405,0.682149541
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2039,0.001770335,1770335.06,1.77033506
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2039,0.001093276,1093276.198,1.093276198
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2039,0.03054291,30542909.97,30.54290997
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2039,0.002085732,2085732.029,2.085732029
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2039,0.000218912,218911.5252,0.218911525
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2039,5.20E-06,5203.876125,0.005203876
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2039,1.35E-05,13505.25626,0.013505256
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2039,0.003364742,3364742.211,3.364742211
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2039,0.001758656,1758655.648,1.758655648
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2040,4.182916861,4182916861,4182.916861
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2040,0.287980205,287980205.1,287.9802051
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2040,0.368508928,368508927.9,368.5089279
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2040,0.150344288,150344287.9,150.3442879
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2040,0.026191741,26191741.46,26.19174146
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2040,0.081494018,81494018.5,81.4940185
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2040,0.001944482,1944481.746,1.944481746
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2040,0.005028228,5028228.368,5.028228368
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2040,0.004807876,4807876.269,4.807876269
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2040,0.348630953,348630953.2,348.6309532
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2040,0.024002106,24002105.88,24.00210588
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2040,0.002642758,2642758.029,2.642758029
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2040,6.31E-05,63057.32421,0.063057324
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2040,0.00016306,163059.7083,0.163059708
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2040,0.032509267,32509266.76,32.50926676
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2040,0.010999923,10999923.35,10.99992335
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2040,4.107503371,4107503371,4107.503371
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2040,0.282788232,282788231.9,282.7882319
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2040,0.035161655,35161654.99,35.16165499
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2040,0.748360899,748360899.3,748.3608993
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2040,0.130373262,130373261.7,130.3732617
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2040,0.311249262,311249261.7,311.2492617
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2040,0.007426539,7426539.014,7.426539014
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2040,0.019204261,19204260.58,19.20426058
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2040,0.010217503,10217502.56,10.21750256
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2040,0.076648461,76648460.81,76.64846081
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2040,0.005276997,5276996.938,5.276996938
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2040,0.000601701,601701.0133,0.601701013
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2040,1.44E-05,14356.84064,0.014356841
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2040,3.71E-05,37125.30269,0.037125303
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2040,0.01470458,14704580.26,14.70458026
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2040,0.013281043,13281043.13,13.28104313
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2040,0.616005806,616005805.8,616.0058058
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2040,0.042409994,42409993.84,42.40999384
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2040,0.029994067,29994067.33,29.99406733
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2040,0.066776785,66776785.43,66.77678543
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2040,0.011633301,11633300.63,11.63330063
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2040,0.029182132,29182132.39,29.18213239
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2040,0.000696298,696298.0202,0.69629802
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2040,0.001800555,1800554.551,1.800554551
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2040,0.001116436,1116435.637,1.116435637
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2040,0.031599675,31599675.38,31.59967538
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2040,0.002175535,2175534.752,2.175534752
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2040,0.000241074,241074.1012,0.241074101
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2040,5.75E-06,5752.130008,0.00575213
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2040,1.49E-05,14874.41234,0.014874412
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2040,0.003508146,3508145.915,3.508145915
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2040,0.001804157,1804156.593,1.804156593
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2041,4.193757743,4193757743,4193.757743
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2041,0.292619772,292619772.1,292.6197721
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2041,0.388298508,388298507.5,388.2985075
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2041,0.151582397,151582397.4,151.5823974
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2041,0.025456622,25456622.49,25.45662249
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2041,0.083616524,83616523.72,83.61652372
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2041,0.001987063,1987063.26,1.98706326
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2041,0.005165535,5165534.663,5.165534663
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2041,0.004891151,4891150.912,4.891150912
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2041,0.356582879,356582878.9,356.5828789
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2041,0.024880598,24880598.06,24.88059806
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2041,0.002885302,2885302.272,2.885302272
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2041,6.86E-05,68566.32974,0.06856633
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2041,0.000178244,178243.8235,0.178243824
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2041,0.033666978,33666977.89,33.66697789
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2041,0.011349558,11349558.2,11.3495582
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2041,4.01098933,4010989330,4010.98933
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2041,0.279867092,279867091.9,279.8670919
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2041,0.035556172,35556172.47,35.55617247
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2041,0.746498685,746498685.3,746.4986853
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2041,0.125366372,125366372,125.366372
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2041,0.31019255,310192549.9,310.1925499
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2041,0.007371416,7371416.46,7.37141646
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2041,0.019162604,19162604.44,19.16260444
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2041,0.010272298,10272298.41,10.27229841
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2041,0.078849463,78849463.19,78.84946319
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2041,0.005501727,5501727.416,5.501727416
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2041,0.000618671,618670.5677,0.618670568
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2041,1.47E-05,14702.08878,0.014702089
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2041,3.82E-05,38219.29112,0.038219291
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2041,0.014960914,14960914.15,14.96091415
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2041,0.013327582,13327582.2,13.3275822
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2041,0.616948696,616948695.8,616.9486958
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2041,0.043047643,43047643.15,43.04764315
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2041,0.031871378,31871377.6,31.8713776
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2041,0.067530412,67530412.31,67.53041231
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2041,0.011341002,11341001.61,11.34100161
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2041,0.029612125,29612124.81,29.61212481
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2041,0.000703703,703702.6013,0.703702601
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2041,0.001829333,1829332.892,1.829332892
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2041,0.001140202,1140202.154,1.140202154
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2041,0.03274195,32741949.66,32.74194966
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2041,0.002284572,2284572.079,2.284572079
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2041,0.000263478,263478.137,0.263478137
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2041,6.26E-06,6261.295047,0.006261295
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2041,1.63E-05,16276.75236,0.016276752
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2041,0.003656531,3656531.311,3.656531311
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2041,0.001855576,1855575.736,1.855575736
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2042,4.200951438,4200951438,4200.951438
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2042,0.297443206,297443205.8,297.4432058
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2042,0.406982608,406982608.2,406.9826082
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2042,0.15364396,153643959.9,153.6439599
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2042,0.024749672,24749671.84,24.74967184
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2042,0.085268018,85268018.38,85.26801838
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2042,0.002040261,2040260.972,2.040260972
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2042,0.005249002,5249002.46,5.24900246
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2042,0.004902101,4902101.328,4.902101328
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2042,0.363185561,363185561,363.185561
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2042,0.025714907,25714907.48,25.71490748
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2042,0.003108496,3108495.723,3.108495723
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2042,7.44E-05,74378.91282,0.074378913
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2042,0.000191355,191355.4696,0.19135547
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2042,0.034707914,34707913.6,34.7079136
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2042,0.011474974,11474974.42,11.47497442
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2042,3.916644037,3916644037,3916.644037
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2042,0.277313169,277313169.4,277.3131694
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2042,0.035685473,35685473.47,35.68547347
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2042,0.748443732,748443731.8,748.4437318
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2042,0.12056274,120562739.8,120.5627398
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2042,0.306472905,306472905.3,306.4729053
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2042,0.007333168,7333168.045,7.333168045
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2042,0.018866124,18866124.3,18.8661243
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2042,0.010182671,10182671.09,10.18267109
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2042,0.080620863,80620863.3,80.6208633
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2042,0.005708261,5708261.184,5.708261184
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2042,0.000633005,633004.7168,0.633004717
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2042,1.51E-05,15146.29803,0.015146298
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2042,3.90E-05,38967.05211,0.038967052
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2042,0.015092692,15092691.82,15.09269182
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2042,0.013295279,13295278.6,13.2952786
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2042,0.617826456,617826456,617.826456
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2042,0.043744443,43744443.22,43.74444322
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2042,0.033691264,33691263.99,33.69126399
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2042,0.068657479,68657479.09,68.65747909
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2042,0.011059661,11059660.78,11.05966078
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2042,0.029815221,29815221.43,29.81522143
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2042,0.000713407,713407.369,0.713407369
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2042,0.001835391,1835391.2,1.8353912
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2042,0.001148095,1148095.087,1.148095087
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2042,0.033777903,33777902.72,33.77790272
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2042,0.002391603,2391602.906,2.391602906
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2042,0.000284764,284763.8767,0.284763877
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2042,6.81E-06,6813.7226,0.006813723
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2042,1.75E-05,17529.74113,0.017529741
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2042,0.003790301,3790301.161,3.790301161
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2042,0.001885253,1885252.558,1.885252558
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2043,4.212860783,4212860783,4212.860783
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2043,0.303400432,303400431.8,303.4004318
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2043,0.425218675,425218674.5,425.2186745
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2043,0.155125776,155125775.8,155.1257758
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2043,0.024029816,24029815.58,24.02981558
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2043,0.086697652,86697652.23,86.69765223
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2043,0.002034314,2034314.283,2.034314283
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2043,0.005326,5325999.845,5.325999845
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2043,0.004959523,4959522.668,4.959522668
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2043,0.369202447,369202447.1,369.2024471
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2043,0.026589101,26589101.24,26.58910124
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2043,0.003321102,3321102.267,3.321102267
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2043,7.79E-05,77927.89774,0.077927898
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2043,0.000204022,204021.5589,0.204021559
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2043,0.035662091,35662090.51,35.66209051
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2043,0.011583204,11583204.4,11.5832044
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2043,3.830731412,3830731412,3830.731412
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2043,0.275880364,275880363.6,275.8803636
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2043,0.035893298,35893298.14,35.89329814
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2043,0.748701795,748701794.8,748.7017948
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2043,0.115977928,115977928,115.977928
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2043,0.303025031,303025031.1,303.0250311
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2043,0.007110321,7110321.133,7.110321133
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2043,0.018615398,18615397.61,18.61539761
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2043,0.010163447,10163447.27,10.16344727
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2043,0.082491673,82491672.8,82.4916728
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2043,0.005940858,5940858.348,5.940858348
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2043,0.00064849,648489.7929,0.648489793
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2043,1.52E-05,15216.46797,0.015216468
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2043,3.98E-05,39837.94772,0.039837948
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2043,0.015225946,15225945.66,15.22594566
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2043,0.013243851,13243851.18,13.24385118
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2043,0.619886064,619886064.2,619.8860642
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2043,0.044642752,44642752.1,44.6427521
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2043,0.035535974,35535974.34,35.53597434
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2043,0.069654217,69654216.91,69.65421691
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2043,0.010789812,10789812.19,10.78981219
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2043,0.0300343,30034299.9,30.0342999
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2043,0.000704739,704738.8677,0.704738868
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2043,0.001845064,1845063.534,1.845063534
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2043,0.001165464,1165464.147,1.165464147
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2043,0.03481018,34810179.76,34.81017976
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2043,0.002506948,2506948.156,2.506948156
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2043,0.00030592,305919.8849,0.305919885
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2043,7.18E-06,7178.247338,0.007178247
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2043,1.88E-05,18793.23393,0.018793234
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2043,0.003921728,3921728.463,3.921728463
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2043,0.001913318,1913317.508,1.913317508
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2044,4.227496267,4227496267,4227.496267
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2044,0.310707151,310707151,310.707151
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2044,0.442552711,442552711.2,442.5527112
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2044,0.156615613,156615613.4,156.6156134
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2044,0.022883256,22883255.84,22.88325584
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2044,0.087861771,87861771.13,87.86177113
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2044,0.002055565,2055564.728,2.055564728
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2044,0.005382787,5382787.156,5.382787156
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2044,0.005017282,5017282.155,5.017282155
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2044,0.374791395,374791395.1,374.7913951
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2044,0.027545942,27545941.91,27.54594191
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2044,0.003520602,3520602.235,3.520602235
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2044,8.24E-05,82366.03568,0.082366036
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2044,0.000215687,215687.1214,0.215687121
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2044,0.036564923,36564922.83,36.56492283
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2044,0.011676482,11676481.66,11.67648166
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2044,3.751911583,3751911583,3751.911583
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2044,0.275753232,275753232,275.753232
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2044,0.036219777,36219776.97,36.21977697
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2044,0.750350646,750350646.2,750.3506462
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2044,0.109634445,109634444.7,109.6344447
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2044,0.29956127,299561269.9,299.5612699
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2044,0.007008367,7008367.488,7.008367488
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2044,0.018352402,18352402.13,18.35240213
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2044,0.01016425,10164250.38,10.16425038
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2044,0.084496981,84496981.25,84.49698125
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2044,0.006210252,6210251.803,6.210251803
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2044,0.000665167,665167.251,0.665167251
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2044,1.56E-05,15561.88,0.01556188
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2044,4.08E-05,40750.9852,0.040750985
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2044,0.015370804,15370804.27,15.37080427
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2044,0.01318324,13183239.61,13.18323961
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2044,0.622174338,622174338.1,622.1743381
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2044,0.045727779,45727779.24,45.72777924
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2044,0.037331085,37331085.41,37.33108541
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2044,0.070718422,70718422.08,70.71842208
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2044,0.010332736,10332735.73,10.33273573
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2044,0.030208341,30208341.1,30.2083411
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2044,0.000706737,706737.4087,0.706737409
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2044,0.001850692,1850691.927,1.850691927
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2044,0.001183742,1183741.968,1.183741968
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2044,0.035811861,35811860.6,35.8118606
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2044,0.002632055,2632054.643,2.632054643
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2044,0.000326375,326374.89,0.32637489
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2044,7.64E-06,7635.683909,0.007635684
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2044,2.00E-05,19995.11896,0.019995119
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2044,0.004049558,4049558.218,4.049558218
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2044,0.001938374,1938374.491,1.938374491
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2045,4.24074299,4240742990,4240.74299
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2045,0.321804868,321804867.6,321.8048676
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2045,0.459264035,459264035.2,459.2640352
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2045,0.156305717,156305717.3,156.3057173
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2045,0.023160268,23160268,23.160268
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2045,0.088720167,88720167.31,88.72016731
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2045,0.002078407,2078406.548,2.078406548
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2045,0.005403103,5403103.05,5.40310305
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2045,0.005075478,5075478.449,5.075478449
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2045,0.379694211,379694211.3,379.6942113
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2045,0.028812745,28812744.77,28.81274477
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2045,0.003704871,3704871.057,3.704871057
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2045,8.68E-05,86792.30999,0.08679231
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2045,0.000225629,225628.5207,0.225628521
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2045,0.037411436,37411436.06,37.41143606
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2045,0.011756192,11756192.07,11.75619207
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2045,3.675370029,3675370029,3675.370029
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2045,0.278902062,278902062.3,278.9020623
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2045,0.036642301,36642300.55,36.64230055
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2045,0.744441081,744441081.4,744.4410814
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2045,0.110305978,110305977.6,110.3059776
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2045,0.295933472,295933472.3,295.9334723
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2045,0.006932697,6932697.325,6.932697325
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2045,0.018022498,18022498.1,18.0224981
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2045,0.010180864,10180864.04,10.18086404
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2045,0.086508135,86508135.48,86.50813548
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2045,0.00656459,6564590.014,6.564590014
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2045,0.000679919,679919.0416,0.679919042
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2045,1.59E-05,15928.15062,0.015928151
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2045,4.14E-05,41407.41343,0.041407413
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2045,0.015532401,15532401.14,15.53240114
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2045,0.013114203,13114202.78,13.11420278
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2045,0.624342831,624342831,624.342831
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2045,0.047377679,47377679.47,47.37767947
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2045,0.03911207,39112069.88,39.11206988
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2045,0.071041786,71041785.91,71.04178591
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2045,0.010526466,10526465.89,10.52646589
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2045,0.030337584,30337583.83,30.33758383
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2045,0.000710705,710704.6209,0.710704621
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2045,0.001847574,1847574.195,1.847574195
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2045,0.001203266,1203265.8,1.2032658
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2045,0.03676932,36769320.03,36.76932003
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2045,0.002790206,2790205.913,2.790205913
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2045,0.000345828,345827.8396,0.34582784
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2045,8.10E-06,8101.549716,0.00810155
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2045,2.11E-05,21061.0903,0.02106109
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2045,0.004175674,4175673.733,4.175673733
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2045,0.001961525,1961524.891,1.961524891
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2046,4.255930555,4255930555,4255.930555
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2046,0.333199539,333199539.5,333.1995395
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2046,0.475581596,475581595.7,475.5815957
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2046,0.155246129,155246129.2,155.2461292
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2046,0.023215938,23215937.53,23.21593753
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2046,0.089521599,89521598.74,89.52159874
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2046,0.002094322,2094322.134,2.094322134
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2046,0.005430798,5430798.115,5.430798115
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2046,0.005134279,5134279.439,5.134279439
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2046,0.384265987,384265987.2,384.2659872
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2046,0.030084431,30084431.2,30.0844312
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2046,0.003879565,3879564.779,3.879564779
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2046,9.08E-05,90760.87226,0.090760872
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2046,0.000235353,235352.5114,0.235352511
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2046,0.038225993,38225993.26,38.22599326
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2046,0.011818338,11818337.91,11.81833791
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2046,3.606795458,3606795458,3606.795458
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2046,0.282378335,282378335.3,282.3783353
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2046,0.037162095,37162095.12,37.16209512
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2046,0.736924901,736924901.3,736.9249013
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2046,0.110201797,110201797.4,110.2017974
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2046,0.292765915,292765915.2,292.7659152
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2046,0.006849142,6849141.938,6.849141938
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2046,0.017760547,17760547.21,17.76054721
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2046,0.010219314,10219314.48,10.21931448
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2046,0.088671772,88671771.65,88.67177165
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2046,0.00694217,6942170.012,6.942170012
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2046,0.000694649,694649.2561,0.694649256
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2046,1.63E-05,16251.04257,0.016251043
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2046,4.21E-05,42140.66687,0.042140667
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2046,0.015687247,15687246.5,15.6872465
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2046,0.013031295,13031294.67,13.03129467
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2046,0.627705088,627705087.7,627.7050877
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2046,0.049143435,49143434.89,49.14343489
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2046,0.040933872,40933872.41,40.93387241
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2046,0.071224699,71224699.16,71.22469916
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2046,0.010651139,10651139.42,10.65113942
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2046,0.030519163,30519163.08,30.51916308
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2046,0.000713984,713983.6604,0.71398366
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2046,0.001851435,1851434.912,1.851434912
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2046,0.001225724,1225723.623,1.225723623
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2046,0.037756045,37756045.03,37.75604503
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2046,0.002955945,2955945.04,2.95594504
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2046,0.000365173,365173.2767,0.365173277
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2046,8.54E-06,8543.08331,0.008543083
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2046,2.22E-05,22153.11579,0.022153116
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2046,0.004304056,4304056.231,4.304056231
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2046,0.001983821,1983820.976,1.983820976
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2047,4.269065997,4269065997,4269.065997
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2047,0.346204737,346204736.9,346.2047369
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2047,0.491417439,491417439.1,491.4174391
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2047,0.154227301,154227300.8,154.2273008
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2047,0.022742118,22742117.98,22.74211798
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2047,0.090182439,90182439.34,90.18243934
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2047,0.002121401,2121401.21,2.12140121
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2047,0.005429364,5429364.242,5.429364242
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2047,0.005191014,5191013.822,5.191013822
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2047,0.388203208,388203208.1,388.2032081
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2047,0.031481778,31481778.37,31.48177837
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2047,0.004043111,4043110.966,4.043110966
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2047,9.51E-05,95107.87864,0.095107879
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2047,0.000243412,243412.3791,0.243412379
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2047,0.038998696,38998695.79,38.99869579
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2047,0.0118675,11867500.26,11.86750026
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2047,3.543430702,3543430702,3543.430702
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2047,0.287358522,287358521.7,287.3585217
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2047,0.037912027,37912026.99,37.91202699
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2047,0.731424506,731424505.7,731.4245057
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2047,0.10785472,107854720.4,107.8547204
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2047,0.28981556,289815559.8,289.8155598
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2047,0.006817459,6817458.961,6.817458961
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2047,0.017448122,17448122.37,17.44812237
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2047,0.010278104,10278103.69,10.27810369
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2047,0.091080356,91080356.4,91.0803564
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2047,0.007386265,7386264.548,7.386264548
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2047,0.000710525,710525.0358,0.710525036
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2047,1.67E-05,16713.99312,0.016713993
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2047,4.28E-05,42776.61207,0.042776612
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2047,0.015872723,15872722.51,15.87272251
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2047,0.012942694,12942694.29,12.94269429
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2047,0.629928377,629928376.8,629.9283768
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2047,0.051084754,51084754.4,51.0847544
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2047,0.042680293,42680293.41,42.68029341
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2047,0.071410872,71410872.39,71.41087239
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2047,0.010530136,10530136.21,10.53013621
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2047,0.030639568,30639567.86,30.63956786
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2047,0.000720748,720748.0393,0.720748039
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2047,0.001844632,1844631.564,1.844631564
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2047,0.001247288,1247288.346,1.247288346
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2047,0.038645049,38645049.01,38.64504901
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2047,0.003133964,3133963.971,3.133963971
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2047,0.00038329,383289.7889,0.383289789
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2047,9.02E-06,9016.294391,0.009016294
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2047,2.31E-05,23075.66628,0.023075666
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2047,0.00442433,4424329.992,4.424329992
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2047,0.002000467,2000467.48,2.00046748
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2048,4.281389018,4281389018,4281.389018
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2048,0.357833977,357833976.8,357.8339768
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2048,0.506813284,506813283.6,506.8132836
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2048,0.154322634,154322633.7,154.3226337
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2048,0.021010924,21010924,21.010924
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2048,0.090600891,90600890.85,90.60089085
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2048,0.002099634,2099633.707,2.099633707
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2048,0.005450169,5450168.965,5.450168965
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2048,0.00524431,5244309.738,5.244309738
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2048,0.391718662,391718661.8,391.7186618
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2048,0.032739432,32739432.45,32.73943245
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2048,0.004192074,4192073.783,4.192073783
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2048,9.71E-05,97149.36941,0.097149369
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2048,0.000252178,252177.5472,0.252177547
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2048,0.03972753,39727529.57,39.72752957
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2048,0.011923605,11923605.48,11.92360548
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2048,3.483255564,3483255564,3483.255564
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2048,0.291126825,291126824.9,291.1268249
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2048,0.03888447,38884469.83,38.88446983
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2048,0.732392918,732392918.3,732.3929183
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2048,0.099714809,99714808.97,99.71480897
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2048,0.286746582,286746582.2,286.7465822
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2048,0.006645219,6645219.309,6.645219309
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2048,0.01724947,17249469.72,17.24946972
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2048,0.010351076,10351076.14,10.35107614
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2048,0.093707361,93707360.5,93.7073605
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2048,0.007831962,7831962.32,7.83196232
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2048,0.00072697,726970.3471,0.726970347
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2048,1.68E-05,16847.20128,0.016847201
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2048,4.37E-05,43731.48196,0.043731482
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2048,0.016085706,16085706.3,16.0857063
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2048,0.012866838,12866837.68,12.86683768
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2048,0.632394438,632394437.5,632.3944375
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2048,0.05285486,52854859.85,52.85485985
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2048,0.044444562,44444561.52,44.44456152
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2048,0.072218886,72218886.11,72.21888611
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2048,0.009832553,9832553.336,9.832553336
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2048,0.030733209,30733208.77,30.73320877
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2048,0.000712228,712227.8869,0.712227887
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2048,0.001848781,1848780.725,1.848780725
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2048,0.001270172,1270172.147,1.270172147
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2048,0.039535707,39535707.41,39.53570741
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2048,0.003304353,3304352.711,3.304352711
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2048,0.000400633,400633.4241,0.400633424
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2048,9.28E-06,9284.49415,0.009284494
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2048,2.41E-05,24100.42367,0.024100424
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2048,0.00454573,4545730.268,4.545730268
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2048,0.002019067,2019067.092,2.019067092
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2049,4.291589328,4291589328,4291.589328
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2049,0.370754192,370754192,370.754192
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2049,0.521752052,521752052,521.752052
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2049,0.154372234,154372234.2,154.3722342
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2049,0.019406809,19406809.33,19.40680933
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2049,0.09084263,90842630.33,90.84263033
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2049,0.002168724,2168724.318,2.168724318
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2049,0.005373358,5373357.78,5.37335778
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2049,0.005295573,5295572.723,5.295572723
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2049,0.394669396,394669396.4,394.6693964
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2049,0.034095838,34095837.7,34.0958377
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2049,0.004329153,4329153.281,4.329153281
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2049,0.000103352,103351.6969,0.103351697
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2049,0.00025607,256070.1884,0.256070188
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2049,0.040408995,40408995.38,40.40899538
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2049,0.011973031,11973030.74,11.97303074
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2049,3.424897992,3424897992,3424.897992
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2049,0.295879962,295879962.1,295.8799621
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2049,0.040052686,40052685.99,40.05268599
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2049,0.733987893,733987892.6,733.9878926
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2049,0.092272831,92272831.02,92.27283102
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2049,0.28366179,283661789.7,283.6617897
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2049,0.006771977,6771977.199,6.771977199
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2049,0.016778645,16778645.44,16.77864544
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2049,0.010441314,10441314.11,10.44131411
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2049,0.096526904,96526904.4,96.5269044
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2049,0.008339045,8339044.515,8.339044515
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2049,0.000744042,744041.6669,0.744041667
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2049,1.78E-05,17762.81962,0.01776282
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2049,4.40E-05,44010.19725,0.044010197
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2049,0.01632645,16326449.78,16.32644978
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2049,0.01278409,12784089.64,12.78408964
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2049,0.635011089,635011089.4,635.0110894
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2049,0.054859169,54859168.79,54.85916879
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2049,0.046232466,46232466.13,46.23246613
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2049,0.073105613,73105612.5,73.1056125
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2049,0.009190427,9190426.569,9.190426569
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2049,0.030819005,30819004.8,30.8190048
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2049,0.000735755,735755.0625,0.735755062
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2049,0.00182295,1822949.629,1.822949629
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2049,0.001295032,1295031.954,1.295031954
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2049,0.040421903,40421902.5,40.4219025
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2049,0.003492084,3492083.854,3.492083854
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2049,0.000417487,417487.2473,0.417487247
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2049,9.97E-06,9966.84863,0.009966849
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2049,2.47E-05,24694.44512,0.024694445
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2049,0.004668917,4668916.742,4.668916742
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2049,0.002037332,2037331.926,2.037331926
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Gasoline,2050,4.308956567,4308956567,4308.956567
+Transportation,Light-Duty Vehicle,LDV,Auto,ICEV_Gasoline,Ethanol,2050,0.375824933,375824933.1,375.8249331
+Transportation,Light-Duty Vehicle,LDV,Auto,BEV,Electricity,2050,0.536386589,536386589.5,536.3865895
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Gasoline,2050,0.153427296,153427295.6,153.4272956
+Transportation,Light-Duty Vehicle,LDV,Auto,E-85 FFV,Ethanol,2050,0.018836603,18836602.71,18.83660271
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Diesel,2050,0.090883158,90883157.86,90.88315786
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,F-T,2050,0.002094948,2094947.919,2.094947919
+Transportation,Light-Duty Vehicle,LDV,Auto,TDI Diesel ICE,Bio-D,2050,0.005407218,5407217.816,5.407217816
+Transportation,Light-Duty Vehicle,LDV,Auto,CNG,CNG,2050,0.005345851,5345851.301,5.345851301
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Gasoline,2050,0.398019248,398019247.7,398.0192477
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Ethanol,2050,0.03471503,34715030.15,34.71503015
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Diesel,2050,0.004452746,4452746.452,4.452746452
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,F-T,2050,0.00010264,102640.2706,0.102640271
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Bio-D,2050,0.000264922,264922.242,0.264922242
+Transportation,Light-Duty Vehicle,LDV,Auto,Hybrid,Electricity,2050,0.041055287,41055287.11,41.05528711
+Transportation,Light-Duty Vehicle,LDV,Auto,Fuel Cell,Hydrogen,2050,0.012031178,12031178.06,12.03117806
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Gasoline,2050,3.375420203,3375420203,3375.420203
+Transportation,Light-Duty Vehicle,LDV,LT,ICEV_Gasoline,Ethanol,2050,0.294402381,294402380.8,294.4023808
+Transportation,Light-Duty Vehicle,LDV,LT,BEV,Electricity,2050,0.041490475,41490474.51,41.49047451
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Gasoline,2050,0.731692697,731692696.8,731.6926968
+Transportation,Light-Duty Vehicle,LDV,LT,E-85 FFV,Ethanol,2050,0.089831503,89831503.43,89.83150343
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Diesel,2050,0.280534977,280534977.3,280.5349773
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,F-T,2050,0.006466613,6466612.523,6.466612523
+Transportation,Light-Duty Vehicle,LDV,LT,TDI Diesel ICE,Bio-D,2050,0.016690812,16690812.28,16.69081228
+Transportation,Light-Duty Vehicle,LDV,LT,CNG,CNG,2050,0.010551409,10551409.44,10.55140944
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Gasoline,2050,0.099822934,99822933.63,99.82293363
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Ethanol,2050,0.008706504,8706503.946,8.706503946
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Diesel,2050,0.000762264,762263.7444,0.762263744
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,F-T,2050,1.76E-05,17570.94364,0.017570944
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Bio-D,2050,4.54E-05,45351.92434,0.045351924
+Transportation,Light-Duty Vehicle,LDV,LT,Hybrid,Electricity,2050,0.016604767,16604766.66,16.60476666
+Transportation,Light-Duty Vehicle,LDV,LT,Fuel Cell,Hydrogen,2050,0.012707601,12707600.81,12.70760081
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Gasoline,2050,0.638853861,638853861.1,638.8538611
+Transportation,Commercial Light Truck,LDV,Class 2B,ICEV_Gasoline,Ethanol,2050,0.055720499,55720498.89,55.72049889
+Transportation,Commercial Light Truck,LDV,Class 2B,BEV,Electricity,2050,0.048042802,48042802.25,48.04280225
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Gasoline,2050,0.073585971,73585970.81,73.58597081
+Transportation,Commercial Light Truck,LDV,Class 2B,E-85 FFV,Ethanol,2050,0.00903431,9034309.647,9.034309647
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Diesel,2050,0.030878485,30878484.6,30.8784846
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,F-T,2050,0.00071178,711780.0323,0.711780032
+Transportation,Commercial Light Truck,LDV,Class 2B,TDI Diesel ICE,Bio-D,2050,0.001837158,1837157.686,1.837157686
+Transportation,Commercial Light Truck,LDV,Class 2B,CNG,CNG,2050,0.001321646,1321646.076,1.321646076
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Gasoline,2050,0.041388965,41388964.82,41.38896482
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Ethanol,2050,0.003609924,3609923.816,3.609923816
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Diesel,2050,0.000433559,433558.8298,0.43355883
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,F-T,2050,9.99E-06,9993.965762,0.009993966
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Bio-D,2050,2.58E-05,25795.17574,0.025795176
+Transportation,Commercial Light Truck,LDV,Class 2B,Hybrid,Electricity,2050,0.004793668,4793667.604,4.793667604
+Transportation,Commercial Light Truck,LDV,Class 2B,Fuel Cell,Hydrogen,2050,0.002056701,2056700.872,2.056700872

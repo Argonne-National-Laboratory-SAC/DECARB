@@ -14,7 +14,7 @@ Created on Mon Jan 10 20:08:36 2022
 
 # Update the _prefix paths based on your local Box folder location
 
-code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
+code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb_anl' # psth to the Github local repository
 
 input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
 interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
@@ -32,6 +32,7 @@ input_path_electricity = input_path_prefix + '\\Electricity'
 input_path_GREET = input_path_prefix + '\\GREET'
 input_path_units = input_path_prefix + '\\Units'
 input_path_VISION = input_path_prefix + '\\Transportation'
+input_path_VISION_base = input_path_prefix + '\\Transportation\\transportation sector base case_VISION_02162024'
 input_path_neu = input_path_prefix + '\\Non-Energy Use EFs'
 input_path_biofuels = input_path_prefix + '\\Biofuels'
 
@@ -121,6 +122,9 @@ decarb_year_max = 2050
 EIA_AEO_fetch_data = False # True for fetching EIA AEO data, False for loading pre-compiled data
 EIA_AEO_save_to_file = True # True for saving fetched data and saving it to file
 save_interim_files = True
+
+# If to replace reference case transportation sector energy demand of EIA with VISION
+replace_energy_demand_Trans_vision_ref = True
 
 # GWP assumptions
 # Note: Use AR4 100-Yr GWP Factors, so that results can be compared with EIA's GHGI.
@@ -239,13 +243,13 @@ ob_EPA_GHGI.remove_combustion_other_em() # removing 'combustion' and 'other' cat
 ob_EPA_GHGI.process_EERE(decarb_year_min, decarb_year_max) # perform calculations for the decarbonization tool
 
 if save_interim_files:
-    ob_EPA_GHGI.activity_non_combust_exp.to_csv(interim_path_prefix + '//' + 'interim_ob_EPA_GHGI.csv')
+    ob_EPA_GHGI.activity_non_combust_exp.to_csv(interim_path_prefix + '\\' + 'interim_ob_EPA_GHGI.csv')
 
 # NREL Electricity generation data import
 ob_elec = NREL_elec( ob_units, input_path_electricity, input_path_corr )
 
 # VISION Transportation data import
-ob_VISION = VISION(ob_units, input_path_VISION, input_path_corr)
+ob_VISION = VISION(ob_units, input_path_VISION, input_path_VISION_base, input_path_corr)
 
 # Import Biofuel Supply Data
 biofuel = pd.read_csv(input_path_biofuels + '\\' + f_biofuels)
@@ -277,6 +281,20 @@ id_energy.drop(columns=['notes'], inplace=True)
 #mtg_biofuel = pd.read_csv(input_path_biofuel + '\\' + f_biofuel_decarb)
 
 #%%
+# Replace EIA AEO's Transportation sector data with VISION's reference case
+ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'] = ob_VISION.vision_base.copy()
+
+ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'].rename(columns={}, inplace=True)
+
+ob_eia.EIA_data['energy_demand_replTrans_ref_VISION']['Basis'] = 'Energy demand'
+ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'][['AEO Case','Generation Type']] = '-'
+
+ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'] = pd.merge(ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'], ob_eia.corr_EIA_fuel_pool, how='left', on=['Energy carrier']).reset_index(drop=True)
+
+if replace_energy_demand_Trans_vision_ref:
+    ob_eia.EIA_data['energy_demand'] = ob_eia.EIA_data['energy_demand'].loc[~(ob_eia.EIA_data['energy_demand']['Sector'].isin(['Transportation']) & 
+                                                                             ob_eia.EIA_data['energy_demand']['Subsector'].isin(['On Road'])), : ].reset_index(drop=True)
+    ob_eia.EIA_data['energy_demand'] = pd.concat([ob_eia.EIA_data['energy_demand'], ob_eia.EIA_data['energy_demand_replTrans_ref_VISION']], axis=0).reset_index(drop=True)
 
 #%%
 

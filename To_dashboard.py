@@ -29,7 +29,7 @@ init_time = datetime.now()
 
 print("Status: Writing data files to Dashboard ..")
 
-code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb' # psth to the Github local repository
+code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb_anl' # psth to the Github local repository
 
 interim_path_prefix = code_path_prefix + '\\Data\\2_intermediate_files'
 output_path_prefix = code_path_prefix + '\\Data\\3_output_files'
@@ -42,7 +42,7 @@ f_elec_net_gen = 'interim_elec_gen.csv'
 f_elec_env = 'interim_elec_gen_env.csv'
 f_elec_CI = 'interim_elec_gen_CI.csv'
 
-f_dashboard = 'US Decarbonization Tool - test.xlsx'
+f_dashboard = 'US Decarbonization Model - Dashboard - test.xlsx'
 
 activity =  pd.read_csv(output_path_prefix + '\\' + f_activity, index_col=0)    
 env = pd.read_csv(output_path_prefix + '\\' + f_env, index_col=0)

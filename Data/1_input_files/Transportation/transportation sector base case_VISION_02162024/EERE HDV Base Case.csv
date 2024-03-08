@@ -1,0 +1,841 @@
+Dataset from VISION base case - HDV,,,,,,,,
+,,,,,,,,
+,,,,,,,,
+Sector,EIA Subsector,VISION Category,End-Use Application,Energy Carrier Type,Year,Value (quad),Value (mmBTU),Value (Trillion BTU)
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2020,0.003468732,3468732.178,3.468732178
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2020,0.559760279,559760279.1,559.7602791
+Transportation,Freight Trucks,HDV,Vocational,CNG,2020,0.029740149,29740149.16,29.74014916
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2020,0.045051682,45051682.17,45.05168217
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2020,0.14751989,147519889.7,147.5198897
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2020,6.27E-05,62730.28363,0.062730284
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2020,1.82E-05,18194.74283,0.018194743
+Transportation,Freight Trucks,HDV,Vocational,LPG,2020,0.001000702,1000701.882,1.000701882
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2020,0.00016326,163259.9189,0.163259919
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2020,4.56E-05,45574.11566,0.045574116
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2020,1.082860072,1082860072,1082.860072
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2020,0.012423756,12423756.04,12.42375604
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2020,0.087152786,87152785.95,87.15278595
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2020,0.285378231,285378231.2,285.3782312
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2020,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2020,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2020,5.68E-05,56815.8728,0.056815873
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2020,2.15E-06,2149.446409,0.002149446
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2020,4.62E-05,46159.76105,0.046159761
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2020,1.096775252,1096775252,1096.775252
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2020,0.008930891,8930891.23,8.93089123
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2020,0.088272734,88272733.68,88.27273368
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2020,0.289045454,289045454.2,289.0454542
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2020,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2020,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2020,4.07E-05,40706.7833,0.040706783
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2020,2.18E-06,2177.067645,0.002177068
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2021,0.003121948,3121947.92,3.12194792
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2021,0.52018084,520180839.9,520.1808399
+Transportation,Freight Trucks,HDV,Vocational,CNG,2021,0.029284105,29284104.57,29.28410457
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2021,0.067684357,67684357.45,67.68435745
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2021,0.169411169,169411168.8,169.4111688
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2021,0.00010346,103460.4778,0.103460478
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2021,3.50E-05,35000.60027,0.0350006
+Transportation,Freight Trucks,HDV,Vocational,LPG,2021,0.001019649,1019648.762,1.019648762
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2021,0.000155734,155733.7163,0.155733716
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2021,4.42E-05,44195.63504,0.044195635
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2021,1.018448434,1018448434,1018.448434
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2021,0.012712339,12712339.11,12.71233911
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2021,0.13251743,132517429.7,132.5174297
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2021,0.331685688,331685687.8,331.6856878
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2021,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2021,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2021,7.09E-05,70905.97772,0.070905978
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2021,2.21E-06,2212.251561,0.002212252
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2021,4.49E-05,44949.68697,0.044949687
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2021,1.035824879,1035824879,1035.824879
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2021,0.009352285,9352284.625,9.352284625
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2021,0.1347784,134778400.1,134.7784001
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2021,0.337344804,337344803.9,337.3448039
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2021,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2021,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2021,5.27E-05,52702.99276,0.052702993
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2021,2.25E-06,2249.996296,0.002249996
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2022,0.002886593,2886592.754,2.886592754
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2022,0.510847226,510847225.8,510.8472258
+Transportation,Freight Trucks,HDV,Vocational,CNG,2022,0.028887614,28887614.22,28.88761422
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2022,0.097115992,97115991.66,97.11599166
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2022,0.160618463,160618463.3,160.6184633
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2022,0.000152423,152422.5681,0.152422568
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2022,5.49E-05,54876.55763,0.054876558
+Transportation,Freight Trucks,HDV,Vocational,LPG,2022,0.001041336,1041335.979,1.041335979
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2022,0.000142103,142102.9908,0.142102991
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2022,4.31E-05,43124.26008,0.04312426
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2022,1.010800918,1010800918,1010.800918
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2022,0.013038201,13038201.31,13.03820131
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2022,0.192161039,192161038.6,192.1610386
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2022,0.317811827,317811826.9,317.8118269
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2022,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2022,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2022,8.74E-05,87357.67731,0.087357677
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2022,2.13E-06,2134.069564,0.00213407
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2022,4.40E-05,43989.79356,0.043989794
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2022,1.031088385,1031088385,1031.088385
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2022,0.009800667,9800666.803,9.800666803
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2022,0.196017843,196017842.5,196.0178425
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2022,0.324190528,324190528.3,324.1905283
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2022,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2022,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2022,6.59E-05,65923.48735,0.065923487
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2022,2.18E-06,2176.901804,0.002176902
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2023,0.002639027,2639027.109,2.639027109
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2023,0.493012546,493012545.9,493.0125459
+Transportation,Freight Trucks,HDV,Vocational,CNG,2023,0.027679748,27679748.41,27.67974841
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2023,0.109409839,109409838.7,109.4098387
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2023,0.161370742,161370742.5,161.3707425
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2023,0.000200229,200228.9296,0.20022893
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2023,7.50E-05,75044.33554,0.075044336
+Transportation,Freight Trucks,HDV,Vocational,LPG,2023,0.001032549,1032548.883,1.032548883
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2023,0.000129916,129915.7609,0.129915761
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2023,4.11E-05,41113.49172,0.041113492
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2023,0.984117334,984117333.5,984.1173335
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2023,0.013040535,13040534.68,13.04053468
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2023,0.218396306,218396305.7,218.3963057
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2023,0.322117046,322117045.7,322.1170457
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2023,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2023,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2023,0.000101726,101725.9203,0.10172592
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2023,2.04E-06,2038.612958,0.002038613
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2023,4.20E-05,42013.42236,0.042013422
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2023,1.005658616,1005658616,1005.658616
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2023,0.009966202,9966201.947,9.966201947
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2023,0.223176769,223176768.8,223.1767688
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2023,0.329167846,329167845.5,329.1678455
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2023,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2023,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2023,7.81E-05,78135.04324,0.078135043
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2023,2.08E-06,2083.236029,0.002083236
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2024,0.002435346,2435346.458,2.435346458
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2024,0.48879934,488799340.1,488.7993401
+Transportation,Freight Trucks,HDV,Vocational,CNG,2024,0.02644416,26444160.21,26.44416021
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2024,0.112885069,112885068.6,112.8850686
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2024,0.158937742,158937742.5,158.9377425
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2024,0.000247604,247603.75,0.24760375
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2024,9.41E-05,94122.71832,0.094122718
+Transportation,Freight Trucks,HDV,Vocational,LPG,2024,0.001020837,1020836.71,1.02083671
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2024,0.000119869,119869.3595,0.11986936
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2024,3.90E-05,38988.45002,0.03898845
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2024,0.982580638,982580638.3,982.5806383
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2024,0.013015473,13015472.63,13.01547263
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2024,0.226920688,226920688.3,226.9206883
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2024,0.319495416,319495415.9,319.4954159
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2024,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2024,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2024,0.000114313,114313.2375,0.114313237
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2024,1.94E-06,1937.091593,0.001937092
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2024,3.99E-05,39872.17837,0.039872178
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2024,1.004852218,1004852218,1004.852218
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2024,0.010084452,10084451.91,10.08445191
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2024,0.232064167,232064166.6,232.0641666
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2024,0.326737231,326737231.2,326.7372312
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2024,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2024,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2024,8.89E-05,88907.21585,0.088907216
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2024,1.98E-06,1980.998513,0.001980999
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2025,0.002287641,2287641.347,2.287641347
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2025,0.489251426,489251426.3,489.2514263
+Transportation,Freight Trucks,HDV,Vocational,CNG,2025,0.025254754,25254753.91,25.25475391
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2025,0.113690147,113690147.4,113.6901474
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2025,0.156567454,156567453.9,156.5674539
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2025,0.00029614,296139.8004,0.2961398
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2025,0.000113992,113992.04,0.11399204
+Transportation,Freight Trucks,HDV,Vocational,LPG,2025,0.001009853,1009852.639,1.009852639
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2025,0.000113248,113248.4939,0.113248494
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2025,3.66E-05,36557.0259,0.036557026
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2025,0.988763434,988763433.8,988.7634338
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2025,0.013002088,13002088.33,13.00208833
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2025,0.229764605,229764604.7,229.7646047
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2025,0.31641844,316418440.5,316.4184405
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2025,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2025,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2025,0.000125596,125596.4092,0.125596409
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2025,1.83E-06,1830.982415,0.001830982
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2025,3.74E-05,37381.01647,0.037381016
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2025,1.011050032,1011050032,1011.050032
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2025,0.010193367,10193367.47,10.19336747
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2025,0.234943469,234943468.8,234.9434688
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2025,0.323550471,323550470.7,323.5504707
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2025,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2025,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2025,9.93E-05,99338.0141,0.099338014
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2025,1.87E-06,1872.252518,0.001872253
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2026,0.00219749,2197490.276,2.197490276
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2026,0.483531314,483531313.8,483.5313138
+Transportation,Freight Trucks,HDV,Vocational,CNG,2026,0.023992225,23992225.15,23.99222515
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2026,0.115530607,115530607.4,115.5306074
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2026,0.154191617,154191616.9,154.1916169
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2026,0.000342815,342814.5124,0.342814512
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2026,0.000132035,132035.4144,0.132035414
+Transportation,Freight Trucks,HDV,Vocational,LPG,2026,0.00099361,993610.1524,0.993610152
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2026,0.000109421,109421.2196,0.10942122
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2026,3.36E-05,33570.34946,0.033570349
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2026,0.980928828,980928827.9,980.9288279
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2026,0.012900935,12900935.14,12.90093514
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2026,0.234374279,234374279.4,234.3742794
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2026,0.312804978,312804978.1,312.8049781
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2026,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2026,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2026,0.000135584,135584.3202,0.13558432
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2026,1.69E-06,1694.714816,0.001694715
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2026,3.43E-05,34294.51592,0.034294516
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2026,1.002089041,1002089041,1002.089041
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2026,0.010214032,10214031.93,10.21403193
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2026,0.23943011,239430109.8,239.4301098
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2026,0.319552685,319552684.9,319.5526849
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2026,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2026,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2026,0.000107914,107913.8707,0.107913871
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2026,1.73E-06,1731.272541,0.001731273
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2027,0.002133489,2133488.814,2.133488814
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2027,0.476352494,476352493.7,476.3524937
+Transportation,Freight Trucks,HDV,Vocational,CNG,2027,0.022771828,22771828.12,22.77182812
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2027,0.117095889,117095888.6,117.0958886
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2027,0.151721545,151721545.2,151.7215452
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2027,0.00038747,387470.3102,0.38747031
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2027,0.00014918,149179.9334,0.149179933
+Transportation,Freight Trucks,HDV,Vocational,LPG,2027,0.000968252,968251.9509,0.968251951
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2027,0.000106862,106861.6911,0.106861691
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2027,3.03E-05,30299.24378,0.030299244
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2027,0.968946489,968946489.4,968.9464894
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2027,0.012773388,12773388.25,12.77338825
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2027,0.238184226,238184226.3,238.1842263
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2027,0.30861612,308616120.5,308.6161205
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2027,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2027,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2027,0.00014368,143680.0837,0.143680084
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2027,1.54E-06,1541.519619,0.00154152
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2027,3.09E-05,30903.00402,0.030903004
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2027,0.988254277,988254277,988.254277
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2027,0.010186299,10186299.25,10.18629925
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2027,0.242930423,242930422.8,242.9304228
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2027,0.314765784,314765783.6,314.7657836
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2027,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2027,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2027,0.00011487,114869.8709,0.114869871
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2027,1.57E-06,1572.236829,0.001572237
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2028,0.002065365,2065364.733,2.065364733
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2028,0.469351076,469351076,469.351076
+Transportation,Freight Trucks,HDV,Vocational,CNG,2028,0.021659468,21659467.71,21.65946771
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2028,0.118393459,118393459.2,118.3934592
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2028,0.148683135,148683134.7,148.6831347
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2028,0.000430601,430601.083,0.430601083
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2028,0.000165254,165253.7488,0.165253749
+Transportation,Freight Trucks,HDV,Vocational,LPG,2028,0.000935264,935263.7993,0.935263799
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2028,0.000104058,104058.0303,0.10405803
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2028,2.69E-05,26875.09092,0.026875091
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2028,0.956840923,956840923.1,956.8409231
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2028,0.012669964,12669963.54,12.66996354
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2028,0.24136241,241362409.8,241.3624098
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2028,0.30311235,303112350.4,303.1123504
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2028,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2028,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2028,0.000150356,150355.944,0.150355944
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2028,1.38E-06,1377.805833,0.001377806
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2028,2.74E-05,27356.63604,0.027356636
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2028,0.973985501,973985500.5,973.9855005
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2028,0.010160234,10160234.01,10.16023401
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2028,0.245687117,245687116.7,245.6871167
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2028,0.308543486,308543486.4,308.5434864
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2028,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2028,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2028,0.00012125,121249.6264,0.121249626
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2028,1.40E-06,1402.493216,0.001402493
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2029,0.001989416,1989415.894,1.989415894
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2029,0.461575822,461575822.4,461.5758224
+Transportation,Freight Trucks,HDV,Vocational,CNG,2029,0.02062276,20622760.21,20.62276021
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2029,0.119627564,119627564.3,119.6275643
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2029,0.145365615,145365614.9,145.3656149
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2029,0.000471739,471739.206,0.471739206
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2029,0.000180183,180183.129,0.180183129
+Transportation,Freight Trucks,HDV,Vocational,LPG,2029,0.000894038,894037.902,0.894037902
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2029,0.00010081,100809.9224,0.100809922
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2029,2.34E-05,23383.14425,0.023383144
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2029,0.943393052,943393052.2,943.3930522
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2029,0.012591676,12591676.2,12.5916762
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2029,0.244501136,244501136.1,244.5011361
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2029,0.297105924,297105923.8,297.1059238
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2029,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2029,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2029,0.000156624,156623.859,0.156623859
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2029,1.21E-06,1207.990845,0.001207991
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2029,2.38E-05,23751.13131,0.023751131
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2029,0.958239492,958239491.7,958.2394917
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2029,0.010136684,10136683.55,10.13668355
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2029,0.248348919,248348918.7,248.3489187
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2029,0.301781563,301781562.5,301.7815625
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2029,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2029,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2029,0.000126445,126444.6149,0.126444615
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2029,1.23E-06,1227.001334,0.001227001
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2030,0.001943539,1943539.381,1.943539381
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2030,0.455189729,455189728.9,455.1897289
+Transportation,Freight Trucks,HDV,Vocational,CNG,2030,0.019716076,19716075.95,19.71607595
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2030,0.119512728,119512728.3,119.5127283
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2030,0.14242431,142424310.2,142.4243102
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2030,0.000511153,511152.8085,0.511152809
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2030,0.000194118,194118.3291,0.194118329
+Transportation,Freight Trucks,HDV,Vocational,LPG,2030,0.000858379,858379.1541,0.858379154
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2030,9.91E-05,99085.00893,0.099085009
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2030,2.00E-05,20037.10458,0.020037105
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2030,0.933218609,933218609.3,933.2186093
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2030,0.012565463,12565463.48,12.56546348
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2030,0.24502201,245022009.5,245.0220095
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2030,0.291994762,291994762.3,291.9947623
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2030,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2030,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2030,0.000163018,163018.1544,0.163018154
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2030,1.04E-06,1043.001472,0.001043001
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2030,2.03E-05,20306.18604,0.020306186
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2030,0.94575095,945750950.3,945.7509503
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2030,0.010147154,10147153.68,10.14715368
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2030,0.248312449,248312449,248.312449
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2030,0.295916006,295916006.4,295.9160064
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2030,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2030,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2030,0.000131473,131472.8311,0.131472831
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2030,1.06E-06,1057.008104,0.001057008
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2031,0.001895975,1895975.4,1.8959754
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2031,0.453073308,453073307.5,453.0733075
+Transportation,Freight Trucks,HDV,Vocational,CNG,2031,0.018965062,18965061.69,18.96506169
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2031,0.116054717,116054716.6,116.0547166
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2031,0.138587012,138587011.9,138.5870119
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2031,0.000549157,549156.9594,0.549156959
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2031,0.000207103,207102.6313,0.207102631
+Transportation,Freight Trucks,HDV,Vocational,LPG,2031,0.000818975,818975.3859,0.818975386
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2031,9.72E-05,97233.18668,0.097233187
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2031,1.69E-05,16935.41974,0.01693542
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2031,0.932277342,932277342.5,932.2773425
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2031,0.012613853,12613852.54,12.61385254
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2031,0.238802818,238802818.5,238.8028185
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2031,0.285166945,285166945.5,285.1669455
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2031,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2031,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2031,0.000170656,170656.0706,0.170656071
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2031,8.88E-07,888.079291,0.000888079
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2031,1.71E-05,17123.46853,0.017123469
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2031,0.942629234,942629234,942.629234
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2031,0.010210539,10210539.09,10.21053909
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2031,0.241454455,241454455.2,241.4544552
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2031,0.288333404,288333403.7,288.3334037
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2031,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2031,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2031,0.000136652,136652.3698,0.13665237
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2031,8.98E-07,897.9404128,0.00089794
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2032,0.001856934,1856934.213,1.856934213
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2032,0.450267885,450267884.9,450.2678849
+Transportation,Freight Trucks,HDV,Vocational,CNG,2032,0.018391031,18391031.28,18.39103128
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2032,0.112089552,112089552.4,112.0895524
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2032,0.135155861,135155860.9,135.1558609
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2032,0.000584717,584716.6975,0.584716698
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2032,0.000218897,218897.3358,0.218897336
+Transportation,Freight Trucks,HDV,Vocational,LPG,2032,0.000777939,777938.8463,0.777938846
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2032,9.58E-05,95834.81145,0.095834811
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2032,1.42E-05,14192.52684,0.014192527
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2032,0.93024039,930240390.3,930.2403903
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2032,0.01275501,12755010.28,12.75501028
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2032,0.231573764,231573764.1,231.5737641
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2032,0.279228088,279228088.5,279.2280885
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2032,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2032,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2032,0.000180091,180091.2955,0.180091295
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2032,7.50E-07,749.8464912,0.000749846
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2032,1.43E-05,14319.11266,0.014319113
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2032,0.93853738,938537379.8,938.5373798
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2032,0.010351915,10351914.93,10.35191493
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2032,0.233639214,233639214.2,233.6392142
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2032,0.281718576,281718576.4,281.7185764
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2032,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2032,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2032,0.000141774,141773.6526,0.141773653
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2032,7.57E-07,756.5345135,0.000756535
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2033,0.001830052,1830051.643,1.830051643
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2033,0.448590931,448590931,448.590931
+Transportation,Freight Trucks,HDV,Vocational,CNG,2033,0.018065503,18065502.93,18.06550293
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2033,0.107720301,107720300.7,107.7203007
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2033,0.131897961,131897960.9,131.8979609
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2033,0.000618597,618596.6759,0.618596676
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2033,0.000229966,229965.9844,0.229965984
+Transportation,Freight Trucks,HDV,Vocational,LPG,2033,0.000750904,750903.6367,0.750903637
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2033,9.50E-05,95047.73037,0.09504773
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2033,1.20E-05,11980.80859,0.011980809
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2033,0.930863271,930863271.4,930.8632714
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2033,0.013058104,13058104.1,13.0581041
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2033,0.22352853,223528530.3,223.5285303
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2033,0.273699174,273699174.3,273.6991743
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2033,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2033,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2033,0.000189065,189064.9869,0.189064987
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2033,6.38E-07,637.6854827,0.000637685
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2033,1.21E-05,12064.28724,0.012064287
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2033,0.937349245,937349245.3,937.3492453
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2033,0.010609836,10609835.76,10.60983576
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2033,0.22508601,225086009.6,225.0860096
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2033,0.275606227,275606227.4,275.6062274
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2033,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2033,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2033,0.00014715,147149.698,0.147149698
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2033,6.42E-07,642.1286824,0.000642129
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2034,0.001811752,1811751.928,1.811751928
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2034,0.448638462,448638462.3,448.6384623
+Transportation,Freight Trucks,HDV,Vocational,CNG,2034,0.01799406,17994059.91,17.99405991
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2034,0.102854595,102854595.1,102.8545951
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2034,0.128947121,128947121.3,128.9471213
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2034,0.00065116,651159.6943,0.651159694
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2034,0.000240267,240266.8669,0.240266867
+Transportation,Freight Trucks,HDV,Vocational,LPG,2034,0.000728467,728466.9633,0.728466963
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2034,9.47E-05,94721.74146,0.094721741
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2034,1.04E-05,10436.18505,0.010436185
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2034,0.935504681,935504681,935.504681
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2034,0.013546551,13546550.79,13.54655079
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2034,0.214473263,214473263.5,214.4732635
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2034,0.268881618,268881617.8,268.8816178
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2034,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2034,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2034,0.000197492,197491.7957,0.197491796
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2034,5.60E-07,559.5557257,0.000559556
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2034,1.05E-05,10489.33132,0.010489331
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2034,0.940268738,940268738.1,940.2687381
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2034,0.010993849,10993848.99,10.99384899
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2034,0.215565468,215565468.5,215.5654685
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2034,0.270250897,270250897.3,270.2508973
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2034,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2034,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2034,0.00015227,152269.7228,0.152269723
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2034,5.62E-07,562.4052629,0.000562405
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2035,0.00180287,1802870.217,1.802870217
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2035,0.449419075,449419075.1,449.4190751
+Transportation,Freight Trucks,HDV,Vocational,CNG,2035,0.018143023,18143022.74,18.14302274
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2035,0.098155997,98155997.43,98.15599743
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2035,0.126417847,126417847.1,126.4178471
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2035,0.00068191,681909.5534,0.681909553
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2035,0.000249831,249830.9834,0.249830983
+Transportation,Freight Trucks,HDV,Vocational,LPG,2035,0.000709386,709385.6292,0.709385629
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2035,9.49E-05,94898.2473,0.094898247
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2035,9.65E-06,9652.956043,0.009652956
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2035,0.941648358,941648357.8,941.6483578
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2035,0.014198558,14198557.97,14.19855797
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2035,0.205662018,205662017.7,205.6620177
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2035,0.264877849,264877849.5,264.8778495
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2035,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2035,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2035,0.00020619,206189.9904,0.20618999
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2035,5.21E-07,521.3336613,0.000521334
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2035,9.69E-06,9687.781877,0.009687782
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2035,0.945045627,945045626.9,945.0456269
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2035,0.011505332,11505331.51,11.50533151
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2035,0.206404003,206404003,206.404003
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2035,0.265833473,265833473,265.833473
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2035,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2035,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2035,0.000157105,157105.0066,0.157105007
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2035,5.23E-07,523.2145235,0.000523215
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2036,0.001788183,1788182.836,1.788182836
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2036,0.448784041,448784040.8,448.7840408
+Transportation,Freight Trucks,HDV,Vocational,CNG,2036,0.018483936,18483936.48,18.48393648
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2036,0.094939788,94939788.07,94.93978807
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2036,0.123326,123325999.7,123.3259997
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2036,0.000710394,710394.2808,0.710394281
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2036,0.000258445,258444.6407,0.258444641
+Transportation,Freight Trucks,HDV,Vocational,LPG,2036,0.000691461,691460.5081,0.691460508
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2036,9.46E-05,94619.86889,0.094619869
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2036,8.11E-06,8105.156608,0.008105157
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2036,0.945147694,945147694.3,945.1476943
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2036,0.014989377,14989376.94,14.98937694
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2036,0.199944993,199944992.8,199.9449928
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2036,0.259726892,259726892.5,259.7268925
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2036,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2036,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2036,0.000214003,214002.8088,0.214002809
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2036,4.40E-07,440.2504019,0.00044025
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2036,8.13E-06,8125.296348,0.008125296
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2036,0.947496203,947496202.8,947.4962028
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2036,0.012119658,12119658.4,12.1196584
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2036,0.200441817,200441817.2,200.4418172
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2036,0.260372263,260372263.3,260.3722633
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2036,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2036,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2036,0.000162058,162058.264,0.162058264
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2036,4.41E-07,441.3443387,0.000441344
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2037,0.001787719,1787718.742,1.787718742
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2037,0.448428115,448428114.7,448.4281147
+Transportation,Freight Trucks,HDV,Vocational,CNG,2037,0.019070859,19070858.67,19.07085867
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2037,0.09325056,93250559.79,93.25055979
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2037,0.118936243,118936243.1,118.9362431
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2037,0.000738408,738408.3685,0.738408368
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2037,0.000266841,266841.1273,0.266841127
+Transportation,Freight Trucks,HDV,Vocational,LPG,2037,0.000676192,676192.2881,0.676192288
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2037,9.51E-05,95115.96335,0.095115963
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2037,6.33E-06,6329.873175,0.006329873
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2037,0.949534857,949534856.6,949.5348566
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2037,0.01595663,15956629.71,15.95662971
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2037,0.197455632,197455632.3,197.4556323
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2037,0.251844398,251844397.8,251.8443978
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2037,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2037,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2037,0.000221453,221452.5216,0.221452522
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2037,3.46E-07,345.7787348,0.000345779
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2037,6.34E-06,6340.771059,0.006340771
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2037,0.951169632,951169632,951.169632
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2037,0.012858204,12858204.19,12.85820419
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2037,0.197795584,197795583.6,197.7955836
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2037,0.252277988,252277988,252.277988
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2037,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2037,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2037,0.000166966,166965.6178,0.166965618
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2037,3.46E-07,346.3740479,0.000346374
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2038,0.001787538,1787538.044,1.787538044
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2038,0.449379068,449379067.8,449.3790678
+Transportation,Freight Trucks,HDV,Vocational,CNG,2038,0.019876917,19876917.49,19.87691749
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2038,0.090629594,90629594.16,90.62959416
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2038,0.11556286,115562859.7,115.5628597
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2038,0.000768405,768405.3433,0.768405343
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2038,0.0002761,276099.5045,0.276099505
+Transportation,Freight Trucks,HDV,Vocational,LPG,2038,0.000664507,664506.5407,0.664506541
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2038,9.56E-05,95615.41579,0.095615416
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2038,5.36E-06,5364.153896,0.005364154
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2038,0.957113614,957113614,957.113614
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2038,0.017145483,17145483.2,17.1454832
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2038,0.193028168,193028168.4,193.0281684
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2038,0.246132484,246132484.2,246.1324842
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2038,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2038,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2038,0.00023056,230559.8507,0.230559851
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2038,2.95E-07,294.6862915,0.000294686
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2038,5.37E-06,5371.157941,0.005371158
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2038,0.958363329,958363329.5,958.3633295
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2038,0.013768596,13768595.73,13.76859573
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2038,0.193280208,193280207.8,193.2802078
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2038,0.246453863,246453862.5,246.4538625
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2038,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2038,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2038,0.000173172,173171.5791,0.173171579
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2038,2.95E-07,295.0710672,0.000295071
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2039,0.001782616,1782616.046,1.782616046
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2039,0.450407116,450407116.3,450.4071163
+Transportation,Freight Trucks,HDV,Vocational,CNG,2039,0.020833551,20833550.86,20.83355086
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2039,0.086488788,86488788.19,86.48878819
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2039,0.113513182,113513182.5,113.5131825
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2039,0.000798648,798647.6992,0.798647699
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2039,0.000285289,285289.0735,0.285289074
+Transportation,Freight Trucks,HDV,Vocational,LPG,2039,0.000653954,653953.5296,0.65395353
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2039,9.59E-05,95860.64853,0.095860649
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2039,5.71E-06,5710.692616,0.005710693
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2039,0.964969896,964969896.4,964.9698964
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2039,0.018537474,18537474.14,18.53747414
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2039,0.185296977,185296976.8,185.2969768
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2039,0.2431951,243195100.5,243.1951005
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2039,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2039,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2039,0.000239896,239895.8266,0.239895827
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2039,3.15E-07,315.4852872,0.000315485
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2039,5.72E-06,5717.977718,0.005717978
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2039,0.966200904,966200903.7,966.2009037
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2039,0.014829365,14829364.95,14.82936495
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2039,0.185533359,185533359.2,185.5333592
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2039,0.243505343,243505343.3,243.5053433
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2039,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2039,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2039,0.000180159,180159.0129,0.180159013
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2039,3.16E-07,315.8877502,0.000315888
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2040,0.001779205,1779205.005,1.779205005
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2040,0.450812898,450812898.4,450.8128984
+Transportation,Freight Trucks,HDV,Vocational,CNG,2040,0.021902976,21902975.97,21.90297597
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2040,0.08233093,82330930.02,82.33093002
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2040,0.11153216,111532160,111.53216
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2040,0.000828164,828164.2924,0.828164292
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2040,0.000294194,294194.0421,0.294194042
+Transportation,Freight Trucks,HDV,Vocational,LPG,2040,0.000644362,644362.2135,0.644362214
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2040,9.62E-05,96188.99035,0.09618899
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2040,5.39E-06,5391.043968,0.005391044
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2040,0.972151225,972151225.1,972.1512251
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2040,0.020133592,20133591.91,20.13359191
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2040,0.177541758,177541757.9,177.5417579
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2040,0.240512475,240512474.9,240.5124749
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2040,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2040,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2040,0.000249191,249190.5177,0.249190518
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2040,2.99E-07,299.4817625,0.000299482
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2040,5.40E-06,5399.920414,0.00539992
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2040,0.973751889,973751888.7,973.7518887
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2040,0.016049061,16049061.47,16.04906147
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2040,0.177834083,177834083.5,177.8340835
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2040,0.240908483,240908482.8,240.9084828
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2040,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2040,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2040,0.000186507,186507.4281,0.186507428
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2040,3.00E-07,299.9748644,0.000299975
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2041,0.001787052,1787051.809,1.787051809
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2041,0.448931206,448931205.9,448.9312059
+Transportation,Freight Trucks,HDV,Vocational,CNG,2041,0.023130592,23130591.93,23.13059193
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2041,0.082500163,82500163.44,82.50016344
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2041,0.109816182,109816181.8,109.8161818
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2041,0.000859784,859784.0899,0.85978409
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2041,0.000303657,303657.494,0.303657494
+Transportation,Freight Trucks,HDV,Vocational,LPG,2041,0.000637665,637664.7586,0.637664759
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2041,9.71E-05,97062.44628,0.097062446
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2041,5.09E-06,5086.936961,0.005086937
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2041,0.973359738,973359738,973.359738
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2041,0.021975007,21975006.95,21.97500695
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2041,0.178874483,178874483.3,178.8744833
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2041,0.238100289,238100289.2,238.1002892
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2041,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2041,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2041,0.000258794,258794.3392,0.258794339
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2041,2.84E-07,283.9435029,0.000283944
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2041,5.10E-06,5098.37852,0.005098379
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2041,0.975549023,975549022.6,975.5490226
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2041,0.017465525,17465524.94,17.46552494
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2041,0.179276808,179276808.5,179.2768085
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2041,0.238635825,238635825.3,238.6358253
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2041,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2041,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2041,0.000193095,193094.7127,0.193094713
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2041,2.85E-07,284.5821497,0.000284582
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2042,0.001788234,1788234.485,1.788234485
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2042,0.451754057,451754056.9,451.7540569
+Transportation,Freight Trucks,HDV,Vocational,CNG,2042,0.024509183,24509183.17,24.50918317
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2042,0.07963107,79631069.88,79.63106988
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2042,0.108208236,108208236.3,108.2082363
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2042,0.000893427,893426.9034,0.893426903
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2042,0.000314133,314133.0822,0.314133082
+Transportation,Freight Trucks,HDV,Vocational,LPG,2042,0.000632774,632773.7074,0.632773707
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2042,9.76E-05,97560.36294,0.097560363
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2042,4.79E-06,4790.801659,0.004790802
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2042,0.985093829,985093829.3,985.0938293
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2042,0.024106534,24106533.58,24.10653358
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2042,0.173643323,173643322.9,173.6433229
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2042,0.235958624,235958624.4,235.9586244
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2042,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2042,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2042,0.0002691,269100.1841,0.269100184
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2042,2.69E-07,268.6880197,0.000268688
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2042,4.81E-06,4805.656233,0.004805656
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2042,0.988148255,988148255.3,988.1482553
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2042,0.019121315,19121315.14,19.12131514
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2042,0.174181729,174181729.1,174.1817291
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2042,0.236690248,236690248.3,236.6902483
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2042,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2042,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2042,0.000200997,200996.6458,0.200996646
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2042,2.70E-07,269.5211258,0.000269521
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2043,0.001801272,1801272.302,1.801272302
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2043,0.456681548,456681548.1,456.6815481
+Transportation,Freight Trucks,HDV,Vocational,CNG,2043,0.026072402,26072401.65,26.07240165
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2043,0.075604754,75604754.29,75.60475429
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2043,0.106392686,106392685.9,106.3926859
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2043,0.000929489,929488.5834,0.929488583
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2043,0.000325459,325459.1851,0.325459185
+Transportation,Freight Trucks,HDV,Vocational,LPG,2043,0.000629945,629944.9099,0.62994491
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2043,9.87E-05,98729.48402,0.098729484
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2043,4.51E-06,4505.785568,0.004505786
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2043,1.00111094,1001110940,1001.11094
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2043,0.026535916,26535915.6,26.5359156
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2043,0.16573638,165736380,165.73638
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2043,0.233227907,233227907.4,233.2279074
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2043,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2043,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2043,0.000279901,279901.3215,0.279901321
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2043,2.54E-07,253.9021504,0.000253902
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2043,4.52E-06,4524.258013,0.004524258
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2043,1.005215211,1005215211,1005.215211
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2043,0.02101309,21013090.48,21.01309048
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2043,0.166415852,166415852.3,166.4158523
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2043,0.234184076,234184075.7,234.1840757
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2043,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2043,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2043,0.000209932,209931.6053,0.209931605
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2043,2.55E-07,254.9430772,0.000254943
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2044,0.001824189,1824189.432,1.824189432
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2044,0.457403069,457403068.5,457.4030685
+Transportation,Freight Trucks,HDV,Vocational,CNG,2044,0.027800244,27800243.96,27.80024396
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2044,0.07427778,74277779.94,74.27777994
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2044,0.105017614,105017614,105.017614
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2044,0.000965311,965311.4584,0.965311458
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2044,0.000336827,336826.7966,0.336826797
+Transportation,Freight Trucks,HDV,Vocational,LPG,2044,0.000626583,626583.0282,0.626583028
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2044,0.000100455,100454.7355,0.100454736
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2044,4.22E-06,4223.097694,0.004223098
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2044,1.008412795,1008412795,1008.412795
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2044,0.029215574,29215573.94,29.21557394
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2044,0.163756365,163756364.7,163.7563647
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2044,0.231526881,231526880.6,231.5268806
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2044,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2044,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2044,0.000291603,291603.4701,0.29160347
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2044,2.39E-07,239.096035,0.000239096
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2044,4.25E-06,4245.528667,0.004245529
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2044,1.013768977,1013768977,1013.768977
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2044,0.023107379,23107378.84,23.10737884
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2044,0.164626156,164626156.2,164.6261562
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2044,0.232756635,232756635.1,232.7566351
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2044,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2044,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2044,0.000218872,218871.8623,0.218871862
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2044,2.40E-07,240.3659931,0.000240366
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2045,0.001850057,1850057.17,1.85005717
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2045,0.45728864,457288640.5,457.2886405
+Transportation,Freight Trucks,HDV,Vocational,CNG,2045,0.029659553,29659553.17,29.65955317
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2045,0.073764317,73764316.56,73.76431656
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2045,0.103679007,103679006.5,103.6790065
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2045,0.001003001,1003000.842,1.003000842
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2045,0.000348873,348872.7839,0.348872784
+Transportation,Freight Trucks,HDV,Vocational,LPG,2045,0.00062455,624549.959,0.624549959
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2045,0.000102329,102329.4908,0.102329491
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2045,3.95E-06,3951.603525,0.003951604
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2045,1.013538212,1013538212,1013.538212
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2045,0.032173624,32173624.13,32.17362413
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2045,0.163491823,163491823.1,163.4918231
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2045,0.229794982,229794981.9,229.7949819
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2045,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2045,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2045,0.000302755,302755.4184,0.302755418
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2045,2.25E-07,224.7408798,0.000224741
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2045,3.98E-06,3977.836265,0.003977836
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2045,1.02026659,1020266590,1020.26659
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2045,0.025419099,25419098.66,25.41909866
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2045,0.164577164,164577164.3,164.5771643
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2045,0.231320477,231320477.1,231.3204771
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2045,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2045,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2045,0.00022736,227360.0356,0.227360036
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2045,2.26E-07,226.2328232,0.000226233
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2046,0.001877873,1877872.783,1.877872783
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2046,0.45728805,457288050.4,457.2880504
+Transportation,Freight Trucks,HDV,Vocational,CNG,2046,0.031639792,31639792.08,31.63979208
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2046,0.072852754,72852754.24,72.85275424
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2046,0.102435855,102435855.2,102.4358552
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2046,0.001042525,1042525.357,1.042525357
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2046,0.000361682,361681.8282,0.361681828
+Transportation,Freight Trucks,HDV,Vocational,LPG,2046,0.000623412,623412.3138,0.623412314
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2046,0.000104334,104333.9336,0.104333934
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2046,3.69E-06,3689.907735,0.003689908
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2046,1.018616469,1018616469,1018.616469
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2046,0.035389702,35389701.7,35.3897017
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2046,0.162280679,162280679,162.280679
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2046,0.228177511,228177511,228.177511
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2046,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2046,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2046,0.000313937,313936.5139,0.313936514
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2046,2.11E-07,210.8653377,0.000210865
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2046,3.72E-06,3719.559825,0.00371956
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2046,1.026802069,1026802069,1026.802069
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2046,0.027944509,27944508.86,27.94450886
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2046,0.163584766,163584766.2,163.5847662
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2046,0.230011145,230011145,230.011145
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2046,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2046,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2046,0.000235893,235892.9577,0.235892958
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2046,2.13E-07,212.5598511,0.00021256
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2047,0.001904473,1904472.552,1.904472552
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2047,0.45623465,456234649.8,456.2346498
+Transportation,Freight Trucks,HDV,Vocational,CNG,2047,0.033788156,33788156.11,33.78815611
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2047,0.072611532,72611531.64,72.61153164
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2047,0.100954499,100954498.5,100.9544985
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2047,0.001082341,1082341.33,1.08234133
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2047,0.000374623,374622.6516,0.374622652
+Transportation,Freight Trucks,HDV,Vocational,LPG,2047,0.00062203,622029.7806,0.622029781
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2047,0.00010622,106220.4804,0.10622048
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2047,3.44E-06,3436.327848,0.003436328
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2047,1.021289343,1021289343,1021.289343
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2047,0.038858797,38858797.11,38.85879711
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2047,0.162542199,162542199.5,162.5421995
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2047,0.225988433,225988432.8,225.9884328
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2047,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2047,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2047,0.000323893,323893.3039,0.323893304
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2047,1.97E-07,197.2242664,0.000197224
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2047,3.47E-06,3468.816174,0.003468816
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2047,1.030944994,1030944994,1030.944994
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2047,0.030686071,30686071.41,30.68607141
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2047,0.164078934,164078934.1,164.0789341
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2047,0.228125012,228125011.8,228.1250118
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2047,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2047,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2047,0.000244387,244387.2037,0.244387204
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2047,1.99E-07,199.0888982,0.000199089
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2048,0.001934008,1934008.172,1.934008172
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2048,0.455941877,455941876.5,455.9418765
+Transportation,Freight Trucks,HDV,Vocational,CNG,2048,0.036122865,36122864.67,36.12286467
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2048,0.071901354,71901354.28,71.90135428
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2048,0.099407265,99407265.01,99.40726501
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2048,0.001124339,1124338.775,1.124338775
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2048,0.000388383,388382.633,0.388382633
+Transportation,Freight Trucks,HDV,Vocational,LPG,2048,0.000620038,620038.3034,0.620038303
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2048,0.000108306,108305.5319,0.108305532
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2048,3.20E-06,3197.00542,0.003197005
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2048,1.025702482,1025702482,1025.702482
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2048,0.04267376,42673760.27,42.67376027
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2048,0.161751752,161751752.5,161.7517525
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2048,0.223629993,223629992.6,223.6299926
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2048,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2048,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2048,0.000334317,334317.016,0.334317016
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2048,1.84E-07,184.3299335,0.00018433
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2048,3.23E-06,3231.913798,0.003231914
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2048,1.036902216,1036902216,1036.902216
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2048,0.033721866,33721866.46,33.72186646
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2048,0.163517934,163517933.8,163.5179338
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2048,0.226071828,226071827.8,226.0718278
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2048,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2048,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2048,0.00025403,254029.7611,0.254029761
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2048,1.86E-07,186.342648,0.000186343
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2049,0.001964768,1964768.197,1.964768197
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2049,0.453761923,453761922.7,453.7619227
+Transportation,Freight Trucks,HDV,Vocational,CNG,2049,0.038727977,38727976.56,38.72797656
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2049,0.070883074,70883073.71,70.88307371
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2049,0.100273414,100273414.4,100.2734144
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2049,0.001168861,1168860.922,1.168860922
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2049,0.000403031,403030.8381,0.403030838
+Transportation,Freight Trucks,HDV,Vocational,LPG,2049,0.000616035,616034.7719,0.616034772
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2049,0.000110458,110458.1514,0.110458151
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2049,2.97E-06,2970.538781,0.002970539
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2049,1.025849826,1025849826,1025.849826
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2049,0.046952303,46952303.16,46.95230316
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2049,0.16025009,160250089.7,160.2500897
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2049,0.226694792,226694792.1,226.6947921
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2049,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2049,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2049,0.000345472,345472.4765,0.345472476
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2049,1.72E-07,172.053163,0.000172053
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2049,3.01E-06,3007.383932,0.003007384
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2049,1.038573979,1038573979,1038.573979
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2049,0.037124804,37124803.66,37.12480366
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2049,0.162237756,162237755.6,162.2377556
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2049,0.229506607,229506606.5,229.5066065
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2049,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2049,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2049,0.000264136,264136.3701,0.26413637
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2049,1.74E-07,174.1872286,0.000174187
+Transportation,Freight Trucks,HDV,Vocational,Gasoline,2050,0.001994926,1994925.799,1.994925799
+Transportation,Freight Trucks,HDV,Vocational,Diesel,2050,0.451753449,451753448.8,451.7534488
+Transportation,Freight Trucks,HDV,Vocational,CNG,2050,0.041556986,41556985.53,41.55698553
+Transportation,Freight Trucks,HDV,Vocational,F-T Diesel,2050,0.07057983,70579830.39,70.57983039
+Transportation,Freight Trucks,HDV,Vocational,Biodiesel,2050,0.100313052,100313051.7,100.3130517
+Transportation,Freight Trucks,HDV,Vocational,Hydrogen,2050,0.001214344,1214343.645,1.214343645
+Transportation,Freight Trucks,HDV,Vocational,Electric ,2050,0.000418033,418032.9082,0.418032908
+Transportation,Freight Trucks,HDV,Vocational,LPG,2050,0.000611577,611576.769,0.611576769
+Transportation,Freight Trucks,HDV,Vocational,Ethanol,2050,0.000112564,112564.386,0.112564386
+Transportation,Freight Trucks,HDV,Day Cab,Gasoline,2050,2.76E-06,2755.054182,0.002755054
+Transportation,Freight Trucks,HDV,Day Cab,Diesel,2050,1.026166336,1026166336,1026.166336
+Transportation,Freight Trucks,HDV,Day Cab,CNG,2050,0.051704543,51704543.14,51.70454314
+Transportation,Freight Trucks,HDV,Day Cab,F-T Diesel,2050,0.160323394,160323393.5,160.3233935
+Transportation,Freight Trucks,HDV,Day Cab,Biodiesel,2050,0.227862957,227862957,227.862957
+Transportation,Freight Trucks,HDV,Day Cab,Hydrogen,2050,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,Electric ,2050,0,0,0
+Transportation,Freight Trucks,HDV,Day Cab,LPG,2050,0.000358995,358995.2515,0.358995252
+Transportation,Freight Trucks,HDV,Day Cab,Ethanol,2050,1.60E-07,160.2917315,0.000160292
+Transportation,Freight Trucks,HDV,Sleeper,Gasoline,2050,2.79E-06,2793.335395,0.002793335
+Transportation,Freight Trucks,HDV,Sleeper,Diesel,2050,1.040424819,1040424819,1040.424819
+Transportation,Freight Trucks,HDV,Sleeper,CNG,2050,0.04091783,40917829.84,40.91782984
+Transportation,Freight Trucks,HDV,Sleeper,F-T Diesel,2050,0.162551072,162551071.7,162.5510717
+Transportation,Freight Trucks,HDV,Sleeper,Biodiesel,2050,0.231029091,231029090.9,231.0290909
+Transportation,Freight Trucks,HDV,Sleeper,Hydrogen,2050,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,Electric ,2050,0,0,0
+Transportation,Freight Trucks,HDV,Sleeper,LPG,2050,0.000273845,273844.5915,0.273844591
+Transportation,Freight Trucks,HDV,Sleeper,Ethanol,2050,1.63E-07,162.5189698,0.000162519
