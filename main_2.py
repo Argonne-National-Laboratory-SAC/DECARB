@@ -284,8 +284,6 @@ id_energy.drop(columns=['notes'], inplace=True)
 # Replace EIA AEO's Transportation sector data with VISION's reference case
 ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'] = ob_VISION.vision_base.copy()
 
-ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'].rename(columns={}, inplace=True)
-
 ob_eia.EIA_data['energy_demand_replTrans_ref_VISION']['Basis'] = 'Energy demand'
 ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'][['AEO Case','Generation Type']] = '-'
 
@@ -293,7 +291,8 @@ ob_eia.EIA_data['energy_demand_replTrans_ref_VISION'] = pd.merge(ob_eia.EIA_data
 
 if replace_energy_demand_Trans_vision_ref:
     ob_eia.EIA_data['energy_demand'] = ob_eia.EIA_data['energy_demand'].loc[~(ob_eia.EIA_data['energy_demand']['Sector'].isin(['Transportation']) & 
-                                                                             ob_eia.EIA_data['energy_demand']['Subsector'].isin(['On Road'])), : ].reset_index(drop=True)
+                                                                             ob_eia.EIA_data['energy_demand']['Subsector'].isin(['On Road']) & 
+                                                                             ob_eia.EIA_data['energy_demand']['AEO Case'].isin(['Reference case'])), : ].reset_index(drop=True)
     ob_eia.EIA_data['energy_demand'] = pd.concat([ob_eia.EIA_data['energy_demand'], ob_eia.EIA_data['energy_demand_replTrans_ref_VISION']], axis=0).reset_index(drop=True)
 
 #%%

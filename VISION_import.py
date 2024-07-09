@@ -150,7 +150,7 @@ class VISION:
 
 if __name__ == "__main__":
     
-    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb'
+    code_path_prefix = 'C:\\Users\\skar\\repos\\EERE_decarb_anl'
     input_path_prefix = code_path_prefix + '\\Data\\1_input_files'
     input_path_GREET = input_path_prefix + '\\GREET' 
     input_path_units = input_path_prefix + '\\Units'
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     ob_units = model_units(input_path_units, input_path_GREET, input_path_corr)
     
     input_path_VISION = input_path_prefix + '\\Transportation'
-    input_path_VISION_base = input_path_prefix + '\\Transportation\transportation sector base case_VISION_02162024'
+    input_path_VISION_base = input_path_prefix + '\\Transportation\\transportation sector base case_VISION_02162024'
     input_path_corr = input_path_prefix + '\\correspondence_files'
     
     ob_VISION = VISION(ob_units, input_path_VISION, input_path_VISION_base, input_path_corr)
